@@ -1,0 +1,317 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 30 janv. 2017, 12:02:10
+    Author     : Pierre BELIN
+*/
+@import "couleur.less";
+
+#header {
+  background-image: url('../images/header-blog.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  height: 300px;
+
+  h1 {
+    margin: 0px;
+    font-size: 35px;
+    text-align: center;
+    padding: 30px 0px;
+    color: #3498DB;
+  }
+}
+
+.articles {
+  display: inline-block;
+  float: left;
+  padding: 20px 30px 20px 0px;
+  margin: 10px 0px;
+}
+
+.sidebar {
+  margin: 15px 0px;
+  display: inline-block;
+  padding: 15px 0px 20px 25px;
+  border-left: 1px solid @color-secondary;
+}
+
+@media (max-width: 768px) {
+  .navbar-site a {
+    text-align: center;
+  }
+}
+
+@media (max-width: 992px) {
+  .articles {
+    width: 100%;
+    display: inline;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: inline;
+  }
+
+}
+
+/* blog */
+
+.blog {
+  margin-bottom: 40px;
+  padding: 30px;
+  background-color: @background-body;
+
+  img {
+    width: 200px;
+    float: left;
+    padding: 5px;
+    background-color: @background-color;
+    border: 1px solid @color-secondary;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.blog > header > h2 {
+  margin: 0px;
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.blog > header a {
+  color: black;
+  &:hover, &:active, &:focus {
+    color: #375D81;
+    text-decoration: none;
+  }
+}
+
+.blog > header > .date-published {
+  padding: 15px 0px;
+}
+
+.meta {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border: 3px solid @color-secondary;
+  background-color: @background-body;
+
+  p {
+    text-align: left;
+    margin: 0px;
+    font-size: 13px;
+    padding: 2px;
+    color: black;
+  }
+}
+
+.preview-textblog {
+  h1, h2, h3, p, a {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  ul {
+    list-style: none;
+    margin-left: 0;
+  }
+  li:before {
+    content: "•";
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+}
+
+.continue {
+  margin-bottom: 0px;
+  text-align: right;
+  padding: 10px 0px;
+  a {
+    color: #375D81;
+    margin-bottom: 0;
+    text-align: right;
+    &:hover, &:active, &:focus {
+      text-decoration: none;
+    }
+  }
+}
+
+.blog img.large {
+  width: 220px;
+  min-height: 165px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+}
+
+/* COMMENTS */
+.comments {
+  clear: both;
+  margin: 0px !important;
+  h3 {
+    background: @color-secondary;
+    padding: 20px;
+    font-size: 24px;
+    clear: both;
+    margin: 0px;
+  }
+}
+
+.comment-design {
+  border-bottom: 1px solid #C4D7ED;
+  background: white;
+  header {
+    margin-bottom: 10px;
+  }
+}
+
+.comments .odd {
+  background: white;
+}
+
+.comments .comment {
+  padding: 20px;
+}
+
+.comments .comment p {
+  margin-bottom: 0px;
+}
+
+.comment > p {
+  word-wrap: break-word;
+  margin-bottom: 0px !important;
+}
+
+.comment header {
+  font-size: 16px;
+  color: @color-principal;
+}
+
+.comments .previous-comments {
+  margin-bottom: 20px;
+}
+
+.comment-wrap, .comment-written {
+  margin-bottom: 40px;
+
+}
+
+.comment-created {
+  font-size: 13px;
+  color: black;
+  font-weight: 400;
+  padding: 5px 0px;
+}
+
+.comment-written header {
+  font-weight: bold;
+}
+
+.write-advice {
+  padding: 20px;
+  padding-bottom: 10px;
+  background-color: white;
+  p {
+    padding: 5px 0px;
+  }
+}
+
+.no-comment {
+  text-align: center;
+  padding: 25px;
+  font-size: 20px;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  h3 {
+    font-size: 24px;
+    margin: 0px;
+    margin-bottom: 15px;
+    background: #C4D7ED;
+    padding: 20px;
+  }
+  p {
+    margin: 0px;
+  }
+  a {
+    color: @color-principal;
+    &:hover, &:active, &:focus {
+      color: #183152;
+      text-decoration: none;
+    }
+  }
+}
+
+.sidebar .comment {
+  margin-bottom: 20px;
+  padding: 3px 10px;
+}
+
+.sidebar .tags {
+  margin-bottom: 10px;
+  padding: 3px 10px;
+}
+
+.sidebar .informations {
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.sidebar .tags .weight-1 {
+  font-size: 12px;
+}
+
+.sidebar .tags .weight-2 {
+  font-size: 15px;
+}
+
+.sidebar .tags .weight-3 {
+  font-size: 18px;
+}
+
+.sidebar .tags .weight-4 {
+  font-size: 21px;
+}
+
+.sidebar .tags .weight-5 {
+  font-size: 24px;
+}
+
+.section {
+  margin-bottom: 20px;
+  p {
+    margin-bottom: 30px;
+  }
+}
+
+.socials {
+  text-align: center;
+  padding: 0px;
+  a {
+    font-size: 18px;
+  }
+}
+
+.facebook {
+  color: #3b5998 !important;
+}
+
+.twitter {
+  color: #33CCFF !important;
+}
+
+.sidebar-newsletter {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.group-sidebar {
+  margin-bottom: 0px;
+}

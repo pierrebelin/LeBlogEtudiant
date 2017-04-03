@@ -1,0 +1,107 @@
+{% extends 'PierreConnaitresesaidesBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }}Identifier ses aides pour les étudiants français
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <div class="container container-shadow">
+        <div class="row content">
+            <div>
+                <h1 class="title">Identifier ses aides</h1>
+            </div>
+            <hr class="main-hr">
+            <div>
+                <p>Afin de vous proposer les aides, avantages et offres qui peuvent vous correspondre, il vous faut
+                    d'abord remplir les informations ci-dessous.</p>
+                <p>Les aides, avantages et offres qui vous seront ensuite proposés sont définis grâce à ces
+                    critères.</p>
+                <p>Il se peut que votre ville ne soit pas renseignée. Si c'est le cas, cela veut dire que nous n'avons
+                    pas encore renseigné les aides de cette ville (nous ne publions les aides d'une ville seulement
+                    après les avoir toutes référencées). Contactez-nous par mail pour que nous puissions ajouter votre
+                    ville dès que possible !</p>
+                <p>Pour chacun des résultats, un lien vous sera fourni pour vous rédiriger vers la plateforme qui le
+                    service. À vous ensuite de les contacter pour en savoir plus. <strong>En aucun cas nous ne ferons
+                        les démarches à votre place !</strong></p>
+
+            </div>
+            <hr class="main-hr">
+            <h2>Veuillez remplir les critères ci dessous</h2>
+            <div class="from-design">
+                {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post'}}) }}
+                <div class="form-group form-margin">
+                    {{ form_label(form.statut, form.statut, {'label_attr': {'class': 'col-md-4 control-label'}}) }}
+                    <div class="col-md-4">
+                        {{ form_widget(form.statut, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group form-margin">
+                    {{ form_label(form.city, form.city, {'label_attr': {'class': 'col-md-4 control-label'}}) }}
+                    <div class="col-md-4">
+                        {{ form_widget(form.city, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <a class="col-md-4 control-label align-left-important" href="#ville-non-existante">Tu ne trouves pas
+                        ta ville dans la liste ?</a>
+                </div>
+                <div class="form-group form-margin">
+                    {{ form_label(form.age, form.age, {'label_attr': {'class': 'col-md-4 control-label'}}) }}
+                    <div class="col-md-4">
+                        {{ form_widget(form.age, {'attr': { 'class': 'form-control',
+                            'placeholder': 'Entre 14 et 99 ans',
+                            'min': '14',
+                            'max': '99'}}) }}
+                    </div>
+                </div>
+                <div class="form-group form-margin">
+                    {{ form_label(form.salary, form.salary, {'label_attr': {'class': 'col-md-4 control-label'}}) }}
+                    <div class="col-md-4">
+                        {{ form_widget(form.salary, {'attr': { 'class': 'form-control',
+                            'placeholder': 'Maximum de 5000€',
+                            'min': '0',
+                            'max': '5000'}}) }}
+                    </div>
+                </div>
+                <div class="form-group form-margin">
+                    <div class="col-md-offset-4 col-md-4 ">
+                        {{ form_widget(form.submit, {'attr': { 'class': 'btn btn-default btn-lg btn-block' }}) }}
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+            <div>
+                <p>⚠  A titre indicatif, les informations saisies ne sont pas sauvegardées.</p>
+            </div>
+            <hr id="ville-non-existante" class="main-hr">
+            <h2>Ta ville n'est pas répertoriée ?</h2>
+            <div class="paragraphe">
+                <p class="not-paragraphe">Il se peut que la ville recherchée ne soit pas dans la liste pour une des raisons suivantes :</p>
+                <ul>
+                    <li>La liste des aides et avantages de ta ville est en cours de réalisation.</li>
+                    <li>Ta ville fait partie de la liste d'attente des villes à répertorier.</li>
+                </ul>
+                <p>Les villes sont ajoutées au fur et à mesure que les données soient complètes afin d'éviter
+                    d'afficher des résultats incomplets !</p>
+            </div>
+            <div>
+                <h2>Comment être tenu au courant ?</h2>
+                <p>Pour t'éviter de revenir sans arrêt sur le site en attendant de voir ta ville ajoutée, je te propose 2 moyens d'être tenu au courant.</p>
+                <h3>S'inscrire à la newsletter</h3>
+                <p>C'est le moyen le plus simple d'être tenu au courant de l'ajout de ta ville. Les villes sont ajoutées
+                    au fur et à mesure que les données soient complètes.
+                    <br>
+                    Le formulaire d'inscription à la newsletter se trouve <a href="#footer">en bas de page</a>.</p>
+
+                <h3>Envoyer une demande par mail</h3>
+                <p>En <a href="{{ path('PierreSiteBundle_contact') }}">m'envoyant un mail</a>, je serai plus à même que connaître la prochaine ville à ajouter sur le site !
+                    <br>
+                    Plus la politesse y est, plus les chances d'ajouts sont grandes, ça va de soi :)
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

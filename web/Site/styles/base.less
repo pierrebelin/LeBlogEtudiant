@@ -1,0 +1,297 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 30 janv. 2017, 18:11:43
+    Author     : Pierre BELIN
+*/
+@import "couleur.less";
+
+a {
+  color: @color-title;
+  &:hover, &:focus, &:active {
+    color: @color-principal;
+    text-decoration: none;
+  }
+  transition: all 0.5s ease;
+}
+
+.button-form {
+  transition: all 0.5s ease;
+  border: 2px solid @color-secondary;
+  color: @color-principal;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.button-form-hover {
+  border: 2px solid @color-principal;
+  text-decoration: none;
+  color: @background-color;
+  background-color: @color-principal !important;
+}
+
+.container-shadow {
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 4px 4px 0 @background-color-darker;
+
+}
+
+.align-left-important {
+  text-align: left !important;
+}
+
+body {
+  background-color: @background-color;
+  font-family: 'PT Sans Caption', sans-serif;
+  line-height: 200%;
+}
+
+.height-max {
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .header-picture {
+    height: 190px;
+  }
+}
+
+.header-picture {
+  height: 300px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+}
+
+.button-redirection {
+  //margin-top: 20px;
+  text-align: center;
+  font-size: 18px;
+  padding: 25px;
+}
+
+.button-redirection a {
+  padding: 15px 25px;
+  .button-form;
+  &:hover {
+    .button-form-hover;
+  }
+}
+
+.btn-default {
+  padding: 10px 0px;
+  margin-top: 10px;
+  .button-form;
+  &:hover, &:active, &:focus {
+    .button-form-hover;
+  }
+}
+
+.content-padding {
+  padding: 40px 50px;
+}
+
+.content {
+  .content-padding;
+  clear: right;
+  background-color: white;
+  h1 {
+    color: @color-principal;
+    margin-bottom: 25px;
+    margin-top: 0px;
+  }
+  h2 {
+    font-size: 22px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: @color-title;
+  }
+  h3 {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: @color-principal;
+  }
+  p {
+    text-align: justify;
+    margin-bottom: 15px;
+  }
+}
+
+.main-button {
+  .button-form;
+  background-color: @color-important;
+  color: @background-body;
+  border: 0px;
+  padding: 15px 25px;
+  &:hover, &:active, &:focus {
+    background-color: @color-important-darker;
+    color: @background-body;
+
+  }
+}
+
+.vresize {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.from-design {
+  padding: 15px;
+}
+
+.form-margin {
+  margin: 20px 0px;
+}
+
+.btn-force {
+  padding-left: 25px;
+  padding-right: 25px;
+  color: @background-color;
+  background-color: @color-important;
+  transition: background-color 0.5s ease;
+  &:hover, &:active, &:focus {
+    background-color: @color-important-darker;
+    color: @background-color;
+  }
+}
+
+/* MAIN PAGE / INDEX */
+
+.row-main-subscribe {
+  background-color: @color-principal;
+  color: @background-color;
+  text-align: center;
+  h1 {
+    margin-top: 0px;
+    margin-bottom: 25px;
+    font-size: 32px;
+    font-weight: bold;
+  }
+}
+
+.row-colored-mainbackground {
+  background-color: @background-body;
+}
+
+.row-main-quotes {
+  background-color: @background-color;
+}
+
+.index-main-informations {
+  text-align: center;
+  p, h2 {
+    text-align: center;
+  }
+  h2 {
+    font-size: 28px;
+    font-weight: bold;
+  }
+}
+
+.index-ideas {
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
+
+.paragraphe {
+  margin-bottom: 40px;
+  p {
+    padding-left: 2px;
+  }
+}
+
+ul {
+  padding-left: 40px;
+}
+
+.not-paragraphe {
+  margin-bottom: 0px !important;
+}
+
+// DISABLE SPINNERS
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+// BUTTON TO TOP
+#return-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #95a5a6;
+  width: 50px;
+  height: 50px;
+  text-decoration: none;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  border-radius: 35px;
+  display: none;
+
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+#return-to-top i {
+  color: white;
+  margin: 0;
+  position: relative;
+  left: 16px;
+  top: 11px;
+  font-size: 19px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+#return-to-top:hover {
+  background: #7f8c8d;
+}
+
+#return-to-top:hover i {
+  top: 3px;
+}
+
+// MODAL OKAY
+.modal[data-modal-color="green"] .modal-content {
+  background: @color-success;
+}
+
+.modal[data-modal-color="red"] .modal-content {
+  background: @color-error;
+  color: white;
+}
+
+.modal {
+  padding: 0 !important;
+  p, h4 {
+    text-align: center;
+  }
+}
+
+.modal-open .modal[style]:not([style='display: none;']) {
+  display: flex !important;
+  height: 100%;
+}
+
+.modal-open .modal[style]:not([style='display: none;']) .modal-dialog {
+  margin: auto;
+}
+
+

@@ -1,0 +1,187 @@
+{% extends 'PierreConnaitresesaidesBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }}Connaître ses aides pour les étudiants Français | Résultats
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('Site/styles/connaitresesaides.css') }}" rel="stylesheet">
+    <link href="{{ asset('Site/styles/resultats.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div id="entete">
+            <h1>Résultats</h1>
+        </div>
+        <hr class="main-hr">
+        <p>Les résultats affichés correspondent aux critères suivants :</p>
+        <div id="results-resume">
+            <p>Vous avez <strong>{{ age }}</strong> ans</p>
+            <p>Vous êtes actuellement <strong>{{ statut|lower }}</strong></p>
+            <p>Vous étudiez dans la ville de <strong>{{ city }}</strong></p>
+            <p>Vous gagnez <strong>{{ salary }}€</strong> par mois.</p>
+        </div>
+        <p><strong>Prenez le temps de lire correctement les conditions d'utilisation avant de faire une demande
+                d'accès.</strong>
+            Certaines offres possèdent des conditions secondaires, faites attention, vous risquez de vous retrouver
+            avec des frais supplémentaires ou l'impossibilité de rendre votre engagement avant une période future.</p>
+        <hr class="main-hr">
+        <h2>Liste d'éligibilité</h2>
+        <h3>Aides</h3>
+
+        <div id="tab-resultats">
+            {% if (aidAll|length == 0) %}
+                <div id="msg-noresult">
+                    <p>Il n'y a aucune aide qui correspond à vos critères, désolé.</p>
+                </div>
+            {% else %}
+                <div>
+                    <div class="row header-column">
+                        <p class="col-md-2">Nom</p>
+                        <p class="col-md-2">Organisme</p>
+                        <p class="col-md-2">Montant</p>
+                        <p class="col-md-2">Description</p>
+                        <p class="col-md-2">Zone éligible</p>
+                        <p class="col-md-2">Lien de redirection</p>
+                    </div>
+                    <div class="space"></div>
+                    {% for arrayAidAll in aidAll %}
+                        {% for array in arrayAidAll %}
+                            <div class="row row-tab record-{% if loop.index is divisibleby(2) %}even{% else %}odd{% endif %}">
+                                <p class="col-md-2">{{ array.name }}</p>
+                                <p class="col-md-2">{{ array.organism }}</p>
+                                <p class="col-md-2">{{ array.amount }}</p>
+                                <p class="col-md-2">{{ array.description }}</p>
+                                <p class="col-md-2">{{ array.location }}</p>
+                                <p><a class="col-md-2" target="_blank" href="{{ array.link }}"
+                                      title="Redirection vers le site de {{ array.organism }} qui propose l'aide {{ array.name }}">En
+                                        savoir plus</a></p>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+
+                </div>
+            {% endif %}
+        </div>
+
+        <h3>Avantages</h3>
+        <div id="tab-resultats">
+            {% if (advantageAll|length == 0) %}
+                <div id="msg-noresult">
+                    <p>Il n'y a aucun avantage qui correspond à vos critères, désolé.</p>
+                </div>
+            {% else %}
+                <div>
+                    <div class="row header-column">
+                        <p class="col-md-2">Nom</p>
+                        <p class="col-md-2">Organisme</p>
+                        <p class="col-md-2">Montant</p>
+                        <p class="col-md-2">Description</p>
+                        <p class="col-md-2">Zone éligible</p>
+                        <p class="col-md-2">Lien de redirection</p>
+                    </div>
+                    <div class="space"></div>
+                    {% for arrayAdvantageAll in advantageAll %}
+                        {% for array in arrayAdvantageAll %}
+                            <div class="row row-tab record-{% if loop.index is divisibleby(2) %}even{% else %}odd{% endif %}">
+                                <p class="col-md-2">{{ array.name }}</p>
+                                <p class="col-md-2">{{ array.organism }}</p>
+                                <p class="col-md-2">{{ array.amount }}</p>
+                                <p class="col-md-2">{{ array.description }}</p>
+                                <p class="col-md-2">{{ array.location }}</p>
+                                <p><a class="col-md-2" target="_blank" href="{{ array.link }}"
+                                      title="Redirection vers le site de {{ array.organism }} qui propose l'aide {{ array.name }}">En
+                                        savoir plus</a></p>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+
+                </div>
+            {% endif %}
+        </div>
+        <h3>Offres</h3>
+        <div id="tab-resultats">
+            {% if (offerAll|length == 0) %}
+                <div id="msg-noresult">
+                    <p>Il n'y a aucune offre qui correspond à vos critères, désolé.</p>
+                </div>
+            {% else %}
+                <div>
+                    <div class="row header-column">
+                        <p class="col-md-2">Nom</p>
+                        <p class="col-md-2">Organisme</p>
+                        <p class="col-md-2">Montant</p>
+                        <p class="col-md-2">Description</p>
+                        <p class="col-md-2">Zone éligible</p>
+                        <p class="col-md-2">Lien de redirection</p>
+                    </div>
+                    <div class="space"></div>
+                    {% for arrayOfferAll in offerAll %}
+                        {% for array in arrayOfferAll %}
+                            <div class="row row-tab">
+                                <p class="col-md-2">{{ array.name }}</p>
+                                <p class="col-md-2">{{ array.organism }}</p>
+                                <p class="col-md-2">{{ array.amount }}</p>
+                                <p class="col-md-2">{{ array.description }}</p>
+                                <p class="col-md-2">{{ array.location }}</p>
+                                <p><a class="col-md-2" target="_blank" href="{{ array.link }}"
+                                      title="Redirection vers le site de {{ array.organism }} qui propose l'aide {{ array.name }}">En
+                                        savoir plus</a></p>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+
+                </div>
+            {% endif %}
+        </div>
+
+        <hr class="main-hr2">
+        <h2>Recevez vos résultats par mail</h2>
+        <div>
+            <p>Vous n'avez pas le temps de tout regarder maintenant ? Pas de problème, on vous envoie les résultats
+                directement dans votre boite mail !</p>
+            <div class="from-design">
+                {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post'}}) }}
+                <div class="form-group form-margin">
+                    {{ form_label(form.firstname, form.firstname, {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+                    <div class="col-md-6">
+                        {{ form_widget(form.firstname, {'attr': {'class': 'form-control', 'placeholder': 'ex : Jean'}}) }}
+                    </div>
+                </div>
+                <div class="form-group form-margin">
+                    {{ form_label(form.mailaddress, form.mailaddress, {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+                    <div class="col-md-6">
+                        {{ form_widget(form.mailaddress, {'attr': {'class': 'form-control', 'placeholder': 'ex : jean@mail.com'}}) }}
+                    </div>
+                </div>
+                <div class="form-group form-margin">
+                    {{ form_label(form.issendvalidated, {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+                    <div class="col-md-offset-3 col-md-6 ">
+                        {{ form_widget(form.issendvalidated) }}
+                    </div>
+                </div>
+
+                <div class="form-group form-margin">
+                    <div class="col-md-offset-4 col-md-4 ">
+                        {{ form_widget(form.submit, {'attr': { 'class': 'btn btn-default btn-lg btn-block' }}) }}
+                    </div>
+                </div>
+                {{ form_rest(form) }}
+                {{ form_end(form) }}
+            </div>
+            <hr class="main-hr">
+        </div>
+
+        <p>Vous avez remarqué une aide ou un avantage manquant ? Contactez-nous <a
+                    href="{{ path('PierreSiteBundle_contact') }}">en cliquant ici</a> pour que
+            nous y jettions un coup d'oeil.
+        <p>
+        <p>Le partage d'information est la base de ce site, dites vous que vous ferez votre bonne action de la journée
+            ☺</p>
+
+
+    </div>
+{% endblock %}
+

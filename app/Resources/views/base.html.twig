@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+    <title>Le Blog Étudiant {% block title %}{% endblock %}</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta name="description" content="
+              {% block description %}
+                  Retrouve tous les bons plans étudiants dans un seul blog !
+              {% endblock %}
+              "/>
+    <meta name="keywords" content="
+              {% block keywords %}
+                  Le site incontournable des bons plans pour étudiants ! Aucune inscription, totalement gratuite, pourquoi rater ça ?
+              {% endblock %}
+              "/>
+
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
+
+    {% block stylesheets %}
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans|PT+Sans+Caption:400,700" rel="stylesheet">
+        <link href="{{ asset('Site/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+        <link href="{{ asset('Site/styles/footer.less') }}" rel="stylesheet/less" type="text/css"/>
+        <link href="{{ asset('Site/styles/base.less') }}" rel="stylesheet/less" type="text/css"/>
+    {% endblock %}
+
+
+    {% block scripts %}
+        <script src="{{ asset('Site/styles/less.js') }}" type="text/javascript"></script>
+    {% endblock %}
+</head>
+
+<body>
+
+<a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
+
+{% include 'modal.html.twig' %}
+
+{% include 'nav.html.twig' %}
+
+<script src="{{ asset('Site/js/jquery.min.js') }}"></script>
+
+{% block content %}
+{% endblock %}
+
+{{ render(controller('PierreSiteBundle:Site:footer', { 'request' : app.request})) }}
+
+{% block javascripts %}
+    <script src="{{ asset('Site/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('Site/js/base.js') }}" type="text/javascript"></script>
+{% endblock %}
+
+</body>
+</html>

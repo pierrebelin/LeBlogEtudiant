@@ -1,0 +1,3 @@
+pierre_sendin_blue_homepage:
+    path:     /
+    defaults: { _controller: PierreSendinBlueBundle:Default:index }

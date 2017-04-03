@@ -1,0 +1,14 @@
+pierre_site:
+    resource: "@PierreSiteBundle/Resources/config/routing.yml"
+    prefix:   /
+
+pierre_blog:
+    resource: "@PierreBlogBundle/Resources/config/routing.yml"
+    prefix:   /blog
+
+pierre_connaitresesaides:
+    resource: "@PierreConnaitresesaidesBundle/Resources/config/routing.yml"
+    prefix:   /identifier-ses-aides
+
+
+

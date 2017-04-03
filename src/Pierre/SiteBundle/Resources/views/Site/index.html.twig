@@ -1,0 +1,127 @@
+{% extends 'PierreSiteBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <div class="main-header">
+        <div>
+            <h1>Le Blog Étudiant</h1>
+            {#<h3>Améliorateur de vies étudiantes</h3>#}
+            <h3>Pour profiter de sa vie étudiante à 100%</h3>
+            <p class="header-button">
+                <a class="main-button" href="{{ path('PierreConnaitresesaidesBundle_homepage') }}">C'est parti !</a>
+            </p>
+        </div>
+    </div>
+    <div class="row-colored-mainbackground">
+        <div class="container">
+            <div class="content-padding content ">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4 index-main-informations">
+                        <h2>100% GRATUIT</h2>
+                        <p>Vous ne payerez rien pour avoir l'ensemble du contenu de vos aides et avantages.</p>
+                        <p>Aucune des informations personnelles enregistrées pour accéder aux résultats n'est
+                            sauvegardée.</p>
+                    </div>
+                    <div class="col-sm-12 col-md-4 index-main-informations">
+                        <h2>1 MINUTE</h2>
+                        <p>C'est le temps que vous allez mettre pour accéder aux résultats qui vous concernent.</p>
+                        <p>Vous serez ensuite dirigés vers les sites officiels proposant chacune des offres.</p>
+                    </div>
+                    <div class="col-sm-12 col-md-4 index-main-informations">
+                        <h2>COMPLET</h2>
+                        <p>Plus de 100 aides et avantages sont répertoriés et mis à jour quotidiennement.</p>
+                        <p>Gagnez et/ou économisez facilement plus de <strong>200€ par mois</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row-main-subscribe">
+        <div class="container">
+            <div class="row content-padding">
+                <h1>Tenez-vous au courant des dernières actualités</h1>
+                <div>
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post'}}) }}
+                    <div>
+                        <div class="col-md-offset-2">
+                            <div class="col-md-3 footer-newsletter">
+                                {{ form_widget(form.user, {'attr': {'class': 'form-control',
+                                    'placeholder': 'Prénom'}}) }}
+                            </div>
+                            <div class="col-md-4 footer-newsletter">
+                                {{ form_widget(form.mail, {'attr': {'class': 'form-control',
+                                    'placeholder': 'Mail'}}) }}
+                            </div>
+                            <div class="col-md-3 footer-newsletter">
+                                {{ form_widget(form.submit, {'attr': { 'class': 'btn btn-force btn-block' }}) }}
+                            </div>
+                        </div>
+                    </div>
+                    {{ form_rest(form) }}
+
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row-main-quotes">
+        <div class="container ">
+            <div class="row content-padding main-quotes">
+                <blockquote class="col-sm-12 col-md-8">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit
+                        amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <cite>Lorem I psum</cite>
+                </blockquote>
+
+                <blockquote class="col-sm-12 col-md-offset-4 col-md-8">
+                    <p>C'est vraiment de la bombe</p>
+                    <cite>Jean, 21 ans, étudiant à la faculté informatique de Grenoble</cite>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    <div class="row-colored-mainbackground">
+        <div class="container">
+            <div class="content-padding content">
+                <div class="row index-ideas">
+                    <h2>Quelle est la différence avec l'outil créé par l'État ?</h2>
+                    <p>Pour certains d'entre vous, si vous êtes ici, c'est que le site du gouvernement <a
+                                href="https://mes-aides.gouv.fr/">mes-aides.gouv</a> ne vous a proposé qu'un petit
+                        pourcentage de ce dont vous avez le droit. C'est normal, car il ne propose que les aides de
+                        l'État.</p>
+                    <p>Mais il en existe pleins d'autres !</p>
+                    <p>Vous trouverez ici les aides proposées par l'État, mais aussi les avantages des services que l'on
+                        peut utiliser quotidiennement, comme par exemple à la SNCF mais aussi bien d'autres moins
+                        connues.</p>
+                </div>
+                <div class="row index-ideas">
+                    <h2>Combien puis-je gagner ?</h2>
+                    <p>Pour un ordre d'idée, j'utilise la plupart de ces offres pour gagner plus de <strong>300€ par
+                            mois</strong> en aides et économiser plus de <strong>200€ par mois</strong> en avantages
+                        étudiants. Mais il est possible d'en avoir bien plus en fonction de votre ville d'étude !
+                    </p>
+                    <p>Impressionnant, pas vrai ?</p>
+                </div>
+                <div class="row index-ideas">
+                    <h2>Faut-il payer pour obtenir mes résultats ?</h2>
+                    <p>Non. Vous n'aurez à aucun moment à payer pour accéder au contenu du site. Il est totalement gratuit
+                        grâce aux financements des offres partenaires et des publicités affichées.</p>
+                    <p>Vous êtes 100% gagnant</p>
+                </div>
+                <div class="row index-ideas">
+                    <p><strong>Si vous avez un doute, testez, ça ne vous coûte rien !</strong></p>
+                </div>
+                <div class="row index-ideas">
+                    <div class="button-redirection">
+                        <a href="{{ path('PierreConnaitresesaidesBundle_connaitresesaides') }}">Identifier mes aides</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

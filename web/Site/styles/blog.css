@@ -1,0 +1,315 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 30 janv. 2017, 12:02:10
+    Author     : Pierre BELIN
+*/
+
+
+#header {
+    background-image: url('../images/header-blog.jpeg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    height: 300px;
+}
+
+#header h1 {
+    margin: 0px;
+    font-size: 35px;
+    text-align: center;
+    padding: 30px 0px;
+    color: #3498DB;
+}
+
+.articles { 
+    display: inline-block;
+    float: left;
+    padding: 20px 30px 20px 0px;
+    margin: 10px 0px;
+}
+
+.sidebar {
+    margin: 15px 0px;
+    display: inline-block;
+    padding: 15px 0px 20px 25px;
+    border-left: 1px solid #ABC8E2;
+}
+
+@media (max-width: 768px) {
+    .navbar-site a {
+        text-align: center;
+    }
+}
+
+@media (max-width: 992px) {
+    .articles {
+        width: 100%; 
+        display: inline;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .sidebar { 
+        width: 100%; 
+        display: inline; 
+    }
+
+}
+
+/* blog */ 
+
+.blog { 
+    margin-bottom: 40px;
+    padding: 30px;
+    background-color: white;
+}
+
+.blog img { 
+    width: 200px;
+    float: left;
+    padding: 5px;
+    background-color: #ECF0F1;
+    border: 1px solid #ccc;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.blog > header > h2 {
+    margin: 0px;
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.blog > header a {
+    color: black;
+}
+
+.blog > header a:hover, .blog > header a:active, .blog > header a:focus {
+    color: #375D81;
+    text-decoration: none;
+}
+
+.blog > header > .date-published {
+    padding: 15px 0px;
+}
+
+.meta { 
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: 3px solid #C4D7ED;
+    background-color: white;
+}
+
+.textblog {
+    text-align: justify;
+}
+
+.textblog h1 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.textblog h2 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.preview-textblog h1, .textblog h2, .textblog h3, .textblog p, .textblog a {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.meta p { 
+    text-align: left;
+    margin: 0px;
+    font-size: 13px;
+    padding: 2px;
+    color: black;
+}
+
+.continue { 
+    margin-bottom: 0px;
+    text-align: right;
+    padding: 10px 0px;
+
+}
+
+.continue a { 
+    color: #375D81;
+    margin-bottom: 0; 
+    text-align: right; 
+}
+
+.continue a:hover, .continue a:active, .continue a:focus {
+    text-decoration: none;
+}
+
+
+.blog img.large { 
+    width: 220px;
+    min-height: 165px; 
+    margin-right: 20px;
+    margin-bottom: 15px;
+}
+
+
+/* COMMENTS */
+.comments {
+    clear: both;
+
+}
+
+.comment-design {
+    border-bottom: 1px solid #C4D7ED;
+    background: white;
+}
+
+.comment-design header {
+    margin-bottom: 10px;
+}
+.comments .odd { background: white; }
+.comments .comment { padding: 20px; }
+.comments .comment p { margin-bottom: 0; }
+
+.comment p {
+    word-wrap: break-word;
+}
+
+.comments h3 { 
+    background: #C4D7ED;
+    padding: 20px;
+    font-size: 24px;
+    clear: both;
+    margin: 0px;
+}
+
+.comment header {
+    font-size: 16px;
+    color: #375D81;
+}
+.comments .previous-comments { margin-bottom: 20px; }
+
+.comment-wrap, .comment-written {
+    margin-bottom: 40px;
+
+}
+
+.comment-created {
+    font-size: 13px;
+    color: black;
+    font-weight: 400;
+    padding: 5px 0px;
+}
+
+.comment {
+    margin: 0px !important;
+}
+
+.comment-written header {
+    font-weight: bold;
+}
+
+.write-advice {
+    padding: 20px;
+    padding-bottom: 10px;
+    background-color: white;
+}
+
+.write-advice p {
+    padding: 5px 0px;
+}
+
+.no-comment {
+    text-align: center;
+    padding: 25px;
+    font-size: 20px;
+}
+
+
+
+
+/* SIDEBAR */
+
+.sidebar h3 
+{ 
+    font-size: 24px;
+    margin: 0px;
+    margin-bottom: 15px; 
+    background: #C4D7ED; 
+    padding: 20px;
+}
+
+.sidebar .comment { 
+    margin-bottom: 20px;
+    padding: 3px 10px;
+}
+
+.sidebar .tags { 
+    margin-bottom: 10px; 
+    padding: 3px 10px;
+}
+
+.sidebar p {
+    margin: 0px;
+
+}
+
+.sidebar a {
+    color: #375D81;   
+}
+
+.sidebar a:hover, .sidebar a:active, .sidebar a:focus {
+    color: #183152;
+    text-decoration: none;
+}
+
+.sidebar .informations {
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.sidebar .tags .weight-1 { font-size: 12px; }
+.sidebar .tags .weight-2 { font-size: 15px; }
+.sidebar .tags .weight-3 { font-size: 18px; }
+.sidebar .tags .weight-4 { font-size: 21px; }
+.sidebar .tags .weight-5 { font-size: 24px; }
+
+.section {
+    margin-bottom: 20px;
+}
+.section p {
+    margin-bottom: 30px;
+}
+
+.socials {
+    text-align: center;
+    padding: 0px;
+}
+
+.socials a {
+     font-size: 18px;
+}
+
+.facebook {
+    color: #3b5998 !important;
+}
+
+.twitter {
+    color: #33CCFF !important;
+}
+
+.sidebar-newsletter {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.group-sidebar {
+    margin-bottom: 0px ;
+}

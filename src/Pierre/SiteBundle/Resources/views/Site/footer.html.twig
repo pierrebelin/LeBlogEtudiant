@@ -1,0 +1,63 @@
+<footer id="footer">
+    <div class="container">
+        <div class="row footer-site footer-site-top">
+            <div class="col-lg-8 navbar-footer">
+                <h6 class="nav-title">Newsletter</h6>
+                <div id="subscribe-footer">
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post', 'id' :'subscribeForm'}}) }}
+                    <div class="form-group">
+                        <div class="col-lg-3 footer-newsletter">
+                            {{ form_widget(form.user, {'attr': {'class': 'form-control',
+                                'placeholder': 'Prénom'}}) }}
+                        </div>
+                        <div class="col-lg-5 footer-newsletter">
+                            {{ form_widget(form.mail, {'attr': {'class': 'form-control',
+                                'placeholder': 'Mail'}}) }}
+                        </div>
+                        <div class="col-lg-2 footer-newsletter">
+                            {{ form_widget(form.submit, {'attr': { 'class': 'btn btn-force' }}) }}
+                        </div>
+                    </div>
+                    {{ form_rest(form) }}
+
+                    {{ form_end(form) }}
+                </div>
+                <p>Aucun spam promis ! Je les déteste autant que vous </p>
+            </div>
+            <div class="col-lg-2 col-xs-5 col-sm-offset-2 col-lg-offset-0 navbar-footer">
+                <h6 class="nav-title">Contact</h6>
+                <ul>
+                    <li class="footer-link"><a href="{{ path('PierreSiteBundle_contact') }}">Contact</a></li>
+                    <li class="footer-link"><a href="{{ path('PierreSiteBundle_contact') }}">Partenaires</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-xs-5 navbar-footer ">
+                <h6 class="nav-title">Sociaux</h6>
+                <ul>
+                    <li class="footer-link"><a href="https://www.facebook.com/blogetudiant">Facebook</a></li>
+                    <li class="footer-link"><a href="https://twitter.com/Le_BlogEtudiant">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr class="footer-hr">
+
+    <div class="container">
+        <div class="row footer-site">
+
+            <div class="row footer-mention footer-link">
+                <p><a href="{{ path('PierreSiteBundle_homepage') }}">Le Blog Étudiant</a> &middot; Copyright &copy; 2016
+                    - 2017 &middot; Tous droits
+                    réservés</p>
+                <ul>
+                    <li class="footer-link"><a href="{{ path('PierreSiteBundle_mentionslegales') }}">Mentions
+                            légales</a></li>
+                    <li class="footer-link"> &middot; </li>
+                    <li class="footer-link"><a href="{{ path('PierreSiteBundle_cgu') }}">Conditions générales
+                            d'utilisation</a></li>
+                </ul>
+            </div>
+        </div>
+        {#<a href="#subscribeModal" data-target-color="green" data-toggle="modal" class="btn btn-default ">Green</a>#}
+    </div>
+</footer>

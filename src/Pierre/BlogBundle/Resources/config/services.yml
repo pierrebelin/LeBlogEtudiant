@@ -1,0 +1,5 @@
+services:
+    pierre_blog.twig.extension:
+        class: Pierre\BlogBundle\Twig\Extensions\PierreBlogExtension
+        tags:
+            - { name: twig.extension }

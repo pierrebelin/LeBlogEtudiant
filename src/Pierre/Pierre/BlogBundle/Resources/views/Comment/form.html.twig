@@ -1,0 +1,41 @@
+{# empty Twig template #}
+
+
+{# <form action="{{ path('PierreBlogBundle_comment_create', { 'blog_id' : comment.blog.id } ) }}" method="post">
+    {{ form_widget(form) }}
+</form> #}
+
+<div class="from-design">
+    {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post'}}) }}
+    <div class="form-group">
+        {{ form_label(form.user, form.user, {'label_attr': {'class': 'control-label'}}) }}
+        <div>
+            {{ form_widget(form.user, {'attr': {'class': 'form-control',
+                'placeholder': 'ex : Jean Dupont'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        {{ form_label(form.mail, form.mail, {'label_attr': {'class': 'control-label'}}) }}
+        <div>
+            {{ form_widget(form.mail, {'attr': {'class': 'form-control',
+                'placeholder': 'ex : jean.dupont@gmail.com'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        {{ form_label(form.comment, form.comment, {'label_attr': {'class': 'control-label'}}) }}
+        <div>
+            {{ form_widget(form.comment, {'attr': {'class': 'form-control vresize',
+                'placeholder': 'Écrivez ce qui vous passe par la tête, même un simplement "merci" suffit !',
+                'minlength': '20',
+                'maxlength' : '500'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-6 col-md-offset-3">
+            {{ form_widget(form.submit, {'attr': { 'class': 'btn btn-default btn-lg btn-block' }}) }}
+        </div>
+    </div>
+
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+</div>

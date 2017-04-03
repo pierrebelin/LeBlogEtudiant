@@ -1,0 +1,55 @@
+{% extends 'PierreConnaitresesaidesBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }}Connaître ses aides
+{% endblock %}
+
+{% block content %}
+    <div class="header-aides header-picture">
+
+    </div>
+    <div class="content">
+        <div>
+
+        </div>
+        <div class="row display-table">
+            <div class="col-md-3 display-cell">
+                <img src="{{ asset('Site/images/fast_icon.png') }}"
+                     title="Credit : fast by Ralf Schmitzer from the Noun Project"/>
+            </div>
+            <div class="col-md-9 display-cell">
+                <h2>Rapide & Gratuit</h2>
+                <p>Retrouvez toutes les aides et avantages dont vous pouvez bénéficier gratuitement.</p>
+                <p>A partir de quelques informations, un affichage des aides personnalisé vous sera proposé. La
+                    recherche ne vous coûte rien. Tout le système est entièrement gratuit. </p>
+                <p>Que vous soyez alternant, lycéen, en contrat professionnel ou simple étudiant, vous avez accès à
+                    des aides et avantages !</p>
+                <p>Si vous avez des doutes, testez et vous verrez !</p>
+            </div>
+        </div>
+        <hr class="main-hr">
+        <div class="row display-table">
+            <div class="col-md-9 display-cell">
+                <h2>Aides nationales & locales</h2>
+                <p>Si vous vous retrouvez sur ce site, c'est sûrement que vous vous êtez rendus compte que c'est
+                    compliqué, presque impossible, de trouver les aides et avantages auxquels les étudiants peuvent
+                    avoir accès. Ne parlons même pas des aides régionales. L'objectif de Aides Etudiantes est de
+                    simplifier cela.</p>
+                <p>Les informations seront réparties en différentes catégories : aides, avantages.</p>
+                <p>Les aides sont des offres qui vous donnent accès à des subventions en fonction de votre
+                    catégorie. Les avantages sont des offres qui vous donnent accès à des réductions sur certains
+                    services.</p>
+                <p>Dans les 2 cas, vous êtes gagnants ☺</p>
+            </div>
+            <div class="col-md-3 display-cell">
+                <img src="{{ asset('Site/images/search_icon.png') }}"
+                     title="Credit : Search Euro by corpus delicti from the Noun Project"/>
+            </div>
+        </div>
+        <div class="button-redirection paddingtop">
+            <a href="{{ path('PierreConnaitresesaidesBundle_connaitresesaides') }}">Cliquez ici pour connaître ses
+                aides</a>
+        </div>
+    </div>
+
+{% endblock %}

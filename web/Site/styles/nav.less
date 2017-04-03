@@ -1,0 +1,45 @@
+@import "couleur.less";
+
+nav {
+  font-family: @font-main;
+  font-size: 14px;
+  background-color: #375D81;
+  -webkit-box-shadow: 0 8px 6px -6px #999;
+  -moz-box-shadow: 0 8px 6px -6px #999;
+  box-shadow: 0 8px 6px -6px #999;
+}
+
+.navbar-right {
+  margin-right: 0px !important;
+}
+
+.navbar-site a {
+  color: white;
+  padding: 25px 15px !important;
+  transition: background-color 0.5s ease;
+}
+
+.nav-title {
+  font-size: 20px;
+}
+
+
+
+.nav {
+  li {
+    margin-bottom: 0px;
+    a {
+      &:hover, &:active, &:focus {
+        background: #ABC8E2;
+        color: white;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-site a {
+    text-align: center;
+  }
+}
+

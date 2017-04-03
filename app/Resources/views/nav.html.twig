@@ -1,0 +1,27 @@
+{% block stylesheets %}
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans|PT+Sans+Caption:400,700" rel="stylesheet">
+    <link href="{{ asset('Site/styles/nav.less') }}" rel="stylesheet/less" type="text/css">
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ asset('Site/styles/less.js') }}" type="text/javascript"></script>
+{% endblock %}
+
+<nav>
+    <div class="container">
+        <div class="navbar-site row">
+            <div class="nav">
+                <ul class="nav navbar-nav navbar-col">
+                    <li class="nav-title"><a href="{{ path('PierreSiteBundle_homepage') }}">LE BLOG ÉTUDIANT</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-col">
+                    <li><a href="{{ path('PierreBlogBundle_homepage') }}">BLOG</a></li>
+                    <li><a href="{{ path('PierreConnaitresesaidesBundle_homepage') }}">IDENTIFIER SES AIDES</a></li>
+                    <li><a href="{{ path('PierreSiteBundle_apropos') }}">A PROPOS</a></li>
+                    <li><a href="{{ path('PierreSiteBundle_contact') }}">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+

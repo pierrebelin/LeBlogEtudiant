@@ -1,0 +1,13 @@
+PierreConnaitresesaidesBundle_homepage:
+    path:    /
+    defaults: { _controller: PierreConnaitresesaidesBundle:Connaitresesaides:index }
+
+PierreConnaitresesaidesBundle_connaitresesaides:
+    path:    /aides-etudiants-francais
+    defaults:
+       _controller: PierreConnaitresesaidesBundle:Connaitresesaides:connaitresesaides
+
+PierreConnaitresesaidesBundle_connaitresesaides_resultats:
+    path:    /aides-etudiants-francais/resultats
+    defaults:
+      _controller: PierreConnaitresesaidesBundle:Connaitresesaides:resultats

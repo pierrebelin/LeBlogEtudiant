@@ -1,0 +1,77 @@
+{% extends 'PierreSiteBundle::layout.html.twig' %}
+
+{% block title %}{{ parent() }} | À propos{% endblock %}
+
+{% block content %}
+
+    <div class="apropos-header header-picture">
+
+    </div>
+    <div class="container container-shadow">
+        <div class="row content">
+            <section>
+                <div class="apropos-picture">
+                    <img src="{{ asset('Site/images/profile.jpg') }}" alt="1"/>
+                </div>
+                <div class="apropos-description">
+                    <h2>Identité</h2>
+                    <p>Pierre Belin</p>
+                    <p>21 ans</p>
+                    <p>Étudiant ingénieur en alternance</p>
+                </div>
+                <div class="apropos-description">
+                    <h2>Philosophie</h2>
+                    <p>Les seules limites qui existent sont celles que l'on s'impose</p>
+                </div>
+                <div class="apropos-description">
+                    <h2>Contact</h2>
+                    <p><a href="{{ path('PierreSiteBundle_contact') }}">contact@le-blog-etudiant.fr</a></p>
+                    <p>N'hésitez pas !</p>
+                </div>
+            </section>
+            <article>
+                <div class="paragraphe">
+                    <h1>Qui suis-je ?</h1>
+                    <p>Je m'appelle Pierre Belin, étudiant en école d'ingénieur en alternance. </p>
+                    <p>Travaillant dans une entreprise à plus de 200km de mon école, j'ai rapidement dû obtenir deux
+                        logements, engendrant des frais important malgré mon salaire d'alternant. </p>
+                    <p>Partir du logement parental, ça revient vite cher, pas vrai ? </p>
+                    <p>J'ai donc commencé à chercher les bons plans pour connaître toutes les manières de gagner et
+                        d'économiser de l'argent, afin d'éviter de manger des pâtes tous les jours (ce qui ne m'a pas
+                        empêché de
+                        le faire).</p>
+                </div>
+                <div class="paragraphe">
+                    <h1>Pourquoi partager ?</h1>
+                    <p>C'est une question toute bête, c'est vrai. Pourquoi est-ce que je partage mes bons plans plutôt
+                        que
+                        de les garder simplement pour moi ?</p>
+                    <p>Tout simplement parce que le partage est une notion très importante pour moi. </p>
+                    <p>Lorsque j'ai commencé à me renseigner pour trouver des aides, je suis arrivé sur la même
+                        conclusion
+                        que vous : les informations sont tellement dispatchées qu'on en rate souvent un bon nombre. Il
+                        fallait donc créer un outil qui permette en quelques clics de toutes les rassembler.</p>
+                    <p>A vous de partager ce site à vos amis pour leur permettre de connaitre leurs aides !</p>
+
+                </div>
+                <div class="paragraphe">
+                    <h1>Quelles sont mes motivations ?</h1>
+                    <p>Je fais mes études dans le domaine de l'informatique en développement d'applications, notamment
+                        sur
+                        le web. Ce fût donc un vrai défi de réaliser ce site en le développant de A à Z.</p>
+                    <p>Quoi de mieux pour apprendre que de créer un projet personnel sur un sujet qui vous plaît ? </p>
+                </div>
+
+                <div class="paragraphe">
+                    <h1>Profitez-en !</h1>
+                    <p>Saisissez ces opportunités. Pourquoi ne pas profiter d'une carte proposant des réductions alors
+                        que
+                        nous y avons accès gratuitement grâce à notre
+                        statut ?</p>
+                    <p>Ces économies peuvent vous servir sur le moment pour vivre correctement sa vie étudiante, ou bien
+                        vous servir en commençant à épargner pour votre futur achat automobile ou immobilier.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+{% endblock %}

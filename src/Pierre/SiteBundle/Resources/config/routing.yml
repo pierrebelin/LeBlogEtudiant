@@ -1,0 +1,43 @@
+PierreSiteBundle_homepage:
+    path:     /
+    defaults: { _controller: PierreSiteBundle:Site:index }
+
+PierreSiteBundle_apropos:
+    path:     /a-propos
+    defaults: { _controller: PierreSiteBundle:Site:apropos }
+
+PierreSiteBundle_contact:
+    path:     /contact
+    defaults: { _controller: PierreSiteBundle:Site:contact }
+    requirements:
+        _method:  GET|POST
+
+PierreSiteBundle_partnership:
+    path:     /partenaires
+    defaults: { _controller: PierreSiteBundle:Site:partenaires }
+    requirements:
+        _method:  GET|POST
+
+PierreSiteBundle_footer:
+    path:     /footer
+    defaults: { _controller: PierreSiteBundle:Site:footer }
+    requirements:
+        _method:  GET|POST
+
+PierreSiteBundle_mentionslegales:
+    path:     /mentions-legales
+    defaults: { _controller: PierreSiteBundle:Site:mentionslegales }
+    requirements:
+        _method:  GET|POST
+
+PierreSiteBundle_cgu:
+    path:     /cgu
+    defaults: { _controller: PierreSiteBundle:Site:cgu }
+    requirements:
+        _method:  GET|POST
+
+PierreSiteBundle_error:
+    path:     /error
+    defaults: { _controller: PierreSiteBundle:Site:error }
+    requirements:
+        _method:  GET|POST

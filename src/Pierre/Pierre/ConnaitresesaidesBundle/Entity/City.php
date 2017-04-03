@@ -1,0 +1,97 @@
+<?php
+
+namespace Pierre\ConnaitresesaidesBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * City
+ *
+ * @ORM\Table(name="city")
+ * @ORM\Entity(repositoryClass="Pierre\ConnaitresesaidesBundle\Repository\CityRepository")
+ */
+class City
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, unique=true)
+     */
+    private $name;
+
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="Department")
+     * @ORM\JoinColumn(name="department_id", referencedColumnName="id", nullable=false)
+     */
+    private $departmentId;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return City
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set departmentId
+     *
+     * @param integer $departmentId
+     *
+     * @return City
+     */
+    public function setDepartmentId($departmentId)
+    {
+        $this->departmentId = $departmentId;
+
+        return $this;
+    }
+
+    /**
+     * Get departmentId
+     *
+     * @return int
+     */
+    public function getDepartmentId()
+    {
+        return $this->departmentId;
+    }
+}

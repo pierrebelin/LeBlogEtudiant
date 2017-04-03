@@ -1,0 +1,19 @@
+PierreSiteBundle_homepage:
+    path:     /
+    defaults: { _controller: PierreSiteBundle:Site:index }
+
+PierreSiteBundle_apropos:
+    path:     /a-propos
+    defaults: { _controller: PierreSiteBundle:Site:apropos }
+
+PierreSiteBundle_contact:
+    path:     /contact
+    defaults: { _controller: PierreSiteBundle:Site:contact }
+    requirements:
+        _method:  GET|POST
+
+PierreSiteBundle_partnership:
+    path:     /partenaires
+    defaults: { _controller: PierreSiteBundle:Site:partenaires }
+    requirements:
+        _method:  GET|POST

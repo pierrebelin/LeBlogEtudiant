@@ -1,0 +1,16 @@
+PierreBlogBundle_homepage:
+    path:     /
+    defaults: { _controller: PierreBlogBundle:Blog:index }
+        
+PierreBlogBundle_blog_show:
+    path:     /{slug}
+    defaults: { _controller: PierreBlogBundle:Blog:show }
+    requirements:
+        _method:  GET|POST
+        
+PierreBlogBundle_comment:
+    path:     /comment/{blog_id}
+    defaults: { _controller: PierreBlogBundle:Comment:new }
+    requirements:
+        _method:  POST
+        blog_id: \d+
