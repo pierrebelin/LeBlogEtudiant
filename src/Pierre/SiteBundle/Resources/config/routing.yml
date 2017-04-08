@@ -41,3 +41,9 @@ PierreSiteBundle_error:
     defaults: { _controller: PierreSiteBundle:Site:error }
     requirements:
         _method:  GET|POST
+
+PierreSiteBundle_newsletter:
+    path: /newsletter
+    defaults: { _controller: PierreSiteBundle:Site:newsletter }
+    requirements:
+        _method: POST

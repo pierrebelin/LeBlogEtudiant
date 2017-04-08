@@ -4,18 +4,16 @@
             <div class="col-lg-8 navbar-footer">
                 <h6 class="nav-title">Newsletter</h6>
                 <div id="subscribe-footer">
-                    {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post', 'id' :'subscribeForm'}}) }}
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post', 'id' :'subscribe-footer-form'}}) }}
                     <div class="form-group">
                         <div class="col-lg-3 footer-newsletter">
-                            {{ form_widget(form.user, {'attr': {'class': 'form-control',
-                                'placeholder': 'Prénom'}}) }}
+                            {{ form_widget(form.user, {'id': 'subscribe-footer-user'}) }}
                         </div>
                         <div class="col-lg-5 footer-newsletter">
-                            {{ form_widget(form.mail, {'attr': {'class': 'form-control',
-                                'placeholder': 'Mail'}}) }}
+                            {{ form_widget(form.mail, {'id': 'subscribe-footer-mail'}) }}
                         </div>
                         <div class="col-lg-2 footer-newsletter">
-                            {{ form_widget(form.submit, {'attr': { 'class': 'btn btn-force' }}) }}
+                            {{ form_widget(form.submit, {'id': 'submit', 'attr': { 'class': 'btn btn-force' }}) }}
                         </div>
                     </div>
                     {{ form_rest(form) }}
@@ -60,4 +58,30 @@
         </div>
         {#<a href="#subscribeModal" data-target-color="green" data-toggle="modal" class="btn btn-default ">Green</a>#}
     </div>
+    <script>
+        $("#subscribe-footer-form").submit(function () {
+            $.ajax({
+                type: "POST",
+                url: "{{ path('PierreSiteBundle_newsletter') }}",
+                data: {
+                    mail: $("#subscribe-footer-mail").val(),
+                    user: $("#subscribe-footer-user").val(),
+                },
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    if(data == 'success'){
+                        $('#subscribe-success-modal').modal('show');
+                    } else if (data == 'warning'){
+                        $('#subscribe-warning-modal').modal('show');
+                    } else {
+                        $('#subscribe-error-modal').modal('show');
+                    }
+                    $("#subscribe-footer-mail").val("");
+                    $("#subscribe-footer-user").val("");
+                }
+            });
+            return false;
+        });
+    </script>
 </footer>

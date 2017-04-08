@@ -5,6 +5,7 @@ namespace Pierre\SiteBundle\Controller;
 require_once __DIR__ . '/../../../../vendor/autoload.php';
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -92,42 +93,25 @@ class SiteController extends Controller
     public function footerAction(Request $request)
     {
         $form = $this->createFormBuilder()
+            ->setAction($this->generateUrl('PierreSiteBundle_newsletter'))
             ->add('user', TextType::class, array(
                 'label' => 'Nom *',
+                'attr' => array(
+                    'placeholder' => 'Prénom',
+                    'class' => 'form-control'
+                )
             ))
             ->add('mail', EmailType::class, array(
                 'label' => 'Mail * ',
+                'attr' => array(
+                    'placeholder' => 'Mail',
+                    'class' => 'form-control'
+                )
             ))
             ->add('submit', SubmitType::class, array(
                 'label' => 'S\'abonner',
             ))
             ->getForm();
-
-        var_dump($request->isMethod('POST'));
-
-        if ($request->isMethod('POST')) {
-
-            $form->handleRequest($request);
-            if ($form->isValid() && $form->isSubmitted()) {
-                $sendinblue = $this->get('sendinblue_api');
-
-                $mailer = $this->container->get('sendinblue');
-
-                $resMailer = $mailer->subscribeToNewsletter($sendinblue, $form->get('mail')->getData(), $form->get('user')->getData());
-
-                if ($resMailer == 'success') {
-
-                    echo "<script>
-                             $(window).load(function(){
-                                 $('#subscribeModal').modal('show');
-                             });
-                        </script>";
-
-                }
-            }
-            header("location: " . $request->getUri());
-            exit();
-        }
 
         return $this->render('PierreSiteBundle:Site:footer.html.twig', array(
             'form' => $form->createView(),
@@ -196,7 +180,26 @@ class SiteController extends Controller
         }
     }
 
-    public function isCaptchaValid($code, $ip = null)
+
+    public function newsletterAction(Request $request)
+    {
+        if ($request->isXmlHttpRequest()) {
+            $sendinblue = $this->get('sendinblue_api');
+
+            $mailer = $this->container->get('sendinblue');
+
+            header('Content-Type: application/json');
+            $response_array['status'] = $mailer->subscribeToNewsletter($sendinblue, $request->get('mail'), $request->get('user'));
+            echo $response_array['status'];
+
+            return new Response();
+        } else {
+            return $this->footerAction();
+        }
+    }
+
+    public
+    function isCaptchaValid($code, $ip = null)
     {
         if (empty($code)) {
             return false; // Si aucun code n'est entré, on ne cherche pas plus loin
