@@ -23,9 +23,17 @@ class SiteController extends Controller
         $form = $this->createFormBuilder()
             ->add('user', TextType::class, array(
                 'label' => 'Nom *',
+                'attr' => array(
+                    'placeholder' => 'Prénom',
+                    'class' => 'form-control'
+                )
             ))
             ->add('mail', EmailType::class, array(
                 'label' => 'Mail * ',
+                'attr' => array(
+                    'placeholder' => 'Mail',
+                    'class' => 'form-control'
+                )
             ))
             ->add('submit', SubmitType::class, array(
                 'label' => 'S\'abonner',
@@ -198,8 +206,7 @@ class SiteController extends Controller
         }
     }
 
-    public
-    function isCaptchaValid($code, $ip = null)
+    public function isCaptchaValid($code, $ip = null)
     {
         if (empty($code)) {
             return false; // Si aucun code n'est entré, on ne cherche pas plus loin

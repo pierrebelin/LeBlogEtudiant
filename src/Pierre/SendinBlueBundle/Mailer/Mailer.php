@@ -26,7 +26,7 @@ class Mailer extends Controller
     protected $idlistparnetaire = 10;
 
     // ID TEMPLATE MAIL SENDINBLUE
-
+    protected $idtemplatenewsletter = 7;
 
     public function __construct($sendinblue_contact)
     {
@@ -79,9 +79,8 @@ class Mailer extends Controller
     // Add to newsletter list the user
     public function subscribeToNewsletter($sendinblue, $mail, $user)
     {
-        $data = array("id" => 7, "to" => $mail);
+        $data = array("id" => $this->idtemplatenewsletter, "to" => $mail);
         $idlist = $this->idlistnewsletter;
-
 
         if ($this->isUserExists($sendinblue, $mail)['code'] == 'success') {
             // SI IL EST DANS LA LISTE -> WARNING

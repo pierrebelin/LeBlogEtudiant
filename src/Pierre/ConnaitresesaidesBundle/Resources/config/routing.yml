@@ -1,6 +1,7 @@
 PierreConnaitresesaidesBundle_homepage:
     path:    /
-    defaults: { _controller: PierreConnaitresesaidesBundle:Connaitresesaides:index }
+    defaults:
+       _controller: PierreConnaitresesaidesBundle:Connaitresesaides:index
 
 PierreConnaitresesaidesBundle_connaitresesaides:
     path:    /aides-etudiants-francais
@@ -10,4 +11,11 @@ PierreConnaitresesaidesBundle_connaitresesaides:
 PierreConnaitresesaidesBundle_connaitresesaides_resultats:
     path:    /aides-etudiants-francais/resultats
     defaults:
-      _controller: PierreConnaitresesaidesBundle:Connaitresesaides:resultats
+       _controller: PierreConnaitresesaidesBundle:Connaitresesaides:resultats
+
+PierreConnaitresesaidesBundle_sendresultsmail:
+    path:    /aides-etudiants-francais/resultats/sendresultsmail
+    defaults:
+       _controller: PierreConnaitresesaidesBundle:Connaitresesaides:sendresultsmail
+    requirements:
+        _method: POST

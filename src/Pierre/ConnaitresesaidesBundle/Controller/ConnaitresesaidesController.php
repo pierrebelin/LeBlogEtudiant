@@ -101,16 +101,16 @@ class ConnaitresesaidesController extends Controller
         $aidAll = array();
 
         if (count($aidCountries) > 0) {
-            array_push($aidAll, $aidCountries);
+            $aidAll = array_merge($aidAll, $aidCountries);
         }
         if (count($aidRegions) > 0) {
-            array_push($aidAll, $aidRegions);
+            $aidAll = array_merge($aidAll, $aidRegions);
         }
         if (count($aidDepartments) > 0) {
-            array_push($aidAll, $aidDepartments);
+            $aidAll = array_merge($aidAll, $aidDepartments);
         }
         if (count($aidCities) > 0) {
-            array_push($aidAll, $aidCities);
+            $aidAll = array_merge($aidAll, $aidCities);
         }
 
         $advantageCountries = $em->getRepository('PierreConnaitresesaidesBundle:Advantage')->findPossibleAdvantageCountries($statut, $city, $age, $salary);
@@ -121,16 +121,16 @@ class ConnaitresesaidesController extends Controller
         $advantageAll = array();
 
         if (count($advantageCountries) > 0) {
-            array_push($advantageAll, $advantageCountries);
+            $advantageAll = array_merge($advantageAll, $advantageCountries);
         }
         if (count($advantageRegions) > 0) {
-            array_push($advantageAll, $advantageRegions);
+            $advantageAll = array_merge($advantageAll, $advantageRegions);
         }
         if (count($advantageDepartments) > 0) {
-            array_push($advantageAll, $advantageDepartments);
+            $advantageAll = array_merge($advantageAll, $advantageDepartments);
         }
         if (count($advantageCities) > 0) {
-            array_push($advantageAll, $advantageCities);
+            $advantageAll = array_merge($advantageAll, $advantageCities);
         }
 
         $offerAll = array();
@@ -139,9 +139,17 @@ class ConnaitresesaidesController extends Controller
         $form = $this->createFormBuilder()
             ->add('firstname', TextType::class, array(
                 'label' => 'Prénom*',
+                'attr' => array(
+                    'placeholder' => 'Prénom',
+                    'class' => 'form-control'
+                )
             ))
             ->add('mailaddress', EmailType::class, array(
                 'label' => 'Adresse mail*',
+                'attr' => array(
+                    'placeholder' => 'Mail',
+                    'class' => 'form-control'
+                )
             ))
             ->add('issendvalidated', CheckboxType::class, array(
                 'label' => 'Je souhaite être tenu au courant des bons plans',
@@ -167,6 +175,23 @@ class ConnaitresesaidesController extends Controller
                 'offerAll' => $offerAll,
                 'form' => $form->createView()
             ));
+        }
+    }
+
+    public function sendresultsmailAction(Request $request)
+    {
+        if ($request->isXmlHttpRequest()) {
+//            $sendinblue = $this->get('sendinblue_api');
+//
+//            $mailer = $this->container->get('sendinblue');
+//
+//            header('Content-Type: application/json');
+//            $response_array['status'] = $mailer->subscribeToNewsletter($sendinblue, $request->get('mail'), $request->get('user'));
+//            echo $response_array['status'];
+//
+//            return new Response();
+        } else {
+            return $this->resultatsAction();
         }
     }
 }

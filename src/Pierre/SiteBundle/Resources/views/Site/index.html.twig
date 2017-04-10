@@ -44,16 +44,14 @@
             <div class="row content-padding">
                 <h1>Tenez-vous au courant des dernières actualités</h1>
                 <div>
-                    {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post'}}) }}
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post', 'id' :'subscribe-index-form'}}) }}
                     <div>
                         <div class="col-md-offset-2">
                             <div class="col-md-3 footer-newsletter">
-                                {{ form_widget(form.user, {'attr': {'class': 'form-control',
-                                    'placeholder': 'Prénom'}}) }}
+                                {{ form_widget(form.user, {'id': 'subscribe-index-user'}) }}
                             </div>
                             <div class="col-md-4 footer-newsletter">
-                                {{ form_widget(form.mail, {'attr': {'class': 'form-control',
-                                    'placeholder': 'Mail'}}) }}
+                                {{ form_widget(form.mail, {'id': 'subscribe-index-mail'}) }}
                             </div>
                             <div class="col-md-3 footer-newsletter">
                                 {{ form_widget(form.submit, {'attr': { 'class': 'btn btn-force btn-block' }}) }}
@@ -70,7 +68,7 @@
     <div class="row-main-quotes">
         <div class="container ">
             <div class="row content-padding main-quotes">
-                <blockquote class="col-sm-12 col-md-8">
+                <blockquote class="col-sm-12 col-md-8 quote-index">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur
                         adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit
                         amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -78,7 +76,7 @@
                     <cite>Lorem I psum</cite>
                 </blockquote>
 
-                <blockquote class="col-sm-12 col-md-offset-4 col-md-8">
+                <blockquote class="col-sm-12 col-md-offset-4 col-md-8 quote-index">
                     <p>C'est vraiment de la bombe</p>
                     <cite>Jean, 21 ans, étudiant à la faculté informatique de Grenoble</cite>
                 </blockquote>
@@ -124,4 +122,30 @@
             </div>
         </div>
     </div>
+    <script>
+        $("#subscribe-index-form").submit(function () {
+            $.ajax({
+                type: "POST",
+                url: "{{ path('PierreSiteBundle_newsletter') }}",
+                data: {
+                    mail: $("#subscribe-index-mail").val(),
+                    user: $("#subscribe-index-user").val(),
+                },
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    if(data == 'success'){
+                        $('#subscribe-success-modal').modal('show');
+                    } else if (data == 'warning'){
+                        $('#subscribe-warning-modal').modal('show');
+                    } else {
+                        $('#subscribe-error-modal').modal('show');
+                    }
+                    $("#subscribe-index-mail").val("");
+                    $("#subscribe-index-user").val("");
+                }
+            });
+            return false;
+        });
+    </script>
 {% endblock %}

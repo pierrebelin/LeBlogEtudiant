@@ -63,28 +63,36 @@ class BlogController extends Controller
         $form = $this->createFormBuilder()
             ->add('user', TextType::class, array(
                 'label' => 'Nom *',
+                'attr' => array(
+                    'placeholder' => 'Prénom',
+                    'class' => 'form-control'
+                )
             ))
             ->add('mail', EmailType::class, array(
                 'label' => 'Mail * ',
+                'attr' => array(
+                    'placeholder' => 'Mail',
+                    'class' => 'form-control'
+                )
             ))
             ->add('submit', SubmitType::class, array(
                 'label' => 'S\'abonner',
             ))
             ->getForm();
 
-        if ($request->isMethod('POST')) {
-            $form->handleRequest($request);
-            if ($form->isValid() && $form->isSubmitted()) {
-                $sendinblue = $this->get('sendinblue_api');
-
-                $mailer = $this->container->get('sendinblue');
-
-                $resMailer = $mailer->subscribeToNewsletter($sendinblue, $form->get('mail')->getData(), $form->get('user')->getData());
-            }
-
-            header("location: " . $request->getUri());
-            exit();
-        }
+//        if ($request->isMethod('POST')) {
+//            $form->handleRequest($request);
+//            if ($form->isValid() && $form->isSubmitted()) {
+//                $sendinblue = $this->get('sendinblue_api');
+//
+//                $mailer = $this->container->get('sendinblue');
+//
+//                $resMailer = $mailer->subscribeToNewsletter($sendinblue, $form->get('mail')->getData(), $form->get('user')->getData());
+//            }
+//
+//            header("location: " . $request->getUri());
+//            exit();
+//        }
 
         return $this->render('PierreBlogBundle:Blog:sidebar.html.twig', array(
             'latestComments' => $latestComments,
