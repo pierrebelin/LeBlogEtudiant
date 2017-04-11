@@ -30,165 +30,171 @@
             </p>
             <hr class="main-hr">
             <h2>Liste d'éligibilité</h2>
-            <h3 class="text-center">Aides</h3>
+            <div id="resultats-results">
+                <h3 class="text-center">Aides</h3>
 
-            <div class="tab-resultats">
-                {% if (aidAll|length == 0) %}
-                <div class="msg-noresult">
-                    <p>Il n'y a aucune aide qui correspond à vos critères, désolé.</p>
+                <div class="tab-resultats">
+                    {% if (aidAll|length == 0) %}
+                        <div class="msg-noresult">
+                            <p>Il n'y a aucune aide qui correspond à vos critères, désolé.</p>
+                        </div>
+                    {% else %}
+                        <table class="table table-resultat table-responsive">
+                            <thead>
+                            <tr>
+                                <th class="col-md-2">Nom</th>
+                                <th class="col-md-2">Organisme</th>
+                                <th class="col-md-2">Montant</th>
+                                <th class="col-md-2">Description</th>
+                                <th class="col-md-2">Zone éligible</th>
+                                <th class="col-md-2"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for array in aidAll %}
+                                <tr class="tr-{% if loop.index is divisible by(2) %}even{% else %}odd{% endif %}">
+                                    <td class="col-md-2">{{ array.name }}</td>
+                                    <td class="col-md-2">{{ array.organism }}</td>
+                                    <td class="col-md-2">{{ array.amount }}</td>
+                                    <td class="col-md-2">{{ array.description }}</td>
+                                    <td class="col-md-2">{{ array.location }}</td>
+                                    <td class="col-md-2 td-link"><a class="link-more" target="_blank"
+                                                                    href="{{ array.link }}"
+                                                                    title="Redirection vers le site de {{ array.organism }} qui propose l'aide {{ array.name }}">En
+                                            savoir plus</a></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% endif %}
                 </div>
-                {% else %}
-                <table class="table table-resultat table-responsive">
-                    <thead>
-                    <tr>
-                        <th class="col-md-2">Nom</th>
-                        <th class="col-md-2">Organisme</th>
-                        <th class="col-md-2">Montant</th>
-                        <th class="col-md-2">Description</th>
-                        <th class="col-md-2">Zone éligible</th>
-                        <th class="col-md-2"></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for array in aidAll %}
-                        <tr class="tr-{% if loop.index is divisible by(2) %}even{% else %}odd{% endif %}">
-                            <td class="col-md-2">{{ array.name }}</td>
-                            <td class="col-md-2">{{ array.organism }}</td>
-                            <td class="col-md-2">{{ array.amount }}</td>
-                            <td class="col-md-2">{{ array.description }}</td>
-                            <td class="col-md-2">{{ array.location }}</td>
-                            <td class="col-md-2 td-link"><a class="link-more" target="_blank"
-                                                            href="{{ array.link }}"
-                                                            title="Redirection vers le site de {{ array.organism }} qui propose l'aide {{ array.name }}">En
-                                    savoir plus</a></td>
+
+                <h3 class="text-center">Avantages</h3>
+                <div class="tab-resultats">
+                    {% if (advantageAll|length == 0) %}
+                        <div class="msg-noresult">
+                            <p>Il n'y a aucun avantage qui correspond à vos critères, désolé.</p>
+                        </div>
+                    {% else %}
+                        <table class="table table-resultat table-responsive">
+                            <thead>
+                            <tr>
+                                <th class="col-md-2">Nom</th>
+                                <th class="col-md-2">Organisme</th>
+                                <th class="col-md-2">Montant</th>
+                                <th class="col-md-2">Description</th>
+                                <th class="col-md-2">Zone éligible</th>
+                                <th class="col-md-2"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for array in advantageAll %}
+                                <tr class="tr-{% if loop.index is divisible by(2) %}even{% else %}odd{% endif %}">
+                                    <td class="col-md-2">{{ array.name }}</td>
+                                    <td class="col-md-2">{{ array.organism }}</td>
+                                    <td class="col-md-2">{{ array.amount }}</td>
+                                    <td class="col-md-2">{{ array.description }}</td>
+                                    <td class="col-md-2">{{ array.location }}</td>
+                                    <td class="col-md-2 td-link"><a class="link-more" target="_blank"
+                                                                               href="{{ array.link }}"
+                                                                               title="Redirection vers le site de {{ array.organism }} qui propose l'aide {{ array.name }}">En
+                                            savoir plus</a></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% endif %}
+                </div>
+                <h3 class="text-center">Offres</h3>
+                <div class="tab-resultats">
+                    {% if (offerAll|length == 0) %}
+                    <div class="msg-noresult">
+                        <p>Il n'y a aucune offre qui correspond à vos critères, désolé.</p>
+                    </div>
+                    {% else %}
+                    <table class="table table-resultat table-responsive">
+                        <thead>
+                        <tr>
+                            <th class="col-md-2">Nom</th>
+                            <th class="col-md-2">Organisme</th>
+                            <th class="col-md-2">Montant</th>
+                            <th class="col-md-2">Description</th>
+                            <th class="col-md-2">Zone éligible</th>
+                            <th class="col-md-2"></th>
                         </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                        {% for arrayOfferAll in offerAll %}
+                            {% for array in arrayOfferAll %}
+                                <tr class="tr-{% if loop.index is divisible by(2) %}even{% else %}odd{% endif %}">
+                                    <td class="col-md-2">{{ array.name }}</td>
+                                    <td class="col-md-2">{{ array.organism }}</td>
+                                    <td class="col-md-2">{{ array.amount }}</td>
+                                    <td class="col-md-2">{{ array.description }}</td>
+                                    <td class="col-md-2">{{ array.location }}</td>
+                                    <td class="col-md-2 td-link"><a class="link-more" target="_blank"
+                                                                    href="{{ array.link }}"
+                                                                    title="Redirection vers le site de {{ array.organism }} qui propose l'aide {{ array.name }}">En
+                                            savoir plus</a></td>
+                                </tr>
+                            {% endfor %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
         </div>
 
-        <h3 class="text-center">Avantages</h3>
-        <div class="tab-resultats">
-            {% if (advantageAll|length == 0) %}
-                <div class="msg-noresult">
-                    <p>Il n'y a aucun avantage qui correspond à vos critères, désolé.</p>
+            <hr class="main-hr2">
+            <h2>Recevez vos résultats par mail</h2>
+            <div>
+                <p>Vous n'avez pas le temps de tout regarder maintenant ? Pas de problème, on vous envoie les résultats
+                    directement dans votre boite mail !</p>
+                <div class="from-design">
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post', 'id' :'resultats-mail-form'}}) }}
+                    <div class="form-group form-margin">
+                        {{ form_label(form.firstname, form.firstname, {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+                        <div class="col-md-6">
+                            {{ form_widget(form.firstname, {'id' :'resultats-firstname'}) }}
+                        </div>
+                    </div>
+                    <div class="form-group form-margin">
+                        {{ form_label(form.mailaddress, form.mailaddress, {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+                        <div class="col-md-6">
+                            {{ form_widget(form.mailaddress, {'id' :'resultats-mail'}) }}
+                        </div>
+                    </div>
+                    <div class="form-margin form-group ">
+                        <div class="col-md-offset-3 col-md-6">
+                            {{ form_widget(form.issendvalidated, {'id' :'resultats-subscribe'}) }}
+                            {{ form_label(form.issendvalidated, form.issendvalidated, {'label_attr': {'class': 'control-label'}}) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group form-margin">
+                        <div class="col-md-offset-4 col-md-4 ">
+                            {{ form_widget(form.submit, {'attr': { 'class': 'btn btn-default btn-lg btn-block' }}) }}
+                        </div>
+                    </div>
+                    {{ form_rest(form) }}
+                    {{ form_end(form) }}
                 </div>
-            {% else %}
-                <table class="table table-resultat table-responsive">
-                    <thead>
-                    <tr>
-                        <th class="col-md-2">Nom</th>
-                        <th class="col-md-2">Organisme</th>
-                        <th class="col-md-2">Montant</th>
-                        <th class="col-md-2">Description</th>
-                        <th class="col-md-2">Zone éligible</th>
-                        <th class="col-md-2"></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for array in advantageAll %}
-                        <tr class="tr-{% if loop.index is divisible by(2) %}even{% else %}odd{% endif %}">
-                            <td class="col-md-2 col-xs1-12">{{ array.name }}</td>
-                            <td class="col-md-2 col-xs1-12">{{ array.organism }}</td>
-                            <td class="col-md-2 col-xs1-12">{{ array.amount }}</td>
-                            <td class="col-md-2 col-xs1-12">{{ array.description }}</td>
-                            <td class="col-md-2 col-xs1-12">{{ array.location }}</td>
-                            <td class="col-md-2 col-xs1-12 td-link"><a class="link-more" target="_blank"
-                                                                       href="{{ array.link }}"
-                                                                       title="Redirection vers le site de {{ array.organism }} qui propose l'aide {{ array.name }}">En
-                                    savoir plus</a></td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            {% endif %}
-        </div>
-        <h3 class="text-center">Offres</h3>
-        <div class="tab-resultats">
-            {% if (offerAll|length == 0) %}
-            <div class="msg-noresult">
-                <p>Il n'y a aucune offre qui correspond à vos critères, désolé.</p>
             </div>
-            {% else %}
-            <table class="table table-resultat table-responsive">
-                <thead>
-                <tr>
-                    <th class="col-md-2">Nom</th>
-                    <th class="col-md-2">Organisme</th>
-                    <th class="col-md-2">Montant</th>
-                    <th class="col-md-2">Description</th>
-                    <th class="col-md-2">Zone éligible</th>
-                    <th class="col-md-2"></th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for arrayOfferAll in offerAll %}
-                    {% for array in arrayOfferAll %}
-                        <tr class="tr-{% if loop.index is divisible by(2) %}even{% else %}odd{% endif %}">
-                            <td class="col-md-2">{{ array.name }}</td>
-                            <td class="col-md-2">{{ array.organism }}</td>
-                            <td class="col-md-2">{{ array.amount }}</td>
-                            <td class="col-md-2">{{ array.description }}</td>
-                            <td class="col-md-2">{{ array.location }}</td>
-                            <td class="col-md-2 td-link"><a class="link-more" target="_blank"
-                                                            href="{{ array.link }}"
-                                                            title="Redirection vers le site de {{ array.organism }} qui propose l'aide {{ array.name }}">En
-                                    savoir plus</a></td>
-                        </tr>
-                    {% endfor %}
-                {% endfor %}
-                </tbody>
-            </table>
+
+            <hr class="main-hr">
+            <div>
+                <p>Vous avez remarqué une aide ou un avantage manquant ? Contactez-nous <a
+                            href="{{ path('PierreSiteBundle_contact') }}">en cliquant ici</a> pour que
+                    nous y jettions un coup d'oeil.
+                <p>
+                <p>Le partage d'information est la base de ce site, dites vous que vous ferez votre bonne action de la
+                    journée
+                    ☺</p>
+            </div>
         </div>
-        {% endif %}
     </div>
 
-    <hr class="main-hr2">
-    <h2>Recevez vos résultats par mail</h2>
-    <div>
-        <p>Vous n'avez pas le temps de tout regarder maintenant ? Pas de problème, on vous envoie les résultats
-            directement dans votre boite mail !</p>
-        <div class="from-design">
-            {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post', 'id' :'resultats-mail-form'}}) }}
-            <div class="form-group form-margin">
-                {{ form_label(form.firstname, form.firstname, {'label_attr': {'class': 'col-md-3 control-label'}}) }}
-                <div class="col-md-6">
-                    {{ form_widget(form.firstname, {'id' :'resultats-firstname'}) }}
-                </div>
-            </div>
-            <div class="form-group form-margin">
-                {{ form_label(form.mailaddress, form.mailaddress, {'label_attr': {'class': 'col-md-3 control-label'}}) }}
-                <div class="col-md-6">
-                    {{ form_widget(form.mailaddress, {'id' :'resultats-mail'}) }}
-                </div>
-            </div>
-            <div class="form-margin form-group ">
-                <div class="col-md-offset-3 col-md-6">
-                    {{ form_widget(form.issendvalidated) }}
-                    {{ form_label(form.issendvalidated, form.issendvalidated, {'label_attr': {'class': 'control-label'}}) }}
-                </div>
-            </div>
-
-            <div class="form-group form-margin">
-                <div class="col-md-offset-4 col-md-4 ">
-                    {{ form_widget(form.submit, {'attr': { 'class': 'btn btn-default btn-lg btn-block' }}) }}
-                </div>
-            </div>
-            {{ form_rest(form) }}
-            {{ form_end(form) }}
-        </div>
-        <hr class="main-hr">
-    </div>
-    <p>Vous avez remarqué une aide ou un avantage manquant ? Contactez-nous <a
-            href="{{ path('PierreSiteBundle_contact') }}">en cliquant ici</a> pour que
-    nous y jettions un coup d'oeil.
-    <p>
-    <p>Le partage d'information est la base de ce site, dites vous que vous ferez votre bonne action de la
-        journée
-        ☺</p>
-    </div>
     </div>
 
     <!-- RESULTATS DES MAILS -->
@@ -202,9 +208,7 @@
                 </div>
                 <div class="modal-body">
                     <p>Un mail vous a été envoyé</p>
-                    <p>Un mail de confirmation vous a été envoyée !
-                        <br>
-                        Pensez bien à vérifier dans vos courriers indésirables.</p>
+                    <p>BLALBLAB<br>BLA</p>
                 </div>
             </div>
         </div>
@@ -220,9 +224,7 @@
                 </div>
                 <div class="modal-body">
                     <p>Désolé, votre inscription n'a pas été prise en compte.</p>
-                    <p>Je vous prie de bien vouloir faire retourner ce problème grâce au formulaire de contact
-                        <br>
-                        Veuillez m'excuser du dérangement !</p>
+                    <p>BLALBLAB<br>BLA</p>
                 </div>
             </div>
         </div>
@@ -230,12 +232,16 @@
 
     <script>
         $("#resultats-mail-form").submit(function () {
+            console.log($("#resultats-subscribe").is(":checked"));
+
             $.ajax({
                 type: "POST",
                 url: "{{ path('PierreConnaitresesaidesBundle_sendresultsmail') }}",
                 data: {
                     mail: $("#resultats-mail").val(),
                     user: $("#resultats-firstname").val(),
+                    results: $("#resultats-results").html(),
+                    subscribe: $("#resultats-subscribe").is(":checked"),
                 },
                 cache: false,
                 success: function (data) {
@@ -247,6 +253,7 @@
                     }
                     $("#resultats-mail").val("");
                     $("#resultats-firstname").val("");
+                    $("#resultats-subscribe").prop('checked', false);
                 }
             });
             return false;

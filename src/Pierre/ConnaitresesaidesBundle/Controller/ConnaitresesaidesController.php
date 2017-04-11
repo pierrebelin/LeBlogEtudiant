@@ -6,6 +6,7 @@ require_once __DIR__ . '/../../../../vendor/autoload.php';
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -145,7 +146,7 @@ class ConnaitresesaidesController extends Controller
                 )
             ))
             ->add('mailaddress', EmailType::class, array(
-                'label' => 'Adresse mail*',
+                'label' => 'Mail*',
                 'attr' => array(
                     'placeholder' => 'Mail',
                     'class' => 'form-control'
@@ -181,15 +182,16 @@ class ConnaitresesaidesController extends Controller
     public function sendresultsmailAction(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-//            $sendinblue = $this->get('sendinblue_api');
-//
-//            $mailer = $this->container->get('sendinblue');
-//
-//            header('Content-Type: application/json');
-//            $response_array['status'] = $mailer->subscribeToNewsletter($sendinblue, $request->get('mail'), $request->get('user'));
-//            echo $response_array['status'];
-//
-//            return new Response();
+            $sendinblue = $this->get('sendinblue_api');
+
+            $mailer = $this->container->get('sendinblue');
+
+            header('Content-Type: application/json');
+
+            $response_array['status'] = $mailer->sendResultsMail($sendinblue, $request->get('mail'), $request->get('user'), $request->get('results'), $request->get('subscribe'));
+            echo $response_array['status'];
+
+            return new Response();
         } else {
             return $this->resultatsAction();
         }

@@ -40,39 +40,6 @@ class SiteController extends Controller
             ))
             ->getForm();
 
-        if ($request->isMethod('POST')) {
-            $form->handleRequest($request);
-            if ($form->isValid() && $form->isSubmitted()) {
-                $sendinblue = $this->get('sendinblue_api');
-
-                $mailer = $this->container->get('sendinblue');
-
-                $resMailer = $mailer->subscribeToNewsletter($sendinblue, $form->get('mail')->getData(), $form->get('user')->getData());
-                echo "            <script>
-                $(window).load(function(){
-                    $('#subscribeModal').modal('show');
-                });
-            </script>";
-
-                if ($resMailer == 'success') {
-
-
-                    $this->addFlash(
-                        'success',
-                        'Votre mail a été envoyé, nous répondrons dès que possible. Merci à vous !'
-                    );
-                } else {
-                    $this->addFlash(
-                        'danger',
-                        'Une erreur est survenue, est-il possible de nous le préciser par mail ? Nous ferons le nécessaire pour réparer cela au plus vite. Nous nous excusons du dérangement !'
-                    );
-                }
-            }
-
-            header("location: " . $request->getUri());
-            exit();
-        }
-
         return $this->render('PierreSiteBundle:Site:index.html.twig', array(
             'form' => $form->createView(),
         ));
@@ -166,7 +133,7 @@ class SiteController extends Controller
 
                 $mailer = $this->container->get('sendinblue');
 
-                $resMailer = $mailer->sendMailToMe($sendinblue, $form->get('mail')->getData(), $form->get('user')->getData(), $form->get('subject')->getData(), $form->get('body')->getData(), $form->get('subscribe')->getData());
+                $resMailer = $mailer->sendContactMail($sendinblue, $form->get('mail')->getData(), $form->get('user')->getData(), $form->get('subject')->getData(), $form->get('body')->getData(), $form->get('subscribe')->getData());
 
                 if ($resMailer == 'success') {
                     $this->addFlash(
