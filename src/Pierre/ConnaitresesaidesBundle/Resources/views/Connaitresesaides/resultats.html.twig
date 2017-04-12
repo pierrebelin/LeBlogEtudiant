@@ -204,11 +204,13 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Votre inscription à la newsletter est validée</h4>
+                    <h4 class="modal-title">Un mail vous a été envoyé</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Un mail vous a été envoyé</p>
-                    <p>BLALBLAB<br>BLA</p>
+                    <p>Un mail récapitulatif des résultats a été envoyé à l'adresse indiquée.
+                        <br>
+                        Pensez bien à vérifier dans vos courriers indésirables.</p>
+                    <p>N'oubliez pas de partager ces résultats à vos amis ☺</p>
                 </div>
             </div>
         </div>
@@ -220,11 +222,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Une erreur est parvenu pendant l'ajout</h4>
+                    <h4 class="modal-title">Le mail n'a pas été envoyé</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Désolé, votre inscription n'a pas été prise en compte.</p>
-                    <p>BLALBLAB<br>BLA</p>
+                    <p>Désolé, il y a eu une erreur pendant l'envoi du mail.</p>
+                    <p>L'adresse enregistrée n'est surement pas bonne, veuillez vérifier</p>
+                    <p>Si je problème persiste, merci de bien vouloir faire retourner ce problème grâce au formulaire de contact
+                        <br>
+                        Veuillez m'excuser du dérangement !</p>
                 </div>
             </div>
         </div>
@@ -232,8 +237,6 @@
 
     <script>
         $("#resultats-mail-form").submit(function () {
-            console.log($("#resultats-subscribe").is(":checked"));
-
             $.ajax({
                 type: "POST",
                 url: "{{ path('PierreConnaitresesaidesBundle_sendresultsmail') }}",

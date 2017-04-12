@@ -26,17 +26,6 @@
     </div>
     <div class="container container-shadow">
         <div class="row content">
-            {% for type, flashes in app.session.flashbag.all %}
-                {% for flash in flashes %}
-                    <div class="alert alert-{{ type }} alert-dismissible fade in show" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                        {{ flash | raw }}
-                    </div>
-                {% endfor %}
-            {% endfor %}
-
             <header>
                 <h1>Contactez-moi</h1>
             </header>
@@ -48,39 +37,34 @@
                         href="{{ path('PierreSiteBundle_partnership') }}">formulaire de contact des partenaires</a>.</p>
 
             <div class="from-design">
-                {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post'}}) }}
+                {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post', 'id' :'contact-form'}}) }}
                 <div class="form-group form-margin">
                     {{ form_label(form.user, form.user, {'label_attr': {'class': 'col-md-3 control-label'}}) }}
                     <div class="col-md-6">
-                        {{ form_widget(form.user, {'attr': {'class': 'form-control',
-                            'placeholder': 'Jean'}}) }}
+                        {{ form_widget(form.user, {'id' :'contact-user'}) }}
                     </div>
                 </div>
                 <div class="form-group form-margin">
                     {{ form_label(form.mail, form.mail, {'label_attr': {'class': 'col-md-3 control-label'}}) }}
                     <div class="col-md-6">
-                        {{ form_widget(form.mail, {'attr': {'class': 'form-control',
-                            'placeholder': 'jean.dupont@gmail.com'}}) }}
+                        {{ form_widget(form.mail, {'id' :'contact-mail'}) }}
                     </div>
                 </div>
                 <div class="form-group form-margin">
                     {{ form_label(form.subject, form.subject, {'label_attr': {'class': 'col-md-3 control-label'}}) }}
                     <div class="col-md-6">
-                        {{ form_widget(form.subject, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_widget(form.subject, {'id' :'contact-subject'}) }}
                     </div>
                 </div>
                 <div class="form-group form-margin">
                     {{ form_label(form.body, form.body, {'label_attr': {'class': 'col-md-3 control-label'}}) }}
                     <div class="col-md-6">
-                        {{ form_widget(form.body, {'attr': {'class': 'form-control vresize',
-                            'placeholder': 'Écrivez ce qui vous passe par la tête, même un simple "merci" me ferait énormément plaisir ! (20 caractères minimum)',
-                            'minlength': '20',
-                            'maxlength' : '500'}}) }}
+                        {{ form_widget(form.body,, {'id' : 'contact-body'} ) }}
                     </div>
                 </div>
                 <div class="form-group form-margin">
                     <div class="col-md-offset-3 col-md-6">
-                        {{ form_widget(form.subscribe) }}
+                        {{ form_widget(form.subscribe, {'id' :'contact-subscribe'}) }}
                         {{ form_label(form.subscribe, form.subscribe, {'label_attr': {'class': 'control-label'}}) }}
                     </div>
                 </div>
@@ -100,4 +84,73 @@
             </div>
         </div>
     </div>
+
+    <!-- RESULTATS DES MAILS -->
+    <div class="modal fade" data-modal-color="green" id="resultats-success-modal" data-backdrop="static"
+         data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Un mail vous a été envoyé</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Un mail récapitulatif des résultats a été envoyé à l'adresse indiquée.
+                        <br>
+                        Pensez bien à vérifier dans vos courriers indésirables.</p>
+                    <p>N'oubliez pas de partager ces résultats à vos amis ☺</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" data-modal-color="red" id="resultats-error-modal" data-backdrop="static"
+         data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Le mail n'a pas été envoyé</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Désolé, il y a eu une erreur pendant l'envoi du mail.</p>
+                    <p>L'adresse enregistrée n'est surement pas bonne, veuillez vérifier</p>
+                    <p>Si je problème persiste, merci de bien vouloir faire retourner ce problème grâce au formulaire de contact
+                        <br>
+                        Veuillez m'excuser du dérangement !</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $("#contact-form").submit(function () {
+            $.ajax({
+                type: "POST",
+                url: "{{ path('PierreConnaitresesaidesBundle_sendcontactmail') }}",
+                data: {
+                    mail: $("#contact-mail").val(),
+                    user: $("#contact-user").val(),
+                    subject: $("#contact-subject").val(),
+                    body: $("#contact-body").val(),
+                    subscribe: $("#contact-subscribe").is(":checked"),
+                },
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    if (data == 'success') {
+                        $('#contact-success-modal').modal('show');
+                    } else {
+                        $('#contact-error-modal').modal('show');
+                    }
+                    $("#contact-mail").val("");
+                    $("#contact-user").val("");
+                    $("#contact-subject").val("");
+                    $("#contact-body").val("");
+                    $("#contact-subscribe").prop('checked', false);
+                }
+            });
+            return false;
+        });
+    </script>
 {% endblock %}

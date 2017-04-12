@@ -98,9 +98,17 @@ class SiteController extends Controller
         $form = $this->createFormBuilder()
             ->add('user', TextType::class, array(
                 'label' => 'Prénom *',
+                'attr' => array(
+                    'placeholder' => 'Prénom',
+                    'class' => 'form-control'
+                )
             ))
             ->add('mail', EmailType::class, array(
                 'label' => 'Mail * ',
+                'attr' => array(
+                    'placeholder' => 'Mail',
+                    'class' => 'form-control'
+                )
             ))
             ->add('subject', ChoiceType::class, array(
                 'label' => 'Sujet *',
@@ -113,7 +121,15 @@ class SiteController extends Controller
                 ),
             ))
             ->add('body', TextareaType::class, array(
-                'label' => 'Message *'
+                'label' => 'Message *',
+                'attr' => array(
+                    'placeholder' => 'Prénom',
+                    'attr' => array(
+                        'class' => 'form-control vresize',
+                        'placeholder' => 'Écrivez ce qui vous passe par la tête, même un simple "merci" me ferait énormément plaisir ! (20 caractères minimum)',
+                        'minlength' => '20',
+                        'maxlength' => '500')
+                )
             ))
             ->add('subscribe', CheckboxType::class, array(
                 'label' => 'Je souhaite être tenu au courant des bons plans',
@@ -124,34 +140,29 @@ class SiteController extends Controller
             ))
             ->getForm();
 
-        if ($request->isMethod('POST')) {
-            $form->handleRequest($request);
 
-            if ($form->isValid() && $form->isSubmitted()) {
+        return $this->render('PierreSiteBundle:Site:contact.html.twig', array(
+            'form' => $form->createView(),
+        ));
 
-                $sendinblue = $this->get('sendinblue_api');
+    }
 
-                $mailer = $this->container->get('sendinblue');
 
-                $resMailer = $mailer->sendContactMail($sendinblue, $form->get('mail')->getData(), $form->get('user')->getData(), $form->get('subject')->getData(), $form->get('body')->getData(), $form->get('subscribe')->getData());
+    public function sendcontactmailAction(Request $request)
+    {
+        if ($request->isXmlHttpRequest()) {
+            $sendinblue = $this->get('sendinblue_api');
 
-                if ($resMailer == 'success') {
-                    $this->addFlash(
-                        'success',
-                        'Votre mail a bien été envoyé ! <br> Je vous remercie d\'avance pour votre message :)'
-                    );
-                } else {
-                    $this->addFlash(
-                        'danger',
-                        'Une erreur est survenue, est-il possible de nous le préciser par mail ? <br> Je ferai le nécessaire pour réparer cela au plus vite. Je suis désolé du dérangement'
-                    );
-                }
-                return $this->redirect($request->getUri());
-            }
+            $mailer = $this->container->get('sendinblue');
+
+            header('Content-Type: application/json');
+
+            $response_array['status'] = $mailer->sendContactMail($sendinblue, $request->get('mail'), $request->get('user'), $request->get('subject'), $request->get('body'), $request->get('subscribe'));
+            echo $response_array['status'];
+
+            return new Response();
         } else {
-            return $this->render('PierreSiteBundle:Site:contact.html.twig', array(
-                'form' => $form->createView(),
-            ));
+            return $this->contactAction();
         }
     }
 

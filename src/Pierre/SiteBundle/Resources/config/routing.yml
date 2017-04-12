@@ -47,3 +47,11 @@ PierreSiteBundle_newsletter:
     defaults: { _controller: PierreSiteBundle:Site:newsletter }
     requirements:
         _method: POST
+
+PierreSiteBundle_sendcontactmail:
+    path: /sendcontactmail
+    defaults: { _controller: PierreSiteBundle:Site:sendcontactmail }
+    requirements:
+        _method: POST
+
+

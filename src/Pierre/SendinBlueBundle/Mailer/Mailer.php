@@ -92,18 +92,6 @@ class Mailer extends Controller
     }
 
 
-    public function contactMail($sendinblue, $mail, $user, $subscribe)
-    {
-        $data = array("id" => 12, "to" => $mail);
-
-        if ($this->addToMailist($sendinblue, $mail, $user, $subscribe) == 'success') {
-            $sendinblue->send_transactional_template($data);
-            return "success";
-        } else {
-            return "fail";
-        }
-    }
-
 
     public function addToContactList($sendinblue, $mail, $user, $data, $idlist, $sendmail)
     {
@@ -178,7 +166,8 @@ class Mailer extends Controller
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 <meta content="yes" name="apple-mobile-web-app-capable" />
 <meta content="black" name="apple-mobile-web-app-status-bar-style" />
-<meta content="telephone=no" name="format-detection" />' . $this->getCSSTextMailResults() . '
+<meta content="telephone=no" name="format-detection" />
+' . $this->getCSSTextMailResults() . '
 
 <p class="title">Voici vos r&eacute;sultats de votre recherche sur Le Blog &Eacute;tudiant</p>
 	
@@ -191,8 +180,10 @@ class Mailer extends Controller
 <div class="footer">
 	<h2>Le Blog Etudiant</h2>
 	<p>Enfin, pour être au courant en temps réel des dernières nouvelles :</p>
-    <p class="social-link"><a href="https://www.facebook.com/blogetudiant" target="_blank">Facebook</a></p>
-    <p class="social-link"><a href="https://twitter.com/Le_BlogEtudiant" target="_blank">Twitter</a></p>
+
+    <p><a href="https://twitter.com/Le_BlogEtudiant" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></a></p>
+    <p><a href="https://twitter.com/Le_BlogEtudiant" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></a></p>
+    
 </div>
 </body>';
     }
