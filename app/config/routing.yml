@@ -8,7 +8,7 @@ pierre_blog:
 
 pierre_connaitresesaides:
     resource: "@PierreConnaitresesaidesBundle/Resources/config/routing.yml"
-    prefix:   /identifier-ses-aides
+    prefix:   /identifier-mes-aides
 
 
 

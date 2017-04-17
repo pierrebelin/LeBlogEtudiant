@@ -1,3 +1,4 @@
 ## YAML Template.
 parameters:
     pierre_blog.comments.latest_comment_limit: 10
+    pierre_blog.blog.max_article: 5

@@ -12,3 +12,14 @@ $('#return-to-top').click(function() {      // When arrow is clicked
     }, 1200);
 });
 
+
+$(document).on('click', '.smooth-link', function(event){
+    event.preventDefault();
+
+    $('html, body').animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 1200);
+});
+
+
+

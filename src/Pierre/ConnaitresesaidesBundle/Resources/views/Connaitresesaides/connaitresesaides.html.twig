@@ -20,10 +20,6 @@
                     d'abord remplir les informations ci-dessous.</p>
                 <p>Les aides, avantages et offres qui vous seront ensuite proposés sont définis grâce à ces
                     critères.</p>
-                <p>Il se peut que votre ville ne soit pas renseignée. Si c'est le cas, cela veut dire que nous n'avons
-                    pas encore renseigné les aides de cette ville (nous ne publions les aides d'une ville seulement
-                    après les avoir toutes référencées). Contactez-nous par mail pour que nous puissions ajouter votre
-                    ville dès que possible !</p>
                 <p>Pour chacun des résultats, un lien vous sera fourni pour vous rédiriger vers la plateforme qui le
                     service. À vous ensuite de les contacter pour en savoir plus. <strong>En aucun cas nous ne ferons
                         les démarches à votre place !</strong></p>
@@ -44,7 +40,7 @@
                     <div class="col-md-4">
                         {{ form_widget(form.city, {'attr': {'class': 'form-control'}}) }}
                     </div>
-                    <a class="col-md-4 control-label align-left-important" href="#ville-non-existante">Tu ne trouves pas
+                    <a class="col-md-4 control-label align-left-important smooth-link" href="#ville-non-existante">Tu ne trouves pas
                         ta ville dans la liste ?</a>
                 </div>
                 <div class="form-group form-margin">
@@ -60,7 +56,7 @@
                     {{ form_label(form.salary, form.salary, {'label_attr': {'class': 'col-md-4 control-label'}}) }}
                     <div class="col-md-4">
                         {{ form_widget(form.salary, {'attr': { 'class': 'form-control',
-                            'placeholder': 'Maximum de 5000€',
+                            'placeholder': 'Pas de salaire ? Mettez 0',
                             'min': '0',
                             'max': '5000'}}) }}
                     </div>
@@ -93,7 +89,7 @@
                 <p>C'est le moyen le plus simple d'être tenu au courant de l'ajout de ta ville. Les villes sont ajoutées
                     au fur et à mesure que les données soient complètes.
                     <br>
-                    Le formulaire d'inscription à la newsletter se trouve <a href="#footer">en bas de page</a>.</p>
+                    Le formulaire d'inscription à la newsletter se trouve <a class="smooth-link" href="#footer">en bas de page</a>.</p>
 
                 <h3>Envoyer une demande par mail</h3>
                 <p>En <a href="{{ path('PierreSiteBundle_contact') }}">m'envoyant un mail</a>, je serai plus à même que connaître la prochaine ville à ajouter sur le site !

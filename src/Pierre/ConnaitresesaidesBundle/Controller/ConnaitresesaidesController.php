@@ -139,14 +139,14 @@ class ConnaitresesaidesController extends Controller
 
         $form = $this->createFormBuilder()
             ->add('firstname', TextType::class, array(
-                'label' => 'Prénom*',
+                'label' => 'Prénom *',
                 'attr' => array(
                     'placeholder' => 'Prénom',
                     'class' => 'form-control'
                 )
             ))
             ->add('mailaddress', EmailType::class, array(
-                'label' => 'Mail*',
+                'label' => 'Mail *',
                 'attr' => array(
                     'placeholder' => 'Mail',
                     'class' => 'form-control'

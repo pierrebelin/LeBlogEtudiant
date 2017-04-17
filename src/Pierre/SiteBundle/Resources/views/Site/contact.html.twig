@@ -59,7 +59,7 @@
                 <div class="form-group form-margin">
                     {{ form_label(form.body, form.body, {'label_attr': {'class': 'col-md-3 control-label'}}) }}
                     <div class="col-md-6">
-                        {{ form_widget(form.body,, {'id' : 'contact-body'} ) }}
+                        {{ form_widget(form.body, {'id' : 'contact-body'} ) }}
                     </div>
                 </div>
                 <div class="form-group form-margin">
@@ -86,7 +86,7 @@
     </div>
 
     <!-- RESULTATS DES MAILS -->
-    <div class="modal fade" data-modal-color="green" id="resultats-success-modal" data-backdrop="static"
+    <div class="modal fade" data-modal-color="green" id="contact-success-modal" data-backdrop="static"
          data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -104,7 +104,7 @@
         </div>
     </div>
 
-    <div class="modal fade" data-modal-color="red" id="resultats-error-modal" data-backdrop="static"
+    <div class="modal fade" data-modal-color="red" id="contact-error-modal" data-backdrop="static"
          data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -115,7 +115,8 @@
                 <div class="modal-body">
                     <p>Désolé, il y a eu une erreur pendant l'envoi du mail.</p>
                     <p>L'adresse enregistrée n'est surement pas bonne, veuillez vérifier</p>
-                    <p>Si je problème persiste, merci de bien vouloir faire retourner ce problème grâce au formulaire de contact
+                    <p>Si je problème persiste, merci de bien vouloir faire retourner ce problème grâce au formulaire de
+                        contact
                         <br>
                         Veuillez m'excuser du dérangement !</p>
                 </div>
@@ -127,7 +128,7 @@
         $("#contact-form").submit(function () {
             $.ajax({
                 type: "POST",
-                url: "{{ path('PierreConnaitresesaidesBundle_sendcontactmail') }}",
+                url: "{{ path('PierreSiteBundle_sendcontactmail') }}",
                 data: {
                     mail: $("#contact-mail").val(),
                     user: $("#contact-user").val(),

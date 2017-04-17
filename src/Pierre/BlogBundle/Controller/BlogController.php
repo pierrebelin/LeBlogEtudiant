@@ -11,16 +11,29 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 class BlogController extends Controller
 {
 
-    public function indexAction()
+    public function indexAction($page)
     {
-        $em = $this->getDoctrine()
-            ->getManager();
+        $em = $this->getDoctrine()->getManager();
+
+        $maxArticles = $this->container->getParameter('pierre_blog.blog.max_article');
+        $countArticles = $this->getDoctrine()
+            ->getRepository('PierreBlogBundle:Blog')
+            ->getCountBlogs();
+
+        $pagination = array(
+            'page' => $page,
+            'route' => 'PierreBlogBundle_homepage',
+//            'pages_count' => ceil($countArticles / $maxArticles),
+            'pages_count' => 8,
+            'route_params' => array()
+        );
 
         $blogs = $em->getRepository('PierreBlogBundle:Blog')
-            ->getLatestUpdatedBlogs();
+            ->getLatestUpdatedBlogs($page, $maxArticles);
 
         return $this->render('PierreBlogBundle:Blog:index.html.twig', array(
-            'blogs' => $blogs
+            'blogs' => $blogs,
+            'pagination' => $pagination
         ));
     }
 
@@ -79,20 +92,6 @@ class BlogController extends Controller
                 'label' => 'S\'abonner',
             ))
             ->getForm();
-
-//        if ($request->isMethod('POST')) {
-//            $form->handleRequest($request);
-//            if ($form->isValid() && $form->isSubmitted()) {
-//                $sendinblue = $this->get('sendinblue_api');
-//
-//                $mailer = $this->container->get('sendinblue');
-//
-//                $resMailer = $mailer->subscribeToNewsletter($sendinblue, $form->get('mail')->getData(), $form->get('user')->getData());
-//            }
-//
-//            header("location: " . $request->getUri());
-//            exit();
-//        }
 
         return $this->render('PierreBlogBundle:Blog:sidebar.html.twig', array(
             'latestComments' => $latestComments,

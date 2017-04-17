@@ -28,6 +28,8 @@ class Mailer extends Controller
     // ID TEMPLATE MAIL SENDINBLUE
     protected $idtemplatenewsletter = 7;
     protected $idtemplatecontact = 11;
+    protected $idtemplatecomment = 12;
+
 
     public function __construct($sendinblue_contact)
     {
@@ -49,19 +51,20 @@ class Mailer extends Controller
             "text" => $body,
         );
 
-        return $sendinblue->send_email($data_mail);
+        return $sendinblue->send_email($data_mail)['code'];
     }
 
     public function postComment($sendinblue, $mail, $user, $subscribe)
     {
-        $data = array("id" => 12, "to" => $mail);
-
-        if ($this->addToMailist($sendinblue, $mail, $user, $subscribe) == 'success') {
-            $sendinblue->send_transactional_template($data);
-            return "success";
-        } else {
-            return "fail";
+        if($subscribe == "true"){
+            $data = array("id" => $this->idtemplatenewsletter, "to" => $mail);
+            $this->addToContactList($sendinblue, $mail, $user, $data, $this->idlistnewsletter, true);
         }
+
+        $data = array("id" => $this->idtemplatecomment, "to" => $mail);
+        $this->addToContactList($sendinblue, $mail, $user, $data, $this->idlistcontact, false);
+
+        return 'success';
     }
 
     public function sendResultsMail($sendinblue, $mail, $user, $results, $subscribe)

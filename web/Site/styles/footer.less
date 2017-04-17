@@ -33,9 +33,6 @@ footer {
 .footer-mention {
   padding: 25px 10px;
   margin: 0px;
-}
-
-.footer-mention {
   ul {
     list-style: none;
     margin: 0px;
@@ -56,7 +53,7 @@ footer {
       text-decoration: none;
     }
   }
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 .nav-title {
@@ -64,17 +61,9 @@ footer {
   font-weight: bold;
 }
 
-.navbar-footer:not(:first-child) {
-  padding-left: 40px;
-  text-align: left;
-}
-
-.navbar-footer {
+.navbar-footer-link {
+  text-align: right;
   padding: 0px;
-  h6 {
-    margin-bottom: 15px;
-    text-align: left;
-  }
   ul {
     list-style: none;
     text-decoration: none;
@@ -83,6 +72,24 @@ footer {
   li {
     padding: 5px 0px;
   }
+}
+
+@media (max-width: 1200px) {
+  .navbar-footer-link {
+    text-align: center;
+    padding-top: 15px;
+  }
+}
+
+.navbar-footer {
+  text-align: left;
+
+  padding: 0px;
+  h6 {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+
 }
 
 .navbar-footer > li > a:hover, .navbar-footer > li > a:active, .navbar-footer > li > a:focus {

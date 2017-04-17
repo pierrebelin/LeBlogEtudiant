@@ -1,9 +1,9 @@
 PierreBlogBundle_homepage:
-    path:     /
-    defaults: { _controller: PierreBlogBundle:Blog:index }
+    path:     /{page}
+    defaults: { _controller: PierreBlogBundle:Blog:index, page: 1 }
         
 PierreBlogBundle_blog_show:
-    path:     /{slug}
+    path:     /article/{slug}
     defaults: { _controller: PierreBlogBundle:Blog:show }
     requirements:
         _method:  GET|POST

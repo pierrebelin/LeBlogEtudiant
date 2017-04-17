@@ -114,7 +114,7 @@ and open the template in the editor.
 .preview-textblog {
   h1, h2, h3, p, a {
     margin: 0;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     font-size: 14px;
   }
   ul {
@@ -314,4 +314,29 @@ and open the template in the editor.
 
 .group-sidebar {
   margin-bottom: 0px;
+}
+
+.pagination {
+  li > a, li > span {
+    border-radius: 50% !important;
+    margin: 0 5px;
+  }
+  li > a {
+    background-color: white;
+    color: @color-principal;
+    &:hover, &:focus, &:active {
+      background-color: @color-secondary;
+    }
+  }
+  .active > a {
+    background-color: @color-principal;
+    border: @color-principal;
+    &:hover, &:focus, &:active {
+      background-color: @color-principal;
+    }
+  }
+}
+
+.blog-header  {
+  background-image: url('../images/header-blog.jpg');
 }

@@ -119,16 +119,17 @@ class SiteController extends Controller
                     'Proposer une idée d\'article' => 'Proposer son idée d\'article',
                     'Autre sujet (à définir dans le message)' => 'Autre sujet'
                 ),
+                'attr' => array(
+                    'class' => 'form-control'
+                )
             ))
             ->add('body', TextareaType::class, array(
                 'label' => 'Message *',
                 'attr' => array(
-                    'placeholder' => 'Prénom',
-                    'attr' => array(
-                        'class' => 'form-control vresize',
-                        'placeholder' => 'Écrivez ce qui vous passe par la tête, même un simple "merci" me ferait énormément plaisir ! (20 caractères minimum)',
-                        'minlength' => '20',
-                        'maxlength' => '500')
+                    'placeholder' => 'Écrivez ce qui vous passe par la tête, même un simple "merci" me ferait énormément plaisir ! (20 caractères minimum)',
+                    'class' => 'form-control vresize',
+                    'minlength' => '20',
+                    'maxlength' => '500'
                 )
             ))
             ->add('subscribe', CheckboxType::class, array(
@@ -148,6 +149,7 @@ class SiteController extends Controller
     }
 
 
+    // PHP from Ajax call to send mail from contact page
     public function sendcontactmailAction(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
@@ -166,7 +168,7 @@ class SiteController extends Controller
         }
     }
 
-
+    // PHP from Ajax call to send mail from newsletter footer
     public function newsletterAction(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
@@ -184,6 +186,7 @@ class SiteController extends Controller
         }
     }
 
+    // Check if the Google Captcha is valid
     public function isCaptchaValid($code, $ip = null)
     {
         if (empty($code)) {

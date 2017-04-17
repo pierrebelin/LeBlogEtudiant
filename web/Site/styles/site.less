@@ -72,15 +72,6 @@ section {
 
 }
 
-//.main-header {
-//  position: relative;
-//  height: 500px;
-//  background-repeat: no-repeat;
-//  background-size: 100%;
-//  background-position: center;
-//  background-image: url('../images/header-apropos.jpeg');
-//}
-
 .main-header {
   align-items: center;
   background-image: url('../images/header-main.jpg');
@@ -111,6 +102,13 @@ section {
   }
 }
 
+@media (max-width: 768px) {
+  .main-header {
+    background-size: 300%;
+  }
+}
+
+
 .huge-shadow-white {
   text-shadow: 0px 0px 10px #FFF,0px 0px 10px #FFF, 0px 0px 10px #FFF,  0px 0px 10px #FFF, 0px 0px 10px #FFF, 0px 0px 10px #FFF, 0px 0px 10px #FFF, 0px 0px 10px #FFF, 0px 0px 10px #FFF, 0px 0px 10px #FFF;
 }
@@ -123,7 +121,6 @@ section {
   font-size: 14px;
   border: solid 1px #dddddd;
   border-radius: 10px;
-  margin: 1em 0px;
   padding: 1em 1em;
   min-height: 60px;
   p {
@@ -158,6 +155,9 @@ section {
 .main-quotes {
   padding: 40px 50px;
   clear: right;
+  blockquote:last-child {
+    margin-bottom: 0px;
+  }
 }
 
 .captcha {

@@ -75,37 +75,21 @@ class CommentController extends Controller
                     $resMailer = $mailer->postComment($sendinblue, $form->get('mail')->getData(), $form->get('user')->getData(), $form->get('subscribe')->getData());
 
                     if ($resMailer == 'success') {
-                        $this->addFlash(
-                            'success',
-                            'Votre commentaire a bien été ajouté ! <br> Merci pour votre intérêt à cet article :)'
-                        );
                         $em->persist($comment);
                         $em->flush();
+                        $this->addFlash(
+                            'success',
+                            'Votre commentaire a bien été ajouté ! Merci pour votre intérêt à cet article :)'
+                        );
+
                     } else {
                         $this->addFlash(
                             'danger',
-                            'Une erreur est survenue, est-il possible de nous le préciser par mail ? <br> Je ferai le nécessaire pour réparer cela au plus vite. Je suis désolé du dérangement'
+                            'Une erreur est survenue, est-il possible de nous le préciser par mail ? Je ferai le nécessaire pour réparer cela au plus vite. Je suis désolé du dérangement'
                         );
                     }
 
                     unset($form);
-
-//                    $form = $this->createFormBuilder()
-//                        ->setAction($this->generateUrl('PierreBlogBundle_blog_show', array('slug' => $comment->getBlog()->getSlug())))
-//                        ->setMethod('POST')
-//                        ->add('user', TextType::class, array(
-//                            'label' => 'Nom *',
-//                        ))
-//                        ->add('mail', EmailType::class, array(
-//                            'label' => 'Mail * ',
-//                        ))
-//                        ->add('comment', TextareaType::class, array(
-//                            'label' => 'Commentaire *'
-//                        ))
-//                        ->add('submit', SubmitType::class, array(
-//                            'label' => 'Commenter',
-//                        ))
-//                        ->getForm();
 
                     header("location: " . $request->getUri());
                     exit();

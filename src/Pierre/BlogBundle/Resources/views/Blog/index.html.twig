@@ -1,6 +1,6 @@
 {% extends 'PierreBlogBundle::layout.html.twig' %}
 
-{% block body %}    
+{% block body %}
     {% for blog in blogs %}
         <article class="blog">
             <header>
@@ -23,6 +23,32 @@
     {% else %}
         <p>Il n'y a aucun article pour le moment, désolé.<p>
     {% endfor %}
+    <div class="text-center">
+        <ul class="pagination">
+            {% if pagination.page > 1 %}
+                <li><a href="{{ path(pagination.route,
+                    pagination.route_params|merge({'page': 1})) }}"><i class="fa fa-angle-double-left"
+                                                                       aria-hidden="true"></i></a></li>
+                <li><a href="{{ path(pagination.route,
+                    pagination.route_params|merge({'page': pagination.page-1})) }}" style="width: 33.6px;"><i
+                                class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+            {% endif %}
+            {#display p numbers only from p-2 to p+2 but don't go < 1 or  > pages_count#}
+            {% for p in range(max(pagination.page - 2, 1), min(pagination.page + 2, pagination.pages_count)) %}
+                <li {% if p == pagination.page %} class="active"{% endif %}>
+                    <a {% if p == pagination.page %} onclick='return false;'{% endif %} href="{{ path(pagination.route, pagination.route_params|merge({'page': p})) }}">{{ p }}</a>
+                </li>
+            {% endfor %}
+            {% if pagination.page<pagination.pages_count %}
+                <li><a href="{{ path(pagination.route,
+                    pagination.route_params|merge({'page': pagination.page + 1})) }}" style="width: 33.6px;"> <i
+                                class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                <li><a href="{{ path(pagination.route,
+                    pagination.route_params|merge({'page': pagination.pages_count})) }}"><i
+                                class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+            {% endif %}
+        </ul>
+    </div>
 {% endblock %}
 
 
