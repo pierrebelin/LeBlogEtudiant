@@ -1,4 +1,0 @@
-## YAML Template.
-parameters:
-    pierre_blog.emails.contact_email: pbelin.pierre@gmail.com
-    pierre_blog.comments.latest_comment_limit: 10

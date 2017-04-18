@@ -2,25 +2,102 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="150de791-83b6-47ae-8bc2-500d9fc1b7c8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/Site/icons/arrow-top.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/modal.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/Site/js/base.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Site/images/search_icon.png" afterPath="$PROJECT_DIR$/web/Site/images/search_icon.png" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/Controller/BlogController.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/Controller/CommentController.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/DependencyInjection/Configuration.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/DependencyInjection/PierreBlogExtension.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/Entity/Blog.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/Entity/Comment.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/Form/CommentType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/PierreBlogBundle.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/Repository/BlogRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/Repository/CommentRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/Resources/config/config.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/Resources/config/routing.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/Resources/config/services.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/Resources/views/Blog/index.html.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/Resources/views/Blog/show.html.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/Resources/views/Blog/sidebar.html.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/Resources/views/Comment/form.html.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/Resources/views/Comment/index.html.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/Resources/views/layout.html.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/Tests/Controller/DefaultControllerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/BlogBundle/Twig/Extensions/PierreBlogExtension.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Controller/ConnaitresesaidesController.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/DependencyInjection/Configuration.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/DependencyInjection/PierreSiteExtension.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/Advantage.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/AdvantageCity.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/AdvantageCountry.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/AdvantageDepartment.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/AdvantageRegion.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/AdvantageStatut.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/Aid.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/AidCity.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/AidCountry.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/AidDepartment.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/AidRegion.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/AidStatut.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/City.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/Country.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/Department.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/Offer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/OfferCity.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/OfferCountry.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/OfferDepartment.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/OfferRegion.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/OfferStatut.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/Region.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Entity/Statut.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Form/CityType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Form/StatutType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/PierreConnaitresesaidesBundle.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/AdvantageCityRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/AdvantageCountryRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/AdvantageDepartmentRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/AdvantageRegionRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/AdvantageRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/AdvantageStatutRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/AidCityRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/AidCountryRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/AidDepartmentRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/AidRegionRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/AidRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/AidStatutRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/CityRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/CountryRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/DepartmentRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/OfferCityRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/OfferCountryRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/OfferDepartmentRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/OfferRegionRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/OfferRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/OfferStatutRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/RegionRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Repository/StatutRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Resources/config/routing.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Resources/config/services.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Resources/views/Connaitresesaides/connaitresesaides.html.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Resources/views/Connaitresesaides/index.html.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Resources/views/Connaitresesaides/resultats.html.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Resources/views/layout.html.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/ConnaitresesaidesBundle/Tests/Controller/DefaultControllerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/SiteBundle/Controller/SiteController.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/SiteBundle/DependencyInjection/Configuration.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/SiteBundle/DependencyInjection/PierreSiteExtension.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/SiteBundle/Entity/MailList.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/SiteBundle/Entity/NewsletterMailList.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/SiteBundle/PierreSiteBundle.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/SiteBundle/Repository/MailListRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/SiteBundle/Repository/NewsletterMailListRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/SiteBundle/Resources/config/routing.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/SiteBundle/Resources/config/services.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/SiteBundle/Resources/views/Site/apropos.html.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/SiteBundle/Resources/views/Site/contact.html.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/SiteBundle/Resources/views/Site/contactEmail.txt.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/SiteBundle/Resources/views/Site/index.html.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Pierre/Pierre/SiteBundle/Resources/views/layout.html.twig" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception/error.html.twig" afterPath="$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception/error.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Pierre/BlogBundle/Controller/CommentController.php" afterPath="$PROJECT_DIR$/src/Pierre/BlogBundle/Controller/CommentController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Pierre/ConnaitresesaidesBundle/Resources/views/Connaitresesaides/resultats.html.twig" afterPath="$PROJECT_DIR$/src/Pierre/ConnaitresesaidesBundle/Resources/views/Connaitresesaides/resultats.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Pierre/SiteBundle/Controller/SiteController.php" afterPath="$PROJECT_DIR$/src/Pierre/SiteBundle/Controller/SiteController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Pierre/SiteBundle/Resources/views/Site/contact.html.twig" afterPath="$PROJECT_DIR$/src/Pierre/SiteBundle/Resources/views/Site/contact.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Pierre/SiteBundle/Resources/views/Site/footer.html.twig" afterPath="$PROJECT_DIR$/src/Pierre/SiteBundle/Resources/views/Site/footer.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Pierre/SiteBundle/Resources/views/Site/index.html.twig" afterPath="$PROJECT_DIR$/src/Pierre/SiteBundle/Resources/views/Site/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/logs/dev.log" afterPath="$PROJECT_DIR$/var/logs/dev.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Site/styles/base.less" afterPath="$PROJECT_DIR$/web/Site/styles/base.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Site/styles/connaitresesaides.less" afterPath="$PROJECT_DIR$/web/Site/styles/connaitresesaides.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Site/styles/couleur.less" afterPath="$PROJECT_DIR$/web/Site/styles/couleur.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Site/styles/error.less" afterPath="$PROJECT_DIR$/web/Site/styles/error.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/Site/styles/resultats.less" afterPath="$PROJECT_DIR$/web/Site/styles/resultats.less" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -89,7 +166,7 @@
         <entry file="file://$PROJECT_DIR$/web/Site/styles/site.less">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1936">
-              <caret line="88" column="30" lean-forward="false" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="30" />
+              <caret line="88" column="6" lean-forward="false" selection-start-line="88" selection-start-column="6" selection-end-line="88" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -99,7 +176,7 @@
         <entry file="file://$PROJECT_DIR$/web/Site/styles/nav.less">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="616">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="23" />
+              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -108,14 +185,9 @@
       <file leaf-file-name="SiteController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Pierre/SiteBundle/Controller/SiteController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3784">
-              <caret line="181" column="49" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
-              <folding>
-                <marker date="1490607700986" expanded="true" signature="1534:1675" ph="..." />
-                <marker date="1490607700986" expanded="true" signature="1577:1652" ph="{...}" />
-                <marker date="1490607700986" expanded="true" signature="3963:4155" ph="..." />
-                <marker date="1490607700986" expanded="true" signature="4019:4120" ph="{...}" />
-              </folding>
+            <state relative-caret-position="3762">
+              <caret line="181" column="0" lean-forward="true" selection-start-line="181" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -241,7 +313,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
-    <option name="width" value="1938" />
+    <option name="width" value="1932" />
     <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -262,6 +334,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -274,526 +348,8 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Site" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Site" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Site" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Site" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icons" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Site" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pierre" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SiteBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pierre" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SiteBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tests" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pierre" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SiteBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pierre" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SiteBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Site" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pierre" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SiteBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pierre" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SiteBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pierre" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pierre" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConnaitresesaidesBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pierre" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConnaitresesaidesBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pierre" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConnaitresesaidesBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Connaitresesaides" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pierre" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ConnaitresesaidesBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Le Blog Etudiant" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TwigBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Exception" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -906,6 +462,8 @@
       <workItem from="1490818777327" duration="288000" />
       <workItem from="1490821013513" duration="264000" />
       <workItem from="1490946245420" duration="12000" />
+      <workItem from="1492549275876" duration="4000" />
+      <workItem from="1492549287144" duration="39000" />
     </task>
     <task id="LOCAL-00001" summary="Rework of dev mode">
       <created>1490083310453</created>
@@ -932,14 +490,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101368000" />
+    <option name="totallyTimeSpent" value="101411000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-9" y="-9" width="1932" height="1048" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23845327" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24568966" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31257078" sideWeight="0.5021482" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1148,13 +706,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pierre/ConnaitresesaidesBundle/Resources/views/Connaitresesaides/connaitresesaides.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="4" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Pierre/ConnaitresesaidesBundle/Resources/views/Connaitresesaides/connaitresesaides.html.twig" />
     <entry file="file://$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception/error.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="598">
@@ -1226,13 +778,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Pierre/ConnaitresesaidesBundle/Resources/views/Connaitresesaides/resultats.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="23" column="70" lean-forward="false" selection-start-line="23" selection-start-column="70" selection-end-line="23" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Pierre/ConnaitresesaidesBundle/Resources/views/Connaitresesaides/resultats.html.twig" />
     <entry file="file://$PROJECT_DIR$/web/Site/styles/less.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
@@ -1264,14 +810,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Pierre/SiteBundle/Controller/SiteController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3784">
-          <caret line="181" column="49" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
-          <folding>
-            <marker date="1490607700986" expanded="true" signature="1534:1675" ph="..." />
-            <marker date="1490607700986" expanded="true" signature="1577:1652" ph="{...}" />
-            <marker date="1490607700986" expanded="true" signature="3963:4155" ph="..." />
-            <marker date="1490607700986" expanded="true" signature="4019:4120" ph="{...}" />
-          </folding>
+        <state relative-caret-position="3762">
+          <caret line="181" column="0" lean-forward="true" selection-start-line="181" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1318,7 +859,7 @@
     <entry file="file://$PROJECT_DIR$/web/Site/styles/site.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1936">
-          <caret line="88" column="30" lean-forward="false" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="30" />
+          <caret line="88" column="6" lean-forward="false" selection-start-line="88" selection-start-column="6" selection-end-line="88" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -1326,7 +867,7 @@
     <entry file="file://$PROJECT_DIR$/web/Site/styles/nav.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="616">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="23" />
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="3" />
           <folding />
         </state>
       </provider>
