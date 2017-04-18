@@ -1,7 +1,7 @@
 {% extends 'PierreConnaitresesaidesBundle::layout.html.twig' %}
 
 {% block title %}
-    {{ parent() }}Identifier ses aides pour les étudiants français | Résultats
+    {{ parent() }}Identifier mes aides étudiantes | Résultats
 {% endblock %}
 
 {% block stylesheets %}
@@ -12,8 +12,8 @@
 {% block content %}
     <div class="container container-shadow">
         <div class="row content">
-            <div>
-                <h1 class="title">Résultats</h1>
+            <div class="header-aides">
+                <h1>Résultats</h1>
             </div>
             <hr class="main-hr">
             <p>Les résultats affichés correspondent aux critères suivants :</p>
@@ -27,6 +27,15 @@
                     d'accès.</strong>
                 Certaines offres possèdent des conditions secondaires, faites attention, vous risquez de vous retrouver
                 avec des frais supplémentaires ou l'impossibilité de rendre votre engagement avant une période future.
+            </p>
+            <p>
+                Les résultats sont classés selon les catégories suivantes :
+                <br>
+                <strong>Aides</strong> : subventions accordées en fonction d'une catégorie social, sans contrepartie. Il faut vérifier les conditions pour y avoir accès.
+                <br>
+                <strong>Avantages</strong> : réductions sur le montant total de l'achat. Il faut acheter le produit pour bénéficier de l'avantage.
+                {#<br>#}
+                {#Offres : promotions d'un partenaire permettant de faire vivre ce site#}
             </p>
             <hr class="main-hr">
             <h2>Liste d'éligibilité</h2>
@@ -45,8 +54,7 @@
                                 <th class="col-md-2">Nom</th>
                                 <th class="col-md-2">Organisme</th>
                                 <th class="col-md-2">Montant</th>
-                                <th class="col-md-2">Description</th>
-                                <th class="col-md-2">Zone éligible</th>
+                                <th class="col-md-4">Description</th>
                                 <th class="col-md-2"></th>
                             </tr>
                             </thead>
@@ -56,8 +64,7 @@
                                     <td class="col-md-2">{{ array.name }}</td>
                                     <td class="col-md-2">{{ array.organism }}</td>
                                     <td class="col-md-2">{{ array.amount }}</td>
-                                    <td class="col-md-2">{{ array.description }}</td>
-                                    <td class="col-md-2">{{ array.location }}</td>
+                                    <td class="col-md-4">{{ array.description }}</td>
                                     <td class="col-md-2 td-link"><a class="link-more" target="_blank"
                                                                     href="{{ array.link }}"
                                                                     title="Redirection vers le site de {{ array.organism }} qui propose l'aide {{ array.name }}">En
@@ -82,8 +89,7 @@
                                 <th class="col-md-2">Nom</th>
                                 <th class="col-md-2">Organisme</th>
                                 <th class="col-md-2">Montant</th>
-                                <th class="col-md-2">Description</th>
-                                <th class="col-md-2">Zone éligible</th>
+                                <th class="col-md-4">Description</th>
                                 <th class="col-md-2"></th>
                             </tr>
                             </thead>
@@ -93,8 +99,7 @@
                                     <td class="col-md-2">{{ array.name }}</td>
                                     <td class="col-md-2">{{ array.organism }}</td>
                                     <td class="col-md-2">{{ array.amount }}</td>
-                                    <td class="col-md-2">{{ array.description }}</td>
-                                    <td class="col-md-2">{{ array.location }}</td>
+                                    <td class="col-md-4">{{ array.description }}</td>
                                     <td class="col-md-2 td-link"><a class="link-more" target="_blank"
                                                                     href="{{ array.link }}"
                                                                     title="Redirection vers le site de {{ array.organism }} qui propose l'aide {{ array.name }}">En

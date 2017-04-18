@@ -73,7 +73,7 @@ class ConnaitresesaidesController extends Controller
                 return $this->redirectToRoute('PierreConnaitresesaidesBundle_connaitresesaides_resultats', $data);
             }
         } else {
-            return $this->render('PierreConnaitresesaidesBundle:Connaitresesaides:connaitresesaides.html.twig', array(
+            return $this->render('PierreConnaitresesaidesBundle:Connaitresesaides:aidesetudiants.html.twig', array(
                 'form' => $form->createView(),
             ));
         }
@@ -174,7 +174,7 @@ class ConnaitresesaidesController extends Controller
 
             return $this->render('PierreConnaitresesaidesBundle:Connaitresesaides:index.html.twig');
         } else {
-            return $this->render('PierreConnaitresesaidesBundle:Connaitresesaides:resultats.html.twig', array(
+            return $this->render('PierreConnaitresesaidesBundle:Connaitresesaides:aidesetudiantsresultats.html.twig', array(
                 'statut' => $statut,
                 'city' => $city,
                 'age' => $age,

@@ -16,7 +16,7 @@ nav {
 .navbar-site a {
   color: white;
   padding: 25px 15px !important;
-  transition: background-color 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .nav-title {
@@ -28,9 +28,12 @@ nav {
   i {
     color: white;
   }
-  padding: 0 15px;
 }
 
+.navbar-collapse {
+  padding-left: 0;
+  padding-right: 0;
+}
 
 
 .nav {
@@ -38,16 +41,20 @@ nav {
     margin-bottom: 0px;
     a {
       &:hover, &:active, &:focus {
-        background: #ABC8E2;
-        color: white;
+        background: @color-secondary;
+        color: @color-principal;
       }
     }
   }
 }
 
+
 @media (max-width: 768px) {
   .navbar-site a {
     text-align: center;
   }
+  .navbar-header {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
-

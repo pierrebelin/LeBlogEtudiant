@@ -125,14 +125,18 @@ body {
 
 .main-button {
   .button-form;
-  background-color: @color-important;
-  color: @background-body;
   border: 0px;
   padding: 15px 25px;
-  &:hover, &:active, &:focus {
-    background-color: @color-important-darker;
-    color: @background-body;
+  .button-force-color;
+}
 
+.button-force-color {
+  color: @background-color;
+  background-color: @color-important;
+  transition: background-color 0.5s ease;
+  &:hover, &:active, &:focus {
+    background-color: #e67e22;
+    color: @background-color;
   }
 }
 
@@ -152,13 +156,7 @@ body {
 .btn-force {
   padding-left: 25px;
   padding-right: 25px;
-  color: @background-color;
-  background-color: @color-important;
-  transition: background-color 0.5s ease;
-  &:hover, &:active, &:focus {
-    background-color: @color-important-darker;
-    color: @background-color;
-  }
+  .button-force-color;
 }
 
 /* MAIN PAGE / INDEX */

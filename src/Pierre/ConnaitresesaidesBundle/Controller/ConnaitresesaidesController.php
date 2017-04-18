@@ -24,7 +24,7 @@ class ConnaitresesaidesController extends Controller
     }
 
 
-    public function connaitresesaidesAction(Request $request)
+    public function aidesetudiantsAction(Request $request)
     {
         $form = $this->createFormBuilder()
             ->add('statut', EntityType::class, array(
@@ -71,16 +71,16 @@ class ConnaitresesaidesController extends Controller
                     'age' => $form->get('age')->getData(),
                     'salary' => $form->get('salary')->getData());
 
-                return $this->redirectToRoute('PierreConnaitresesaidesBundle_connaitresesaides_resultats', $data);
+                return $this->redirectToRoute('PierreConnaitresesaidesBundle_aidesetudiants_resultats', $data);
             }
         } else {
-            return $this->render('PierreConnaitresesaidesBundle:Connaitresesaides:connaitresesaides.html.twig', array(
+            return $this->render('PierreConnaitresesaidesBundle:Connaitresesaides:aidesetudiants.html.twig', array(
                 'form' => $form->createView(),
             ));
         }
     }
 
-    public function resultatsAction(Request $request)
+    public function aidesetudiantsresultatsAction(Request $request)
     {
         // On a donc accès au conteneur :
         //$mailer = $this->container->get('mailer');
@@ -166,7 +166,7 @@ class ConnaitresesaidesController extends Controller
 
             return $this->render('PierreConnaitresesaidesBundle:Connaitresesaides:index.html.twig');
         } else {
-            return $this->render('PierreConnaitresesaidesBundle:Connaitresesaides:resultats.html.twig', array(
+            return $this->render('PierreConnaitresesaidesBundle:Connaitresesaides:aidesetudiantsresultats.html.twig', array(
                 'statut' => $statut,
                 'city' => $city,
                 'age' => $age,

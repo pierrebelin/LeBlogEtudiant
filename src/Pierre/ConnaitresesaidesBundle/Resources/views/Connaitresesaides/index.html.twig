@@ -5,15 +5,31 @@
 {% endblock %}
 
 {% block content %}
-    <div class="header-aides header-picture">
+    <div class="header-aides-picture header-picture">
+        <div class="row">
 
+        </div>
     </div>
     <div class="container container-shadow">
-        <div class="row content">
-            <div>
+        <div class="row content content-title">
+            <h1>Choisissez votre type d'aides</h1>
+        </div>
+        <div class="row link-aid">
+            {#<a href="{{ path('PierreConnaitresesaidesBundle_connaitresesaides') }}"#}
+            {#class="col-xs-12 col-sm-4 link-aid-first">#}
+            {#Aides pour devenir étudiant entrepreneur#}
+            {#</a>#}
+            <a href="{{ path('PierreConnaitresesaidesBundle_aidesetudiants') }}"
+               class="col-xs-12 col-sm-12 link-aid-third">
+                Aides pour étudiants
+            </a>
 
-            </div>
-            <div class="row display-table">
+            {#<a class="col-xs-12 col-sm-4 link-aid-third">#}
+            {#Aides pour étudier à l'étranger#}
+            {#</a>#}
+        </div>
+        <div class="row content">
+            <div class="display-table">
                 <div class="col-md-3 display-cell">
                     <img src="{{ asset('Site/images/fast_icon.png') }}"
                          title="Credit : fast by Ralf Schmitzer from the Noun Project"/>
@@ -47,9 +63,19 @@
                          title="Credit : Search Euro by corpus delicti from the Noun Project"/>
                 </div>
             </div>
-            <div class="row button-redirection paddingtop">
-                <a href="{{ path('PierreConnaitresesaidesBundle_connaitresesaides') }}">Identifier mes aides</a>
-            </div>
+        </div>
+        <div class="row link-aid">
+            {#<a href="{{ path('PierreConnaitresesaidesBundle_connaitresesaides') }}"#}
+            {#class="col-xs-12 col-sm-4 link-aid-first">#}
+            {#Aides pour devenir étudiant entrepreneur#}
+            {#</a>#}
+            <a href="{{ path('PierreConnaitresesaidesBundle_aidesetudiants') }}"
+               class="col-xs-12 col-sm-12 link-aid-third">
+                Aides pour étudiants
+            </a>
+            {#<a class="col-xs-12 col-sm-4 link-aid-third">#}
+            {#Aides pour étudier à l'étranger#}
+            {#</a>#}
         </div>
     </div>
 {% endblock %}

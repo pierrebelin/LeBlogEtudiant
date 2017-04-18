@@ -23,8 +23,8 @@ class BlogController extends Controller
         $pagination = array(
             'page' => $page,
             'route' => 'PierreBlogBundle_homepage',
-//            'pages_count' => ceil($countArticles / $maxArticles),
-            'pages_count' => 8,
+            'pages_count' => ceil($countArticles / $maxArticles),
+//            'pages_count' => 8,
             'route_params' => array()
         );
 

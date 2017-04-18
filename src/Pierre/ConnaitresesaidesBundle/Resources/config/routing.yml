@@ -3,15 +3,15 @@ PierreConnaitresesaidesBundle_homepage:
     defaults:
        _controller: PierreConnaitresesaidesBundle:Connaitresesaides:index
 
-PierreConnaitresesaidesBundle_connaitresesaides:
-    path:    /aides-etudiants-francais
+PierreConnaitresesaidesBundle_aidesetudiants:
+    path:    /aides-etudiants
     defaults:
-       _controller: PierreConnaitresesaidesBundle:Connaitresesaides:connaitresesaides
+       _controller: PierreConnaitresesaidesBundle:Connaitresesaides:aidesetudiants
 
-PierreConnaitresesaidesBundle_connaitresesaides_resultats:
-    path:    /aides-etudiants-francais/resultats
+PierreConnaitresesaidesBundle_aidesetudiants_resultats:
+    path:    /aides-etudiants/resultats
     defaults:
-       _controller: PierreConnaitresesaidesBundle:Connaitresesaides:resultats
+       _controller: PierreConnaitresesaidesBundle:Connaitresesaides:aidesetudiantsresultats
 
 PierreConnaitresesaidesBundle_sendresultsmail:
     path:    /aides-etudiants-francais/resultats/sendresultsmail
