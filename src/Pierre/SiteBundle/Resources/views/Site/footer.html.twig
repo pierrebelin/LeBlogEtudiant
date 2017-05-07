@@ -1,40 +1,44 @@
 <footer id="footer">
     <div class="container">
-        <div class="row footer-site footer-site-top">
-            <div class="col-lg-8 navbar-footer">
-                <h6 class="nav-title">Newsletter</h6>
-                <div id="subscribe-footer">
-                    {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post', 'id' :'subscribe-footer-form'}}) }}
-                    <div class="form-group">
-                        <div class="col-lg-3 footer-newsletter">
-                            {{ form_widget(form.user, {'id': 'subscribe-footer-user'}) }}
-                        </div>
-                        <div class="col-lg-5 footer-newsletter">
-                            {{ form_widget(form.mail, {'id': 'subscribe-footer-mail'}) }}
-                        </div>
-                        <div class="col-lg-2 footer-newsletter">
-                            {{ form_widget(form.submit, {'id': 'submit', 'attr': { 'class': 'btn btn-force' }}) }}
-                        </div>
-                    </div>
-                    {{ form_rest(form) }}
-
-                    {{ form_end(form) }}
+        <div class="footer-site footer-site-top">
+            <div class="row social-footer">
+                <div class="col-xs-9 navbar-footer">
+                    <h6 class="nav-title">Suivez les dernières nouvelles sur les réseaux sociaux</h6>
                 </div>
-                <p>Aucun spam promis ! Je les déteste autant que vous </p>
+                <div class="col-xs-3 navbar-footer social-icon">
+                    <a href="https://www.facebook.com/blogetudiant"><i class="fa fa-facebook-square fa-3x facebook-social" aria-hidden="true"></i></a>
+                    <a href="https://twitter.com/Le_BlogEtudiant"><i class="fa fa-twitter fa-3x twitter-social" aria-hidden="true"></i></a>
+                </div>
             </div>
-            <div class="col-lg-2 col-sm-6 navbar-footer-link">
-                <h6 class="nav-title">Contact</h6>
-                <ul>
-                    <li class="footer-link"><a href="{{ path('PierreSiteBundle_contact') }}">Contact</a></li>
-                    <li class="footer-link"><a href="{{ path('PierreSiteBundle_contact') }}">Partenaires</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-2 col-sm-6 navbar-footer-link ">
-                <h6 class="nav-title">Sociaux</h6>
-                <ul>
-                    <li class="footer-link"><a href="https://www.facebook.com/blogetudiant">Facebook</a></li>
-                    <li class="footer-link"><a href="https://twitter.com/Le_BlogEtudiant">Twitter</a></li>
-                </ul>
+            <div class="row">
+                <div class="col-lg-8 navbar-footer">
+                    <h6 class="nav-title">Newsletter</h6>
+                    <div id="subscribe-footer">
+                        {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post', 'id' :'subscribe-footer-form'}}) }}
+                        <div class="form-group">
+                            <div class="col-lg-3 footer-newsletter">
+                                {{ form_widget(form.user, {'id': 'subscribe-footer-user'}) }}
+                            </div>
+                            <div class="col-lg-5 footer-newsletter">
+                                {{ form_widget(form.mail, {'id': 'subscribe-footer-mail'}) }}
+                            </div>
+                            <div class="col-lg-2 footer-newsletter">
+                                {{ form_widget(form.submit, {'id': 'submit', 'attr': { 'class': 'btn btn-force' }}) }}
+                            </div>
+                        </div>
+                        {{ form_rest(form) }}
+
+                        {{ form_end(form) }}
+                    </div>
+                    <p>Aucun spam promis ! Je les déteste autant que vous </p>
+                </div>
+                <div class="col-lg-4 col-sm-12 navbar-footer-link">
+                    <h6 class="nav-title">Contact</h6>
+                    <ul>
+                        <li class="footer-link"><a href="{{ path('PierreSiteBundle_contact') }}">Contact</a></li>
+                        <li class="footer-link"><a href="{{ path('PierreSiteBundle_contact') }}">Partenaires</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -70,9 +74,9 @@
                 cache: false,
                 success: function (data) {
                     console.log(data);
-                    if(data == 'success'){
+                    if (data == 'success') {
                         $('#subscribe-success-modal').modal('show');
-                    } else if (data == 'warning'){
+                    } else if (data == 'warning') {
                         $('#subscribe-warning-modal').modal('show');
                     } else {
                         $('#subscribe-error-modal').modal('show');

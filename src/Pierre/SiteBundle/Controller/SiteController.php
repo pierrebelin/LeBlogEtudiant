@@ -60,11 +60,6 @@ class SiteController extends Controller
         return $this->render('PierreSiteBundle:Site:cgu.html.twig');
     }
 
-    public function errorAction()
-    {
-        return $this->render('PierreSiteBundle:Site:error.html.twig');
-    }
-
     public function footerAction(Request $request)
     {
         $form = $this->createFormBuilder()

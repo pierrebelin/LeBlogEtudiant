@@ -31,10 +31,11 @@
             </header>
 
             <p>Surtout, n'hésitez pas ! Il n'y a pas de questions bêtes. Si je peux être là pour y répondre, ça sera
-                avec plaisir.
+                avec plaisir.</p>
+            <p><strong>⚠  Soyez précis dans votre message, pour que la réponse corresponde au maximum à votre attente !</strong></p>
 
-            <p>Pour les demandes de partenariats, redirigez vous vers le <a
-                        href="{{ path('PierreSiteBundle_partnership') }}">formulaire de contact des partenaires</a>.</p>
+            {#<p>Pour les demandes de partenariats, redirigez vous vers le <a#}
+                        {#href="{{ path('PierreSiteBundle_partnership') }}">formulaire de contact des partenaires</a>.</p>#}
 
             <div class="from-design">
                 {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post', 'id' :'contact-form'}}) }}
@@ -86,25 +87,25 @@
     </div>
 
     <!-- RESULTATS DES MAILS -->
-    <div class="modal fade" data-modal-color="green" id="contact-success-modal" data-backdrop="static"
+    <div class="modal fade" data-modal-color="success" id="contact-success-modal" data-backdrop="static"
          data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Le formulaire de contact vous a été envoyé</h4>
+                    <h4 class="modal-title">Le formulaire de contact a été envoyé</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Un mail récapitulatif des résultats a été envoyé à l'adresse indiquée.
+                    <p>Je vous remercie de l'intérêt de votre message !</p>
+                    <p>Je répondrai à votre message dès que possible.
                         <br>
                         Pensez bien à vérifier dans vos courriers indésirables.</p>
-                    <p>N'oubliez pas de partager ces résultats à vos amis ☺</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" data-modal-color="red" id="contact-error-modal" data-backdrop="static"
+    <div class="modal fade" data-modal-color="error" id="contact-error-modal" data-backdrop="static"
          data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

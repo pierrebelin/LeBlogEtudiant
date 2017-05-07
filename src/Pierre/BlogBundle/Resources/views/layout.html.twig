@@ -11,15 +11,17 @@
 
     </div>
     <div class="container">
-        <section class="articles col-md-8 col-sm-12">
-            {% block body %}
-            {% endblock %}
-        </section>
-        <aside class="sidebar col-md-4 col-sm-12">
-            {% block sidebar %}
-                {{ render(controller("PierreBlogBundle:Blog:sidebar")) }}
-            {% endblock %}
-        </aside>
+        <div class="row">
+            <section class="articles col-md-8 col-sm-12">
+                {% block body %}
+                {% endblock %}
+            </section>
+            <aside class="sidebar col-md-4 col-sm-12">
+                {% block sidebar %}
+                    {{ render(controller("PierreBlogBundle:Blog:sidebar")) }}
+                {% endblock %}
+            </aside>
+        </div>
     </div>
 
 {% endblock %}

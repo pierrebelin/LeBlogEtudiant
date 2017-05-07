@@ -66,22 +66,24 @@ body {
   .header-picture {
     height: 180px;
   }
+  .button-redirection a {
+    display: block;
+  }
 }
 
 .button-redirection {
-  //margin-top: 20px;
   text-align: center;
   font-size: 18px;
   padding: 25px;
-}
-
-.button-redirection a {
-  padding: 15px 25px;
-  .button-form;
-  &:hover {
-    .button-form-hover;
+  a {
+    padding: 15px 25px;
+    .button-form;
+    &:hover {
+      .button-form-hover;
+    }
   }
 }
+
 
 .btn-default {
   padding: 10px 0px;
@@ -121,6 +123,10 @@ body {
     text-align: justify;
     margin-bottom: 15px;
   }
+}
+
+.btn {
+  white-space: normal;
 }
 
 .main-button {
@@ -268,16 +274,17 @@ input[type='number'] {
 }
 
 // MODAL OKAY
-.modal[data-modal-color="green"] .modal-content {
+.modal[data-modal-color="success"] .modal-content {
   background: @color-success;
+  color: white;
 }
 
-.modal[data-modal-color="red"] .modal-content {
+.modal[data-modal-color="error"] .modal-content {
   background: @color-error;
   color: white;
 }
 
-.modal[data-modal-color="blue"] .modal-content {
+.modal[data-modal-color="warning"] .modal-content {
   background: @color-info;
 }
 

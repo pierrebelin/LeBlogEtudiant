@@ -36,12 +36,6 @@ PierreSiteBundle_cgu:
     requirements:
         _method:  GET|POST
 
-PierreSiteBundle_error:
-    path:     /error
-    defaults: { _controller: PierreSiteBundle:Site:error }
-    requirements:
-        _method:  GET|POST
-
 PierreSiteBundle_newsletter:
     path: /newsletter
     defaults: { _controller: PierreSiteBundle:Site:newsletter }

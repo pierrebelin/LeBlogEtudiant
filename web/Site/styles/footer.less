@@ -45,13 +45,7 @@ footer {
 
 .footer-link {
   a {
-    color: white;
-    transition: color 0.2s ease;
-    &:hover, &:active, &:focus {
-      color: @color-important;
-      font-weight: normal;
-      text-decoration: none;
-    }
+    .link-hover-footer;
   }
   margin-bottom: 0px;
 }
@@ -92,6 +86,21 @@ footer {
 
 }
 
+.social-icon {
+  text-align: right;
+  a {
+    padding: 0 10px;
+  }
+}
+
+.social-footer {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  h6 {
+    margin-top: 0;
+  }
+}
+
 .navbar-footer > li > a:hover, .navbar-footer > li > a:active, .navbar-footer > li > a:focus {
   text-decoration: none !important;
 }
@@ -107,7 +116,36 @@ footer {
   }
 }
 
+.link-hover-footer {
+  color: white;
+  transition: color 0.2s ease;
+  &:hover, &:active, &:focus {
+    color: @color-important;
+    font-weight: normal;
+    text-decoration: none;
+  }
+}
+
 .footer-newsletter {
   margin: 10px 0px;
 }
 
+.twitter-social {
+  color: white;
+  transition: color 0.2s ease;
+  &:hover, &:active, &:focus {
+    color: @color-twitter;
+    font-weight: normal;
+    text-decoration: none;
+  }
+}
+
+.facebook-social {
+  color: white;
+  transition: color 0.2s ease;
+  &:hover, &:active, &:focus {
+    color: @color-facebook;
+    font-weight: normal;
+    text-decoration: none;
+  }
+}
