@@ -13,6 +13,8 @@ $('#return-to-top').click(function() {      // When arrow is clicked
 });
 
 
+
+
 $(document).on('click', '.smooth-link', function(event){
     event.preventDefault();
 
