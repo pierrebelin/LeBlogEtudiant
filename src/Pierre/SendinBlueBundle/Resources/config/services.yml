@@ -1,4 +1,4 @@
 services:
-#    pierre_sendin_blue.example:
-#        class: Pierre\SendinBlueBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    pierre_sendin_blue.mailer:
+        class: Pierre\SendinBlueBundle\Mailer\Mailer
+        arguments: [ "@doctrine.orm.entity_manager" ]

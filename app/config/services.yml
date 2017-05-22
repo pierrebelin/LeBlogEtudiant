@@ -14,4 +14,4 @@ services:
 
     sendinblue:
         class: Pierre\SendinBlueBundle\Mailer\Mailer
-        arguments: [%sendinblue_contact%]
+        arguments: ["%sendinblue_contact%", "@doctrine.orm.entity_manager"]

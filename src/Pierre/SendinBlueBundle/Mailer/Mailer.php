@@ -4,8 +4,10 @@ namespace Pierre\SendinBlueBundle\Mailer;
 
 require_once __DIR__ . '/../../../../vendor/autoload.php';
 
+use Pierre\SendinBlueBundle\Entity\BlockedMail;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\DependencyInjection\Tests\Compiler\C;
+use Doctrine\ORM\Entity;
+use Doctrine\ORM\EntityManager;
 
 /**
  * Created by PhpStorm.
@@ -31,69 +33,104 @@ class Mailer extends Controller
     protected $idtemplatecomment = 12;
 
 
-    public function __construct($sendinblue_contact)
+    public function __construct($sendinblue_contact, EntityManager $entityManager)
     {
         $this->mailcontact = $sendinblue_contact;
+        $this->em = $entityManager;
     }
 
     public function sendContactMail($sendinblue, $mail, $user, $subject, $body, $subscribe)
     {
-        if ($subscribe == "true") {
-            $data = array("id" => $this->idtemplatenewsletter, "to" => $mail);
-            $this->addToContactList($sendinblue, $mail, $user, $data, $this->idlistnewsletter, true);
+        if($this->isMailBlocked($mail)){
+            return 'error';
+        } else {
+            if ($subscribe == "true") {
+                $data = array("id" => $this->idtemplatenewsletter, "to" => $mail);
+                $this->addToContactList($sendinblue, $mail, $user, $data, $this->idlistnewsletter, true);
+            }
+            $data = array("id" => $this->idtemplatecontact, "to" => $mail);
+            $this->addToContactList($sendinblue, $mail, $user, $data, $this->idlistcontact, false);
+
+            $data_mail = array("to" => array($this->mailcontact => $this->nameContact),
+                "from" => array($mail, $user),
+                "subject" => "[CONTACT] - " . $subject,
+                "text" => $body,
+            );
+
+            return $sendinblue->send_email($data_mail)['code'];
         }
-        $data = array("id" => $this->idtemplatecontact, "to" => $mail);
-        $this->addToContactList($sendinblue, $mail, $user, $data, $this->idlistcontact, false);
-
-        $data_mail = array("to" => array($this->mailcontact => $this->nameContact),
-            "from" => array($mail, $user),
-            "subject" => "[CONTACT] - " . $subject,
-            "text" => $body,
-        );
-
-        return $sendinblue->send_email($data_mail)['code'];
     }
 
     public function postComment($sendinblue, $mail, $user, $subscribe)
     {
-        if($subscribe == "true"){
-            $data = array("id" => $this->idtemplatenewsletter, "to" => $mail);
-            $this->addToContactList($sendinblue, $mail, $user, $data, $this->idlistnewsletter, true);
+        if($this->isMailBlocked($mail)){
+            return 'error';
+        } else {
+            if ($subscribe == "true") {
+                $data = array("id" => $this->idtemplatenewsletter, "to" => $mail);
+                $this->addToContactList($sendinblue, $mail, $user, $data, $this->idlistnewsletter, true);
+            }
+
+            $data = array("id" => $this->idtemplatecomment, "to" => $mail);
+            $this->addToContactList($sendinblue, $mail, $user, $data, $this->idlistcontact, false);
+
+            return 'success';
         }
-
-        $data = array("id" => $this->idtemplatecomment, "to" => $mail);
-        $this->addToContactList($sendinblue, $mail, $user, $data, $this->idlistcontact, false);
-
-        return 'success';
     }
 
     public function sendResultsMail($sendinblue, $mail, $user, $results, $subscribe)
     {
-        if ($subscribe == "true") {
-            $data = array("id" => $this->idtemplatenewsletter, "to" => $mail);
-            $this->addToContactList($sendinblue, $mail, $user, $data, $this->idlistnewsletter, true);
+        if($this->isMailBlocked($mail)){
+            return 'error';
         } else {
-            $data = array("id" => $this->idtemplatecontact, "to" => $mail);
-            $this->addToContactList($sendinblue, $mail, $user, $data, $this->idlistcontact, false);
-        }
-        // Envoyer le mail contenant les informations
-        $data_mail = array("to" => array($mail => $user),
-            "from" => array($this->mailcontact, $this->nameContact),
-            "subject" => "Résultats de votre recherche d'aides - Le Blog Étudiant",
-            "html" => $this->getMailResults($results),
-        );
+            if ($subscribe == "true") {
+                $data = array("id" => $this->idtemplatenewsletter, "to" => $mail);
+                $this->addToContactList($sendinblue, $mail, $user, $data, $this->idlistnewsletter, true);
+            } else {
+                $data = array("id" => $this->idtemplatecontact, "to" => $mail);
+                $this->addToContactList($sendinblue, $mail, $user, $data, $this->idlistcontact, false);
+            }
+            // Envoyer le mail contenant les informations
+            $data_mail = array("to" => array($mail => $user),
+                "from" => array($this->mailcontact, $this->nameContact),
+                "subject" => "Résultats de votre recherche d'aides - Le Blog Étudiant",
+                "html" => $this->getMailResults($results),
+            );
 
-        return $sendinblue->send_email($data_mail)['code'];
+            return $sendinblue->send_email($data_mail)['code'];
+        }
     }
 
 
     // Add to newsletter list the user
     public function subscribeToNewsletter($sendinblue, $mail, $user)
     {
-        $data = array("id" => $this->idtemplatenewsletter, "to" => $mail);
-        return $this->addToContactList($sendinblue, $mail, $user, $data, $this->idlistnewsletter, true);
+        if($this->isMailBlocked($mail)){
+            return 'error';
+        } else {
+            $data = array("id" => $this->idtemplatenewsletter, "to" => $mail);
+            return $this->addToContactList($sendinblue, $mail, $user, $data, $this->idlistnewsletter, true);
+        }
     }
 
+
+
+
+
+
+
+
+    public function isMailBlocked($mail) {
+        $blockedMails = $this->em->getRepository('PierreSendinBlueBundle:BlockedMail')->findAll();
+        $domain = substr($mail, strpos($mail, "@") + 1, strlen($mail));
+
+        foreach ($blockedMails as $blockedMail){
+            if(strpos($domain,$blockedMail->getMail()) !== false){
+                return true;
+            }
+        }
+        return false;
+    }
 
 
     public function addToContactList($sendinblue, $mail, $user, $data, $idlist, $sendmail)
@@ -128,7 +165,7 @@ class Mailer extends Controller
             "attributes" => array($this->columnFirstName => $user),
             "listid" => array($islist)
         );
-        return $sendinblue->create_update_user($data);
+        return $sendinblue->create_update_user($data)['code'];
     }
 
 
@@ -144,7 +181,7 @@ class Mailer extends Controller
         $data = array("id" => $idlist,
             "users" => array($mail)
         );
-        return ($sendinblue->add_users_list($data)['code']);
+        return $sendinblue->add_users_list($data)['code'];
     }
 
     // Return success if exists and error if not
