@@ -41,7 +41,7 @@ class Mailer extends Controller
 
     public function sendContactMail($sendinblue, $mail, $user, $subject, $body, $subscribe)
     {
-        if($this->isMailBlocked($mail)){
+        if ($this->isMailBlocked($mail)) {
             return 'error';
         } else {
             if ($subscribe == "true") {
@@ -49,7 +49,7 @@ class Mailer extends Controller
                 $this->addToContactList($sendinblue, $mail, $user, $data, $this->idlistnewsletter, true);
             }
             $data = array("id" => $this->idtemplatecontact, "to" => $mail);
-            $this->addToContactList($sendinblue, $mail, $user, $data, $this->idlistcontact, false);
+            $this->addToContactList($sendinblue, $mail, $user, $data, $this->idlistcontact, true);
 
             $data_mail = array("to" => array($this->mailcontact => $this->nameContact),
                 "from" => array($mail, $user),
@@ -63,7 +63,7 @@ class Mailer extends Controller
 
     public function postComment($sendinblue, $mail, $user, $subscribe)
     {
-        if($this->isMailBlocked($mail)){
+        if ($this->isMailBlocked($mail)) {
             return 'error';
         } else {
             if ($subscribe == "true") {
@@ -80,7 +80,7 @@ class Mailer extends Controller
 
     public function sendResultsMail($sendinblue, $mail, $user, $results, $subscribe)
     {
-        if($this->isMailBlocked($mail)){
+        if ($this->isMailBlocked($mail)) {
             return 'error';
         } else {
             if ($subscribe == "true") {
@@ -105,7 +105,7 @@ class Mailer extends Controller
     // Add to newsletter list the user
     public function subscribeToNewsletter($sendinblue, $mail, $user)
     {
-        if($this->isMailBlocked($mail)){
+        if ($this->isMailBlocked($mail)) {
             return 'error';
         } else {
             $data = array("id" => $this->idtemplatenewsletter, "to" => $mail);
@@ -114,18 +114,13 @@ class Mailer extends Controller
     }
 
 
-
-
-
-
-
-
-    public function isMailBlocked($mail) {
+    public function isMailBlocked($mail)
+    {
         $blockedMails = $this->em->getRepository('PierreSendinBlueBundle:BlockedMail')->findAll();
         $domain = substr($mail, strpos($mail, "@") + 1, strlen($mail));
 
-        foreach ($blockedMails as $blockedMail){
-            if(strpos($domain,$blockedMail->getMail()) !== false){
+        foreach ($blockedMails as $blockedMail) {
+            if (strpos($domain, $blockedMail->getMail()) !== false) {
                 return true;
             }
         }
@@ -141,6 +136,9 @@ class Mailer extends Controller
                 return 'warning';
             } else {
                 if ($this->addToUsersList($sendinblue, $mail, $idlist) == 'success') {
+                    if ($sendmail) {
+                        $sendinblue->send_transactional_template($data);
+                    }
                     return 'success';
                 } else {
                     return 'error';

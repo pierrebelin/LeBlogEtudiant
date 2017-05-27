@@ -2,6 +2,10 @@
 {% extends 'PierreSiteBundle::layout.html.twig' %}
 
 {% block title %}{{ parent() }} | Contact{% endblock %}
+{% block description %}
+  Tu souhaites connaître l'ensemble des aides et avantages auxquels tu as droit ? Le Blog Étudiant les a toutes recensé pour sur son site.
+  Découvrez-les !
+{% endblock %}
 
 {% block scripts %}
     {{ parent() }}
@@ -32,10 +36,11 @@
 
             <p>Surtout, n'hésitez pas ! Il n'y a pas de questions bêtes. Si je peux être là pour y répondre, ça sera
                 avec plaisir.</p>
-            <p><strong>⚠  Soyez précis dans votre message, pour que la réponse corresponde au maximum à votre attente !</strong></p>
+            <p><strong>⚠ Soyez précis dans votre message, pour que la réponse corresponde au maximum à votre attente
+                    !</strong></p>
 
             {#<p>Pour les demandes de partenariats, redirigez vous vers le <a#}
-                        {#href="{{ path('PierreSiteBundle_partnership') }}">formulaire de contact des partenaires</a>.</p>#}
+            {#href="{{ path('PierreSiteBundle_partnership') }}">formulaire de contact des partenaires</a>.</p>#}
 
             <div class="from-design">
                 {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post', 'id' :'contact-form'}}) }}
@@ -116,7 +121,8 @@
                 <div class="modal-body">
                     <p>Désolé, il y a eu une erreur pendant l'envoi du mail.</p>
                     <p>L'adresse enregistrée n'est surement pas bonne, veuillez vérifier</p>
-                    <p>Si je problème persiste, merci de bien vouloir faire retourner ce problème à l'adresse suivante : contact@le-blog-etudiant.fr
+                    <p>Si je problème persiste, merci de bien vouloir faire retourner ce problème à l'adresse suivante :
+                        contact@le-blog-etudiant.fr
                         <br>
                         Veuillez m'excuser du dérangement !</p>
                 </div>

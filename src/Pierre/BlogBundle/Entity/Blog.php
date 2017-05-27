@@ -46,7 +46,7 @@ class Blog {
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=1024)
+     * @ORM\Column(name="image", type="text", length=1024)
      */
     private $image;
 
@@ -74,7 +74,7 @@ class Blog {
     /**
      * @var string
      * 
-     * @ORM\Column(type="string", length=512, unique=true)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $slug;
 
