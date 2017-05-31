@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block title %}
-    {{ parent() }}| ⚠ Une erreur est parvenue ¯\_(ツ)_/¯
+    {{ parent() }}| ⚠ Page non trouvée ¯\_(ツ)_/¯
 {% endblock %}
 
 {% block stylesheets %}
@@ -14,16 +14,15 @@
         <div class="row content error-page-size">
 
             <div class="paragraphe">
-                <h1>⚠ Une erreur est parvenue ¯\_(ツ)_/¯</h1>
+                <h1>⚠ Page non trouvée ¯\_(ツ)_/¯</h1>
             </div>
 
             <div class="paragraphe">
-                <p>Désolé, une erreur est parvenue sur le serveur.</p>
+                <p>Désolé, la page à laquelle vous souhaitez accéder n'existe pas ou a été supprimée.</p>
             </div>
             <div class="paragraphe">
                 <h2>Que faire ?</h2>
-                <p class="not-paragraphe">Il se peut que les informations que vous ayez entré ne soit pas correctes, je
-                    vous laisse vous réorienter sur les liens suivants :</p>
+                <p class="not-paragraphe">Il y a de grandes chances que ta page soit une des deux suivantes :</p>
                 <ul>
                     <li>Identifier les aides auxquelles tu as le droit <a
                                 href="{{ path('PierreConnaitresesaidesBundle_homepage') }}">en cliquant ici</a>.
@@ -32,6 +31,8 @@
                                 href="{{ path('PierreBlogBundle_homepage') }}">en cliquant ici</a>.
                     </li>
                 </ul>
+                <p>Si vous aviez ce lien en favori, il se peut que la page est tout simplement été renommée. Je vous
+                    conseille de retourner 2 minutes sur le site pour la retrouver.</p>
             </div>
             <div class="paragraphe">
                 <h2>Ce n'est pas la première fois...</h2>
@@ -47,9 +48,9 @@
                     ne le croit ☺</p>
             </div>
             <div class="gif-center">
-                <iframe src="https://giphy.com/embed/xUA7aN1MTCZx97V1Ic" width="480" height="270" frameBorder="0"
-                        class="giphy-embed" allowFullScreen></iframe>
+                <iframe src="https://giphy.com/embed/xUA7aN1MTCZx97V1Ic" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
             </div>
         </div>
     </div>
 {% endblock %}
+
