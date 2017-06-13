@@ -82,10 +82,6 @@ class ConnaitresesaidesController extends Controller
 
     public function aidesetudiantsresultatsAction(Request $request)
     {
-        // On a donc accès au conteneur :
-        //$mailer = $this->container->get('mailer');
-        // On peut envoyer des e-mails, etc.
-        // Récupération des paramètres
         /* Pour savoir si la page a été récupérée via GET (clic sur un lien - query) ou via POST (envoi d'un formulaire - request), il existe la méthode$request->isMethod() : */
         $statut = $request->query->get('statut');
         $city = $request->query->get('city');
@@ -94,13 +90,14 @@ class ConnaitresesaidesController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
+        // Récupération de toutes les aides
         $aidCountries = $em->getRepository('PierreConnaitresesaidesBundle:Aid')->findPossibleAidCountries($statut, $city, $age, $salary);
         $aidRegions = $em->getRepository('PierreConnaitresesaidesBundle:Aid')->findPossibleAidRegions($statut, $city, $age, $salary);
         $aidDepartments = $em->getRepository('PierreConnaitresesaidesBundle:Aid')->findPossibleAidDepartments($statut, $city, $age, $salary);
         $aidCities = $em->getRepository('PierreConnaitresesaidesBundle:Aid')->findPossibleAidCities($statut, $city, $age, $salary);
 
         $aidAll = array();
-
+        // Ajout au tableau contenant toutes les aides
         if (count($aidCountries) > 0) {
             $aidAll = array_merge($aidAll, $aidCountries);
         }
@@ -113,14 +110,16 @@ class ConnaitresesaidesController extends Controller
         if (count($aidCities) > 0) {
             $aidAll = array_merge($aidAll, $aidCities);
         }
+        sort($aidAll);
 
+        // Récupération de tous les avantages
         $advantageCountries = $em->getRepository('PierreConnaitresesaidesBundle:Advantage')->findPossibleAdvantageCountries($statut, $city, $age, $salary);
         $advantageRegions = $em->getRepository('PierreConnaitresesaidesBundle:Advantage')->findPossibleAdvantageRegions($statut, $city, $age, $salary);
         $advantageDepartments = $em->getRepository('PierreConnaitresesaidesBundle:Advantage')->findPossibleAdvantageDepartments($statut, $city, $age, $salary);
         $advantageCities = $em->getRepository('PierreConnaitresesaidesBundle:Advantage')->findPossibleAdvantageCities($statut, $city, $age, $salary);
 
         $advantageAll = array();
-
+        // Ajout au tableau contenant toutes les avantages
         if (count($advantageCountries) > 0) {
             $advantageAll = array_merge($advantageAll, $advantageCountries);
         }
@@ -133,8 +132,10 @@ class ConnaitresesaidesController extends Controller
         if (count($advantageCities) > 0) {
             $advantageAll = array_merge($advantageAll, $advantageCities);
         }
+        sort($advantageAll);
 
-        $offerAll = array();
+
+//        $offerAll = array();
 
 
         $form = $this->createFormBuilder()
