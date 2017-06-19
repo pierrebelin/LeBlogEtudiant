@@ -9,6 +9,7 @@
     <link href="{{ asset('Site/styles/resultats.less') }}" rel="stylesheet/less" type="text/css"/>
 {% endblock %}
 
+
 {% block content %}
     <div class="container container-shadow">
         <div class="row content">
@@ -31,9 +32,11 @@
             <p>
                 Les résultats sont classés selon les catégories suivantes :
                 <br>
-                <strong>Aides</strong> : subventions accordées en fonction d'une catégorie social, sans contrepartie. Il faut vérifier les conditions pour y avoir accès.
+                <strong>Aides</strong> : subventions accordées en fonction d'une catégorie social, sans contrepartie. Il
+                faut vérifier les conditions pour y avoir accès.
                 <br>
-                <strong>Avantages</strong> : réductions sur le montant total de l'achat. Il faut acheter le produit pour bénéficier de l'avantage.
+                <strong>Avantages</strong> : réductions sur le montant total de l'achat. Il faut acheter le produit pour
+                bénéficier de l'avantage.
                 {#<br>#}
                 {#Offres : promotions d'un partenaire permettant de faire vivre ce site#}
             </p>
@@ -148,55 +151,141 @@
                 {#</table>#}
                 {#</div>#}
                 {#{% endif %}#}
-        </div>
+            </div>
+            <hr class="main-hr2">
+            <h2>Vous êtes satisfait du service ?</h2>
+            <div>
+                <p>Le résultat de vos recherches vous a permis d'accéder à certaines aides et avantages ?
+                    <br/>Le Blog Étudiant est entièrement gratuit et ne vend pas vos informations personnelles, et il a
+                    besoin de vous pour continuer à le rester. Participez pour permettre au site d'être
+                    indépendant et d'aider d'autres étudiants (vous en avez profité, pensez aux autres ☺).</p>
 
-        <hr class="main-hr2">
-        <h2>Recevez vos résultats par mail</h2>
-        <div>
-            <p>Vous n'avez pas le temps de tout regarder maintenant ? Pas de problème, on vous envoie les résultats
-                directement dans votre boite mail !</p>
-            <div class="from-design">
-                {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post', 'id' :'resultats-mail-form'}}) }}
-                <div class="form-group form-margin">
-                    {{ form_label(form.firstname, form.firstname, {'label_attr': {'class': 'col-md-3 control-label'}}) }}
-                    <div class="col-md-6">
-                        {{ form_widget(form.firstname, {'id' :'resultats-firstname'}) }}
-                    </div>
-                </div>
-                <div class="form-group form-margin">
-                    {{ form_label(form.mailaddress, form.mailaddress, {'label_attr': {'class': 'col-md-3 control-label'}}) }}
-                    <div class="col-md-6">
-                        {{ form_widget(form.mailaddress, {'id' :'resultats-mail'}) }}
-                    </div>
-                </div>
-                <div class="form-margin form-group ">
-                    <div class="col-md-offset-3 col-md-6">
-                        {{ form_widget(form.issendvalidated, {'id' :'resultats-subscribe'}) }}
-                        {{ form_label(form.issendvalidated, form.issendvalidated, {'label_attr': {'class': 'control-label'}}) }}
-                    </div>
-                </div>
+                <h3 class="col-xs-12 col-sm-offset-3 col-sm-6 form-donation-title">Que vaut pour vous le service rendu
+                    ?</h3>
 
-                <div class="form-group form-margin">
-                    <div class="col-md-offset-4 col-md-4 ">
-                        {{ form_widget(form.submit, {'attr': { 'class': 'btn btn-default btn-lg btn-block' }}) }}
-                    </div>
+                <div class="row form-donation">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="contact@le-blog-etudiant.fr">
+                        <input type="hidden" name="item_name" value="Donation Le Blog Etudiant">
+
+                        <div class="col-xs-12 row combo-donation">
+                            <section>
+                                <div class="col-xs-12 col-sm-3">
+                                    <input type="radio" id="control_01" name="amount" value="3">
+                                    <label for="control_01">
+                                        <h2>Un café</h2>
+                                        <p>Pour développer le site web et l'hébergement</p>
+                                        <small>3 euros</small>
+                                    </label>
+                                </div>
+                                <div class="col-xs-12 col-sm-3">
+                                    <input type="radio" id="control_02" name="amount" value="5">
+                                    <label for="control_02">
+                                        <h2>Une bière</h2>
+                                        <p>Pour récompenser une dure journée de travail</p>
+                                        <small>5 euros</small>
+                                    </label>
+                                </div>
+                                <div class="col-xs-12 col-sm-3">
+                                    <input type="radio" id="control_03" name="amount" value="10" checked>
+                                    <label for="control_03">
+                                        <h2>Une pizza</h2>
+                                        <p>Pour manger un petit bout avec des amis</p>
+                                        <small>10 euros</small>
+                                    </label></div>
+                                <div class="col-xs-12 col-sm-3">
+                                    <input type="radio" id="control_04" name="amount" value="20">
+                                    <label for="control_04">
+                                        <h2>Un restaurant</h2>
+                                        <p>Pour se faire plaisir en fin de semaine</p>
+                                        <small>20 euros</small>
+                                    </label></div>
+                            </section>
+                        </div>
+
+                        <input type="hidden" name="no_note" value="1">
+                        <input type="hidden" name="no_shipping" value="0">
+                        <input type="hidden" name="currency_code" value="EUR">
+                        <input type="hidden" name="lc" value="FR">
+                        <input type="hidden" name="bn" value="PP-BuyNowBF">
+                        <br/>
+                        <br/>
+
+                        <div class="col-xs-12 col-sm-offset-4 col-sm-4">
+                            <input type="submit" class="btn btn-default btn-lg btn-block "
+                                   value="Participez à l'avancement du site">
+                        </div>
+                    </form>
                 </div>
-                {{ form_rest(form) }}
-                {{ form_end(form) }}
+                <div class="row form-donation">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="contact@le-blog-etudiant.fr">
+                        <input type="hidden" name="item_name" value="Donation Le Blog Etudiant">
+
+                        {#<input type="hidden" name="amount" value=select.value>#}
+                        <input type="hidden" name="no_note" value="1">
+                        <input type="hidden" name="no_shipping" value="0">
+                        <input type="hidden" name="currency_code" value="EUR">
+                        <input type="hidden" name="lc" value="FR">
+                        <input type="hidden" name="bn" value="PP-BuyNowBF">
+
+                        <div class="col-xs-12 col-sm-offset-4 col-sm-4">
+                            <input type="submit" class="form-donation-other-amount"
+                                   value="Choisir un autre montant">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="main-hr2">
+            <h2>Recevez vos résultats par mail</h2>
+            <div>
+                <p>Vous n'avez pas le temps de tout regarder maintenant ? Pas de problème, on vous envoie les résultats
+                    directement dans votre boite mail !</p>
+                <div class="from-design">
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post', 'id' :'resultats-mail-form'}}) }}
+                    <div class="form-group form-margin">
+                        {{ form_label(form.firstname, form.firstname, {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+                        <div class="col-md-6">
+                            {{ form_widget(form.firstname, {'id' :'resultats-firstname'}) }}
+                        </div>
+                    </div>
+                    <div class="form-group form-margin">
+                        {{ form_label(form.mailaddress, form.mailaddress, {'label_attr': {'class': 'col-md-3 control-label'}}) }}
+                        <div class="col-md-6">
+                            {{ form_widget(form.mailaddress, {'id' :'resultats-mail'}) }}
+                        </div>
+                    </div>
+                    <div class="form-margin form-group ">
+                        <div class="col-md-offset-3 col-md-6">
+                            {{ form_widget(form.issendvalidated, {'id' :'resultats-subscribe'}) }}
+                            {{ form_label(form.issendvalidated, form.issendvalidated, {'label_attr': {'class': 'control-label'}}) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group form-margin">
+                        <div class="col-md-offset-4 col-md-4 ">
+                            {{ form_widget(form.submit, {'attr': { 'class': 'btn btn-default btn-lg btn-block' }}) }}
+                        </div>
+                    </div>
+                    {{ form_rest(form) }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+
+            <hr class="main-hr">
+            <div>
+                <p>Vous avez remarqué une aide ou un avantage manquant ? Contactez-nous <a
+                            href="{{ path('PierreSiteBundle_contact') }}">en cliquant ici</a> pour que
+                    nous y jettions un coup d'oeil.
+                <p>
+                <p>Le partage d'information est la base de ce site, dites vous que vous ferez votre bonne action de la
+                    journée
+                    ☺</p>
             </div>
         </div>
-
-        <hr class="main-hr">
-        <div>
-            <p>Vous avez remarqué une aide ou un avantage manquant ? Contactez-nous <a
-                        href="{{ path('PierreSiteBundle_contact') }}">en cliquant ici</a> pour que
-                nous y jettions un coup d'oeil.
-            <p>
-            <p>Le partage d'information est la base de ce site, dites vous que vous ferez votre bonne action de la
-                journée
-                ☺</p>
-        </div>
-    </div>
     </div>
 
     </div>
@@ -267,6 +356,7 @@
             return false;
         });
     </script>
+
 
 {% endblock %}
 

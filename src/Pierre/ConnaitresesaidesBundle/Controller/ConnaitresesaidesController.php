@@ -174,7 +174,7 @@ class ConnaitresesaidesController extends Controller
                 'salary' => $salary,
                 'aidAll' => $aidAll,
                 'advantageAll' => $advantageAll,
-                'offerAll' => $offerAll,
+//                'offerAll' => $offerAll,
                 'form' => $form->createView()
             ));
         }
