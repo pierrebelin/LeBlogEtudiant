@@ -1,21 +1,11 @@
 {# empty Twig template #}
 
-<div id="fb-root"></div>
-<script>(function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=107059596483790";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
 <section class="section">
     <header>
         <h3>Newsletter</h3>
     </header>
     <div class="comment">
-         <div class=" ">
+        <div class=" ">
             {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post', 'id' :'subscribe-sidebar-form'}}) }}
             <div class="form-group group-sidebar">
                 <div class="col-xs-12 sidebar-newsletter">
@@ -45,9 +35,9 @@
                 cache: false,
                 success: function (data) {
                     console.log(data);
-                    if(data == 'success'){
+                    if (data == 'success') {
                         $('#subscribe-success-modal').modal('show');
-                    } else if (data == 'warning'){
+                    } else if (data == 'warning') {
                         $('#subscribe-warning-modal').modal('show');
                     } else {
                         $('#subscribe-error-modal').modal('show');
@@ -65,14 +55,30 @@
     <header>
         <h3>Réseaux sociaux</h3>
     </header>
-    <div class="fb-page" data-href="https://www.facebook.com/blogetudiant" data-tabs="timeline" data-height="450"
-         data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-        <blockquote cite="https://www.facebook.com/blogetudiant" class="fb-xfbml-parse-ignore "><a
-                    href="https://www.facebook.com/blogetudiant" class="facebook">Page Facebook</a></blockquote>
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="fb-root"></div>
+            <script>(function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=107059596483790";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+            <div class="fb-page" data-href="https://www.facebook.com/leblogetudiant/" data-tabs="timeline"
+                 data-small-header="true"  data-adapt-container-width="true" data-hide-cover="false"
+                 data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/leblogetudiant/" class="fb-xfbml-parse-ignore"><a
+                            href="https://www.facebook.com/leblogetudiant/">Facebook</a></blockquote>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <a class="twitter-timeline twitter" data-height="450" href="https://twitter.com/Le_BlogEtudiant">Twitter</a>
+            <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
     </div>
-    <a class="twitter-timeline twitter" data-height="450" href="https://twitter.com/Le_BlogEtudiant">Page Twitter</a>
 
-    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 </section>
 
 

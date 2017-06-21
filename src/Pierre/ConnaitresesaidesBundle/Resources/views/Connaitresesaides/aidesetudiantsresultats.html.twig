@@ -160,8 +160,28 @@
                     besoin de vous pour continuer à le rester. Participez pour permettre au site d'être
                     indépendant et d'aider d'autres étudiants (vous en avez profité, pensez aux autres ☺).</p>
 
+                <div class="row text-center social-network">
+                    <div class="col-xs-12 col-sm-offset-4 col-sm-2">
+                        <div id="fb-root"></div>
+                        <script>(function(d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id)) return;
+                                js = d.createElement(s); js.id = id;
+                                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=107059596483790";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));</script>
+                        <div class="fb-like" data-href="https://www.facebook.com/leblogetudiant/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-2">
+                        <a href="https://twitter.com/Le_BlogEtudiant" class="twitter-follow-button" data-size="large"
+                           data-lang="fr" data-dnt="true" data-show-count="false">Follow @Le_BlogEtudiant</a>
+                        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                </div>
+
                 <h3 class="col-xs-12 col-sm-offset-3 col-sm-6 form-donation-title">Que vaut pour vous le service rendu
                     ?</h3>
+
 
                 <div class="row form-donation">
                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
@@ -169,7 +189,7 @@
                         <input type="hidden" name="business" value="contact@le-blog-etudiant.fr">
                         <input type="hidden" name="item_name" value="Donation Le Blog Etudiant">
 
-                        <div class="col-xs-12 row combo-donation">
+                        <div class="col-xs-12 combo-donation">
                             <section>
                                 <div class="col-xs-12 col-sm-3">
                                     <input type="radio" id="control_01" name="amount" value="3">
