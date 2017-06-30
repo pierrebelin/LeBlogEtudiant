@@ -34,7 +34,7 @@
             <div class="date-published">Dernière mise à jour : {{ blog.created|localizeddate('full', 'none') }} -
                 par {{ blog.author }}</div>
         </header>
-        {#<img src="{{ blog.image }}" alt="L'image n'a pas pu être chargée" class="large"/>#}
+        {#<img src="{{ blog.image }}" alt="{{ blog.image }}" class="large"/>#}
         <div class="textblog" id="blog-form">
             {{ blog.blog|raw }}
         </div>

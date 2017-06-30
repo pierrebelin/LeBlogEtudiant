@@ -1,5 +1,4 @@
 @import "couleur.less";
-@import "base.less";
 
 .contact-header {
   background-image: url('../images/header-contact.jpg');
@@ -76,7 +75,9 @@ section {
 .main-header {
   align-items: center;
   background-image: url('../images/header-main.jpg');
-  .header-picture;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
   display: -ms-flexbox;  /* TWEENER - IE 10 */
   display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
   display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
@@ -85,7 +86,7 @@ section {
   overflow: hidden;
   position: relative;
   text-align: center;
-  //transform-style: preserve-3d;
+  transform-style: preserve-3d;
   perspective: 100px;
   h1 {
     color: @color-title;

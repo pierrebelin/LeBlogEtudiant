@@ -9,19 +9,21 @@
 {% endblock %}
 
 {% block keywords %}
-    bourse, aide au logement, etudiant, aide financière étudiant, bourse crous, Le Blog Etudiant, aide etudiant, demande de bourse, etudiant gouv, cidj, leblogetudiant, mes services etudiants, l étudiant, dossier social étudiant, lokaviz, gagner de l argent facilement
+    bourse, aide au logement, etudiant, aide financière étudiant, bourse crous, Le Blog Etudiant, aide etudiant, demande de bourse, etudiant gouv, cidj, le-blog-etudiant, leblogetudiant, mes services etudiants, l étudiant, dossier social étudiant, lokaviz, gagner de l argent facilement
 {% endblock %}
 
 {% block content %}
 <div class="main-header">
     <div>
         <h1>Le Blog Étudiant</h1>
-        {#<h3>Améliorateur de vies étudiantes</h3>#}
         <h3>Pour profiter de sa vie étudiante à 100%</h3>
         <p class="header-button">
-            <a class="main-button" href="{{ path('PierreConnaitresesaidesBundle_homepage') }}">C'est parti !</a>
+            <a class="main-button" href="{{ path('PierreConnaitresesaidesBundle_homepage') }}">Voir mes aides</a>
         </p>
     </div>
+</div>
+<div style="display: none">
+  <p>bourse, aide au logement, etudiant, aide financière étudiant, bourse crous, Le Blog Etudiant, aide etudiant, demande de bourse, etudiant gouv, cidj, le-blog-etudiant, leblogetudiant, mes services etudiants, l étudiant, dossier social étudiant, lokaviz, gagner de l argent facilement</p>
 </div>
 <div class="row-colored-mainbackground">
     <div class="container">
@@ -79,7 +81,7 @@
                 <div class="col-xs-12 col-sm-9 text-center">
                     <blockquote class="quote-index">
                         <p>Après avoir galéré pendant plusieurs heures à me renseigner sur les différentes aides
-                            sur dont je pouvais bénéficier, je suis tombé sur ce site avec espoir d'obtenir quelques
+                            dont je pouvais bénéficier, je suis tombé sur ce site avec espoir d'obtenir quelques
                             informations. La recherche a été super rapide et j'ai eu de très nombreux résultats en
                             accord avec ma
                             situation dont plusieurs que je ne connaissais même pas ! Merci beaucoup pour le gain de
@@ -90,14 +92,14 @@
                 </div>
                 <td class="col-sm-3 col-xs-12">
                     <div class="quote-picture">
-                        <img src="{{ asset('Site/images/quote-profile1.jpg') }}" alt="1"/>
+                        <img src="{{ asset('Site/images/quote-profile1.jpg') }}" alt="quote-profile.jpg"/>
                     </div>
                 </td>
             </div>
             <div class="row">
                 <div class="col-sm-3 col-xs-12">
                     <div class="quote-picture">
-                        <img src="{{ asset('Site/images/quote-profile2.jpg') }}" alt="1"/>
+                        <img src="{{ asset('Site/images/quote-profile2.jpg') }}" alt="quote-profile.jpg"/>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-9 text-center">
