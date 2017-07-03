@@ -54,7 +54,7 @@ class ConnaitresesaidesController extends Controller
                 'label' => 'Age *',
             ))
             ->add('salary', IntegerType ::class, array(
-                'label' => 'Salaire mensuel *',
+                'label' => 'Salaire mensuel net *',
             ))
             ->add('submit', SubmitType::class, array(
                 'label' => 'Rechercher',
