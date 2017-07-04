@@ -29,20 +29,11 @@
                 Certaines offres possèdent des conditions secondaires, faites attention, vous risquez de vous retrouver
                 avec des frais supplémentaires ou l'impossibilité de rendre votre engagement avant une période future.
             </p>
-            <p>
-                Les résultats sont classés selon les catégories suivantes :
-                <br>
-                <strong>Aides</strong> : subventions accordées en fonction d'une catégorie social, sans contrepartie. Il
-                faut vérifier les conditions pour y avoir accès.
-                <br>
-                <strong>Avantages</strong> : réductions sur le montant total de l'achat. Il faut acheter le produit pour
-                bénéficier de l'avantage.
-                {#<br>#}
-                {#Offres : promotions d'un partenaire permettant de faire vivre ce site#}
-            </p>
             <hr class="main-hr">
             <h2>Liste potentielle d'éligibilité</h2>
             <div id="resultats-results">
+                <p class="remind-send-results">▼ Vous pouvez vous envoyer les résultats sur votre adresse mail <a href="#envoi-resultats" class="smooth-link">en bas de page</a> ▼</p>
+
                 <div class="remind-important">
                 <p><strong>⚠ Contrairement aux avantages, les aides demandent des conditions supplémentaires ⚠</strong></p>
                 <p>Les aides affichées dépendent aussi d'autres critères que ceux saisis (revenu des parents, indépendance financière, formation, en concubinage...). Il se peut que vous puissiez pas être éligibles à certaines aides affichées, voire aucune !</p>
@@ -52,7 +43,7 @@
                 {% endif %}
                 </div>
                 <h3 class="text-center">Aides</h3>
-
+                <p class="subtitle">Subventions accordées en fonction d'une catégorie social, sans contrepartie. <br >⚠ Vérifier bien les conditions d'accès ⚠</p>
                 <div class="tab-resultats">
                     {% if (aidAll|length == 0) %}
                         <div class="msg-noresult">
@@ -88,6 +79,7 @@
                 </div>
 
                 <h3 class="text-center">Avantages</h3>
+                <p class="subtitle">Réductions sur le montant total de l'achat.</p>
                 <div class="tab-resultats">
                     {% if (advantageAll|length == 0) %}
                         <div class="msg-noresult">
@@ -267,7 +259,7 @@
                 </div>
             </div>
 
-            <hr class="main-hr2">
+            <hr id="envoi-resultats" class="main-hr2">
             <h2>Recevez vos résultats par mail</h2>
             <div>
                 <p>Vous n'avez pas le temps de tout regarder maintenant ? Pas de problème, on vous envoie les résultats

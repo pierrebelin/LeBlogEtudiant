@@ -58,8 +58,14 @@ body {
 .header-picture {
   height: 300px;
   background-repeat: no-repeat;
-  background-size: 100%;
+  //background-size: 100%;
   background-position: center;
+}
+
+@media (min-width: 1170px) {
+  .header-picture {
+    background-size: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -304,5 +310,3 @@ input[type='number'] {
 .modal-open .modal[style]:not([style='display: none;']) .modal-dialog {
   margin: auto;
 }
-
-
