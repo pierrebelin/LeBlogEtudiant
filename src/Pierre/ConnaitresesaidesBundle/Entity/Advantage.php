@@ -73,6 +73,13 @@ class Advantage {
     /**
      * @var string
      *
+     * @ORM\Column(name="price", type="string", length=255)
+     */
+    private $price;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="description", type="string", length=511, nullable=true)
      */
     private $description;
@@ -83,6 +90,13 @@ class Advantage {
      * @ORM\Column(name="link", type="string", length=1023)
      */
     private $link;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="logo", type="string", length=1023)
+     */
+    private $logo;
 
     /**
      * Get id
@@ -247,6 +261,30 @@ class Advantage {
         return $this->amount;
     }
 
+
+
+    /**
+     * Set price
+     *
+     * @param string $price
+     *
+     * @return Advantage
+     */
+    public function setPrice($price) {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return string
+     */
+    public function getPrice() {
+        return $this->price;
+    }
+
     /**
      * Set description
      *
@@ -291,4 +329,25 @@ class Advantage {
         return $this->link;
     }
 
+    /**
+     * Set logo
+     *
+     * @param string $logo
+     *
+     * @return Aid
+     */
+    public function setLogo($logo) {
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * Get logo
+     *
+     * @return string
+     */
+    public function getLogo() {
+        return $this->logo;
+    }
 }

@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Pierre\SendinBlueBundle\PierreSendinBlueBundle(),
             new Pierre\SiteBundle\PierreSiteBundle(),
             new SendinBlue\SendinBlueApiBundle\SendinBlueApiBundle(),
+            new Pierre\BonsPlansBundle\PierreBonsPlansBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

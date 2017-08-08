@@ -10,9 +10,16 @@
 
 {% block stylesheets %}
     {{ parent() }}
+    <link href="{{ asset('Site/modules/select2/dist/css/select2.min.css') }}" rel="stylesheet/less" type="text/css"/>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
 {% endblock %}
 
 {% block content %}
+
     <div class="container container-shadow">
         <div class="row content">
             <div class="header-aides">
@@ -32,7 +39,7 @@
             </div>
             <hr class="main-hr">
             <h2>Veuillez remplir les critères ci dessous</h2>
-            <p class='p-important'><strong>Ville en cours de réalisation :</strong>St Etienne (veuillez patienter encore 2 semaines maximum)</p>
+            <p class='p-important'><strong>Ville en cours de réalisation :</strong> St Etienne (veuillez patienter encore 2 semaines maximum)</p>
             <div class="from-design">
                 {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post'}}) }}
                 <div class="form-group form-margin">
@@ -44,7 +51,7 @@
                 <div class="form-group form-margin">
                     {{ form_label(form.city, form.city, {'label_attr': {'class': 'col-md-4 control-label'}}) }}
                     <div class="col-md-4">
-                        {{ form_widget(form.city, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_widget(form.city, {'attr': {'class': 'form-control select-city'}}) }}
                     </div>
                     <a class="col-md-4 control-label align-left-important smooth-link" href="#ville-non-existante">Tu ne trouves pas
                         ta ville dans la liste ?</a>
@@ -105,4 +112,8 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('Site/modules/select2/dist/js/select2.min.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+      $('.select-city').select2();
+    </script>
 {% endblock %}

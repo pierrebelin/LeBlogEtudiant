@@ -8,6 +8,14 @@
 {% endblock %}
 
 <nav>
+    <div class="navbar-banner">
+        <div>
+            <a href="{{ path('PierreSiteBundle_homepage') }}">
+                <img src="{{ asset('Site/images/logo.png') }}" >
+            </a>
+            <h3>Pour profiter de sa vie étudiante à 100%</h3>
+        </div>
+    </div>
     <div class="container">
         <div class="navbar-site row">
             <div class="nav">
@@ -16,16 +24,17 @@
                         <span class="sr-only">Toggle navigation</span>
                         <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
                     </button>
-                    <a class="nav-title" href="{{ path('PierreSiteBundle_homepage') }}">
-                        <img src="{{ asset('Site/images/logo.png') }}" >
-                    </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right navbar-col">
-                    <li><a href="{{ path('PierreConnaitresesaidesBundle_homepage') }}">IDENTIFIER MES AIDES</a></li>
+                <ul class="nav navbar-nav navbar-left navbar-col">
+                    <li><a href="{{ path('PierreConnaitresesaidesBundle_homepage') }}">AIDES & AVANTAGES</a></li>
+                    <!--<li><a href="{{ path('PierreBonsPlansBundle_homepage') }}">BONS PLANS</a></li>-->
                     <li><a href="{{ path('PierreBlogBundle_homepage') }}">BLOG</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-col">
                     <li><a href="{{ path('PierreSiteBundle_apropos') }}">A PROPOS</a></li>
+                    <li><a href="{{ path('PierreSiteBundle_dons') }}">DONS</a></li>
                     <li><a href="{{ path('PierreSiteBundle_contact') }}">CONTACT</a></li>
                 </ul>
                 </div>
@@ -33,4 +42,3 @@
         </div>
     </div>
 </nav>
-

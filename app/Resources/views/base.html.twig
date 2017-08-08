@@ -28,6 +28,10 @@
         <link href="{{ asset('Site/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
         <script src="https://use.fontawesome.com/541706c8cc.js"></script>
 
+
+        <link rel="stylesheet" type="text/css" href="{{ asset('Site/modules/slick/slick.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('Site/modules/slick/slick-theme.css') }}"/>
+
         <link href="{{ asset('Site/styles/footer.less') }}" rel="stylesheet/less" type="text/css"/>
         <link href="{{ asset('Site/styles/base.less') }}" rel="stylesheet/less" type="text/css"/>
     {% endblock %}
@@ -56,6 +60,7 @@
 {% block javascripts %}
     <script src="{{ asset('Site/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('Site/js/base.js') }}" type="text/javascript"></script>
+    <script type="text/javascript" src="{{ asset('Site/modules/slick/slick.min.js') }}"></script>
 {% endblock %}
 
 {#Google Analytics for all pages !#}

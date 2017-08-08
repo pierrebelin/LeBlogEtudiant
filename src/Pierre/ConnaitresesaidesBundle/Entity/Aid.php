@@ -85,6 +85,13 @@ class Aid {
     private $link;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="logo", type="string", length=1023)
+     */
+    private $logo;
+
+    /**
      * Get id
      *
      * @return int
@@ -291,4 +298,25 @@ class Aid {
         return $this->link;
     }
 
+    /**
+     * Set logo
+     *
+     * @param string $logo
+     *
+     * @return Aid
+     */
+    public function setLogo($logo) {
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * Get logo
+     *
+     * @return string
+     */
+    public function getLogo() {
+        return $this->logo;
+    }
 }

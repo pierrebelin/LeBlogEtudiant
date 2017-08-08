@@ -1,0 +1,16 @@
+PierreBonsPlansBundle_homepage:
+    path:     /{page}
+    defaults: { _controller: PierreBonsPlansBundle:BonsPlan:index, page: 1 }
+
+PierreBonsPlansBundle_bonsplan_show:
+    path:     /article/{slug}
+    defaults: { _controller: PierreBonsPlansBundle:BonsPlan:show }
+    requirements:
+        _method:  GET|POST
+
+PierreBonsPlansBundle_comment:
+    path:     /comment/{bonsplans_id}
+    defaults: { _controller: PierreBonsPlansBundle:Comment:new }
+    requirements:
+        _method:  POST
+        bonsplan_id: \d+

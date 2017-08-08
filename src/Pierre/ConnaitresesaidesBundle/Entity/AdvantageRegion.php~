@@ -1,6 +1,6 @@
 <?php
 
-namespace Pierre\SiteBundle\Entity;
+namespace Pierre\ConnaitresesaidesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * AdvantageRegion
  *
  * @ORM\Table(name="advantage_region")
- * @ORM\Entity(repositoryClass="Pierre\SiteBundle\Repository\AdvantageRegionRepository")
+ * @ORM\Entity(repositoryClass="Pierre\ConnaitresesaidesBundle\Repository\AdvantageRegionRepository")
  */
 class AdvantageRegion
 {
@@ -98,4 +98,3 @@ class AdvantageRegion
         return $this->advantageId;
     }
 }
-

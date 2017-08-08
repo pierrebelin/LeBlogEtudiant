@@ -15,7 +15,7 @@ class CityType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('city', EntityType::class, array(
-            
+
                     'label' => 'Ville*',
                     'placeholder' => 'Choisir une ville',
                     'class' => 'PierreConnaitresesaidesBundle:City',
@@ -26,7 +26,7 @@ class CityType extends AbstractType
                     'choice_label' => 'name'
                 ))      ;
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -44,6 +44,4 @@ class CityType extends AbstractType
     {
         return 'pierre_sitebundle_city';
     }
-
-
 }

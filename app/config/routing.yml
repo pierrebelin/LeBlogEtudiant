@@ -1,3 +1,7 @@
+pierre_bons_plans:
+    resource: "@PierreBonsPlansBundle/Resources/config/routing.yml"
+    prefix:   /bons-plans
+
 pierre_site:
     resource: "@PierreSiteBundle/Resources/config/routing.yml"
     prefix:   /
@@ -9,6 +13,3 @@ pierre_blog:
 pierre_connaitresesaides:
     resource: "@PierreConnaitresesaidesBundle/Resources/config/routing.yml"
     prefix:   /identifier-mes-aides
-
-
-

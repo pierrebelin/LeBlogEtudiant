@@ -1,6 +1,6 @@
 <?php
 
-namespace Pierre\SiteBundle\Entity;
+namespace Pierre\ConnaitresesaidesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Department
  *
  * @ORM\Table(name="department")
- * @ORM\Entity(repositoryClass="Pierre\SiteBundle\Repository\DepartmentRepository")
+ * @ORM\Entity(repositoryClass="Pierre\ConnaitresesaidesBundle\Repository\DepartmentRepository")
  */
 class Department
 {
@@ -95,4 +95,3 @@ class Department
         return $this->regionId;
     }
 }
-

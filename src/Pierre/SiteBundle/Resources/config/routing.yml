@@ -37,15 +37,17 @@ PierreSiteBundle_cgu:
         _method:  GET|POST
 
 PierreSiteBundle_newsletter:
-    path: /newsletter
+    path:     /newsletter
     defaults: { _controller: PierreSiteBundle:Site:newsletter }
     requirements:
         _method: POST
 
 PierreSiteBundle_sendcontactmail:
-    path: /sendcontactmail
+    path:     /sendcontactmail
     defaults: { _controller: PierreSiteBundle:Site:sendcontactmail }
     requirements:
         _method: POST
 
-
+PierreSiteBundle_dons:
+    path:     /dons
+    defaults: { _controller: PierreSiteBundle:Site:dons }

@@ -1,0 +1,61 @@
+{% extends 'PierreBonsPlansBundle::layout.html.twig' %}
+
+{% block title %} | Bons plans et astuces pour étudiants{% endblock %}
+
+{% block keywords %}
+    etudiant, aide financière étudiant, plusdebonsplans, Le Blog Etudiant, aide etudiant, etudiant gouv, cidj, lebonsplanetudiant, l étudiant, plus de bon plan, lokaviz, bon plan astuce
+{% endblock %}
+
+{% block body %}
+  <div style="display: none">
+    <p>etudiant, aide financière étudiant, plusdebonsplans, Le Blog Etudiant, aide etudiant, etudiant gouv, cidj, lebonsplanetudiant, l étudiant, plus de bon plan, lokaviz, bon plan astuce</p>
+  </div>
+    {% for bonsplan in bonsplans %}
+        <article class="bonsplan">
+            <header>
+                <h2><a href="{{ path('PierreBonsPlansBundle_bonsplan_show', { 'slug': bonsplan.slug }) }}">{{ bonsplan.title }}</a></h2>
+                <div class="date-published">{{ bonsplan.updated|localizeddate('full', 'none', 'fr') }}</div>
+            </header>
+
+            <img src="{{ bonsplan.image }}" alt="{{ bonsplan.image }}"/>
+            <div class="preview-textbonsplan snippet">
+                {{ bonsplan.bonsplan|truncate(500, true)|raw }}
+                <p class="continue"><a href="{{ path('PierreBonsPlansBundle_bonsplan_show', { 'slug': bonsplan.slug }) }}">Lire la
+                        suite...</a></p>
+
+                <footer class="meta">
+                    <p>Nombre de commentaires : {{ bonsplan.comments|length }}</p>
+                    <p>Localisation : <span class="highlight">{{ bonsplan.localisation }}</span></p>
+                </footer>
+            </div>
+        </article>
+    {% else %}
+        <p>Il n'y a aucun article pour le moment, désolé.<p>
+    {% endfor %}
+    <div class="text-center">
+        <ul class="pagination">
+            {% if pagination.page > 1 %}
+                <li><a href="{{ path(pagination.route,
+                    pagination.route_params|merge({'page': 1})) }}"><i class="fa fa-angle-double-left"
+                                                                       aria-hidden="true"></i></a></li>
+                <li><a href="{{ path(pagination.route,
+                    pagination.route_params|merge({'page': pagination.page-1})) }}" style="width: 33.6px;"><i
+                                class="fa fa-angle-left" aria-hidden="true"></i></a></li>
+            {% endif %}
+            {#display p numbers only from p-2 to p+2 but don't go < 1 or  > pages_count#}
+            {% for p in range(max(pagination.page - 2, 1), min(pagination.page + 2, pagination.pages_count)) %}
+                <li {% if p == pagination.page %} class="active"{% endif %}>
+                    <a {% if p == pagination.page %} onclick='return false;'{% endif %} href="{{ path(pagination.route, pagination.route_params|merge({'page': p})) }}">{{ p }}</a>
+                </li>
+            {% endfor %}
+            {% if pagination.page<pagination.pages_count %}
+                <li><a href="{{ path(pagination.route,
+                    pagination.route_params|merge({'page': pagination.page + 1})) }}" style="width: 33.6px;"> <i
+                                class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                <li><a href="{{ path(pagination.route,
+                    pagination.route_params|merge({'page': pagination.pages_count})) }}"><i
+                                class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+            {% endif %}
+        </ul>
+    </div>
+{% endblock %}

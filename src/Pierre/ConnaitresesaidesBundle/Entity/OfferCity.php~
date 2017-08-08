@@ -1,6 +1,6 @@
 <?php
 
-namespace Pierre\SiteBundle\Entity;
+namespace Pierre\ConnaitresesaidesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * OfferCity
  *
  * @ORM\Table(name="offer_city")
- * @ORM\Entity(repositoryClass="Pierre\SiteBundle\Repository\OfferCityRepository")
+ * @ORM\Entity(repositoryClass="Pierre\ConnaitresesaidesBundle\Repository\OfferCityRepository")
  */
 class OfferCity
 {
@@ -97,4 +97,3 @@ class OfferCity
         return $this->offerId;
     }
 }
-

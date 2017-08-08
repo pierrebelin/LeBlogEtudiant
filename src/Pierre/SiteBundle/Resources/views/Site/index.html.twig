@@ -13,13 +13,65 @@
 {% endblock %}
 
 {% block content %}
-<div class="main-header">
-    <div>
-        <h1>Le Blog Étudiant</h1>
-        <h3>Pour profiter de sa vie étudiante à 100%</h3>
-        <p class="header-button">
-            <a class="main-button" href="{{ path('PierreConnaitresesaidesBundle_homepage') }}">Voir mes aides</a>
-        </p>
+
+<div class="main-first-action">
+    <div class="container">
+        <div class="content-padding ">
+            <div class="row">
+                  <p>Tu es étudiant(e) et tu souhaites connaître tes aides, avantages et bons plans pour tes études ?
+                    <br >Il te suffit d'un clic pour te permettre de profiter de ta vie étudiante :)</p>
+                  <div class="main-button">
+                    <a href="{{ path('PierreConnaitresesaidesBundle_homepage') }}">Découvrir mes aides & avantages étudiants</a>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-news">
+    <div class="container">
+        <div class="row">
+            <h2>Actualités</h2>
+        </div>
+    </div>
+    <div class="main-news-slick">
+        <div class="news-first ">
+            <div class="container">
+                <div class="row content-padding">
+                    <div class="col-sm-12 news">
+                        <h3>Capitale étudiante de l'Occitanie, Montpellier</h3>
+                        <small>10 août 2017</small>
+                        <p>Avec ses 134 000 étudiants, Le Blog Étudiant va bientôt s'attaquer à Montpellier.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="news-second">
+            <div class="container">
+                <div class="row content-padding">
+                    <div class="col-sm-12 news">
+                        <h3>Région Occitanie en cours de réalisation</h3>
+                        <small>1 août 2017</small>
+                        <p>Maintenant que la région Auvergne-Rhône-Alpes est bien commencé, il est temps de s'attaquer à la région Occitanie.
+                        <br >Nimes et Alès seront les 2 premières villes !
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="news-third">
+            <div class="container">
+                <div class="row content-padding">
+                    <div class="col-sm-12 news">
+                        <h3>Saint Étienne, plus que quelques jours</h3>
+                        <small>26 juillet 2017</small>
+                        <p>Les recherches ont commencé, tout devrait être bon d'ici quelques jours.
+                        <br >Suivez l'actualité sur les réseaux sociaux
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div style="display: none">
@@ -30,6 +82,11 @@
         <div class="content-padding content ">
             <div class="row">
                 <div class="col-sm-12 col-md-4 index-main-informations">
+                    <h2>COMPLET</h2>
+                    <p>Plus de 100 aides et avantages sont répertoriés et mis à jour quotidiennement.</p>
+                    <p><strong>Recevez et/ou économisez</strong> facilement plus de 200€ par mois.</p>
+                </div>
+                <div class="col-sm-12 col-md-4 index-main-informations">
                     <h2>AUCUN FRAIS</h2>
                     <p>L'intégralité du contenu de vos aides et avantages est totalement gratuit.</p>
                     <p>Aucune des informations personnelles enregistrées n'est sauvegardée.</p>
@@ -38,11 +95,6 @@
                     <h2>1 MINUTE</h2>
                     <p>C'est le temps que vous allez mettre pour accéder aux résultats qui vous concernent.</p>
                     <p>Vous serez ensuite dirigés vers les sites officiels proposant chacune des offres.</p>
-                </div>
-                <div class="col-sm-12 col-md-4 index-main-informations">
-                    <h2>COMPLET</h2>
-                    <p>Plus de 100 aides et avantages sont répertoriés et mis à jour quotidiennement.</p>
-                    <p><strong>Recevez et/ou économisez</strong> facilement plus de 200€ par mois.</p>
                 </div>
             </div>
         </div>
@@ -154,6 +206,19 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.main-news-slick').slick({
+                dots: true,
+                infinite: true,
+                autoplay:true,
+                autoplaySpeed: 5000,
+                speed: 500,
+                slidesToShow: 1,
+                arrows: false,
+                });
+        });
+    </script>
     <script>
         $("#subscribe-index-form").submit(function () {
             $.ajax({

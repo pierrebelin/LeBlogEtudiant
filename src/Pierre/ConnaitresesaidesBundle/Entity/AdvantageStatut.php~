@@ -1,6 +1,6 @@
 <?php
 
-namespace Pierre\SiteBundle\Entity;
+namespace Pierre\ConnaitresesaidesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * AdvantageStatut
  *
  * @ORM\Table(name="advantage_statut")
- * @ORM\Entity(repositoryClass="Pierre\SiteBundle\Repository\AdvantageStatutRepository")
+ * @ORM\Entity(repositoryClass="Pierre\ConnaitresesaidesBundle\Repository\AdvantageStatutRepository")
  */
 class AdvantageStatut
 {
@@ -99,4 +99,3 @@ class AdvantageStatut
         return $this->advantageId;
     }
 }
-

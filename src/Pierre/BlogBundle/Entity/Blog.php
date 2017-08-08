@@ -319,4 +319,14 @@ class Blog {
         return $text;
     }
 
+
+    /**
+     * Remove comment
+     *
+     * @param \Pierre\BlogBundle\Entity\Comment $comment
+     */
+    public function removeComment(\Pierre\BlogBundle\Entity\Comment $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
 }

@@ -1,0 +1,59 @@
+{% extends 'PierreBonsPlansBundle::layout.html.twig' %}
+
+{% block title %} | {{ bonsplan.title }}{% endblock %}
+
+{% block description %}
+    Les bons plans & astuces d'étudiants pour profiter de ta vie étudiante à 100% sur Le Blog Étudiant, article : {{ bonsplan.title }}
+{% endblock %}
+
+{% block keywords %}
+    etudiant, aide financière étudiant, plusdebonsplans, Le Blog Etudiant, aide etudiant, etudiant gouv, cidj, leblogetudiant, l étudiant, plus de bon plan, lokaviz, bon plan astuce, {{ bonsplan.title }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('Site/styles/comments.less') }}" type="text/css" rel="stylesheet/less"/>
+{% endblock %}
+
+{% block body %}
+    {% for type, flashes in app.session.flashbag.all %}
+        {% for flash in flashes %}
+            <div class="alert alert-{{ type }} alert-dismissible fade in show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{ flash }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+
+    <article class="bonsplan col-xs-12">
+        <header>
+            <h2>{{ bonsplan.title }}</h2>
+            <div class="date-published">Dernière mise à jour : {{ bonsplan.created|localizeddate('full', 'none') }}</div>
+        </header>
+        {#<img src="{{ bonsplan.image }}" alt="{{ bonsplan.image }}" class="large"/>#}
+        <div class="textblog" id="blog-form">
+            {{ bonsplan.bonsplan|raw }}
+        </div>
+    </article>
+
+    <section class="comments" id="comments">
+        <div class="previous-comments">
+
+            <div class="comment-written">
+                <h3>Commentaires</h3>
+                {% include 'PierreBonsPlansBundle:BonsPlanComment:index.html.twig' with { 'comments': comments } %}
+            </div>
+
+            <div class="comment-wrap">
+                <h3>Écrivez votre avis</h3>
+                <div class="write-advice">
+                    <p>Votre adresse mail ne sera pas jamais affiché.</p>
+                    {{ render (controller('PierreBonsPlansBundle:BonsPlanComment:new', { 'request': request, 'bonsplan_id': bonsplan.id }) ) }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

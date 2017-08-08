@@ -55,13 +55,6 @@ body {
 }
 
 
-.header-picture {
-  height: 300px;
-  background-repeat: no-repeat;
-  //background-size: 100%;
-  background-position: center;
-}
-
 @media (min-width: 1170px) {
   .header-picture {
     background-size: 100%;
@@ -104,6 +97,7 @@ body {
   padding: 40px 50px;
 }
 
+
 .content {
   .content-padding;
   clear: right;
@@ -131,16 +125,34 @@ body {
   }
 }
 
+@media (max-width: 500px) {
+  .content {
+    padding: 15px 10px;
+  }
+  .content-padding {
+    padding: 15px 10px;
+  }
+}
+
 .btn {
   white-space: normal;
 }
 
 .main-button {
-  .button-form;
-  border: 0px;
-  padding: 15px 25px;
-  .button-force-color;
+  margin-top: 30px;
+  font-weight: bold;
+  a {
+    .button-form;
+    border: 0px;
+    padding: 10px 15px;
+    .button-force-color;
+  }
 }
+ @media (max-width: 768px) {
+   .main-button a {
+     display: block;
+   }
+ }
 
 .button-force-color {
   color: @background-color;

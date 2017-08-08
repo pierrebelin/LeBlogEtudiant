@@ -1,6 +1,6 @@
 <?php
 
-namespace Pierre\SiteBundle\Entity;
+namespace Pierre\ConnaitresesaidesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * AidRegion
  *
  * @ORM\Table(name="aid_region")
- * @ORM\Entity(repositoryClass="Pierre\SiteBundle\Repository\AidRegionRepository")
+ * @ORM\Entity(repositoryClass="Pierre\ConnaitresesaidesBundle\Repository\AidRegionRepository")
  */
 class AidRegion
 {
@@ -95,4 +95,3 @@ class AidRegion
         return $this->aidId;
     }  
 }
-

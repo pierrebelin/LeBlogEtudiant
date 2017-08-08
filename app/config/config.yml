@@ -3,6 +3,8 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: ../../src/Pierre/BlogBundle/Resources/config/config.yml }
+    - { resource: ../../src/Pierre/BonsPlansBundle/Resources/config/config.yml }
+    - { resource: "@PierreBonsPlansBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -66,6 +68,3 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
-
-
-

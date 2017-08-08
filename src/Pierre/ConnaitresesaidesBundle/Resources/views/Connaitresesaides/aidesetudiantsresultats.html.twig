@@ -54,7 +54,7 @@
                             <thead>
                             <tr>
                                 <th class="col-md-2">Nom</th>
-                                <th class="col-md-2">Organisme</th>
+                                <th class="col-md-2 text-center">Organisme</th>
                                 <th class="col-md-2">Montant</th>
                                 <th class="col-md-4">Description</th>
                                 <th class="col-md-2"></th>
@@ -64,7 +64,7 @@
                             {% for array in aidAll %}
                                 <tr class="tr-{% if loop.index is divisible by(2) %}even{% else %}odd{% endif %}">
                                     <td class="col-md-2">{{ array.name }}</td>
-                                    <td class="col-md-2">{{ array.organism }}</td>
+                                    <td class="col-md-2 logo-organism"><img src="{{ array.logo }}" alt="{{ array.organism }}"></td>
                                     <td class="col-md-2">{{ array.amount }}</td>
                                     <td class="col-md-4">{{ array.description }}</td>
                                     <td class="col-md-2 td-link"><a class="link-more" target="_blank"
@@ -90,8 +90,9 @@
                             <thead>
                             <tr>
                                 <th class="col-md-2">Nom</th>
-                                <th class="col-md-2">Organisme</th>
-                                <th class="col-md-2">Montant</th>
+                                <th class="col-md-2 text-center">Organisme</th>
+                                <th class="col-md-1">Montant</th>
+                                <th class="col-md-1">Prix</th>
                                 <th class="col-md-4">Description</th>
                                 <th class="col-md-2"></th>
                             </tr>
@@ -100,8 +101,9 @@
                             {% for array in advantageAll %}
                                 <tr class="tr-{% if loop.index is divisible by(2) %}even{% else %}odd{% endif %}">
                                     <td class="col-md-2">{{ array.name }}</td>
-                                    <td class="col-md-2">{{ array.organism }}</td>
-                                    <td class="col-md-2">{{ array.amount }}</td>
+                                    <td class="col-md-2 logo-organism"><img src="{{ array.logo }}" alt="{{ array.organism }}"></td>
+                                    <td class="col-md-1">{{ array.amount }}</td>
+                                    <td class="col-md-1">{{ array.price }}</td>
                                     <td class="col-md-4">{{ array.description }}</td>
                                     <td class="col-md-2 td-link"><a class="link-more" target="_blank"
                                                                     href="{{ array.link }}"

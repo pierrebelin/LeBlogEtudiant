@@ -1,6 +1,6 @@
 <?php
 
-namespace Pierre\SiteBundle\Entity;
+namespace Pierre\ConnaitresesaidesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Statut
  *
  * @ORM\Table(name="statut")
- * @ORM\Entity(repositoryClass="Pierre\SiteBundle\Repository\StatutRepository")
+ * @ORM\Entity(repositoryClass="Pierre\ConnaitresesaidesBundle\Repository\StatutRepository")
  */
 class Statut
 {
@@ -72,4 +72,3 @@ class Statut
 //    return $prix;
 //  }
 }
-

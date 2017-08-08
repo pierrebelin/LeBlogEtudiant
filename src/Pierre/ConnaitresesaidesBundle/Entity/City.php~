@@ -1,6 +1,6 @@
 <?php
 
-namespace Pierre\SiteBundle\Entity;
+namespace Pierre\ConnaitresesaidesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
  * City
  *
  * @ORM\Table(name="city")
- * @ORM\Entity(repositoryClass="Pierre\SiteBundle\Repository\CityRepository")
+ * @ORM\HasLifecycleCallbacks()
+ * @ORM\Entity(repositoryClass="Pierre\ConnaitresesaidesBundle\Repository\CityRepository")
  */
 class City
 {
@@ -95,4 +96,3 @@ class City
         return $this->departmentId;
     }
 }
-

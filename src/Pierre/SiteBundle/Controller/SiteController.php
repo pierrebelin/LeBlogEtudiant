@@ -60,6 +60,11 @@ class SiteController extends Controller
         return $this->render('PierreSiteBundle:Site:cgu.html.twig');
     }
 
+    public function donsAction()
+    {
+        return $this->render('PierreSiteBundle:Site:dons.html.twig');
+    }
+
     public function footerAction(Request $request)
     {
         $form = $this->createFormBuilder()

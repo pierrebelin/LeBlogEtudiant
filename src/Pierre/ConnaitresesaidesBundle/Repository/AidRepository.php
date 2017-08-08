@@ -24,7 +24,7 @@ class AidRepository extends \Doctrine\ORM\EntityRepository
 
 
         $qb = $this->createQueryBuilder('aid')
-            ->select('aid.name, aid.organism, aid.amount, aid.description, city.name AS location, aid.link')
+            ->select('aid.name, aid.organism, aid.amount, aid.description, city.name AS location, aid.link, aid.logo')
             // Search for statut in entity Statut
             ->innerJoin('PierreConnaitresesaidesBundle:AidStatut', 'astatut', 'WITH', 'astatut.aidId = aid.id')
             ->innerJoin('PierreConnaitresesaidesBundle:Statut', 'statut', 'WITH', 'astatut.statutId = statut.id')
@@ -62,7 +62,7 @@ class AidRepository extends \Doctrine\ORM\EntityRepository
 
 
         $qb = $this->createQueryBuilder('aid')
-            ->select('aid.name, aid.organism, aid.amount, aid.description, country.name AS location, aid.link')
+            ->select('aid.name, aid.organism, aid.amount, aid.description, country.name AS location, aid.link, aid.logo')
             // Search for statut in entity Statut
             ->leftJoin('PierreConnaitresesaidesBundle:AidStatut', 'astatut', 'WITH', 'astatut.aidId = aid.id')
             ->innerJoin('PierreConnaitresesaidesBundle:Statut', 'statut', 'WITH', 'astatut.statutId = statut.id')
@@ -103,7 +103,7 @@ class AidRepository extends \Doctrine\ORM\EntityRepository
 
 
         $qb = $this->createQueryBuilder('aid')
-            ->select('aid.name, aid.organism, aid.amount, aid.description, region.name AS location, aid.link')
+            ->select('aid.name, aid.organism, aid.amount, aid.description, region.name AS location, aid.link, aid.logo')
             // Search for statut in entity Statut
             ->leftJoin('PierreConnaitresesaidesBundle:AidStatut', 'astatut', 'WITH', 'astatut.aidId = aid.id')
             ->innerJoin('PierreConnaitresesaidesBundle:Statut', 'statut', 'WITH', 'astatut.statutId = statut.id')
@@ -143,7 +143,7 @@ class AidRepository extends \Doctrine\ORM\EntityRepository
 
 
         $qb = $this->createQueryBuilder('aid')
-            ->select('aid.name, aid.organism, aid.amount, aid.description, dep.name AS location, aid.link')
+            ->select('aid.name, aid.organism, aid.amount, aid.description, dep.name AS location, aid.link, aid.logo')
             // Search for statut in entity Statut
             ->leftJoin('PierreConnaitresesaidesBundle:AidStatut', 'astatut', 'WITH', 'astatut.aidId = aid.id')
             ->innerJoin('PierreConnaitresesaidesBundle:Statut', 'statut', 'WITH', 'astatut.statutId = statut.id')

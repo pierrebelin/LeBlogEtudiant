@@ -1,6 +1,6 @@
 <?php
 
-namespace Pierre\SiteBundle\Entity;
+namespace Pierre\ConnaitresesaidesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * OfferDepartment
  *
  * @ORM\Table(name="offer_department")
- * @ORM\Entity(repositoryClass="Pierre\SiteBundle\Repository\OfferDepartmentRepository")
+ * @ORM\Entity(repositoryClass="Pierre\ConnaitresesaidesBundle\Repository\OfferDepartmentRepository")
  */
 class OfferDepartment
 {
@@ -97,4 +97,3 @@ class OfferDepartment
         return $this->offerId;
     }
 }
-

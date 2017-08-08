@@ -1,0 +1,4 @@
+## YAML Template.
+parameters:
+    pierre_bonsplans.comments.latest_comment_limit: 10
+    pierre_bonsplans.bonsplans.max_article: 10

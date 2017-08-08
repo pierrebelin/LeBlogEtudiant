@@ -1,0 +1,5 @@
+services:
+    pierre_bonsplans.twig.extension:
+        class: Pierre\BonsPlansBundle\Twig\Extensions\PierreBonsPlansExtension
+        tags:
+            - { name: twig.extension }

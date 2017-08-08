@@ -9,6 +9,33 @@ nav {
   box-shadow: 0 8px 6px -6px #999;
 }
 
+.navbar-banner {
+  align-items: center;
+  background-image: url('../images/header-main.jpg');
+  background-image: url('../images/navbar-banner.png');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-attachment: fixed;
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  height: 200px;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  //transform-style: preserve-3d;
+  perspective: 100px;
+  h3 {
+    color: white;
+    font-size: 22px;
+  }
+  img {
+    width: auto;
+    height: 100px; 
+  }
+}
+
 .navbar-right {
   margin-right: 0px !important;
 }

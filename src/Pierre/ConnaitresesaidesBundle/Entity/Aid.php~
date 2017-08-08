@@ -1,6 +1,6 @@
 <?php
 
-namespace Pierre\SiteBundle\Entity;
+namespace Pierre\ConnaitresesaidesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Aid
  *
  * @ORM\Table(name="aid")
- * @ORM\Entity(repositoryClass="Pierre\SiteBundle\Repository\AidRepository")
+ * @ORM\Entity(repositoryClass="Pierre\ConnaitresesaidesBundle\Repository\AidRepository")
  */
 class Aid {
 
@@ -83,6 +83,13 @@ class Aid {
      * @ORM\Column(name="link", type="string", length=1023)
      */
     private $link;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="logo", type="string", length=1023)
+     */
+    private $logo;
 
     /**
      * Get id
@@ -291,4 +298,25 @@ class Aid {
         return $this->link;
     }
 
+    /**
+     * Set logo
+     *
+     * @param string $logo
+     *
+     * @return Aid
+     */
+    public function setLogo($logo) {
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * Get logo
+     *
+     * @return string
+     */
+    public function getLogo() {
+        return $this->logo;
+    }
 }

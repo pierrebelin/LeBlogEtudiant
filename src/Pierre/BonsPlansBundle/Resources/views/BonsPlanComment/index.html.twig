@@ -1,0 +1,15 @@
+{% for comment in comments %}
+    <article class="comment-design comment {{ cycle(['odd', 'even'], loop.index0) }}" id="comment-{{ comment.id }}">
+        <header>
+            <p>{{ comment.user }}</p>
+            <div class="comment-created">
+                <p>{{ comment.created|localizeddate('medium', 'none') }}</p>
+            </div>
+        </header>
+        <p>{{ comment.comment|nl2br }}</p>
+    </article>
+{% else %}
+    <div class="no-comment">
+        <p>Il n'y a pas de commentaires, soyez le premier à donner votre avis !</p>
+    </div>
+{% endfor %}

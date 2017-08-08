@@ -8,6 +8,7 @@ and open the template in the editor.
     Author     : Pierre BELIN
 */
 @import "couleur.less";
+@import "dons.less";
 
 .link-more {
   display: block;
@@ -97,7 +98,7 @@ and open the template in the editor.
 
 .remind-send-results {
   text-align: center !important;
-  margin-top: 30px; 
+  margin-top: 30px;
 }
 
 .remind-important {
@@ -108,118 +109,4 @@ and open the template in the editor.
   p {
     text-align: center;
   }
-}
-
-.social-network {
-  margin-top: 25px;
-  margin-bottom: 10px;
-  div {
-    margin-bottom: 5px;
-  }
-}
-
-.form-donation-title {
-  text-align: center;
-  margin-bottom: 35px !important;
-}
-
-.form-donation-other-amount {
-  border: none;
-  background-color: transparent;
-  margin-bottom: 30px;
-}
-
-.form-donation {
-  text-align: center;
-  h3 {
-    margin-bottom: 30px;
-  }
-  h2 {
-    color: @color-radio-donation-noselected;
-    margin-top: 15px;
-    margin-bottom: 10px;
-  }
-  option {
-    padding: 10px 0;
-  }
-  .btn {
-    margin-top: 30px;
-    margin-bottom: 10px;
-  }
-  .combo-donation {
-    p {
-      text-align: center !important;
-      font-weight: 400 !important;
-      margin-bottom: 0;
-      .subtitle-donation {
-        font-size: 12px;
-      }
-    }
-  }
-
-  section {
-    display: flex;
-  }
-  section > div {
-    flex: 1;
-    padding: 0.5rem;
-  }
-  input[type="radio"] {
-    display: none;
-    &:not(:disabled) ~ label {
-      cursor: pointer;
-    }
-
-  }
-  label {
-    height: 100%;
-    display: block;
-    background: white;
-    border: 2px solid transparent;
-    border-radius: 20px;
-    padding: 5px;
-    text-align: center;
-    color: @color-radio-donation-noselected;
-    box-shadow: 0px 3px 10px -2px hsla(150, 5%, 65%, 0.5);
-    position: relative;
-  }
-  input[type="radio"]:checked + label {
-    background: @color-radio-donation;
-    color: hsla(215, 0%, 100%, 1);
-    box-shadow: 0px 0px 20px @color-radio-donation;
-    &::after {
-      color: @color-radio-donation;
-      font-family: FontAwesome;
-      //border: 2px solid @color-radio-donation;
-      content: "\f00c";
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      height: 35px;
-      width: 35px;
-      line-height: 35px;
-      text-align: center;
-      border-radius: 50%;
-      background: white;
-      box-shadow: 0px 2px 5px -2px hsla(0, 0%, 0%, 0.25);
-    }
-    h2 {
-      color: white !important;
-    }
-  }
-  p {
-
-  }
-
-  @media only screen and (max-width: 700px) {
-    section {
-      flex-direction: column;
-    }
-
-    section > div {
-
-    }
-  }
-
 }
