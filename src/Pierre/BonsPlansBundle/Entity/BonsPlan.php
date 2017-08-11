@@ -83,7 +83,7 @@ class BonsPlan {
      */
     protected $comments;
 
-    public function addComment(Comment $comment) {
+    public function addComment(BonsPlanComment $comment) {
         $this->comments[] = $comment;
     }
 

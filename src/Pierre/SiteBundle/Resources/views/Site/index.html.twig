@@ -5,11 +5,11 @@
 {% endblock %}
 
 {% block description %}
-    Tu es étudiant(e) à la recherche de moyens pour financer tes études ? Le Blog Étudiant te permet de connecter en moins d'une minute toutes les aides et avantages dont tu as le droit, ainsi que des bons plans et astuces pour profiter de ta vie étudiante à 100%
+    Tu es étudiant(e) à la recherche de moyens pour financer tes études ? Le Blog Étudiant te permet de connaître en moins d'une minute toutes les aides et avantages dont tu as le droit, ainsi que des bons plans et astuces pour profiter de ta vie étudiante à 100%
 {% endblock %}
 
 {% block keywords %}
-    bourse, aide au logement, etudiant, aide financière étudiant, bourse crous, Le Blog Etudiant, aide etudiant, demande de bourse, etudiant gouv, cidj, le-blog-etudiant, leblogetudiant, mes services etudiants, l étudiant, dossier social étudiant, lokaviz, gagner de l argent facilement
+    aide etudiant, reductions, bons plans etudiant, aide financiere etudiant, blog etudiant, bourse, aide au logement, etudiant, crous, demande de bourse, etudiant gouv, cidj, leblogetudiant, mes services etudiants, l étudiant, dossier social étudiant, lokaviz
 {% endblock %}
 
 {% block content %}
@@ -75,7 +75,7 @@
     </div>
 </div>
 <div style="display: none">
-  <p>bourse, aide au logement, etudiant, aide financière étudiant, bourse crous, Le Blog Etudiant, aide etudiant, demande de bourse, etudiant gouv, cidj, le-blog-etudiant, leblogetudiant, mes services etudiants, l étudiant, dossier social étudiant, lokaviz, gagner de l argent facilement</p>
+  <p>aide etudiant, reductions, bons plans etudiant, aide financiere etudiant, blog etudiant, bourse, aide au logement, etudiant, crous, demande de bourse, etudiant gouv, cidj, leblogetudiant, mes services etudiants, l étudiant, dossier social étudiant, lokaviz</p>
 </div>
 <div class="row-colored-mainbackground">
     <div class="container">
@@ -206,43 +206,44 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('.main-news-slick').slick({
-                dots: true,
-                infinite: true,
-                autoplay:true,
-                autoplaySpeed: 5000,
-                speed: 500,
-                slidesToShow: 1,
-                arrows: false,
-                });
-        });
-    </script>
-    <script>
-        $("#subscribe-index-form").submit(function () {
-            $.ajax({
-                type: "POST",
-                url: "{{ path('PierreSiteBundle_newsletter') }}",
-                data: {
-                    mail: $("#subscribe-index-mail").val(),
-                    user: $("#subscribe-index-user").val(),
-                },
-                cache: false,
-                success: function (data) {
-                    console.log(data);
-                    if (data == 'success') {
-                        $('#subscribe-success-modal').modal('show');
-                    } else if (data == 'warning') {
-                        $('#subscribe-warning-modal').modal('show');
-                    } else {
-                        $('#subscribe-error-modal').modal('show');
-                    }
-                    $("#subscribe-index-mail").val("");
-                    $("#subscribe-index-user").val("");
-                }
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.main-news-slick').slick({
+            dots: true,
+            infinite: true,
+            autoplay:true,
+            autoplaySpeed: 5000,
+            speed: 500,
+            slidesToShow: 1,
+            arrows: false,
             });
-            return false;
+    });
+</script>
+<script>
+    $("#subscribe-index-form").submit(function () {
+        $.ajax({
+            type: "POST",
+            url: "{{ path('PierreSiteBundle_newsletter') }}",
+            data: {
+                mail: $("#subscribe-index-mail").val(),
+                user: $("#subscribe-index-user").val(),
+            },
+            cache: false,
+            success: function (data) {
+                console.log(data);
+                if (data == 'success') {
+                    $('#subscribe-success-modal').modal('show');
+                } else if (data == 'warning') {
+                    $('#subscribe-warning-modal').modal('show');
+                } else {
+                    $('#subscribe-error-modal').modal('show');
+                }
+                $("#subscribe-index-mail").val("");
+                $("#subscribe-index-user").val("");
+            }
         });
-    </script>
-    {% endblock %}
+        return false;
+    });
+</script>
+{% endblock %}
