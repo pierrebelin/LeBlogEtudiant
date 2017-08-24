@@ -3,11 +3,13 @@
 namespace Pierre\ConnaitresesaidesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+
 
 /**
  * AdvantageRegion
  *
- * @ORM\Table(name="advantage_region")
+ * @ORM\Table(name="advantage_region", uniqueConstraints={@UniqueConstraint(name="avantageregionunique", columns={"region_id", "advantage_id"})})
  * @ORM\Entity(repositoryClass="Pierre\ConnaitresesaidesBundle\Repository\AdvantageRegionRepository")
  */
 class AdvantageRegion

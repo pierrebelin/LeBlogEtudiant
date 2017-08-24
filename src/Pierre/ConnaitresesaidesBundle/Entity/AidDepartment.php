@@ -3,11 +3,13 @@
 namespace Pierre\ConnaitresesaidesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+
 
 /**
  * AidDepartment
  *
- * @ORM\Table(name="aid_department")
+ * @ORM\Table(name="aid_department", uniqueConstraints={@UniqueConstraint(name="aiddepartmentunique", columns={"department_id", "aid_id"})})
  * @ORM\Entity(repositoryClass="Pierre\ConnaitresesaidesBundle\Repository\AidDepartmentRepository")
  */
 class AidDepartment
