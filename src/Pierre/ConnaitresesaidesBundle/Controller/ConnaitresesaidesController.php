@@ -61,6 +61,10 @@ class ConnaitresesaidesController extends Controller
             ))
             ->getForm();
 
+        // Set text for cities who will be add to the website
+        $em = $this->getDoctrine()->getManager();
+        $citiesToAdd = $em->getRepository('PierreSiteBundle:Globals')->getCitiesToAdd();
+
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
 
@@ -76,9 +80,12 @@ class ConnaitresesaidesController extends Controller
         } else {
             return $this->render('PierreConnaitresesaidesBundle:Connaitresesaides:aidesetudiants.html.twig', array(
                 'form' => $form->createView(),
+                'citiesToAdd' => $citiesToAdd,
             ));
         }
     }
+
+
 
     public function aidesetudiantsresultatsAction(Request $request)
     {
@@ -197,4 +204,6 @@ class ConnaitresesaidesController extends Controller
             return $this->resultatsAction();
         }
     }
+
+
 }

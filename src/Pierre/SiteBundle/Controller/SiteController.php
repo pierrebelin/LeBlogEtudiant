@@ -40,8 +40,12 @@ class SiteController extends Controller
             ))
             ->getForm();
 
+        $em = $this->getDoctrine()->getManager();
+        $mainNews = $em->getRepository('PierreSiteBundle:MainNews')->findAll();
+
         return $this->render('PierreSiteBundle:Site:index.html.twig', array(
             'form' => $form->createView(),
+            'mainNews' => $mainNews,
         ));
     }
 
@@ -63,6 +67,11 @@ class SiteController extends Controller
     public function donsAction()
     {
         return $this->render('PierreSiteBundle:Site:dons.html.twig');
+    }
+
+    public function faqAction()
+    {
+        return $this->render('PierreSiteBundle:Site:faq.html.twig');
     }
 
     public function footerAction(Request $request)

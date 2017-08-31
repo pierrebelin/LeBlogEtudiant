@@ -10,10 +10,24 @@ namespace Pierre\ConnaitresesaidesBundle\Repository;
  */
 class AidRepository extends \Doctrine\ORM\EntityRepository
 {
+    //TODO : Check the type of join to get all results
+    public function findAllAid(){
+        $qb = $this->createQueryBuilder('aid')
+            ->select('org.name AS organism, aid.name, aid.amount, aid.description, city.name AS location, aid.link, org.logo')
+            ->innerJoin('PierreConnaitresesaidesBundle:Organism', 'org', 'WITH', 'org.id = aid.organismID')
+            ->innerJoin('PierreConnaitresesaidesBundle:AidCity', 'acity', 'WITH', 'acity.aidId = aid.id')
+            ->innerJoin('PierreConnaitresesaidesBundle:City', 'city', 'WITH', 'city.id = acity.cityId')
+            ->innerJoin('PierreConnaitresesaidesBundle:AidCountry', 'acountry', 'WITH', 'acountry.aidId = aid.id')
+            ->innerJoin('PierreConnaitresesaidesBundle:Country', 'country', 'WITH', 'acountry.countryId = country.id')
+            ->innerJoin('PierreConnaitresesaidesBundle:AidRegion', 'aregion', 'WITH', 'aregion.aidId = aid.id')
+            ->innerJoin('PierreConnaitresesaidesBundle:Region', 'region', 'WITH', 'region.id = aregion.regionId')
+            ->innerJoin('PierreConnaitresesaidesBundle:AidDepartment', 'adep', 'WITH', 'adep.aidId = aid.id')
+            ->innerJoin('PierreConnaitresesaidesBundle:Department', 'dep', 'WITH', 'dep.id = adep.departmentId');
+    }
+
 
     public function findPossibleAidCities($statut, $city, $age, $salary)
     {
-
         $parameters = array(
             'statut' => $statut,
             'city' => $city,
@@ -22,10 +36,9 @@ class AidRepository extends \Doctrine\ORM\EntityRepository
             'salarymax' => $city
         );
 
-
         $qb = $this->createQueryBuilder('aid')
-            ->select('aid.name, aid.organism, aid.amount, aid.description, city.name AS location, aid.link, aid.logo')
-            // Search for statut in entity Statut
+            ->select('org.name AS organism, aid.name, aid.amount, aid.description, city.name AS location, aid.link, org.logo')
+            ->innerJoin('PierreConnaitresesaidesBundle:Organism', 'org', 'WITH', 'org.id = aid.organismID')            // Search for statut in entity Statut
             ->innerJoin('PierreConnaitresesaidesBundle:AidStatut', 'astatut', 'WITH', 'astatut.aidId = aid.id')
             ->innerJoin('PierreConnaitresesaidesBundle:Statut', 'statut', 'WITH', 'astatut.statutId = statut.id')
             ->where('statut.name = :statut')
@@ -62,8 +75,8 @@ class AidRepository extends \Doctrine\ORM\EntityRepository
 
 
         $qb = $this->createQueryBuilder('aid')
-            ->select('aid.name, aid.organism, aid.amount, aid.description, country.name AS location, aid.link, aid.logo')
-            // Search for statut in entity Statut
+            ->select('org.name AS organism, aid.name, aid.amount, aid.description, city.name AS location, aid.link, org.logo')
+            ->innerJoin('PierreConnaitresesaidesBundle:Organism', 'org', 'WITH', 'org.id = aid.organismID')            // Search for statut in entity Statut
             ->leftJoin('PierreConnaitresesaidesBundle:AidStatut', 'astatut', 'WITH', 'astatut.aidId = aid.id')
             ->innerJoin('PierreConnaitresesaidesBundle:Statut', 'statut', 'WITH', 'astatut.statutId = statut.id')
             ->where('statut.name = :statut')
@@ -103,8 +116,8 @@ class AidRepository extends \Doctrine\ORM\EntityRepository
 
 
         $qb = $this->createQueryBuilder('aid')
-            ->select('aid.name, aid.organism, aid.amount, aid.description, region.name AS location, aid.link, aid.logo')
-            // Search for statut in entity Statut
+            ->select('org.name AS organism, aid.name, aid.amount, aid.description, city.name AS location, aid.link, org.logo')
+            ->innerJoin('PierreConnaitresesaidesBundle:Organism', 'org', 'WITH', 'org.id = aid.organismID')            // Search for statut in entity Statut
             ->leftJoin('PierreConnaitresesaidesBundle:AidStatut', 'astatut', 'WITH', 'astatut.aidId = aid.id')
             ->innerJoin('PierreConnaitresesaidesBundle:Statut', 'statut', 'WITH', 'astatut.statutId = statut.id')
             ->where('statut.name = :statut')
@@ -143,8 +156,8 @@ class AidRepository extends \Doctrine\ORM\EntityRepository
 
 
         $qb = $this->createQueryBuilder('aid')
-            ->select('aid.name, aid.organism, aid.amount, aid.description, dep.name AS location, aid.link, aid.logo')
-            // Search for statut in entity Statut
+            ->select('org.name AS organism, aid.name, aid.amount, aid.description, city.name AS location, aid.link, org.logo')
+            ->innerJoin('PierreConnaitresesaidesBundle:Organism', 'org', 'WITH', 'org.id = aid.organismID')            // Search for statut in entity Statut
             ->leftJoin('PierreConnaitresesaidesBundle:AidStatut', 'astatut', 'WITH', 'astatut.aidId = aid.id')
             ->innerJoin('PierreConnaitresesaidesBundle:Statut', 'statut', 'WITH', 'astatut.statutId = statut.id')
             ->where('statut.name = :statut')

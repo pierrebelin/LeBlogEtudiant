@@ -29,13 +29,6 @@ class Aid {
     private $name;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="organism", type="string", length=255)
-     */
-    private $organism;
-
-    /**
      * @var int
      *
      * @ORM\Column(name="agemin", type="integer", options={"default":0})
@@ -85,11 +78,13 @@ class Aid {
     private $link;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="logo", type="string", length=1023)
+     * @ORM\ManyToOne(targetEntity="Organism")
+     * @ORM\JoinColumn(name="organism_id", referencedColumnName="id", nullable=false)
      */
-    private $logo;
+    private $organismID;
+
 
     /**
      * Get id
@@ -122,27 +117,6 @@ class Aid {
         return $this->name;
     }
 
-    /**
-     * Set organism
-     *
-     * @param string $organism
-     *
-     * @return Aid
-     */
-    public function setOrganism($organism) {
-        $this->organism = $organism;
-
-        return $this;
-    }
-
-    /**
-     * Get organism
-     *
-     * @return string
-     */
-    public function getOrganism() {
-        return $this->organism;
-    }
 
     /**
      * Set agemin
@@ -298,25 +272,27 @@ class Aid {
         return $this->link;
     }
 
+
     /**
-     * Set logo
+     * Set organismID
      *
-     * @param string $logo
+     * @param string $organismId
      *
      * @return Aid
      */
-    public function setLogo($logo) {
-        $this->logo = $logo;
+    public function setOrganismID($organismId) {
+        $this->organismID = $organismId;
 
         return $this;
     }
 
     /**
-     * Get logo
+     * Get organismID
      *
      * @return string
      */
-    public function getLogo() {
-        return $this->logo;
+    public function getOrganismID() {
+        return $this->organismID;
     }
+
 }

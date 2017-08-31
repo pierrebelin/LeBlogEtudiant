@@ -51,3 +51,7 @@ PierreSiteBundle_sendcontactmail:
 PierreSiteBundle_dons:
     path:     /dons
     defaults: { _controller: PierreSiteBundle:Site:dons }
+
+PierreSiteBundle_faq:
+    path:     /faq
+    defaults: { _controller: PierreSiteBundle:Site:faq }

@@ -87,6 +87,13 @@ class Advantage {
     /**
      * @var string
      *
+     * @ORM\Column(name="category", type="string", length=64, nullable=true)
+     */
+    private $category;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="link", type="string", length=1023)
      */
     private $link;
@@ -306,6 +313,30 @@ class Advantage {
     public function getDescription() {
         return $this->description;
     }
+
+
+    /**
+     * Set category
+     *
+     * @param string $category
+     *
+     * @return Advantage
+     */
+    public function setCategory($category) {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return string
+     */
+    public function getCategory() {
+        return $this->category;
+    }
+
 
     /**
      * Set link

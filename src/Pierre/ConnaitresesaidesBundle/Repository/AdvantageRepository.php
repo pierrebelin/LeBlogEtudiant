@@ -23,7 +23,7 @@ class AdvantageRepository extends \Doctrine\ORM\EntityRepository
 
 
         $qb = $this->createQueryBuilder('advantage')
-            ->select('advantage.name, advantage.organism, advantage.amount, advantage.price, advantage.description, city.name AS location, advantage.link, advantage.logo')
+            ->select('advantage.organism, advantage.name, advantage.amount, advantage.price, advantage.description, city.name AS location, advantage.link, advantage.logo')
             // Search for statut in entity Statut
             ->innerJoin('PierreConnaitresesaidesBundle:AdvantageStatut', 'astatut', 'WITH', 'astatut.advantageId = advantage.id')
             ->innerJoin('PierreConnaitresesaidesBundle:Statut', 'statut', 'WITH', 'astatut.statutId = statut.id')
@@ -61,7 +61,7 @@ class AdvantageRepository extends \Doctrine\ORM\EntityRepository
 
 
         $qb = $this->createQueryBuilder('advantage')
-            ->select('advantage.name, advantage.organism, advantage.amount, advantage.price, advantage.description, country.name AS location, advantage.link, advantage.logo')
+            ->select('advantage.organism, advantage.name,advantage.amount, advantage.price, advantage.description, country.name AS location, advantage.link, advantage.logo')
             // Search for statut in entity Statut
             ->leftJoin('PierreConnaitresesaidesBundle:AdvantageStatut', 'astatut', 'WITH', 'astatut.advantageId = advantage.id')
             ->innerJoin('PierreConnaitresesaidesBundle:Statut', 'statut', 'WITH', 'astatut.statutId = statut.id')
@@ -102,7 +102,7 @@ class AdvantageRepository extends \Doctrine\ORM\EntityRepository
 
 
         $qb = $this->createQueryBuilder('advantage')
-            ->select('advantage.name, advantage.organism, advantage.amount, advantage.price, advantage.description, region.name AS location, advantage.link, advantage.logo')
+            ->select('advantage.organism, advantage.name, advantage.amount, advantage.price, advantage.description, region.name AS location, advantage.link, advantage.logo')
             // Search for statut in entity Statut
             ->leftJoin('PierreConnaitresesaidesBundle:AdvantageStatut', 'astatut', 'WITH', 'astatut.advantageId = advantage.id')
             ->innerJoin('PierreConnaitresesaidesBundle:Statut', 'statut', 'WITH', 'astatut.statutId = statut.id')
@@ -142,7 +142,7 @@ class AdvantageRepository extends \Doctrine\ORM\EntityRepository
 
 
         $qb = $this->createQueryBuilder('advantage')
-            ->select('advantage.name, advantage.organism, advantage.amount, advantage.price, advantage.description, dep.name AS location, advantage.link, advantage.logo')
+            ->select('advantage.organism, advantage.name,   advantage.amount, advantage.price, advantage.description, dep.name AS location, advantage.link, advantage.logo')
             // Search for statut in entity Statut
             ->leftJoin('PierreConnaitresesaidesBundle:AdvantageStatut', 'astatut', 'WITH', 'astatut.advantageId = advantage.id')
             ->innerJoin('PierreConnaitresesaidesBundle:Statut', 'statut', 'WITH', 'astatut.statutId = statut.id')
