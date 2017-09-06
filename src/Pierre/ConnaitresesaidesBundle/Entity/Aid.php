@@ -272,7 +272,6 @@ class Aid {
         return $this->link;
     }
 
-
     /**
      * Set organismID
      *

@@ -1,11 +1,14 @@
 {% extends 'PierreConnaitresesaidesBundle::layout.html.twig' %}
 
 {% block title %}
-    {{ parent() }}Identifier ses aides
+    {{ parent() }}Identifier les aides étudiantes de ta ville
 {% endblock %}
 
 {% block description %}
-    Tu souhaites connaître l'ensemble des aides et avantages auxquels tu as droit ? Le Blog Étudiant les a toutes recensé pour sur son site.
+    Tu souhaites connaître l'ensemble des aides et avantages auxquels tu as droit ? Le Blog Étudiant les a toutes recensé pour sur son site :
+    {% for city in cities %}
+        {{ city.name }},
+    {% endfor %}
     Découvrez-les !
 {% endblock %}
 
@@ -66,7 +69,8 @@
                     <h2>Aides nationales & locales</h2>
                     <p>Si vous vous retrouvez sur ce site, c'est sûrement que vous vous êtez rendus compte que c'est
                         compliqué, presque impossible, de trouver les aides et avantages auxquels les étudiants peuvent
-                        avoir accès. Ne parlons même pas des aides régionales. L'objectif du site Le Blog Étudiant est de
+                        avoir accès. Ne parlons même pas des aides régionales. L'objectif du site Le Blog Étudiant est
+                        de
                         simplifier cela.</p>
                     <p>Les informations seront réparties en différentes catégories : aides, avantages.</p>
                     <p>Les aides sont des offres qui vous donnent accès à des subventions en fonction de votre

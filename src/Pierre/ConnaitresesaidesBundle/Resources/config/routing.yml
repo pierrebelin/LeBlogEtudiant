@@ -13,6 +13,11 @@ PierreConnaitresesaidesBundle_aidesetudiants_resultats:
     defaults:
        _controller: PierreConnaitresesaidesBundle:Connaitresesaides:aidesetudiantsresultats
 
+PierreConnaitresesaidesBundle_aidesetudiants_allresultats:
+    path:    /aides-etudiants/allresultats
+    defaults:
+       _controller: PierreConnaitresesaidesBundle:Connaitresesaides:aidesetudiantsallresultats
+
 PierreConnaitresesaidesBundle_sendresultsmail:
     path:    /aides-etudiants-francais/resultats/sendresultsmail
     defaults:

@@ -10,4 +10,14 @@ namespace Pierre\ConnaitresesaidesBundle\Repository;
  */
 class CityRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findAllCityName()
+    {
+        $qb = $this->createQueryBuilder('city')
+            ->select('city.name');
+
+        return $qb->getQuery()
+            ->getResult();
+    }
+
+
 }

@@ -10,9 +10,20 @@ namespace Pierre\ConnaitresesaidesBundle\Repository;
  */
 class AdvantageRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findAllAdvantages()
+    {
+        $qb = $this->createQueryBuilder('advantage')
+            ->select('org.name AS organism, advantage.name, advantage.amount, advantage.price, advantage.description, advantage.link, org.logo')
+            ->innerJoin('PierreConnaitresesaidesBundle:Organism', 'org', 'WITH', 'org.id = advantage.organismID')
+            ->orderBy('org.name', 'ASC');
+
+        return $qb->getQuery()
+                        ->getResult();
+    }
+
+
     public function findPossibleAdvantageCities($statut, $city, $age, $salary)
     {
-
         $parameters = array(
             'statut' => $statut,
             'city' => $city,
@@ -23,7 +34,8 @@ class AdvantageRepository extends \Doctrine\ORM\EntityRepository
 
 
         $qb = $this->createQueryBuilder('advantage')
-            ->select('advantage.organism, advantage.name, advantage.amount, advantage.price, advantage.description, city.name AS location, advantage.link, advantage.logo')
+            ->select('org.name AS organism, advantage.name, advantage.amount, advantage.price, advantage.description, city.name AS location, advantage.link, org.logo')
+            ->innerJoin('PierreConnaitresesaidesBundle:Organism', 'org', 'WITH', 'org.id = advantage.organismID')
             // Search for statut in entity Statut
             ->innerJoin('PierreConnaitresesaidesBundle:AdvantageStatut', 'astatut', 'WITH', 'astatut.advantageId = advantage.id')
             ->innerJoin('PierreConnaitresesaidesBundle:Statut', 'statut', 'WITH', 'astatut.statutId = statut.id')
@@ -61,7 +73,8 @@ class AdvantageRepository extends \Doctrine\ORM\EntityRepository
 
 
         $qb = $this->createQueryBuilder('advantage')
-            ->select('advantage.organism, advantage.name,advantage.amount, advantage.price, advantage.description, country.name AS location, advantage.link, advantage.logo')
+            ->select('org.name AS organism, advantage.name, advantage.amount, advantage.price, advantage.description, city.name AS location, advantage.link, org.logo')
+            ->innerJoin('PierreConnaitresesaidesBundle:Organism', 'org', 'WITH', 'org.id = advantage.organismID')
             // Search for statut in entity Statut
             ->leftJoin('PierreConnaitresesaidesBundle:AdvantageStatut', 'astatut', 'WITH', 'astatut.advantageId = advantage.id')
             ->innerJoin('PierreConnaitresesaidesBundle:Statut', 'statut', 'WITH', 'astatut.statutId = statut.id')
@@ -102,7 +115,8 @@ class AdvantageRepository extends \Doctrine\ORM\EntityRepository
 
 
         $qb = $this->createQueryBuilder('advantage')
-            ->select('advantage.organism, advantage.name, advantage.amount, advantage.price, advantage.description, region.name AS location, advantage.link, advantage.logo')
+            ->select('org.name AS organism, advantage.name, advantage.amount, advantage.price, advantage.description, city.name AS location, advantage.link, org.logo')
+            ->innerJoin('PierreConnaitresesaidesBundle:Organism', 'org', 'WITH', 'org.id = advantage.organismID')
             // Search for statut in entity Statut
             ->leftJoin('PierreConnaitresesaidesBundle:AdvantageStatut', 'astatut', 'WITH', 'astatut.advantageId = advantage.id')
             ->innerJoin('PierreConnaitresesaidesBundle:Statut', 'statut', 'WITH', 'astatut.statutId = statut.id')
@@ -142,7 +156,8 @@ class AdvantageRepository extends \Doctrine\ORM\EntityRepository
 
 
         $qb = $this->createQueryBuilder('advantage')
-            ->select('advantage.organism, advantage.name,   advantage.amount, advantage.price, advantage.description, dep.name AS location, advantage.link, advantage.logo')
+            ->select('org.name AS organism, advantage.name, advantage.amount, advantage.price, advantage.description, city.name AS location, advantage.link, org.logo')
+            ->innerJoin('PierreConnaitresesaidesBundle:Organism', 'org', 'WITH', 'org.id = advantage.organismID')
             // Search for statut in entity Statut
             ->leftJoin('PierreConnaitresesaidesBundle:AdvantageStatut', 'astatut', 'WITH', 'astatut.advantageId = advantage.id')
             ->innerJoin('PierreConnaitresesaidesBundle:Statut', 'statut', 'WITH', 'astatut.statutId = statut.id')

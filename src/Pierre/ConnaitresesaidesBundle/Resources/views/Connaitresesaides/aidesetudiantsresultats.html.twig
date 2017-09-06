@@ -12,6 +12,9 @@
 
 {% block content %}
     <div class="container container-shadow">
+        <div class=" row pub-banniere">
+            <img class="img-responsive " src="{{ asset('Site/images/geg.jpg') }}">
+        </div>
         <div class="row content">
             <div class="header-aides">
                 <h1>Résultats</h1>
@@ -35,7 +38,11 @@ Vous gagnez {{ salary }}€ par mois">ces critères</strong>, vous êtes potenti
             <strong><p class="remind-send-results">⚠ Important, lisez attentivement le fonctionnement du site
                     <a href="{{ path('PierreSiteBundle_faq') }}">sur la page de F.A.Q</a>
                     avant de continuer ⚠</p></strong>
-            <hr class="main-hr">
+        </div>
+        <div class="row pub-banniere">
+            <img class="img-responsive " src="{{ asset('Site/images/geg.jpg') }}">
+        </div>
+        <div class="row content">
             <h2>Liste potentielle d'éligibilité</h2>
             <div id="resultats-results">
                 <p class="remind-send-results">▼ Vous pouvez vous envoyer les résultats sur votre adresse mail <a
@@ -84,6 +91,33 @@ Vous gagnez {{ salary }}€ par mois">ces critères</strong>, vous êtes potenti
                     {% endif %}
                 </div>
 
+                <h3 class="text-center">Offres</h3>
+                <div class="tab-resultats">
+                    <table class="table table-resultat table-responsive">
+                        <thead>
+                        <tr>
+                            <th class="col-md-2">Nom</th>
+                            <th class="col-md-2 text-center">Organisme</th>
+                            <th class="col-md-2">Montant</th>
+                            <th class="col-md-4">Description</th>
+                            <th class="col-md-2"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="tr-odd">
+                            <td class="col-md-2">Réductions étudiantes</td>
+                            <td class="col-md-2 logo-organism"><img src="http://www.energystream-solucom.fr/wp-content/uploads/2014/06/GEG.png"
+                                                                    alt="GEG"
+                                                                    title="GEG"></td>
+                            <td class="col-md-2">Jusqu'à 25%</td>
+                            <td class="col-md-4">Profitez d'avantages sur des sorties grenobloises</td>
+                            <td class="col-md-2 td-link"><a class="link-more" target="_blank"
+                                                            href="./">Découvrez l'offre</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <h3 class="text-center">Avantages</h3>
                 <div class="tab-resultats">
                     {% if (advantageAll|length == 0) %}
@@ -121,6 +155,33 @@ Vous gagnez {{ salary }}€ par mois">ces critères</strong>, vous êtes potenti
                             </tbody>
                         </table>
                     {% endif %}
+                </div>
+
+                <h3 class="text-center">Offres</h3>
+                <div class="tab-resultats">
+                    <table class="table table-resultat table-responsive">
+                        <thead>
+                        <tr>
+                            <th class="col-md-2">Nom</th>
+                            <th class="col-md-2 text-center">Organisme</th>
+                            <th class="col-md-2">Montant</th>
+                            <th class="col-md-4">Description</th>
+                            <th class="col-md-2"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="tr-odd">
+                            <td class="col-md-2">Réductions étudiantes</td>
+                            <td class="col-md-2 logo-organism"><img src="http://www.energystream-solucom.fr/wp-content/uploads/2014/06/GEG.png"
+                                                                    alt="GEG"
+                                                                    title="GEG"></td>
+                            <td class="col-md-2">Jusqu'à 25%</td>
+                            <td class="col-md-4">Profitez d'avantages sur des sorties grenobloises</td>
+                            <td class="col-md-2 td-link"><a class="link-more" target="_blank"
+                                                            href="./">Découvrez l'offre</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
                 {#<h3 class="text-center">Offres</h3>#}
                 {#<div class="tab-resultats">#}

@@ -10,4 +10,13 @@ namespace Pierre\SiteBundle\Repository;
  */
 class MainNewsRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getMainNews()
+    {
+        $qb = $this->createQueryBuilder('m')
+            ->select('m')
+            ->orderBy('m.date', 'DESC');
+
+        return $qb->getQuery()
+            ->getResult();
+    }
 }

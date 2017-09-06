@@ -20,7 +20,12 @@ class ConnaitresesaidesController extends Controller
 
     public function indexAction()
     {
-        return $this->render('PierreConnaitresesaidesBundle:Connaitresesaides:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $cities = $em->getRepository('PierreConnaitresesaidesBundle:City')->findAllCityName();
+
+        return $this->render('PierreConnaitresesaidesBundle:Connaitresesaides:index.html.twig', array(
+            'cities' => $cities,
+        ));
     }
 
 
@@ -84,7 +89,6 @@ class ConnaitresesaidesController extends Controller
             ));
         }
     }
-
 
 
     public function aidesetudiantsresultatsAction(Request $request)
@@ -186,6 +190,21 @@ class ConnaitresesaidesController extends Controller
             ));
         }
     }
+
+
+    public function aidesetudiantsallresultatsAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $aidAll = $em->getRepository('PierreConnaitresesaidesBundle:Aid')->findAllAids();
+        $advantageAll = $em->getRepository('PierreConnaitresesaidesBundle:Advantage')->findAllAdvantages();
+
+        return $this->render('PierreConnaitresesaidesBundle:Connaitresesaides:aidesetudiantsallresultats.html.twig', array(
+            'aidAll' => $aidAll,
+            'advantageAll' => $advantageAll,
+        ));
+    }
+
 
     public function sendresultsmailAction(Request $request)
     {

@@ -41,7 +41,7 @@ class SiteController extends Controller
             ->getForm();
 
         $em = $this->getDoctrine()->getManager();
-        $mainNews = $em->getRepository('PierreSiteBundle:MainNews')->findAll();
+        $mainNews = $em->getRepository('PierreSiteBundle:MainNews')->getMainNews();
 
         return $this->render('PierreSiteBundle:Site:index.html.twig', array(
             'form' => $form->createView(),

@@ -10,20 +10,18 @@ namespace Pierre\ConnaitresesaidesBundle\Repository;
  */
 class AidRepository extends \Doctrine\ORM\EntityRepository
 {
-    //TODO : Check the type of join to get all results
-    public function findAllAid(){
+
+    public function findAllAids()
+    {
         $qb = $this->createQueryBuilder('aid')
-            ->select('org.name AS organism, aid.name, aid.amount, aid.description, city.name AS location, aid.link, org.logo')
+            ->select('org.name AS organism, aid.name, aid.amount, aid.description, aid.link, org.logo')
             ->innerJoin('PierreConnaitresesaidesBundle:Organism', 'org', 'WITH', 'org.id = aid.organismID')
-            ->innerJoin('PierreConnaitresesaidesBundle:AidCity', 'acity', 'WITH', 'acity.aidId = aid.id')
-            ->innerJoin('PierreConnaitresesaidesBundle:City', 'city', 'WITH', 'city.id = acity.cityId')
-            ->innerJoin('PierreConnaitresesaidesBundle:AidCountry', 'acountry', 'WITH', 'acountry.aidId = aid.id')
-            ->innerJoin('PierreConnaitresesaidesBundle:Country', 'country', 'WITH', 'acountry.countryId = country.id')
-            ->innerJoin('PierreConnaitresesaidesBundle:AidRegion', 'aregion', 'WITH', 'aregion.aidId = aid.id')
-            ->innerJoin('PierreConnaitresesaidesBundle:Region', 'region', 'WITH', 'region.id = aregion.regionId')
-            ->innerJoin('PierreConnaitresesaidesBundle:AidDepartment', 'adep', 'WITH', 'adep.aidId = aid.id')
-            ->innerJoin('PierreConnaitresesaidesBundle:Department', 'dep', 'WITH', 'dep.id = adep.departmentId');
+            ->orderBy('org.name', 'ASC');
+
+        return $qb->getQuery()
+            ->getResult();
     }
+
 
 
     public function findPossibleAidCities($statut, $city, $age, $salary)

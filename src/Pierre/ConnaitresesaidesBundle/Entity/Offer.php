@@ -24,16 +24,31 @@ class Offer {
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255, unique=true)
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
-     * @var string
+     * @var date
      *
-     * @ORM\Column(name="organism", type="string", length=255)
+     * @ORM\Column(name="name", type="datetime", options={"default":"CURRENT_TIMESTAMP"})
      */
-    private $organism;
+    private $dateBegin;
+
+    /**
+     * @var date
+     *
+     * @ORM\Column(name="name", type="datetime")
+     */
+    private $dateEnd;
+
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="OfferType")
+     * @ORM\JoinColumn(name="offertype_id", referencedColumnName="id", nullable=false)
+     */
+    private $offerTypeID;
 
     /**
      * @var int
@@ -48,20 +63,6 @@ class Offer {
      * @ORM\Column(name="agemax", type="integer", options={"default":99})
      */
     private $agemax;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="salaryminpermonth", type="integer", options={"default":0})
-     */
-    private $salaryminpermonth;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="salarymaxpermonth", type="integer", options={"default":9999})
-     */
-    private $salarymaxpermonth;
 
     /**
      * @var string
@@ -83,6 +84,14 @@ class Offer {
      * @ORM\Column(name="link", type="string", length=1023)
      */
     private $link;
+
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="Organism")
+     * @ORM\JoinColumn(name="organism_id", referencedColumnName="id", nullable=false)
+     */
+    private $organismID;
 
     /**
      * Get id
@@ -115,30 +124,78 @@ class Offer {
         return $this->name;
     }
 
+
     /**
-     * Set organism
+     * Set dateBegin
      *
-     * @param string $organism
+     * @param datetime $dateBegin
      *
      * @return Offer
      */
-    public function setOrganism($organism) {
-        $this->organism = $organism;
+    public function setDateBegin($dateBegin) {
+        $this->dateBegin = $dateBegin;
 
         return $this;
     }
 
     /**
-     * Get organism
+     * Get dateBegin
      *
-     * @return string
+     * @return datetime
      */
-    public function getOrganism() {
-        return $this->organism;
+    public function getDateBegin() {
+        return $this->dateBegin;
     }
 
     /**
-     * Set agemin
+     * Set dateEnd
+     *
+     * @param datetime $dateEnd
+     *
+     * @return Offer
+     */
+    public function setDateEnd($dateEnd) {
+        $this->dateBegin = $dateEnd;
+
+        return $this;
+    }
+
+    /**
+     * Get dateEnd
+     *
+     * @return datetime
+     */
+    public function getDateEnd() {
+        return $this->dateEnd;
+    }
+
+
+    /**
+     * Set offerTypeID
+     *
+     * @param string $offerTypeID
+     *
+     * @return Offer
+     */
+    public function setOfferTypeID($offerTypeID) {
+        $this->offerTypeID = $offerTypeID;
+
+        return $this;
+    }
+
+    /**
+     * Get offerTypeID
+     *
+     * @return string
+     */
+    public function getOfferTypeID() {
+        return $this->offerTypeID;
+    }
+
+
+
+    /**
+     * Set dateDebut
      *
      * @param integer $agemin
      *
@@ -289,6 +346,28 @@ class Offer {
      */
     public function getLink() {
         return $this->link;
+    }
+
+    /**
+     * Set organismID
+     *
+     * @param string $organismId
+     *
+     * @return Offer
+     */
+    public function setOrganismID($organismId) {
+        $this->organismID = $organismId;
+
+        return $this;
+    }
+
+    /**
+     * Get organismID
+     *
+     * @return string
+     */
+    public function getOrganismID() {
+        return $this->organismID;
     }
 
 }

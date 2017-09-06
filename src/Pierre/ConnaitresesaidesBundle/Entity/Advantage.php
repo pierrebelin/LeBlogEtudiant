@@ -28,12 +28,7 @@ class Advantage {
      */
     private $name;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="organism", type="string", length=255)
-     */
-    private $organism;
+
 
     /**
      * @var int
@@ -99,11 +94,13 @@ class Advantage {
     private $link;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="logo", type="string", length=1023)
+     * @ORM\ManyToOne(targetEntity="Organism")
+     * @ORM\JoinColumn(name="organism_id", referencedColumnName="id", nullable=false)
      */
-    private $logo;
+    private $organismID;
+
 
     /**
      * Get id
@@ -136,27 +133,7 @@ class Advantage {
         return $this->name;
     }
 
-    /**
-     * Set organism
-     *
-     * @param string $organism
-     *
-     * @return Advantage
-     */
-    public function setOrganism($organism) {
-        $this->organism = $organism;
 
-        return $this;
-    }
-
-    /**
-     * Get organism
-     *
-     * @return string
-     */
-    public function getOrganism() {
-        return $this->organism;
-    }
 
     /**
      * Set agemin
@@ -360,25 +337,27 @@ class Advantage {
         return $this->link;
     }
 
+
     /**
-     * Set logo
+     * Set organismID
      *
-     * @param string $logo
+     * @param string $organismId
      *
-     * @return Aid
+     * @return Advantage
      */
-    public function setLogo($logo) {
-        $this->logo = $logo;
+    public function setOrganismID($organismId) {
+        $this->organismID = $organismId;
 
         return $this;
     }
 
     /**
-     * Get logo
+     * Get organismID
      *
      * @return string
      */
-    public function getLogo() {
-        return $this->logo;
+    public function getOrganismID() {
+        return $this->organismID;
     }
+
 }
