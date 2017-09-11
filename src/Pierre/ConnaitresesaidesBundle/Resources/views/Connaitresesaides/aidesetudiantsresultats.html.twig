@@ -1,7 +1,7 @@
 {% extends 'PierreConnaitresesaidesBundle::layout.html.twig' %}
 
 {% block title %}
-    {{ parent() }}Aides étudiants en France | Résultats
+    {{ parent() }}Toutes les aides et avantages étudiants en France
 {% endblock %}
 
 {% block stylesheets %}
@@ -12,9 +12,9 @@
 
 {% block content %}
     <div class="container container-shadow">
-        <div class=" row pub-banniere">
+{#        <div class="row pub-banniere">
             <img class="img-responsive " src="{{ asset('Site/images/geg.jpg') }}">
-        </div>
+        </div>#}
         <div class="row content">
             <div class="header-aides">
                 <h1>Résultats</h1>
@@ -39,9 +39,9 @@ Vous gagnez {{ salary }}€ par mois">ces critères</strong>, vous êtes potenti
                     <a href="{{ path('PierreSiteBundle_faq') }}">sur la page de F.A.Q</a>
                     avant de continuer ⚠</p></strong>
         </div>
-        <div class="row pub-banniere">
-            <img class="img-responsive " src="{{ asset('Site/images/geg.jpg') }}">
-        </div>
+        {#<div class="row pub-banniere">#}
+            {#<img class="img-responsive " src="{{ asset('Site/images/geg.jpg') }}">#}
+        {#</div>#}
         <div class="row content">
             <h2>Liste potentielle d'éligibilité</h2>
             <div id="resultats-results">
@@ -90,7 +90,7 @@ Vous gagnez {{ salary }}€ par mois">ces critères</strong>, vous êtes potenti
                         </table>
                     {% endif %}
                 </div>
-
+{#
                 <h3 class="text-center">Offres</h3>
                 <div class="tab-resultats">
                     <table class="table table-resultat table-responsive">
@@ -116,7 +116,7 @@ Vous gagnez {{ salary }}€ par mois">ces critères</strong>, vous êtes potenti
                         </tr>
                         </tbody>
                     </table>
-                </div>
+                </div>#}
 
                 <h3 class="text-center">Avantages</h3>
                 <div class="tab-resultats">
@@ -156,8 +156,7 @@ Vous gagnez {{ salary }}€ par mois">ces critères</strong>, vous êtes potenti
                         </table>
                     {% endif %}
                 </div>
-
-                <h3 class="text-center">Offres</h3>
+{#                <h3 class="text-center">Offres</h3>
                 <div class="tab-resultats">
                     <table class="table table-resultat table-responsive">
                         <thead>
@@ -182,45 +181,7 @@ Vous gagnez {{ salary }}€ par mois">ces critères</strong>, vous êtes potenti
                         </tr>
                         </tbody>
                     </table>
-                </div>
-                {#<h3 class="text-center">Offres</h3>#}
-                {#<div class="tab-resultats">#}
-                {#{% if (offerAll|length == 0) %}#}
-                {#<div class="msg-noresult">#}
-                {#<p>Il n'y a aucune offre qui correspond à vos critères, désolé.</p>#}
-                {#</div>#}
-                {#{% else %}#}
-                {#<table class="table table-resultat table-responsive">#}
-                {#<thead>#}
-                {#<tr>#}
-                {#<th class="col-md-2">Nom</th>#}
-                {#<th class="col-md-2">Organisme</th>#}
-                {#<th class="col-md-2">Montant</th>#}
-                {#<th class="col-md-2">Description</th>#}
-                {#<th class="col-md-2">Zone éligible</th>#}
-                {#<th class="col-md-2"></th>#}
-                {#</tr>#}
-                {#</thead>#}
-                {#<tbody>#}
-                {#{% for arrayOfferAll in offerAll %}#}
-                {#{% for array in arrayOfferAll %}#}
-                {#<tr class="tr-{% if loop.index is divisible by(2) %}even{% else %}odd{% endif %}">#}
-                {#<td class="col-md-2">{{ array.name }}</td>#}
-                {#<td class="col-md-2">{{ array.organism }}</td>#}
-                {#<td class="col-md-2">{{ array.amount }}</td>#}
-                {#<td class="col-md-2">{{ array.description }}</td>#}
-                {#<td class="col-md-2">{{ array.location }}</td>#}
-                {#<td class="col-md-2 td-link"><a class="link-more" target="_blank"#}
-                {#href="{{ array.link }}"#}
-                {#title="Redirection vers le site de {{ array.organism }} qui propose l'aide {{ array.name }}">En#}
-                {#savoir plus</a></td>#}
-                {#</tr>#}
-                {#{% endfor %}#}
-                {#{% endfor %}#}
-                {#</tbody>#}
-                {#</table>#}
-                {#</div>#}
-                {#{% endif %}#}
+                </div>#}
             </div>
             <hr class="main-hr2">
             <h2>Vous êtes satisfait du service ?</h2>

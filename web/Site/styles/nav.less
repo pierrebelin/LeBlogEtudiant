@@ -27,6 +27,8 @@ nav {
   h3 {
     color: white;
     font-size: 22px;
+    margin-left: 15px;
+    margin-right: 15px;
   }
   img {
     width: auto;
@@ -82,6 +84,16 @@ nav {
   }
 }
 
+.navbar-brand {
+  margin-top: 8px;
+  color: white;
+}
+
+@media (min-width: 767px) {
+  .navbar-brand  {
+    display: none;
+  }
+}
 
 @media (max-width: 768px) {
   .navbar-site a {
@@ -99,5 +111,8 @@ nav {
       width: auto;
       height: 80px;
     }
+  }
+  .navbar-nav {
+    margin: 0;
   }
 }
