@@ -5,6 +5,12 @@
 {% block description %}{% endblock %}
 
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('Site/modules/select2/dist/css/select2.min.css') }}" rel="stylesheet/less" type="text/css"/>
+
+{% endblock %}
+
 {% block scripts %}
     {{ parent() }}
     <script src='https://www.google.com/recaptcha/api.js'></script>
@@ -14,6 +20,7 @@
         window.onload = function () {
             document.getElementById("form_submit").disabled = true;
         };
+
         function enableSubmit() {
             document.getElementById("form_submit").disabled = false;
         }
@@ -29,7 +36,8 @@
                 <h1>Contactez-moi</h1>
             </header>
 
-            <p>Surtout, n'hésitez pas ! Il n'y a pas de questions bêtes. Si je peux être là pour y répondre, ça sera
+            <p>Surtout, n'hésitez pas ! Il n'y a pas de questions bêtes. Si nous pouvons être là pour y répondre, ça
+                sera
                 avec plaisir.</p>
             <p><strong>⚠ Soyez précis dans votre message, pour que la réponse corresponde au maximum à votre attente
                     !</strong></p>
@@ -54,7 +62,7 @@
                 <div class="form-group form-margin">
                     {{ form_label(form.subject, form.subject, {'label_attr': {'class': 'col-md-3 control-label'}}) }}
                     <div class="col-md-6">
-                        {{ form_widget(form.subject, {'id' :'contact-subject'}) }}
+                        {{ form_widget(form.subject, {'id' : 'contact-subject', 'attr': {'class': 'select-subject'}}) }}
                     </div>
                 </div>
                 <div class="form-group form-margin">
@@ -96,8 +104,8 @@
                     <h4 class="modal-title">Le formulaire de contact a été envoyé</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Je vous remercie de l'intérêt de votre message !</p>
-                    <p>Je répondrai à votre message dès que possible.
+                    <p>Nous vous remercions de l'intérêt de votre message !</p>
+                    <p>Nous répondrons à votre message dès que possible.
                         <br>
                         Pensez bien à vérifier dans vos courriers indésirables.</p>
                 </div>
@@ -155,4 +163,11 @@
             return false;
         });
     </script>
+    <script src="{{ asset('Site/modules/select2/dist/js/select2.min.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+        $('.select-subject').select2({
+            minimumResultsForSearch: -1
+        });
+    </script>
+
 {% endblock %}

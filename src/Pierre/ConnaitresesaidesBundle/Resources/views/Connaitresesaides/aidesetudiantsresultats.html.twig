@@ -12,9 +12,9 @@
 
 {% block content %}
     <div class="container container-shadow">
-{#        <div class="row pub-banniere">
-            <img class="img-responsive " src="{{ asset('Site/images/geg.jpg') }}">
-        </div>#}
+        {#        <div class="row pub-banniere">
+                    <img class="img-responsive " src="{{ asset('Site/images/geg.jpg') }}">
+                </div>#}
         <div class="row content">
             <div class="header-aides">
                 <h1>Résultats</h1>
@@ -40,7 +40,7 @@ Vous gagnez {{ salary }}€ par mois">ces critères</strong>, vous êtes potenti
                     avant de continuer ⚠</p></strong>
         </div>
         {#<div class="row pub-banniere">#}
-            {#<img class="img-responsive " src="{{ asset('Site/images/geg.jpg') }}">#}
+        {#<img class="img-responsive " src="{{ asset('Site/images/geg.jpg') }}">#}
         {#</div>#}
         <div class="row content">
             <h2>Liste potentielle d'éligibilité</h2>
@@ -75,9 +75,10 @@ Vous gagnez {{ salary }}€ par mois">ces critères</strong>, vous êtes potenti
                             {% for array in aidAll %}
                                 <tr class="tr-{% if loop.index is divisible by(2) %}even{% else %}odd{% endif %}">
                                     <td class="col-md-2">{{ array.name }}</td>
-                                    <td class="col-md-2 logo-organism"><img src="{{ array.logo }}"
-                                                                            alt="{{ array.organism }}"
-                                                                            title="{{ array.organism }}"></td>
+                                    <td class="col-md-2 logo-organism"><img
+                                                src="{{ asset("ConnaitresesaidesBundle/logo_organism/" ~ array.logo ) }}"
+                                                alt="{{ array.organism }}"
+                                                title="{{ array.organism }}"></td>
                                     <td class="col-md-2">{{ array.amount }}</td>
                                     <td class="col-md-4">{{ array.description }}</td>
                                     <td class="col-md-2 td-link"><a class="link-more" target="_blank"
@@ -90,33 +91,33 @@ Vous gagnez {{ salary }}€ par mois">ces critères</strong>, vous êtes potenti
                         </table>
                     {% endif %}
                 </div>
-{#
-                <h3 class="text-center">Offres</h3>
-                <div class="tab-resultats">
-                    <table class="table table-resultat table-responsive">
-                        <thead>
-                        <tr>
-                            <th class="col-md-2">Nom</th>
-                            <th class="col-md-2 text-center">Organisme</th>
-                            <th class="col-md-2">Montant</th>
-                            <th class="col-md-4">Description</th>
-                            <th class="col-md-2"></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr class="tr-odd">
-                            <td class="col-md-2">Réductions étudiantes</td>
-                            <td class="col-md-2 logo-organism"><img src="http://www.energystream-solucom.fr/wp-content/uploads/2014/06/GEG.png"
-                                                                    alt="GEG"
-                                                                    title="GEG"></td>
-                            <td class="col-md-2">Jusqu'à 25%</td>
-                            <td class="col-md-4">Profitez d'avantages sur des sorties grenobloises</td>
-                            <td class="col-md-2 td-link"><a class="link-more" target="_blank"
-                                                            href="./">Découvrez l'offre</a></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>#}
+                {#
+                                <h3 class="text-center">Offres</h3>
+                                <div class="tab-resultats">
+                                    <table class="table table-resultat table-responsive">
+                                        <thead>
+                                        <tr>
+                                            <th class="col-md-2">Nom</th>
+                                            <th class="col-md-2 text-center">Organisme</th>
+                                            <th class="col-md-2">Montant</th>
+                                            <th class="col-md-4">Description</th>
+                                            <th class="col-md-2"></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr class="tr-odd">
+                                            <td class="col-md-2">Réductions étudiantes</td>
+                                            <td class="col-md-2 logo-organism"><img src="http://www.energystream-solucom.fr/wp-content/uploads/2014/06/GEG.png"
+                                                                                    alt="GEG"
+                                                                                    title="GEG"></td>
+                                            <td class="col-md-2">Jusqu'à 25%</td>
+                                            <td class="col-md-4">Profitez d'avantages sur des sorties grenobloises</td>
+                                            <td class="col-md-2 td-link"><a class="link-more" target="_blank"
+                                                                            href="./">Découvrez l'offre</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>#}
 
                 <h3 class="text-center">Avantages</h3>
                 <div class="tab-resultats">
@@ -140,9 +141,10 @@ Vous gagnez {{ salary }}€ par mois">ces critères</strong>, vous êtes potenti
                             {% for array in advantageAll %}
                                 <tr class="tr-{% if loop.index is divisible by(2) %}even{% else %}odd{% endif %}">
                                     <td class="col-md-2">{{ array.name }}</td>
-                                    <td class="col-md-2 logo-organism"><img src="{{ array.logo }}"
-                                                                            alt="{{ array.organism }}"
-                                                                            title="{{ array.organism }}"></td>
+                                    <td class="col-md-2 logo-organism"><img
+                                                src="{{ asset("ConnaitresesaidesBundle/logo_organism/" ~ array.logo ) }}"
+                                                alt="{{ array.organism }}"
+                                                title="{{ array.organism }}"></td>
                                     <td class="col-md-1">{{ array.amount }}</td>
                                     <td class="col-md-1">{{ array.price }}</td>
                                     <td class="col-md-4">{{ array.description }}</td>
@@ -156,32 +158,32 @@ Vous gagnez {{ salary }}€ par mois">ces critères</strong>, vous êtes potenti
                         </table>
                     {% endif %}
                 </div>
-{#                <h3 class="text-center">Offres</h3>
-                <div class="tab-resultats">
-                    <table class="table table-resultat table-responsive">
-                        <thead>
-                        <tr>
-                            <th class="col-md-2">Nom</th>
-                            <th class="col-md-2 text-center">Organisme</th>
-                            <th class="col-md-2">Montant</th>
-                            <th class="col-md-4">Description</th>
-                            <th class="col-md-2"></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr class="tr-odd">
-                            <td class="col-md-2">Réductions étudiantes</td>
-                            <td class="col-md-2 logo-organism"><img src="http://www.energystream-solucom.fr/wp-content/uploads/2014/06/GEG.png"
-                                                                    alt="GEG"
-                                                                    title="GEG"></td>
-                            <td class="col-md-2">Jusqu'à 25%</td>
-                            <td class="col-md-4">Profitez d'avantages sur des sorties grenobloises</td>
-                            <td class="col-md-2 td-link"><a class="link-more" target="_blank"
-                                                            href="./">Découvrez l'offre</a></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>#}
+                {#                <h3 class="text-center">Offres</h3>
+                                <div class="tab-resultats">
+                                    <table class="table table-resultat table-responsive">
+                                        <thead>
+                                        <tr>
+                                            <th class="col-md-2">Nom</th>
+                                            <th class="col-md-2 text-center">Organisme</th>
+                                            <th class="col-md-2">Montant</th>
+                                            <th class="col-md-4">Description</th>
+                                            <th class="col-md-2"></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr class="tr-odd">
+                                            <td class="col-md-2">Réductions étudiantes</td>
+                                            <td class="col-md-2 logo-organism"><img src="http://www.energystream-solucom.fr/wp-content/uploads/2014/06/GEG.png"
+                                                                                    alt="GEG"
+                                                                                    title="GEG"></td>
+                                            <td class="col-md-2">Jusqu'à 25%</td>
+                                            <td class="col-md-4">Profitez d'avantages sur des sorties grenobloises</td>
+                                            <td class="col-md-2 td-link"><a class="link-more" target="_blank"
+                                                                            href="./">Découvrez l'offre</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>#}
             </div>
             <hr class="main-hr2">
             <h2>Vous êtes satisfait du service ?</h2>

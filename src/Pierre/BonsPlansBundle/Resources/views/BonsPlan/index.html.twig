@@ -6,31 +6,55 @@
     etudiant, aide financière étudiant, plusdebonsplans, Le Blog Etudiant, aide etudiant, etudiant gouv, cidj, lebonsplanetudiant, l étudiant, plus de bon plan, lokaviz, bon plan astuce
 {% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('Site/modules/select2/dist/css/select2.min.css') }}" rel="stylesheet/less" type="text/css"/>
+
+{% endblock %}
+
 {% block body %}
-  <div style="display: none">
-    <p>etudiant, aide financière étudiant, plusdebonsplans, Le Blog Etudiant, aide etudiant, etudiant gouv, cidj, lebonsplanetudiant, l étudiant, plus de bon plan, lokaviz, bon plan astuce</p>
-  </div>
+    <div style="display: none">
+        <p>etudiant, aide financière étudiant, plusdebonsplans, Le Blog Etudiant, aide etudiant, etudiant gouv, cidj,
+            lebonsplanetudiant, l étudiant, plus de bon plan, lokaviz, bon plan astuce</p>
+    </div>
+    <div class="row search-bon-plan">
+        {{ form_start(form, {'attr': {'class': 'row', 'method': 'post'}}) }}
+        <div class="col-md-4">
+            <h2>BONS PLANS</h2>
+        </div>
+        <div class="col-md-6">
+            {{ form_widget(form.city, {'attr': {'class': 'select-city'}}) }}
+        </div>
+        <div class="col-md-2">
+            {{ form_widget(form.submit, {'attr': { 'class': 'btn' }}) }}
+        </div>
+        {{ form_end(form) }}
+    </div>
     {% for bonsplan in bonsplans %}
-        <article class="bonsplan">
-            <header>
-                <h2><a href="{{ path('PierreBonsPlansBundle_bonsplan_show', { 'slug': bonsplan.slug }) }}">{{ bonsplan.title }}</a></h2>
-                <div class="date-published">{{ bonsplan.updated|localizeddate('full', 'none', 'fr') }}</div>
-            </header>
+    <article class="bonsplan">
+        <header>
+            <h2>
+                <a href="{{ path('PierreBonsPlansBundle_bonsplan_show', { 'slug': bonsplan.slug }) }}">{{ bonsplan.title }}</a>
+            </h2>
 
-            <img src="{{ bonsplan.image }}" alt="{{ bonsplan.image }}"/>
-            <div class="preview-textbonsplan snippet">
-                {{ bonsplan.bonsplan|truncate(500, true)|raw }}
-                <p class="continue"><a href="{{ path('PierreBonsPlansBundle_bonsplan_show', { 'slug': bonsplan.slug }) }}">Lire la
-                        suite...</a></p>
+            <div class="date-published">{{ bonsplan.localisation|upper }} - Dernière mise à jour
+                : {{ bonsplan.updated|localizeddate('full', 'none', 'fr') }}</div>
+        </header>
 
-                <footer class="meta">
-                    <p>Nombre de commentaires : {{ bonsplan.comments|length }}</p>
-                    <p>Localisation : <span class="highlight">{{ bonsplan.localisation }}</span></p>
-                </footer>
-            </div>
-        </article>
+        <img src="{{ bonsplan.image }}" alt="{{ bonsplan.image }}"/>
+        <div class="preview-textbonsplan snippet">
+            {{ bonsplan.content|truncate(500, true)|raw }}
+            <p class="continue"><a
+                        href="{{ path('PierreBonsPlansBundle_bonsplan_show', { 'slug': bonsplan.slug }) }}">Lire la
+                    suite...</a></p>
+
+            <footer class="meta">
+                <p>Nombre de commentaires : {{ bonsplan.comments|length }}</p>
+            </footer>
+        </div>
+    </article>
     {% else %}
-        <p>Il n'y a aucun article pour le moment, désolé.<p>
+    <p>Il n'y a aucun article pour le moment, désolé.<p>
     {% endfor %}
     <div class="text-center">
         <ul class="pagination">
@@ -45,7 +69,8 @@
             {#display p numbers only from p-2 to p+2 but don't go < 1 or  > pages_count#}
             {% for p in range(max(pagination.page - 2, 1), min(pagination.page + 2, pagination.pages_count)) %}
                 <li {% if p == pagination.page %} class="active"{% endif %}>
-                    <a {% if p == pagination.page %} onclick='return false;'{% endif %} href="{{ path(pagination.route, pagination.route_params|merge({'page': p})) }}">{{ p }}</a>
+                    <a {% if p == pagination.page %} onclick='return false;'{% endif %}
+                            href="{{ path(pagination.route, pagination.route_params|merge({'page': p})) }}">{{ p }}</a>
                 </li>
             {% endfor %}
             {% if pagination.page<pagination.pages_count %}
@@ -58,4 +83,8 @@
             {% endif %}
         </ul>
     </div>
+    <script src="{{ asset('Site/modules/select2/dist/js/select2.min.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+        $('.select-city').select2();
+    </script>
 {% endblock %}

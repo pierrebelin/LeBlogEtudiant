@@ -34,6 +34,23 @@ class BonsPlanRepository extends \Doctrine\ORM\EntityRepository
 
     }
 
+    public function getLatestUpdatedBonsPlansCity($page = 1, $limit = 10, $city)
+    {
+        $qb = $this->createQueryBuilder('b')
+            ->select('b ,c')
+            ->leftJoin('b.comments', 'c')
+            ->where('b.comments is null')
+            ->addOrderBy('b.updated', 'DESC');
+
+        $qb->setFirstResult(($page - 1) * $limit)
+            ->setMaxResults($limit);
+
+        return $qb->getQuery()
+            ->getResult();
+
+    }
+
+
     public function getLocalisation()
     {
         $bonsplanLocalisations = $this->createQueryBuilder('b')

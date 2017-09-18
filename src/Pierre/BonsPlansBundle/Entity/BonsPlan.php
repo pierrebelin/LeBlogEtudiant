@@ -29,19 +29,12 @@ class BonsPlan {
      */
     private $title;
 
-    // /**
-    //  * @var string
-    //  *
-    //  * @ORM\Column(name="author", type="string", length=100)
-    //  */
-    // private $author;
-
     /**
      * @var string
      *
-     * @ORM\Column(name="bonsplan", type="text", length=16384)
+     * @ORM\Column(name="content", type="text", length=16384)
      */
-    private $bonsplan;
+    private $content;
 
     /**
      * @var string
@@ -122,37 +115,15 @@ class BonsPlan {
         return $this->title;
     }
 
-    // /**
-    //  * Set author
-    //  *
-    //  * @param string $author
-    //  *
-    //  * @return Blog
-    //  */
-    // public function setAuthor($author) {
-    //     $this->author = $author;
-    //
-    //     return $this;
-    // }
-    //
-    // /**
-    //  * Get author
-    //  *
-    //  * @return string
-    //  */
-    // public function getAuthor() {
-    //     return $this->author;
-    // }
-
     /**
      * Set bonsplan
      *
-     * @param string $bonsplan
+     * @param string $content
      *
-     * @return BonsPlan
+     * @return Content
      */
-    public function setBonsPlan($bonsplan) {
-        $this->bonsplan = $bonsplan;
+    public function setContent($content) {
+        $this->content = $content;
 
         return $this;
     }
@@ -162,11 +133,11 @@ class BonsPlan {
      *
      * @return string
      */
-    public function getBonsPlan($length = null) {
+    public function getContent($length = null) {
         if (false === is_null($length) && $length > 0) {
-            return substr($this->bonsplan, 0, $length);
+            return substr($this->content, 0, $length);
         } else {
-            return $this->bonsplan;
+            return $this->content;
         }
     }
 

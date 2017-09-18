@@ -30,12 +30,12 @@
 
     <article class="bonsplan col-xs-12">
         <header>
-            <h2>{{ bonsplan.title }}</h2>
-            <div class="date-published">Dernière mise à jour : {{ bonsplan.created|localizeddate('full', 'none') }}</div>
+            <h2>[{{ bonsplan.localisation|upper }}] {{ bonsplan.title }}</h2>
+            <div class="date-published">{{ bonsplan.localisation|upper }} - Dernière mise à jour : {{ bonsplan.updated|localizeddate('full', 'none', 'fr') }}</div>
         </header>
         {#<img src="{{ bonsplan.image }}" alt="{{ bonsplan.image }}" class="large"/>#}
         <div class="textblog" id="blog-form">
-            {{ bonsplan.bonsplan|raw }}
+            {{ bonsplan.content|raw }}
         </div>
     </article>
 

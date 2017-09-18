@@ -40,12 +40,16 @@
             <hr class="main-hr">
             <h2>Veuillez remplir les critères ci dessous</h2>
             <p class='p-important'><strong>Ville(s) en cours de réalisation : </strong>{{ citiesToAdd }}</p>
+            <div class="informations-important">
+                <p>⚠  A titre indicatif, les informations saisies servent uniquement à la recherche des aides.
+                    <br/>Elles ne sont ni sauvegardées, ni vendues à un tiers.</p>
+            </div>
             <div class="from-design">
                 {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post'}}) }}
                 <div class="form-group form-margin">
                     {{ form_label(form.statut, form.statut, {'label_attr': {'class': 'col-md-4 control-label'}}) }}
                     <div class="col-md-4">
-                        {{ form_widget(form.statut, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_widget(form.statut, {'attr': {'class': 'form-control select-statut'}}) }}
                     </div>
                 </div>
                 <div class="form-group form-margin">
@@ -81,9 +85,6 @@
                 </div>
                 {{ form_end(form) }}
             </div>
-            <div>
-                <p>⚠  A titre indicatif, les informations saisies ne sont pas sauvegardées.</p>
-            </div>
             <hr id="ville-non-existante" class="main-hr">
             <h2>Ta ville n'est pas répertoriée ?</h2>
             <div class="paragraphe">
@@ -97,7 +98,7 @@
             </div>
             <div>
                 <h2>Comment être tenu au courant ?</h2>
-                <p>Pour t'éviter de revenir sans arrêt sur le site en attendant de voir ta ville ajoutée, je te propose 2 moyens d'être tenu au courant.</p>
+                <p>Pour vous éviter de revenir sans arrêt sur le site en attendant de voir ta ville ajoutée, nous vous proposons 2 moyens d'être tenu au courant.</p>
                 <h3>S'inscrire à la newsletter</h3>
                 <p>C'est le moyen le plus simple d'être tenu au courant de l'ajout de ta ville. Les villes sont ajoutées
                     au fur et à mesure que les données soient complètes.
@@ -105,7 +106,7 @@
                     Le formulaire d'inscription à la newsletter se trouve <a class="smooth-link" href="#footer">en bas de page</a>.</p>
 
                 <h3>Envoyer une demande par mail</h3>
-                <p>En <a href="{{ path('PierreSiteBundle_contact') }}">m'envoyant un mail</a>, je serai plus à même que connaître la prochaine ville à ajouter sur le site !
+                <p>En <a href="{{ path('PierreSiteBundle_contact') }}">nous envoyant un mail</a>, nous serons plus à même que connaître la prochaine ville à ajouter sur le site !
                     <br>
                     Plus la politesse y est, plus les chances d'ajouts sont grandes, ça va de soi :)
                 </p>
@@ -115,5 +116,8 @@
     <script src="{{ asset('Site/modules/select2/dist/js/select2.min.js') }}" type="text/javascript"></script>
     <script type="text/javascript">
       $('.select-city').select2();
+      $('.select-statut').select2({
+          minimumResultsForSearch: -1
+      });
     </script>
 {% endblock %}

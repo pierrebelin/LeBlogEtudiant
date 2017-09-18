@@ -10,13 +10,14 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Pierre\BonsPlansBundle\Entity\BonsPlanComment;
 use Pierre\BonsPlansBundle\Form\BonsPlanCommentType;
 
 class BonsPlanController extends Controller
 {
-    public function indexAction($page)
+    public function indexAction(Request $request, $page)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -29,17 +30,57 @@ class BonsPlanController extends Controller
             'page' => $page,
             'route' => 'PierreBonsPlansBundle_homepage',
             'pages_count' => ceil($countBonsPlans / $maxBonsPlan),
-//            'pages_count' => 8,
             'route_params' => array()
         );
 
-        $bonsplans = $em->getRepository('PierreBonsPlansBundle:BonsPlan')
-            ->getLatestUpdatedBonsPlans($page, $maxBonsPlan);
 
-        return $this->render('PierreBonsPlansBundle:BonsPlan:index.html.twig', array(
-            'bonsplans' => $bonsplans,
-            'pagination' => $pagination
-        ));
+        $form = $this->createFormBuilder()
+            ->add('city', EntityType::class, array(
+                'label' => 'Sélectionnez votre ville',
+                'placeholder' => 'Choisir une ville',
+                'class' => 'PierreConnaitresesaidesBundle:City',
+                'choices' => $this->getDoctrine()
+                    ->getRepository('PierreConnaitresesaidesBundle:City')->findAllCityOrdered(),
+                'choice_label' => 'name',
+                'choice_value' => 'name',
+            ))
+            ->add('submit', SubmitType::class, array(
+                'label' => 'Rechercher',
+            ))
+            ->getForm();
+
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+
+            if ($form->isValid() && $form->isSubmitted()) {
+
+                $city = $form->get('city')->getData()->getName();
+
+                $data = array('city' => $city);
+                //return $this->redirectToRoute('PierreBonsPlansBundle_homepage', $data);
+
+                //$bonsplans = $em->getRepository('PierreBonsPlansBundle:BonsPlan')
+                 //   ->getLatestUpdatedBonsPlansCity($page, $maxBonsPlan, $city);
+
+                $bonsplans = null;
+
+                return $this->render('PierreBonsPlansBundle:BonsPlan:index.html.twig', array(
+                    'city' => $city,
+                    'bonsplans' => $bonsplans,
+                    'pagination' => $pagination,
+                    'form' => $form->createView()
+                ));
+            }
+        } else {
+            $bonsplans = $em->getRepository('PierreBonsPlansBundle:BonsPlan')
+                ->getLatestUpdatedBonsPlans($page, $maxBonsPlan);
+
+            return $this->render('PierreBonsPlansBundle:BonsPlan:index.html.twig', array(
+                'bonsplans' => $bonsplans,
+                'pagination' => $pagination,
+                'form' => $form->createView()
+            ));
+        }
     }
 
     public function showAction(Request $request, $slug)

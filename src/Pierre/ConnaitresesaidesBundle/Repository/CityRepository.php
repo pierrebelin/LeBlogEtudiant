@@ -13,7 +13,18 @@ class CityRepository extends \Doctrine\ORM\EntityRepository
     public function findAllCityName()
     {
         $qb = $this->createQueryBuilder('city')
-            ->select('city.name');
+            ->select('city.name')
+            ->orderBy('city.name');
+
+        return $qb->getQuery()
+            ->getResult();
+    }
+
+    public function findAllCityOrdered()
+    {
+        $qb = $this->createQueryBuilder('city')
+            ->select('city')
+            ->orderBy('city.name');
 
         return $qb->getQuery()
             ->getResult();

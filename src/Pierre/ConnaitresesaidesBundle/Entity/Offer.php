@@ -31,14 +31,14 @@ class Offer {
     /**
      * @var date
      *
-     * @ORM\Column(name="name", type="datetime", options={"default":"CURRENT_TIMESTAMP"})
+     * @ORM\Column(name="dateBegin", type="datetime")
      */
     private $dateBegin;
 
     /**
      * @var date
      *
-     * @ORM\Column(name="name", type="datetime")
+     * @ORM\Column(name="dateEnd", type="datetime")
      */
     private $dateEnd;
 
