@@ -39,9 +39,9 @@ class BonsPlan {
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="text", length=1024)
+     * @ORM\Column(name="logo", type="text", length=1024)
      */
-    private $image;
+    private $logo;
 
     /**
      * @var string
@@ -49,6 +49,13 @@ class BonsPlan {
      * @ORM\Column(name="localisation", type="string")
      */
     private $localisation;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="link", type="string", length=255, unique=true)
+     */
+    private $link;
 
     /**
      * @var datetime
@@ -142,25 +149,25 @@ class BonsPlan {
     }
 
     /**
-     * Set image
+     * Set logo
      *
-     * @param string $image
+     * @param string $logo
      *
      * @return Blog
      */
-    public function setImage($image) {
-        $this->image = $image;
+    public function setlogo($logo) {
+        $this->logo = $logo;
 
         return $this;
     }
 
     /**
-     * Get image
+     * Get logo
      *
      * @return string
      */
-    public function getImage() {
-        return $this->image;
+    public function getlogo() {
+        return $this->logo;
     }
 
     /**
@@ -185,6 +192,28 @@ class BonsPlan {
         return $this->localisation;
     }
 
+
+    /**
+     * Set link
+     *
+     * @param text $link
+     *
+     * @return BonsPlan
+     */
+    public function setLink($link) {
+        $this->link = $link;
+
+        return $this;
+    }
+
+    /**
+     * Get link
+     *
+     * @return text
+     */
+    public function getLink() {
+        return $this->link;
+    }
     /**
      * Set created
      *

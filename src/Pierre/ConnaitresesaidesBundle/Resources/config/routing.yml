@@ -2,21 +2,41 @@ PierreConnaitresesaidesBundle_homepage:
     path:    /
     defaults:
        _controller: PierreConnaitresesaidesBundle:Connaitresesaides:index
+    options:
+        sitemap:
+          priority: 1
+          changefreq: weekly
+          section: connaitresesaides
 
 PierreConnaitresesaidesBundle_aidesetudiants:
     path:    /aides-etudiants
     defaults:
        _controller: PierreConnaitresesaidesBundle:Connaitresesaides:aidesetudiants
+    options:
+        sitemap:
+          priority: 0.5
+          changefreq: weekly
+          section: connaitresesaides
 
 PierreConnaitresesaidesBundle_aidesetudiants_resultats:
     path:    /aides-etudiants/resultats
     defaults:
        _controller: PierreConnaitresesaidesBundle:Connaitresesaides:aidesetudiantsresultats
+    options:
+        sitemap:
+          priority: 0.1
+          changefreq: weekly
+          section: connaitresesaides
 
 PierreConnaitresesaidesBundle_aidesetudiants_allresultats:
     path:    /aides-etudiants/allresultats
     defaults:
        _controller: PierreConnaitresesaidesBundle:Connaitresesaides:aidesetudiantsallresultats
+    options:
+        sitemap:
+          priority: 0.1
+          changefreq: weekly
+          section: connaitresesaides
 
 PierreConnaitresesaidesBundle_sendresultsmail:
     path:    /aides-etudiants-francais/resultats/sendresultsmail

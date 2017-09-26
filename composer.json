@@ -29,7 +29,8 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "twig/twig": "^1.0||^2.0",
         "twig/extensions": "1.2",
-        "sendinblue/sendinblue-api-bundle": "^2.0"
+        "sendinblue/sendinblue-api-bundle": "^2.0",
+        "presta/sitemap-bundle": "^1.5"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

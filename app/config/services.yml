@@ -15,3 +15,20 @@ services:
     sendinblue:
         class: Pierre\SendinBlueBundle\Mailer\Mailer
         arguments: ["%sendinblue_contact%", "@doctrine.orm.entity_manager"]
+
+    # SEO : PrestaSite
+    app.sitemap.blog_post_subscriber:
+        class: Pierre\BlogBundle\EventListener\SitemapBlogPostSubscriber
+        arguments:
+            - "@router"
+            - "@doctrine.orm.entity_manager"
+        tags:
+            - { name: "kernel.event_subscriber", priority: 1 }
+
+    app.sitemap.bonsplans_post_subscriber:
+        class: Pierre\BonsPlansBundle\EventListener\SitemapBlogPostSubscriber
+        arguments:
+            - "@router"
+            - "@doctrine.orm.entity_manager"
+        tags:
+            - { name: "kernel.event_subscriber", priority: 1 }

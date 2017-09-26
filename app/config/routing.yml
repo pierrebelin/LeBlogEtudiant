@@ -13,3 +13,7 @@ pierre_blog:
 pierre_connaitresesaides:
     resource: "@PierreConnaitresesaidesBundle/Resources/config/routing.yml"
     prefix:   /identifier-mes-aides
+
+PrestaSitemapBundle:
+    resource: "@PrestaSitemapBundle/Resources/config/routing.yml"
+    prefix:   /

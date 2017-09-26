@@ -15,13 +15,16 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+
             new Pierre\BlogBundle\PierreBlogBundle(),
             new Pierre\ConnaitresesaidesBundle\PierreConnaitresesaidesBundle(),
             new Pierre\SendinBlueBundle\PierreSendinBlueBundle(),
             new Pierre\SiteBundle\PierreSiteBundle(),
-            new SendinBlue\SendinBlueApiBundle\SendinBlueApiBundle(),
             new Pierre\BonsPlansBundle\PierreBonsPlansBundle(),
-            new Sonata\SeoBundle\SonataSeoBundle()
+
+            new SendinBlue\SendinBlueApiBundle\SendinBlueApiBundle(),
+            new Sonata\SeoBundle\SonataSeoBundle(),
+            new Presta\SitemapBundle\PrestaSitemapBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

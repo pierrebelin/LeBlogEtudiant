@@ -1,16 +1,25 @@
 PierreBlogBundle_homepage:
     path:     /{page}
     defaults: { _controller: PierreBlogBundle:Blog:index, page: 1 }
+    options:
+        sitemap:
+          priority: 1
+          changefreq: daily
+          section: blog
+
         
 PierreBlogBundle_blog_show:
     path:     /article/{slug}
     defaults: { _controller: PierreBlogBundle:Blog:show }
     requirements:
         _method:  GET|POST
-        
+
+
 PierreBlogBundle_comment:
     path:     /comment/{blog_id}
     defaults: { _controller: PierreBlogBundle:Comment:new }
     requirements:
         _method:  POST
         blog_id: \d+
+
+

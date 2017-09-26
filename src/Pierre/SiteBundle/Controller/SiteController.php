@@ -126,7 +126,8 @@ class SiteController extends Controller
                     'Avoir des informations supplémentaires' => 'Avoir des informations supplémentaires',
                     'Reporter une information incomplète ou invalide' => 'Reporter une information incomplète ou invalide',
                     'Proposer une idée d\'article' => 'Proposer son idée d\'article',
-                    'Autre sujet (à définir dans le message)' => 'Autre sujet'
+                    'Demande de partenariat' => 'Demande de partenariat',
+                    'Autre sujet' => 'Autre sujet'
                 ),
                 'attr' => array(
                     'class' => 'form-control'

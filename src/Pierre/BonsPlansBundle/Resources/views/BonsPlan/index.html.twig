@@ -17,37 +17,44 @@
         <p>etudiant, aide financière étudiant, plusdebonsplans, Le Blog Etudiant, aide etudiant, etudiant gouv, cidj,
             lebonsplanetudiant, l étudiant, plus de bon plan, lokaviz, bon plan astuce</p>
     </div>
-    <div class="row search-bon-plan">
-        {{ form_start(form, {'attr': {'class': 'row', 'method': 'post'}}) }}
-        <div class="col-md-4">
-            <h2>BONS PLANS</h2>
+    <div class="search-bon-plan">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Bons plans</h2>
+            </div>
         </div>
-        <div class="col-md-6">
-            {{ form_widget(form.city, {'attr': {'class': 'select-city'}}) }}
+        <div class="row">
+            {{ form_start(form, {'attr': {'class': 'row form-search', 'method': 'get'}}) }}
+            <div class="col-md-6 col-md-offset-2">
+                {{ form_widget(form.city, {'attr': {'class': 'select-city'}}) }}
+            </div>
+            <div class="col-md-2">
+                {{ form_widget(form.submit, {'attr': { 'class': 'btn' }}) }}
+            </div>
+            {{ form_end(form) }}
         </div>
-        <div class="col-md-2">
-            {{ form_widget(form.submit, {'attr': { 'class': 'btn' }}) }}
+        {% if city is defined %}
+        <div class="row">
+            <div class="col-md-12">
+                <p>Résultats de la recherche pour la ville : {{ city }}</p>
+            </div>
         </div>
-        {{ form_end(form) }}
+        {% endif %}
     </div>
+
     {% for bonsplan in bonsplans %}
     <article class="bonsplan">
-        <header>
-            <h2>
-                <a href="{{ path('PierreBonsPlansBundle_bonsplan_show', { 'slug': bonsplan.slug }) }}">{{ bonsplan.title }}</a>
-            </h2>
-
-            <div class="date-published">{{ bonsplan.localisation|upper }} - Dernière mise à jour
-                : {{ bonsplan.updated|localizeddate('full', 'none', 'fr') }}</div>
-        </header>
-
-        <img src="{{ bonsplan.image }}" alt="{{ bonsplan.image }}"/>
-        <div class="preview-textbonsplan snippet">
-            {{ bonsplan.content|truncate(500, true)|raw }}
-            <p class="continue"><a
-                        href="{{ path('PierreBonsPlansBundle_bonsplan_show', { 'slug': bonsplan.slug }) }}">Lire la
-                    suite...</a></p>
-
+        <div class="row">
+            <img class="col-md-4" src="{{ asset("BonsPlansBundle/logos/" ~ bonsplan.logo ) }}" alt="{{ bonsplan.logo }}"/>
+            <div class="col-md-8">
+                <h2><a href="{{ path('PierreBonsPlansBundle_bonsplan_show', { 'slug': bonsplan.slug }) }}">{{ bonsplan.title }}</a></h2>
+                <div class="small-informations">
+                    <p>Localisation : {{ bonsplan.localisation }}</p>
+                    <p>Dernière mise à jour : {{ bonsplan.updated|localizeddate('full', 'none', 'fr') }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <footer class="meta">
                 <p>Nombre de commentaires : {{ bonsplan.comments|length }}</p>
             </footer>

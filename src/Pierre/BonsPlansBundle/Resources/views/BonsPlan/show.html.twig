@@ -29,14 +29,50 @@
 
 
     <article class="bonsplan col-xs-12">
-        <header>
-            <h2>[{{ bonsplan.localisation|upper }}] {{ bonsplan.title }}</h2>
-            <div class="date-published">{{ bonsplan.localisation|upper }} - Dernière mise à jour : {{ bonsplan.updated|localizeddate('full', 'none', 'fr') }}</div>
-        </header>
-        {#<img src="{{ bonsplan.image }}" alt="{{ bonsplan.image }}" class="large"/>#}
+        <div class="row header-bonplan">
+        <a href="{{ bonsplan.link }}" target="_blank"><img class="col-md-4" src="{{ asset("BonsPlansBundle/logos/" ~ bonsplan.logo ) }}" alt="{{ bonsplan.logo }}"/></a>
+            <div class="col-md-8">
+                <h2>{{ bonsplan.title }}</h2>
+                <div class="small-informations">
+                    <p>Localisation : {{ bonsplan.localisation }}</p>
+                    <p>Dernière mise à jour : {{ bonsplan.updated|localizeddate('full', 'none', 'fr') }}</p>
+                </div>
+            </div>
+        </div>
+        <hr>
         <div class="textblog" id="blog-form">
+            <p class="bonplan-website">Lien du site web : <a href="{{ bonsplan.link }}" target="_blank"/>{{ bonsplan.link }}</a></p>
             {{ bonsplan.content|raw }}
         </div>
+        <hr class="hr-margin">
+        <div class="footer-bonplan">
+            <h4>Tiens au courant des prochains bons plans : </h4>
+            <div class="row text-center social-network">
+                <div class="col-xs-12 col-sm-6">
+                    <div id="fb-root"></div>
+                    <script>(function(d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (d.getElementById(id)) return;
+                            js = d.createElement(s); js.id = id;
+                            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=107059596483790";
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+                    <div class="fb-like" data-href="https://www.facebook.com/leblogetudiant/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <a href="https://twitter.com/Le_BlogEtudiant" class="twitter-follow-button" data-size="large"
+                       data-lang="fr" data-dnt="true" data-show-count="false">Follow @Le_BlogEtudiant</a>
+                    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+            </div>
+        </div>
+        <hr class="hr-margin2">
+        <div class="footer-bonplan row">
+            <div class="col-xs-12 text-center">
+                <a href="">Retourner à la liste des bons plans </a>
+            </div>
+        </div>
+
     </article>
 
     <section class="comments" id="comments">
