@@ -46,7 +46,7 @@ class AdvantageRepository extends \Doctrine\ORM\EntityRepository
             ->andWhere('city.name = :city')
             ->setParameters($parameters)
             //Search corresponding advantage in entity Advantage
-            ->andWhere('advantage.agemax > :age')
+            ->andWhere('advantage.agemax >= :age')
             ->setParameter('age', $age)
             ->andWhere('advantage.agemin <= :age')
             ->setParameter('age', $age)
@@ -88,7 +88,7 @@ class AdvantageRepository extends \Doctrine\ORM\EntityRepository
             ->innerJoin('PierreConnaitresesaidesBundle:Country', 'country', 'WITH', 'acountry.countryId = country.id')
             ->setParameters($parameters)
             //Search corresponding advantage in entity Advantage
-            ->andWhere('advantage.agemax > :age')
+            ->andWhere('advantage.agemax >= :age')
             ->setParameter('age', $age)
             ->andWhere('advantage.agemin <= :age')
             ->setParameter('age', $age)
@@ -129,7 +129,7 @@ class AdvantageRepository extends \Doctrine\ORM\EntityRepository
             ->innerJoin('PierreConnaitresesaidesBundle:Region', 'region', 'WITH', 'region.id = aregion.regionId')
             ->setParameters($parameters)
             //Search corresponding advantage in entity Advantage
-            ->andWhere('advantage.agemax > :age')
+            ->andWhere('advantage.agemax >= :age')
             ->setParameter('age', $age)
             ->andWhere('advantage.agemin <= :age')
             ->setParameter('age', $age)
@@ -138,6 +138,7 @@ class AdvantageRepository extends \Doctrine\ORM\EntityRepository
             ->andWhere('advantage.salarymaxpermonth >= :salarymax')
             ->setParameter('salarymax', $salary)
             ->orderBy('advantage.name', 'ASC');
+
 
         return $qb->getQuery()
             ->getResult();
@@ -153,7 +154,6 @@ class AdvantageRepository extends \Doctrine\ORM\EntityRepository
             'salarymin' => $salary,
             'salarymax' => $salary
         );
-
 
         $qb = $this->createQueryBuilder('advantage')
             ->select('org.name AS organism, advantage.name, advantage.amount, advantage.price, advantage.description, city.name AS location, advantage.link, org.logo')

@@ -17,7 +17,62 @@ use Pierre\BonsPlansBundle\Form\BonsPlanCommentType;
 
 class BonsPlanController extends Controller
 {
-    public function indexAction(Request $request, $page)
+    public function indexAction(Request $request, $city = null, $page = 1)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $maxBonsPlan = $this->container->getParameter('pierre_bonsplans.bonsplans.max_article');
+        $countBonsPlans = $this->getDoctrine()
+            ->getRepository('PierreBonsPlansBundle:BonsPlan')
+            ->getCountBonsPlans();
+
+        $pagination = array(
+            'page' => $page,
+            'route' => 'PierreBonsPlansBundle_homepage',
+            'pages_count' => ceil($countBonsPlans / $maxBonsPlan),
+            'route_params' => array()
+        );
+
+        $form = $this->createFormBuilder()
+            ->add('city', EntityType::class, array(
+                'label' => 'Sélectionnez votre ville',
+                'placeholder' => 'Choisir une ville',
+                'class' => 'PierreConnaitresesaidesBundle:City',
+                'choices' => $this->getDoctrine()
+                    ->getRepository('PierreConnaitresesaidesBundle:City')->findAllCityOrdered(),
+                'choice_label' => 'name',
+                'choice_value' => 'name',
+            ))
+            ->add('submit', SubmitType::class, array(
+                'label' => 'Rechercher',
+            ))
+            ->getForm();
+
+
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+
+            if ($form->isValid() && $form->isSubmitted()) {
+
+                $data = array('city' => $form->get('city')->getData()->getName(), 'page' => 1);
+
+                return $this->redirectToRoute('PierreBonsPlansBundle_bonsplans_city', $data);
+            }
+        } else {
+
+            $bonsplans = $em->getRepository('PierreBonsPlansBundle:BonsPlan')
+                ->getLatestUpdatedBonsPlans($page, $maxBonsPlan);
+
+            return $this->render('PierreBonsPlansBundle:BonsPlan:index.html.twig', array(
+                'bonsplans' => $bonsplans,
+                'pagination' => $pagination,
+                'form' => $form->createView()
+            ));
+        }
+    }
+
+
+    public function cityshowAction(Request $request, $city, $page)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -73,14 +128,18 @@ class BonsPlanController extends Controller
 //            //                'form' => $form->createView()
 //            //            ));
 //        } else {
-            $bonsplans = $em->getRepository('PierreBonsPlansBundle:BonsPlan')
-                ->getLatestUpdatedBonsPlans($page, $maxBonsPlan);
+//
+//        $bonsplans = $em->getRepository('PierreBonsPlansBundle:BonsPlan')
+//            ->getLatestUpdatedBonsPlans($page, $maxBonsPlan);
 
-            return $this->render('PierreBonsPlansBundle:BonsPlan:index.html.twig', array(
-                'bonsplans' => $bonsplans,
-                'pagination' => $pagination,
-                'form' => $form->createView()
-            ));
+        $bonsplans = null;
+
+        return $this->render('PierreBonsPlansBundle:BonsPlan:index.html.twig', array(
+            'city' => $city,
+            'bonsplans' => $bonsplans,
+            'pagination' => $pagination,
+            'form' => $form->createView()
+        ));
 
     }
 

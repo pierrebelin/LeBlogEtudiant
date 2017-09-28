@@ -36,7 +36,7 @@ class AdvantageCountry
      * @var int
      *
      * @ORM\ManyToOne(targetEntity="Advantage", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="advantage_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="advantage_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     private $advantageId;   
     

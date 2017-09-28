@@ -130,6 +130,7 @@ class ConnaitresesaidesController extends Controller
         $advantageCities = $em->getRepository('PierreConnaitresesaidesBundle:Advantage')->findPossibleAdvantageCities($statut, $city, $age, $salary);
 
         $advantageAll = array();
+
         // Ajout au tableau contenant toutes les avantages
         if (count($advantageCountries) > 0) {
             $advantageAll = array_merge($advantageAll, $advantageCountries);

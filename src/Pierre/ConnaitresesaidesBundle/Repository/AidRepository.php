@@ -46,7 +46,7 @@ class AidRepository extends \Doctrine\ORM\EntityRepository
             ->andWhere('city.name = :city')
             ->setParameters($parameters)
             //Search corresponding aid in entity Aid
-            ->andWhere('aid.agemax > :age')
+            ->andWhere('aid.agemax >= :age')
             ->setParameter('age', $age)
             ->andWhere('aid.agemin <= :age')
             ->setParameter('age', $age)
@@ -87,7 +87,7 @@ class AidRepository extends \Doctrine\ORM\EntityRepository
             ->innerJoin('PierreConnaitresesaidesBundle:Country', 'country', 'WITH', 'acountry.countryId = country.id')
             ->setParameters($parameters)
             //Search corresponding aid in entity Aid
-            ->andWhere('aid.agemax > :age')
+            ->andWhere('aid.agemax >= :age')
             ->setParameter('age', $age)
             ->andWhere('aid.agemin <= :age')
             ->setParameter('age', $age)
@@ -127,7 +127,7 @@ class AidRepository extends \Doctrine\ORM\EntityRepository
             ->innerJoin('PierreConnaitresesaidesBundle:Region', 'region', 'WITH', 'region.id = aregion.regionId')
             ->setParameters($parameters)
             //Search corresponding aid in entity Aid
-            ->andWhere('aid.agemax > :age')
+            ->andWhere('aid.agemax >= :age')
             ->setParameter('age', $age)
             ->andWhere('aid.agemin <= :age')
             ->setParameter('age', $age)
@@ -166,7 +166,7 @@ class AidRepository extends \Doctrine\ORM\EntityRepository
             ->innerJoin('PierreConnaitresesaidesBundle:Department', 'dep', 'WITH', 'dep.id = adep.departmentId')
             ->setParameters($parameters)
             //Search corresponding aid in entity Aid
-            ->andWhere('aid.agemax > :age')
+            ->andWhere('aid.agemax >= :age')
             ->setParameter('age', $age)
             ->andWhere('aid.agemin <= :age')
             ->setParameter('age', $age)

@@ -34,7 +34,7 @@ class AidStatut
      * @var int
      *
      * @ORM\ManyToOne(targetEntity="Aid", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="aid_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="aid_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     private $aidId;   
     

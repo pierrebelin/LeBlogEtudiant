@@ -27,7 +27,7 @@ class AidDepartment
      * @var int
      *
      * @ORM\ManyToOne(targetEntity="Department", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(name="department_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="department_id", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     private $departmentId;
     
