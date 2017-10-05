@@ -5,16 +5,16 @@ PierreBonsPlansBundle_homepage:
         sitemap:
           priority: 1
           changefreq: daily
-          section: bonsplans
-
-PierreBonsPlansBundle_bonsplans_city:
-    path:     /{city}
-    defaults: { _controller: PierreBonsPlansBundle:BonsPlan:cityshow, page: 1 }
-    options:
-        sitemap:
-          priority: 1
-          changefreq: daily
-          section: bonsplans
+          section: bonsplan
+#
+#PierreBonsPlansBundle_bonsplans_city:
+#    path:     /{city}
+#    defaults: { _controller: PierreBonsPlansBundle:BonsPlan:cityshow, page: 1 }
+#    options:
+#        sitemap:
+#          priority: 1
+#          changefreq: daily
+#          section: bonsplans
 
 PierreBonsPlansBundle_bonsplan_show:
     path:     /article/{slug}
