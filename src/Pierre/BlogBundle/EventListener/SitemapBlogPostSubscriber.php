@@ -45,22 +45,22 @@ class SitemapBlogPostSubscriber implements EventSubscriberInterface
      */
     public function registerBlogPostsPages(SitemapPopulateEvent $event)
     {
-        $posts = $this->manager->getRepository('PierreBlogBundle:Blog')->findAll();
-
-        foreach ($posts as $post) {
-            $event->getUrlContainer()->addUrl(
-                new UrlConcrete(
-                    $this->urlGenerator->generate(
-                        'PierreBlogBundle_blog_show',
-                        ['slug' => $post->getSlug()],
-                        UrlGeneratorInterface::ABSOLUTE_URL
-                    ),
-                    new \DateTime(),
-                    UrlConcrete::CHANGEFREQ_MONTHLY,
-                    1
-                ),
-                'blog'
-            );
-        }
+//        $posts = $this->manager->getRepository('PierreBlogBundle:Blog')->findAll();
+//
+//        foreach ($posts as $post) {
+//            $event->getUrlContainer()->addUrl(
+//                new UrlConcrete(
+//                    $this->urlGenerator->generate(
+//                        'PierreBlogBundle_blog_show',
+//                        ['slug' => $post->getSlug()],
+//                        UrlGeneratorInterface::ABSOLUTE_URL
+//                    ),
+//                    new \DateTime(),
+//                    UrlConcrete::CHANGEFREQ_MONTHLY,
+//                    1
+//                ),
+//                'blog'
+//            );
+//        }
     }
 }

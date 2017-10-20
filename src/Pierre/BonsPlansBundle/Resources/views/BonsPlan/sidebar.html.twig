@@ -90,7 +90,7 @@
         <article class="comment">
             <header>
                 <p class="informations">{{ comment.user }} a commenté
-                    <a href="{{ path('PierreBonsPlansBundle_bonsplan_show', { 'slug': comment.bonsplan.slug }) }}#comment">
+                    <a href="{{ path('PierreBonsPlansBundle_bonsplan_show', { 'slug': comment.bonsplan.slug }) }}">
                         {{ comment.bonsplan.title }}
                     </a>
                     <em> le
@@ -98,22 +98,10 @@
                     </em>
                 </p>
             </header>
-            <p>{{ comment.comment }}</p>
+            <p>{{ comment.comment|truncate(250, true) }}</p>
         </article>
     {% else %}
         <p>Il n'y a pas encore de commentaires</p>
     {% endfor %}
 </section>
 
-<section class="section">
-    <header>
-        <h3>Tags fréquents</h3>
-    </header>
-    <p class="tags">
-        {% for tag, weight in tags %}
-        <span class="weight-{{ weight }}">{{ tag }}</span>
-        {% else %}
-    <p>Il n'y a pas de tags</p>
-    {% endfor %}
-    </p>
-</section>

@@ -2,6 +2,10 @@
 
 namespace Pierre\BonsPlansBundle\Repository;
 
+use Pierre\BonsPlansBundle\Entity\BonsPlanComment;
+use Pierre\BonsPlansBundle\PierreBonsPlansBundle;
+
+
 /**
  * BlogRepository
  *
@@ -10,90 +14,159 @@ namespace Pierre\BonsPlansBundle\Repository;
  */
 class BonsPlanRepository extends \Doctrine\ORM\EntityRepository
 {
-
-    public function getCountBonsPlans()
-    {
-        return $qb = $this->createQueryBuilder('b')
-            ->select('COUNT(b)')
-            ->getQuery()
-            ->getSingleScalarResult();
-    }
-
     public function getLatestUpdatedBonsPlans($page = 1, $limit = 10)
     {
         $qb = $this->createQueryBuilder('b')
-            ->select('b ,c')
-            ->leftJoin('b.comments', 'c')
+            ->select('b.title, b.logo, b.slug, b.created, b.updated, c.name AS city, d.name AS department, r.name AS region, cou.name AS country')
+            ->leftJoin('PierreBonsPlansBundle:BonsPlanRegion', 'br', 'WITH', 'b.id = br.bonplanId')
+            ->leftJoin('PierreConnaitresesaidesBundle:Region', 'r', 'WITH', 'r.id = br.regionId')
+            ->leftJoin('PierreBonsPlansBundle:BonsPlanCountry', 'bcou', 'WITH', 'b.id = bcou.bonplanId')
+            ->leftJoin('PierreConnaitresesaidesBundle:Country', 'cou', 'WITH', 'cou.id = bcou.countryId')
+            ->leftJoin('PierreBonsPlansBundle:BonsPlanCity', 'bc', 'WITH', 'b.id = bc.bonplanId')
+            ->leftJoin('PierreConnaitresesaidesBundle:City', 'c', 'WITH', 'c.id = bc.cityId')
+            ->leftJoin('PierreBonsPlansBundle:BonsPlanDepartment', 'bd', 'WITH', 'b.id = bd.bonplanId')
+            ->leftJoin('PierreConnaitresesaidesBundle:Department', 'd', 'WITH', 'd.id = bd.departmentId')
             ->addOrderBy('b.updated', 'DESC');
 
         $qb->setFirstResult(($page - 1) * $limit)
             ->setMaxResults($limit);
 
-        return $qb->getQuery()
+        $results = $qb->getQuery()
             ->getResult();
 
+        foreach ($results as $result => &$val) {
+            if ($val['city'] != null) {
+                $val['localisation'] = $val['city'];
+            } else if ($val['department'] != null) {
+                $val['localisation'] = $val['department'];
+            } else if ($val['region'] != null) {
+                $val['localisation'] = $val['region'];
+            } else if ($val['country'] != null) {
+                $val['localisation'] = $val['country'];
+            } else {
+                $val['localisation'] = null;
+            }
+        }
+
+        return $results;
     }
 
     public function getLatestUpdatedBonsPlansCity($page = 1, $limit = 10, $city)
     {
-        $qb = $this->createQueryBuilder('b')
-            ->select('b ,c')
-            ->leftJoin('b.comments', 'c')
-            ->where('b.comments is null')
-            ->addOrderBy('b.updated', 'DESC');
+//        $em = $this->getDoctrine()->getManager();
+        $rsm = new \Doctrine\ORM\Query\ResultSetMapping();
 
-        $qb->setFirstResult(($page - 1) * $limit)
-            ->setMaxResults($limit);
+        $rsm->addScalarResult('localisation', 'localisation');
+        $rsm->addScalarResult('title', 'title');
+        $rsm->addScalarResult('logo', 'logo');
+        $rsm->addScalarResult('slug', 'slug');
+        $rsm->addScalarResult('updated', 'updated');
 
-        return $qb->getQuery()
+
+        $sql = "select * from (
+                    select b.*, c.name as localisation
+                    from city c, bonsplan_city ac, bonsplan b
+                    where c.id = ac.city_id
+                    and ac.bonplan_id = b.id
+                    and c.name = :city
+                    
+                    union
+                    
+                    select b.*, d.name as localisation
+                    from city c, department d, bonsplan_department ad, bonsplan b
+                    where d.id = ad.department_id
+                    and c.department_id = d.id
+                    and ad.bonplan_id = b.id
+                    and c.name = :city
+                    
+                    union
+                    
+                    select b.*, r.name as localisation
+                    from city c, department d, region r, bonsplan_region ar, bonsplan b
+                    where r.id = ar.region_id
+                    and d.region_id = r.id
+                    and c.department_id = d.id
+                    and ar.bonplan_id = b.id
+                    and c.name = :city
+                    
+                    union
+                    
+                    select b.*, cou.name as localisation
+                    from city c, department d, region r, country cou, bonsplan_country acou, bonsplan b
+                    where cou.id = acou.country_id
+                    and r.country_id = cou.id
+                    and d.region_id = r.id
+                    and c.department_id = d.id
+                    and acou.bonplan_id = b.id
+                    and c.name = :city)t
+                order by t.updated DESC
+                limit :offset, :limit";
+
+        $em = $this->getEntityManager();
+        $results = $em->createNativeQuery($sql, $rsm)
+            ->setParameter('city', $city)
+            ->setParameter('limit', $limit)
+            ->setParameter('offset', (($page - 1) * $limit))
             ->getResult();
 
+        return $results;
     }
 
-
-    public function getLocalisation()
+    public function getCountBonsPlans()
     {
-        $bonsplanLocalisations = $this->createQueryBuilder('b')
-            ->select('b.localisation')
+        return $qb = $this->createQueryBuilder('bonplan')
+            ->select('COUNT(bonplan)')
             ->getQuery()
-            ->getResult();
-
-        $tags = array();
-        foreach ($bonsplanLocalisations as $bonsplanLocalisation) {
-            $tags = array_merge(explode(",", $bonsplanLocalisation['localisation']), $tags);
-        }
-
-        foreach ($tags as &$tag) {
-            $tag = trim($tag);
-        }
-
-        return $tags;
+            ->getSingleScalarResult();
     }
 
-    public function getTagWeights($tags)
+
+    public function getCountBonsPlansCity($city)
     {
-        $tagWeights = array();
-        if (empty($tags)) {
-            return $tagWeights;
-        }
+        $rsm = new \Doctrine\ORM\Query\ResultSetMapping();
 
-        foreach ($tags as $tag) {
-            $tagWeights[$tag] = (isset($tagWeights[$tag])) ? $tagWeights[$tag] + 1 : 1;
-        }
-        // Shuffle the tags
-        uksort($tagWeights, function () {
-            return rand() > rand();
-        });
+        $rsm->addScalarResult('count', 'count');
 
-        $max = max($tagWeights);
+        $sql = "select count(*) as count from (
+                    select b.*, c.name as localisation
+                    from city c, bonsplan_city ac, bonsplan b
+                    where c.id = ac.city_id
+                    and ac.bonplan_id = b.id
+                    and c.name = :city
+                    
+                    union
+                    
+                    select b.*, d.name as localisation
+                    from city c, department d, bonsplan_department ad, bonsplan b
+                    where d.id = ad.department_id
+                    and c.department_id = d.id
+                    and ad.bonplan_id = b.id
+                    and c.name = :city
+                    
+                    union
+                    
+                    select b.*, r.name as localisation
+                    from city c, department d, region r, bonsplan_region ar, bonsplan b
+                    where r.id = ar.region_id
+                    and d.region_id = r.id
+                    and c.department_id = d.id
+                    and ar.bonplan_id = b.id
+                    and c.name = :city
+                    
+                    union
+                    
+                    select b.*, cou.name as localisation
+                    from city c, department d, region r, country cou, bonsplan_country acou, bonsplan b
+                    where cou.id = acou.country_id
+                    and r.country_id = cou.id
+                    and d.region_id = r.id
+                    and c.department_id = d.id
+                    and acou.bonplan_id = b.id
+                    and c.name = :city)t";
 
-        // Max of 5 weights
-        $multiplier = ($max > 5) ? 5 / $max : 1;
-        foreach ($tagWeights as &$tag) {
-            $tag = ceil($tag * $multiplier);
-        }
-
-        return $tagWeights;
+        $em = $this->getEntityManager();
+        return $result = $em->createNativeQuery($sql, $rsm)
+            ->setParameter('city', $city)
+            ->getSingleScalarResult();
     }
-
 }

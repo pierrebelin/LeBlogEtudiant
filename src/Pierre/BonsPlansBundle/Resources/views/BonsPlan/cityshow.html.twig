@@ -1,12 +1,12 @@
 {% extends 'PierreBonsPlansBundle::layout.html.twig' %}
 
-{% block title %} | Bons plans étudiants{% endblock %}
+{% block title %} | {{ city }} - Bons plans et astuces pour étudiants{% endblock %}
 {% block description %}
-    Retrouve les bons plans étudiants de ta ville (astuces, réductions, avantages) pour profiter de ta vie étudiante à 100% avec Le Blog Étudiant
+    {{ city }} - Retrouve les bons plans étudiants de ta ville (astuces, réductions, avantages) pour profiter de ta vie étudiante à 100% avec Le Blog Étudiant
 {% endblock %}
 
 {% block keywords %}
-    etudiant, blog etudiant, aide financière etudiant, plusdebonsplans, aide etudiant, etudiant gouv, l étudiant, plus de bon plan, bon plan astuce, bon plan, réduction
+    etudiant, blog etudiant, aide financière etudiant, plusdebonsplans, aide etudiant, etudiant gouv, l étudiant, plus de bon plan, bon plan astuce, {{ city }}, bon plan {{ city }}, réduction
 {% endblock %}
 
 {% block stylesheets %}
@@ -15,11 +15,9 @@
 
 {% endblock %}
 
-
-
 {% block body %}
     <div style="display: none">
-        <p>etudiant, blog etudiant, aide financière etudiant, plusdebonsplans, aide etudiant, etudiant gouv, l étudiant, plus de bon plan, bon plan astuce, bon plan, réduction</p>
+        <p>etudiant, blog etudiant, aide financière etudiant, plusdebonsplans, aide etudiant, etudiant gouv, l étudiant, plus de bon plan, bon plan astuce, {{ city }}, bon plan {{ city }}, réduction</p>
     </div>
     <div class="search-bon-plan">
         <div class="row">
@@ -45,8 +43,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <p><a href="{{ path('PierreBonsPlansBundle_homepage') }}">Cliquez ici</a> pour retourner à la liste
-                        générale</p>
+                    <p><a href="{{ path('PierreBonsPlansBundle_homepage') }}">Cliquez ici</a> pour retourner à la liste générale</p>
                 </div>
             </div>
         {% endif %}
@@ -70,7 +67,6 @@
         <div class="row">
             <footer class="meta">
                 {#<p>Nombre de commentaires : {{ bonsplan.comments|length }}</p>#}
-                <p>Nombre de commentaires : 0</p>
             </footer>
         </div>
     </article>
@@ -109,4 +105,3 @@
         $('.select-city').select2();
     </script>
 {% endblock %}
-

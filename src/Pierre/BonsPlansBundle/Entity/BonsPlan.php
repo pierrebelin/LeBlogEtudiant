@@ -46,13 +46,6 @@ class BonsPlan {
     /**
      * @var string
      *
-     * @ORM\Column(name="localisation", type="string")
-     */
-    private $localisation;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="link", type="string", length=255, unique=true)
      */
     private $link;
@@ -168,28 +161,6 @@ class BonsPlan {
      */
     public function getlogo() {
         return $this->logo;
-    }
-
-    /**
-     * Set localisation
-     *
-     * @param text $localisation
-     *
-     * @return BonsPlan
-     */
-    public function setLocalisation($localisation) {
-        $this->localisation = $localisation;
-
-        return $this;
-    }
-
-    /**
-     * Get localisation
-     *
-     * @return text
-     */
-    public function getLocalisation() {
-        return $this->localisation;
     }
 
 

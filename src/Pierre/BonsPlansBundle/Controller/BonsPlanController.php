@@ -17,11 +17,12 @@ use Pierre\BonsPlansBundle\Form\BonsPlanCommentType;
 
 class BonsPlanController extends Controller
 {
-    public function indexAction(Request $request, $city = null, $page = 1)
+    public function indexAction(Request $request, $page = 1)
     {
         $em = $this->getDoctrine()->getManager();
 
         $maxBonsPlan = $this->container->getParameter('pierre_bonsplans.bonsplans.max_article');
+
         $countBonsPlans = $this->getDoctrine()
             ->getRepository('PierreBonsPlansBundle:BonsPlan')
             ->getCountBonsPlans();
@@ -29,7 +30,7 @@ class BonsPlanController extends Controller
         $pagination = array(
             'page' => $page,
             'route' => 'PierreBonsPlansBundle_homepage',
-            'pages_count' => ceil($countBonsPlans / $maxBonsPlan),
+            'pages_count' => max(1, ceil($countBonsPlans / $maxBonsPlan)),
             'route_params' => array()
         );
 
@@ -52,17 +53,16 @@ class BonsPlanController extends Controller
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
 
-            if ($form->isValid() && $form->isSubmitted()) {
+            $data = array('city' => $form->get('city')->getData()->getName(), 'page' => 1);
 
-                $data = array('city' => $form->get('city')->getData()->getName(), 'page' => 1);
+            return $this->redirectToRoute('PierreBonsPlansBundle_bonsplans_city', $data);
 
-                return $this->redirectToRoute('PierreBonsPlansBundle_bonsplans_city', $data);
-            }
         } else {
 
             $bonsplans = $em->getRepository('PierreBonsPlansBundle:BonsPlan')
                 ->getLatestUpdatedBonsPlans($page, $maxBonsPlan);
 
+            //var_dump($bonsplans);
             return $this->render('PierreBonsPlansBundle:BonsPlan:index.html.twig', array(
                 'bonsplans' => $bonsplans,
                 'pagination' => $pagination,
@@ -72,22 +72,24 @@ class BonsPlanController extends Controller
     }
 
 
-    public function cityshowAction(Request $request, $city, $page)
+    public function cityshowAction(Request $request, $city, $page = 1)
     {
         $em = $this->getDoctrine()->getManager();
 
         $maxBonsPlan = $this->container->getParameter('pierre_bonsplans.bonsplans.max_article');
+
         $countBonsPlans = $this->getDoctrine()
             ->getRepository('PierreBonsPlansBundle:BonsPlan')
-            ->getCountBonsPlans();
+            ->getCountBonsPlansCity($city);
 
         $pagination = array(
             'page' => $page,
-            'route' => 'PierreBonsPlansBundle_homepage',
-            'pages_count' => ceil($countBonsPlans / $maxBonsPlan),
-            'route_params' => array()
+            'route' => 'PierreBonsPlansBundle_bonsplans_city',
+            'pages_count' => max(1, ceil($countBonsPlans / $maxBonsPlan)),
+            'route_params' => array('city' => $city)
         );
 
+        // TODO Faire afficher le nom de la ville en choix par défaut
         $form = $this->createFormBuilder()
             ->add('city', EntityType::class, array(
                 'label' => 'Sélectionnez votre ville',
@@ -95,6 +97,7 @@ class BonsPlanController extends Controller
                 'class' => 'PierreConnaitresesaidesBundle:City',
                 'choices' => $this->getDoctrine()
                     ->getRepository('PierreConnaitresesaidesBundle:City')->findAllCityOrdered(),
+//                'data' => $city,
                 'choice_label' => 'name',
                 'choice_value' => 'name',
             ))
@@ -102,44 +105,31 @@ class BonsPlanController extends Controller
                 'label' => 'Rechercher',
             ))
             ->getForm();
-//
-//        if ($form->get('city')->getData() != null) {
-//            $form->handleRequest($request);
-//
-//            if ($form->get('city')->getData() != null) {
-//                $city = $form->get('city')->getData()->getName();
-//                $data = array('city' => $city);
-//            } else {
-//                $city = null;
-//            }
-//            //return $this->redirectToRoute('PierreBonsPlansBundle_homepage', $data);
-//
-//            //$bonsplans = $em->getRepository('PierreBonsPlansBundle:BonsPlan')
-//            //   ->getLatestUpdatedBonsPlansCity($page, $maxBonsPlan, $city);
-//
-//            $bonsplans = null;
-//
-//            $url = $this->generateUrl('PierreBonsPlansBundle_homepage', array('city' => $city));
-//
-//            //            return $this->render('PierreBonsPlansBundle:BonsPlan:index.html.twig', array(
-//            //                'city' => $city,
-//            //                'bonsplans' => $bonsplans,
-//            //                'pagination' => $pagination,
-//            //                'form' => $form->createView()
-//            //            ));
-//        } else {
-//
-//        $bonsplans = $em->getRepository('PierreBonsPlansBundle:BonsPlan')
-//            ->getLatestUpdatedBonsPlans($page, $maxBonsPlan);
 
-        $bonsplans = null;
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
 
-        return $this->render('PierreBonsPlansBundle:BonsPlan:index.html.twig', array(
+            if ($form->isValid() && $form->isSubmitted()) {
+
+                $data = array('city' => $form->get('city')->getData()->getName(), 'page' => 1);
+
+                return $this->redirectToRoute('PierreBonsPlansBundle_bonsplans_city', $data);
+            }
+        }
+
+        $bonsplans = $em->getRepository('PierreBonsPlansBundle:BonsPlan')
+            ->getLatestUpdatedBonsPlansCity($page, $maxBonsPlan, $city);
+
+        // TODO Récupérer le nombre de commentaires pour chacun
+
+        return $this->render('PierreBonsPlansBundle:BonsPlan:cityshow.html.twig', array(
             'city' => $city,
+            'page' => $page,
             'bonsplans' => $bonsplans,
             'pagination' => $pagination,
             'form' => $form->createView()
         ));
+
 
     }
 
@@ -149,6 +139,7 @@ class BonsPlanController extends Controller
 
         $bonsplan = $em->getRepository('PierreBonsPlansBundle:BonsPlan')->findOneBy(array('slug' => $slug));
 
+        // TODO Récupérer la localisation
         if (!$bonsplan) {
             throw $this->createNotFoundException('Unable to find BonsPlan post.');
         }
@@ -167,12 +158,6 @@ class BonsPlanController extends Controller
     {
         $em = $this->getDoctrine()
             ->getManager();
-
-        $localisation = $em->getRepository('PierreBonsPlansBundle:BonsPlan')
-            ->getLocalisation();
-
-        $tagWeights = $em->getRepository('PierreBonsPlansBundle:BonsPlan')
-            ->getTagWeights($localisation);
 
         $commentLimit = $this->container
             ->getParameter('pierre_bonsplans.comments.latest_comment_limit');
@@ -201,9 +186,7 @@ class BonsPlanController extends Controller
 
         return $this->render('PierreBonsPlansBundle:BonsPlan:sidebar.html.twig', array(
             'latestComments' => $latestComments,
-            'form' => $form->createView(),
-            'tags' => $tagWeights
+            'form' => $form->createView()
         ));
     }
-
 }

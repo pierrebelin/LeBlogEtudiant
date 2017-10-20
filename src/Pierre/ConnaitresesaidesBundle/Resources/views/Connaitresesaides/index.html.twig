@@ -1,11 +1,11 @@
 {% extends 'PierreConnaitresesaidesBundle::layout.html.twig' %}
 
 {% block title %}
-    {{ parent() }}Identifier les aides et avantages étudiants de ta ville
+    {{ parent() }}Identifier les avantages et aides étudiantes de ta ville
 {% endblock %}
 
 {% block description %}
-    Tu souhaites connaître l'ensemble des aides et avantages auxquels tu as droit ? Le Blog Étudiant les a toutes recensé pour sur son site :
+    Le Blog Étudiant a recensé tous les avantages et aides pour toi sur son site :
     {% for city in cities %}
         {{ city.name }},
     {% endfor %}

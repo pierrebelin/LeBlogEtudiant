@@ -62,5 +62,23 @@ class SitemapBlogPostSubscriber implements EventSubscriberInterface
                 'bonsplan'
             );
         }
+
+        $cities = $this->manager->getRepository('PierreConnaitresesaidesBundle:City')->findAll();
+
+        foreach ($cities as $city) {
+            $event->getUrlContainer()->addUrl(
+                new UrlConcrete(
+                    $this->urlGenerator->generate(
+                        'PierreBonsPlansBundle_bonsplans_city',
+                        ['city' => $city->getName()],
+                        UrlGeneratorInterface::ABSOLUTE_URL
+                    ),
+                    new \DateTime(),
+                    UrlConcrete::CHANGEFREQ_WEEKLY,
+                    1
+                ),
+                'bonsplan'
+            );
+        }
     }
 }
