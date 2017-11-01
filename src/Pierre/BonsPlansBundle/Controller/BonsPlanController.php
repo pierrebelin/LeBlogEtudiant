@@ -3,17 +3,12 @@
 
 namespace Pierre\BonsPlansBundle\Controller;
 
-use Pierre\SiteBundle\Controller\SiteController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Pierre\BonsPlansBundle\Entity\BonsPlanComment;
-use Pierre\BonsPlansBundle\Form\BonsPlanCommentType;
 
 class BonsPlanController extends Controller
 {
@@ -89,7 +84,6 @@ class BonsPlanController extends Controller
             'route_params' => array('city' => $city)
         );
 
-        // TODO Faire afficher le nom de la ville en choix par défaut
         $form = $this->createFormBuilder()
             ->add('city', EntityType::class, array(
                 'label' => 'Sélectionnez votre ville',
@@ -127,7 +121,8 @@ class BonsPlanController extends Controller
             'page' => $page,
             'bonsplans' => $bonsplans,
             'pagination' => $pagination,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'countbonsplans' => $countBonsPlans,
         ));
 
 
@@ -137,15 +132,10 @@ class BonsPlanController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $bonsplan = $em->getRepository('PierreBonsPlansBundle:BonsPlan')->findOneBy(array('slug' => $slug));
-
-        // TODO Récupérer la localisation
-        if (!$bonsplan) {
-            throw $this->createNotFoundException('Unable to find BonsPlan post.');
-        }
+        $bonsplan = $em->getRepository('PierreBonsPlansBundle:BonsPlan')->getBonPlanBySlug($slug);
 
         $bonsplancomments = $em->getRepository('PierreBonsPlansBundle:BonsPlanComment')
-            ->getCommentsForBonsPlan($bonsplan->getId());
+            ->getCommentsForBonsPlan($bonsplan['id']);
 
         return $this->render('PierreBonsPlansBundle:BonsPlan:show.html.twig', array(
             'bonsplan' => $bonsplan,

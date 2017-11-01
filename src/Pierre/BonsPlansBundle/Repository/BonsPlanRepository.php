@@ -2,9 +2,6 @@
 
 namespace Pierre\BonsPlansBundle\Repository;
 
-use Pierre\BonsPlansBundle\Entity\BonsPlanComment;
-use Pierre\BonsPlansBundle\PierreBonsPlansBundle;
-
 
 /**
  * BlogRepository
@@ -63,7 +60,7 @@ class BonsPlanRepository extends \Doctrine\ORM\EntityRepository
         $rsm->addScalarResult('updated', 'updated');
 
 
-        $sql = "select * from (
+        $sql = "select t.* from (
                     select b.*, c.name as localisation
                     from city c, bonsplan_city ac, bonsplan b
                     where c.id = ac.city_id
@@ -168,5 +165,63 @@ class BonsPlanRepository extends \Doctrine\ORM\EntityRepository
         return $result = $em->createNativeQuery($sql, $rsm)
             ->setParameter('city', $city)
             ->getSingleScalarResult();
+    }
+
+    public function getBonPlanBySlug($slug)
+    {
+        $rsm = new \Doctrine\ORM\Query\ResultSetMapping();
+
+        $rsm->addScalarResult('localisation', 'localisation');
+        $rsm->addScalarResult('title', 'title');
+        $rsm->addScalarResult('logo', 'logo');
+        $rsm->addScalarResult('slug', 'slug');
+        $rsm->addScalarResult('updated', 'updated');
+        $rsm->addScalarResult('content', 'content');
+        $rsm->addScalarResult('link', 'link');
+        $rsm->addScalarResult('id', 'id');
+
+        $sql = "select t.* from (
+                    select b.*, c.name as localisation
+                    from city c, bonsplan_city ac, bonsplan b
+                    where c.id = ac.city_id
+                    and ac.bonplan_id = b.id
+                    and b.slug = :slug
+                    
+                    union
+                    
+                    select b.*, d.name as localisation
+                    from city c, department d, bonsplan_department ad, bonsplan b
+                    where d.id = ad.department_id
+                    and c.department_id = d.id
+                    and ad.bonplan_id = b.id
+                    and b.slug = :slug
+                    
+                    union
+                    
+                    select b.*, r.name as localisation
+                    from city c, department d, region r, bonsplan_region ar, bonsplan b
+                    where r.id = ar.region_id
+                    and d.region_id = r.id
+                    and c.department_id = d.id
+                    and ar.bonplan_id = b.id
+                    and b.slug = :slug
+                    
+                    union
+                    
+                    select b.*, cou.name as localisation
+                    from city c, department d, region r, country cou, bonsplan_country acou, bonsplan b
+                    where cou.id = acou.country_id
+                    and r.country_id = cou.id
+                    and d.region_id = r.id
+                    and c.department_id = d.id
+                    and acou.bonplan_id = b.id
+                    and b.slug = :slug)t";
+
+        $em = $this->getEntityManager();
+        $results = $em->createNativeQuery($sql, $rsm)
+            ->setParameter('slug', $slug)
+            ->getSingleResult();
+
+        return $results;
     }
 }

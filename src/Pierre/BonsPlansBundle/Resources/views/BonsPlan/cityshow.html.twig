@@ -1,12 +1,12 @@
 {% extends 'PierreBonsPlansBundle::layout.html.twig' %}
 
-{% block title %} | {{ city }} - Bons plans et astuces pour étudiants{% endblock %}
+{% block title %} | {{ city }} - {{ countbonsplans }} bons plans et astuces à ne pas rater quand on est étudiants{% endblock %}
 {% block description %}
-    {{ city }} - Retrouve les bons plans étudiants de ta ville (astuces, réductions, avantages) pour profiter de ta vie étudiante à 100% avec Le Blog Étudiant
+    {{ city }} - Retrouve les bons plans étudiants (astuces, réductions, avantages) pour profiter de ta vie étudiante à 100% avec Le Blog Étudiant
 {% endblock %}
 
 {% block keywords %}
-    etudiant, blog etudiant, aide financière etudiant, plusdebonsplans, aide etudiant, etudiant gouv, l étudiant, plus de bon plan, bon plan astuce, {{ city }}, bon plan {{ city }}, réduction
+    bon plan {{ city }}, réduction, etudiant, blog etudiant, aide financière etudiant, plusdebonsplans, aide etudiant, etudiant gouv, l étudiant, plus de bon plan, bon plan astuce, {{ city }}
 {% endblock %}
 
 {% block stylesheets %}
@@ -22,7 +22,7 @@
     <div class="search-bon-plan">
         <div class="row">
             <div class="col-md-12">
-                <h2>Bons plans</h2>
+                <h2>Bons plans {{ city }}</h2>
             </div>
         </div>
         <div class="row">
@@ -36,11 +36,6 @@
             {{ form_end(form) }}
         </div>
         {% if city is defined %}
-            <div class="row">
-                <div class="col-md-12">
-                    <p>Résultats de la recherche pour la ville : {{ city }}</p>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-md-12">
                     <p><a href="{{ path('PierreBonsPlansBundle_homepage') }}">Cliquez ici</a> pour retourner à la liste générale</p>
@@ -64,11 +59,11 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <footer class="meta">
-                {#<p>Nombre de commentaires : {{ bonsplan.comments|length }}</p>#}
-            </footer>
-        </div>
+        {#<div class="row">#}
+            {#<footer class="meta">#}
+                {#<p>Nombre de commentaires : {{ bonsplan.nbcom }}</p>#}
+            {#</footer>#}
+        {#</div>#}
     </article>
     {% else %}
     <p>Il n'y a aucun article pour le moment, désolé.<p>
