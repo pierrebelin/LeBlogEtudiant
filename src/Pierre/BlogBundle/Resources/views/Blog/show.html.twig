@@ -3,11 +3,11 @@
 {% block title %} | {{ blog.title }}{% endblock %}
 
 {% block description %}
-    Les bons plans & astuces d'étudiants pour profiter de ta vie étudiante à 100% sur Le Blog Étudiant, article : {{ blog.title }}
+    {{ blog.metadescription }}
 {% endblock %}
 
 {% block keywords %}
-    etudiant, aide financière étudiant, plusdebonsplans, Le Blog Etudiant, aide etudiant, etudiant gouv, cidj, leblogetudiant, l étudiant, plus de bon plan, lokaviz, bon plan astuce, {{ blog.title }}
+    {{ blog.title }}, {{ blog.metakeywords }}
 {% endblock %}
 
 {% block stylesheets %}

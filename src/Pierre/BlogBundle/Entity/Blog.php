@@ -79,6 +79,20 @@ class Blog {
     private $slug;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255, unique=true)
+     */
+    private $metadescription;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255, unique=true)
+     */
+    private $metakeywords;
+
+    /**
      * @ORM\OneToMany(targetEntity="Comment", mappedBy="blog")
      */
     protected $comments;
@@ -278,6 +292,51 @@ class Blog {
     public function getSlug() {
         return $this->slug;
     }
+
+
+    /**
+     * Set metadescription
+     *
+     * @param string $metadescription
+     *
+     * @return Blog
+     */
+    public function setMetadescription($metadescription) {
+        $this->metadescription = $metadescription;
+        return $this;
+    }
+
+    /**
+     * Get metadescription
+     *
+     * @return string
+     */
+    public function getMetadescription() {
+        return $this->metadescription;
+    }
+
+    /**
+     * Set metakeywords
+     *
+     * @param string $metakeywords
+     *
+     * @return Blog
+     */
+    public function setMetakeywords($metakeywords) {
+        $this->metakeywords = $metakeywords;
+        return $this;
+    }
+
+    /**
+     * Get metakeywords
+     *
+     * @return string
+     */
+    public function getMetakeywords() {
+        return $this->metakeywords;
+    }
+
+
 
     public function __construct() {
         $this->comments = new ArrayCollection();

@@ -45,24 +45,24 @@ class SitemapBlogPostSubscriber implements EventSubscriberInterface
      */
     public function registerBonsPlansPostsPages(SitemapPopulateEvent $event)
     {
-//        $posts = $this->manager->getRepository('PierreBonsPlansBundle:BonsPlan')->findAll();
-//
-//        foreach ($posts as $post) {
-//            $event->getUrlContainer()->addUrl(
-//                new UrlConcrete(
-//                    $this->urlGenerator->generate(
-//                        'PierreBonsPlansBundle_bonsplan_show',
-//                        ['slug' => $post->getSlug()],
-//                        UrlGeneratorInterface::ABSOLUTE_URL
-//                    ),
-//                    new \DateTime(),
-//                    UrlConcrete::CHANGEFREQ_WEEKLY,
-//                    1
-//                ),
-//                'bonsplan'
-//            );
-//        }
-//
+        $posts = $this->manager->getRepository('PierreBonsPlansBundle:BonsPlan')->findAll();
+
+        foreach ($posts as $post) {
+            $event->getUrlContainer()->addUrl(
+                new UrlConcrete(
+                    $this->urlGenerator->generate(
+                        'PierreBonsPlansBundle_bonsplan_show',
+                        ['slug' => $post->getSlug()],
+                        UrlGeneratorInterface::ABSOLUTE_URL
+                    ),
+                    new \DateTime(),
+                    UrlConcrete::CHANGEFREQ_WEEKLY,
+                    1
+                ),
+                'bonsplan'
+            );
+        }
+
 //        $cities = $this->manager->getRepository('PierreConnaitresesaidesBundle:City')->findAll();
 //
 //        foreach ($cities as $city) {

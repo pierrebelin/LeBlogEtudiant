@@ -33,6 +33,14 @@ and open the template in the editor.
   .navbar-site a {
     text-align: center;
   }
+  .search-bon-plan {
+    h2 {
+      margin-top: 40px !important;
+    }
+    button {
+      margin-top: 20px;
+    }
+  }
 }
 
 @media (max-width: 992px) {
@@ -50,8 +58,20 @@ and open the template in the editor.
 
 }
 
+.submit-button {
+  margin-top: 5px;
+  color: @background-color;
+  background-color: @color-principal-dark;
+  transition: background-color 0.5s ease;
+  &:hover, &:active, &:focus {
+    //background-color: @color-important-hover;
+    color: @background-color;
+  }
+}
+
+
 .select2  {
-  width: 100% !important;
+  margin-bottom: 10px;
 }
 
 .search-bon-plan {

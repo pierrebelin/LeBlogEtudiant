@@ -2,11 +2,11 @@
 
 {% block title %} | {{ city }} - {{ countbonsplans }} bons plans et astuces à ne pas rater quand on est étudiants{% endblock %}
 {% block description %}
-    {{ city }} - Retrouve les bons plans étudiants (astuces, réductions, avantages) pour profiter de ta vie étudiante à 100% avec Le Blog Étudiant
+    {{ city }} - Retrouve les bons plans étudiants (astuces, réductions, avantages) pour profiter de ta vie étudiante à 100% - Le Blog Étudiant
 {% endblock %}
 
 {% block keywords %}
-    bon plan {{ city }}, réduction, etudiant, blog etudiant, aide financière etudiant, plusdebonsplans, aide etudiant, etudiant gouv, l étudiant, plus de bon plan, bon plan astuce, {{ city }}
+    bon plan {{ city }}, plusdebonsplans, bon plan, bon de reduction, code promo etudiant, avantage carte etudiant, gagner argent étudiant, bon plan astuce, annonce etudiant, bon de reduction, etudiant, offre etudiant, reduction etudiant, reduction carte etudiant, {{ city }}
 {% endblock %}
 
 {% block stylesheets %}
@@ -17,7 +17,7 @@
 
 {% block body %}
     <div style="display: none">
-        <p>etudiant, blog etudiant, aide financière etudiant, plusdebonsplans, aide etudiant, etudiant gouv, l étudiant, plus de bon plan, bon plan astuce, {{ city }}, bon plan {{ city }}, réduction</p>
+        <p>bon plan {{ city }}, plusdebonsplans, bon plan, bon de reduction, code promo etudiant, avantage carte etudiant, gagner argent étudiant, bon plan astuce, annonce etudiant, bon de reduction, etudiant, offre etudiant, reduction etudiant, reduction carte etudiant, {{ city }}</p>
     </div>
     <div class="search-bon-plan">
         <div class="row">
@@ -27,11 +27,11 @@
         </div>
         <div class="row">
             {{ form_start(form, {'attr': {'class': 'row form-search', 'method': 'post'}}) }}
-            <div class="col-md-6 col-md-offset-2">
+            <div class="col-md-6 col-md-offset-2 col-xs-offset-1 col-xs-10">
                 {{ form_widget(form.city, {'attr': {'class': 'select-city'}}) }}
             </div>
-            <div class="col-md-2">
-                {{ form_widget(form.submit, {'attr': { 'class': 'btn' }}) }}
+            <div class="col-md-offset-0 col-md-2 col-xs-offset-3 col-xs-6 text-center">
+                {{ form_widget(form.submit, {'attr': { 'class': 'btn submit-button' }}) }}
             </div>
             {{ form_end(form) }}
         </div>
@@ -54,16 +54,17 @@
                     <a href="{{ path('PierreBonsPlansBundle_bonsplan_show', { 'slug': bonsplan.slug }) }}">{{ bonsplan.title }}</a>
                 </h2>
                 <div class="small-informations">
-                    <p>Localisation : {{ bonsplan.localisation }}</p>
+                    {#<p>Localisation : {{ bonsplan.localisation }}</p>#}
                     <p>Dernière mise à jour : {{ bonsplan.updated|localizeddate('full', 'none', 'fr') }}</p>
                 </div>
             </div>
         </div>
-        {#<div class="row">#}
-            {#<footer class="meta">#}
+        <div class="row">
+            <footer class="meta">
                 {#<p>Nombre de commentaires : {{ bonsplan.nbcom }}</p>#}
-            {#</footer>#}
-        {#</div>#}
+                <p>Localisation : {{ bonsplan.localisation }}</p>
+            </footer>
+        </div>
     </article>
     {% else %}
     <p>Il n'y a aucun article pour le moment, désolé.<p>

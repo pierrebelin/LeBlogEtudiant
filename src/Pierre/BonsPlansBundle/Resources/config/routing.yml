@@ -10,11 +10,11 @@ PierreBonsPlansBundle_homepage:
 PierreBonsPlansBundle_bonsplans_city:
     path:     /articles-par-ville/{city}/{page}
     defaults: { _controller: PierreBonsPlansBundle:BonsPlan:cityshow, page: 1 }
-    options:
-        sitemap:
-          priority: 1
-          changefreq: daily
-          section: bonsplan
+#    options:
+#        sitemap:
+#          priority: 1
+#          changefreq: daily
+#          section: bonsplan
 
 PierreBonsPlansBundle_bonsplan_show:
     path:     /article/{slug}
