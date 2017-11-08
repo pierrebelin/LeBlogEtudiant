@@ -2,12 +2,12 @@
 
 {% block title %} | Blog{% endblock %}
 {% block description %}
-    Découvrez comment mieux vivre sa vie étudiant avec Le Blog Étudiant
+    {{ blog.metadescription }} | Le Blog Étudiant
 {% endblock %}
 
 {#TODO : Do keywords and change body keywords too#}
 {% block keywords %}
-
+    {{ blog.keywords }}
 {% endblock %}
 
 {% block body %}
