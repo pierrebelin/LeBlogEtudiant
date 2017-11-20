@@ -35,10 +35,10 @@
 
     <article class="bonsplan col-xs-12">
         <div class="row header-bonplan">
-            <a href="{{ bonsplan.link }}" target="_blank"><img class="col-md-4"
+            <a href="{{ bonsplan.link }}" target="_blank"><img class="col-xs-12 col-md-4"
                                                                src="{{ asset("BonsPlansBundle/logos/" ~ bonsplan.logo ) }}"
                                                                alt="{{ bonsplan.logo }}"/></a>
-            <div class="col-md-8">
+            <div class="col-xs-12 col-md-8">
                 <h2>{{ bonsplan.title }}</h2>
                 <div class="small-informations">
                     <p>Localisation : {{ bonsplan.localisation }}</p>
@@ -53,9 +53,9 @@
             {{ bonsplan.content|raw }}
         </div>
         <hr class="hr-margin">
-        <div class="footer-bonplan">
+        <div id="open-modal-subscribe" class="footer-bonplan">
             <h4>Tenez-vous au courant des prochains bons plans : </h4>
-            <div class="row text-center social-network">
+            <div class="row text-center social-network modal-unseen">
                 <div class="col-xs-12 col-sm-6">
                     <div id="fb-root"></div>
                     <script>(function (d, s, id) {
@@ -67,11 +67,18 @@
                             fjs.parentNode.insertBefore(js, fjs);
                         }(document, 'script', 'facebook-jssdk'));</script>
                     <div class="fb-like" data-href="https://www.facebook.com/leblogetudiant/" data-layout="button_count"
-                         data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                         data-action="like" data-size="large" data-show-faces="true" data-share="true">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                        <a href="https://www.facebook.com/leblogetudiant/" target="_blank">Suivre sur Facebook</a>
+                    </div>
                 </div>
                 <div class="col-xs-12 col-sm-6">
-                    <a href="https://twitter.com/Le_BlogEtudiant" class="twitter-follow-button" data-size="large"
-                       data-lang="fr" data-dnt="true" data-show-count="false">Follow @Le_BlogEtudiant</a>
+                    <a href="https://twitter.com/Le_BlogEtudiant" class="twitter-follow-button modal-unseen"
+                       data-size="large"
+                       data-lang="fr" data-dnt="true" data-show-count="false">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                        <a href="https://twitter.com/Le_BlogEtudiant" target="_blank">Suivre sur Twitter</a>
+                    </a>
                     <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </div>
             </div>
@@ -90,7 +97,7 @@
         <div class="previous-comments">
 
             <div class="comment-written">
-                <h3>Commentaires</h3>
+                <h3>{{ comments|length }} commentaire{% if comments|length > 1 %}s{% endif %}, ajoutez le votre :) </h3>
                 {% include 'PierreBonsPlansBundle:BonsPlanComment:index.html.twig' with { 'comments': comments } %}
             </div>
 
@@ -108,6 +115,22 @@
         function goBack() {
             window.history.back();
         }
+    </script>
+
+    <script>
+        $(window).load(function () {
+            var scrollToModalSubscribe = $("#open-modal-subscribe").offset().top - $(window).height() + 100;
+
+            $(window).scroll(function () {
+                if ($(window).scrollTop() > scrollToModalSubscribe) {
+                    if (Cookies.get('leblogetudiant_modalsubscribeshowed') != true) {
+                        //show pop up
+                        $('#subscribe-modal').modal('show');
+                        Cookies.set('leblogetudiant_modalsubscribeshowed', true);
+                    }
+                }
+            });
+        });
     </script>
 
 {% endblock %}

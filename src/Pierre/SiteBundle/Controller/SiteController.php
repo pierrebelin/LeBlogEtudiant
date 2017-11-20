@@ -14,11 +14,9 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
-use Doctrine\ORM\EntityRepository;
-
 class SiteController extends Controller
 {
-    public function indexAction(Request $request)
+    public function indexAction()
     {
         $form = $this->createFormBuilder()
             ->add('user', TextType::class, array(
@@ -74,7 +72,7 @@ class SiteController extends Controller
         return $this->render('PierreSiteBundle:Site:faq.html.twig');
     }
 
-    public function footerAction(Request $request)
+    public function footerAction()
     {
         $form = $this->createFormBuilder()
             ->setAction($this->generateUrl('PierreSiteBundle_newsletter'))
@@ -102,7 +100,36 @@ class SiteController extends Controller
         ));
     }
 
-    public function contactAction(Request $request)
+    public function modalsubscribeAction()
+    {
+        $form = $this->createFormBuilder()
+            ->setAction($this->generateUrl('PierreSiteBundle_newsletter'))
+            ->add('user', TextType::class, array(
+                'label' => 'Nom *',
+                'attr' => array(
+                    'placeholder' => 'Prénom',
+                    'class' => 'form-control'
+                )
+            ))
+            ->add('mail', EmailType::class, array(
+                'label' => 'Mail * ',
+                'attr' => array(
+                    'placeholder' => 'Mail',
+                    'class' => 'form-control'
+                )
+            ))
+            ->add('submit', SubmitType::class, array(
+                'label' => 'S\'abonner',
+            ))
+            ->getForm();
+
+        return $this->render('PierreSiteBundle:Site:modalsubscribe.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
+
+
+    public function contactAction()
     {
         $form = $this->createFormBuilder()
             ->add('user', TextType::class, array(
@@ -155,7 +182,6 @@ class SiteController extends Controller
         return $this->render('PierreSiteBundle:Site:contact.html.twig', array(
             'form' => $form->createView(),
         ));
-
     }
 
 

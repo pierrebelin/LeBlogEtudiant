@@ -1,0 +1,89 @@
+<div id="subscribe-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body row">
+                <div class="col-xs-12">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="myModalLabel">Envie de plus de bons plans ?</h3>
+                </div>
+
+                <h4 class="col-xs-12">Abonne toi aux dernières actualités et offres spéciales</h4>
+                {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post', 'id' :'subscribe-modal-form'}}) }}
+                <div class="form-group col-sm-12">
+                    <div class="col-sm-12 col-sm-5">
+                        {{ form_widget(form.user, {'id': 'subscribe-modal-user'}) }}
+                    </div>
+                    <div class="col-sm-12 col-sm-5">
+                        {{ form_widget(form.mail, {'id': 'subscribe-modal-mail'}) }}
+                    </div>
+                    <div class="col-sm-12 col-sm-2 modal-button-submit">
+                        {{ form_widget(form.submit, {'id': 'submit', 'attr': { 'class': 'btn button-force-color' }}) }}
+                    </div>
+                    {{ form_rest(form) }}
+                </div>
+                {{ form_end(form) }}
+                <h4 class="col-xs-12">Tiens toi au courant sur les réseaux</h4>
+                <div class="row text-center social-network">
+                    <div class="col-xs-12 col-sm-6 modal-unseen">
+                        <div id="fb-root"></div>
+                        <script>(function (d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id)) return;
+                                js = d.createElement(s);
+                                js.id = id;
+                                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=107059596483790";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));</script>
+                        <div class="fb-like" data-href="https://www.facebook.com/leblogetudiant/"
+                             data-layout="button_count"
+                             data-action="like" data-size="large" data-show-faces="true" data-share="true">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            <a href="https://www.facebook.com/leblogetudiant/" target="_blank">Suivre sur Facebook</a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 modal-unseen">
+                        <a href="https://twitter.com/Le_BlogEtudiant" class="twitter-follow-button" data-size="large"
+                           data-lang="fr" data-dnt="true" data-show-count="false">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                            <a href="https://twitter.com/Le_BlogEtudiant" target="_blank">Suivre sur Twitter</a>
+                        </a>
+                        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                </div>
+                <div class="modal-small col-xs-12 text-center">
+                    <small>⚠ A titre indicatif, tes informations personnelles ne seront ni utilisées pour du spam, ni
+                        vendues à
+                        un tiers.
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $("#subscribe-modal-form").submit(function () {
+        $('#subscribe-modal').modal('toggle');
+        $.ajax({
+            type: "POST",
+            url: "{{ path('PierreSiteBundle_newsletter') }}",
+            data: {
+                mail: $("#subscribe-modal-mail").val(),
+                user: $("#subscribe-modal-user").val(),
+            },
+            cache: false,
+            success: function (data) {
+                if (data == 'success') {
+                    $('#subscribe-success-modal').modal('show');
+                } else if (data == 'warning') {
+                    $('#subscribe-warning-modal').modal('show');
+                } else {
+                    $('#subscribe-error-modal').modal('show');
+                }
+                $("#subscribe-modal-mail").val("");
+                $("#subscribe-modal-user").val("");
+            }
+        });
+        return false;
+    });
+</script>

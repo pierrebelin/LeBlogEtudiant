@@ -29,7 +29,7 @@ and open the template in the editor.
   border-left: 1px solid @color-secondary;
 }
 
-@media (max-width: 768px) {
+@media (max-width: @screen-sm) {
   .navbar-site a {
     text-align: center;
   }
@@ -43,7 +43,7 @@ and open the template in the editor.
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: @screen-md) {
   .articles {
     width: 100%;
     display: inline;
@@ -95,6 +95,7 @@ and open the template in the editor.
   background-color: @background-body;
 
   img {
+    margin-left: 15px;
     width: 200px;
     float: left;
     padding: 5px;
@@ -102,6 +103,7 @@ and open the template in the editor.
     border: 1px solid @color-secondary;
     margin-right: 20px;
     margin-bottom: 20px;
+    height: 90px;
   }
 
   h2 {
@@ -232,6 +234,8 @@ and open the template in the editor.
 }
 
 .meta {
+  margin-left: 15px;
+  margin-right: 15px;
   margin-top: 10px;
   padding: 5px 10px;
   border: 3px solid @color-secondary;

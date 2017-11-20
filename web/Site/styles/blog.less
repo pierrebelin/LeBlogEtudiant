@@ -10,17 +10,17 @@ and open the template in the editor.
 @import "couleur.less";
 
 #header {
-  background-image: url('../images/header-blog.jpg');
+  //background-image: url('../images/header-blog.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
   height: 300px;
 
   h1 {
-    margin: 0px;
+    margin: 0;
     font-size: 35px;
     text-align: center;
-    padding: 30px 0px;
+    padding: 30px 0;
     color: #3498DB;
   }
 }
@@ -28,29 +28,29 @@ and open the template in the editor.
 .articles {
   display: inline-block;
   float: left;
-  padding: 20px 30px 20px 0px;
-  margin: 10px 0px;
+  padding: 20px 30px 20px 0;
+  margin: 10px 0;
 }
 
 .sidebar {
-  margin: 15px 0px;
+  margin: 15px 0;
   display: inline-block;
-  padding: 15px 0px 20px 25px;
+  padding: 15px 0 20px 25px;
   border-left: 1px solid @color-secondary;
 }
 
-@media (max-width: 768px) {
+@media (max-width: @screen-sm) {
   .navbar-site a {
     text-align: center;
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: @screen-md) {
   .articles {
     width: 100%;
     display: inline;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
   }
 
   .sidebar {
@@ -79,7 +79,7 @@ and open the template in the editor.
 }
 
 .blog > header > h2 {
-  margin: 0px;
+  margin: 0;
   font-size: 34px;
   font-weight: bold;
 }
@@ -93,7 +93,7 @@ and open the template in the editor.
 }
 
 .blog > header > .date-published {
-  padding: 15px 0px;
+  padding: 15px 0;
 }
 
 
@@ -115,9 +115,9 @@ and open the template in the editor.
 }
 
 .continue {
-  margin-bottom: 0px;
+  margin-bottom: 0;
   text-align: right;
-  padding: 10px 0px;
+  padding: 10px 0;
   a {
     color: #375D81;
     margin-bottom: 0;
@@ -138,13 +138,13 @@ and open the template in the editor.
 /* COMMENTS */
 .comments {
   clear: both;
-  margin: 0px !important;
+  margin: 0 !important;
   h3 {
     background: @color-secondary;
     padding: 20px;
     font-size: 24px;
     clear: both;
-    margin: 0px;
+    margin: 0;
   }
 }
 
@@ -165,12 +165,12 @@ and open the template in the editor.
 }
 
 .comments .comment p {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .comment > p {
   word-wrap: break-word;
-  margin-bottom: 0px !important;
+  margin-bottom: 0 !important;
 }
 
 .comment header {
@@ -191,7 +191,7 @@ and open the template in the editor.
   font-size: 13px;
   color: black;
   font-weight: 400;
-  padding: 5px 0px;
+  padding: 5px 0;
 }
 
 .comment-written header {
@@ -203,7 +203,7 @@ and open the template in the editor.
   padding-bottom: 10px;
   background-color: white;
   p {
-    padding: 5px 0px;
+    padding: 5px 0;
   }
 }
 
@@ -221,7 +221,7 @@ and open the template in the editor.
 
   p {
     text-align: left;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     font-size: 13px;
     padding: 2px;
     color: black;
@@ -233,13 +233,13 @@ and open the template in the editor.
 .sidebar {
   h3 {
     font-size: 24px;
-    margin: 0px;
+    margin: 0;
     margin-bottom: 15px;
     background: #C4D7ED;
     padding: 20px;
   }
   p {
-    margin: 0px;
+    margin: 0;
   }
   a {
     color: @color-principal;
@@ -294,7 +294,7 @@ and open the template in the editor.
 
 .socials {
   text-align: center;
-  padding: 0px;
+  padding: 0;
   a {
     font-size: 18px;
   }
@@ -314,7 +314,7 @@ and open the template in the editor.
 }
 
 .group-sidebar {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .pagination {
@@ -339,7 +339,7 @@ and open the template in the editor.
 }
 
 .blog-header  {
-  background-image: url('../images/header-blog.jpg');
+  //background-image: url('../images/header-blog.jpg');
 }
 
 

@@ -55,22 +55,22 @@
     {% for bonsplan in bonsplans %}
     <article class="bonsplan">
         <div class="row">
-            <img class="col-md-4" src="{{ asset("BonsPlansBundle/logos/" ~ bonsplan.logo ) }}"
+            <img class="col-xs-12 col-md-4" src="{{ asset("BonsPlansBundle/logos/" ~ bonsplan.logo ) }}"
                  alt="{{ bonsplan.logo }}"/>
-            <div class="col-md-8">
+            <div class="col-xs-12 col-md-8">
                 <h2>
                     <a href="{{ path('PierreBonsPlansBundle_bonsplan_show', { 'slug': bonsplan.slug }) }}">{{ bonsplan.title }}</a>
                 </h2>
                 <div class="small-informations">
-                    {#<p>Localisation : {{ bonsplan.localisation }}</p>#}
+                    <p>Localisation : {{ bonsplan.localisation }}</p>
                     <p>Dernière mise à jour : {{ bonsplan.updated|localizeddate('full', 'none', 'fr') }}</p>
                 </div>
             </div>
         </div>
         <div class="row">
             <footer class="meta">
-                {#<p>Nombre de commentaires : {{ bonsplan.comments|length }}</p>#}
-                <p>Localisation : {{ bonsplan.localisation }}</p>
+                <p>Nombre de commentaires : {{ bonsplan.nbcomments }}</p>
+                {#<p>Localisation : {{ bonsplan.localisation }}</p>#}
             </footer>
         </div>
     </article>

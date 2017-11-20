@@ -114,8 +114,6 @@ class BonsPlanController extends Controller
         $bonsplans = $em->getRepository('PierreBonsPlansBundle:BonsPlan')
             ->getLatestUpdatedBonsPlansCity($page, $maxBonsPlan, $city);
 
-        // TODO Récupérer le nombre de commentaires pour chacun
-
         return $this->render('PierreBonsPlansBundle:BonsPlan:cityshow.html.twig', array(
             'city' => $city,
             'page' => $page,
@@ -144,7 +142,7 @@ class BonsPlanController extends Controller
         ));
     }
 
-    public function sidebarAction(Request $request)
+    public function sidebarAction()
     {
         $em = $this->getDoctrine()
             ->getManager();

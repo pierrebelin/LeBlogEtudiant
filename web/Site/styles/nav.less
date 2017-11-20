@@ -37,7 +37,7 @@ nav {
 }
 
 .navbar-right {
-  margin-right: 0px !important;
+  margin-right: 0 !important;
 }
 
 .navbar-site a {
@@ -75,7 +75,7 @@ nav {
 
 .nav {
   li {
-    margin-bottom: 0px;
+    margin-bottom: 0;
     a {
       &:hover, &:active, &:focus {
         background: @background-color;
@@ -90,13 +90,13 @@ nav {
   color: white;
 }
 
-@media (min-width: 767px) {
+@media (min-width: @screen-sm) {
   .navbar-brand  {
     display: none;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: @screen-sm) {
   .navbar-site a {
     text-align: center;
   }

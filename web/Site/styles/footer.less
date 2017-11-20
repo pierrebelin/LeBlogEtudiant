@@ -25,18 +25,18 @@ footer {
 
 .footer-hr {
   height: 6px;
-  margin: 0px;
+  margin: 0;
   background: url(footer-hr.png) repeat-x 0 0;
   border: 0;
 }
 
 .footer-mention {
   padding: 25px 10px;
-  margin: 0px;
+  margin: 0;
   ul {
     list-style: none;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
   }
   li {
     display: inline;
@@ -47,7 +47,7 @@ footer {
   a {
     .link-hover-footer;
   }
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .nav-title {
@@ -57,18 +57,18 @@ footer {
 
 .navbar-footer-link {
   text-align: right;
-  padding: 0px;
+  padding: 0;
   ul {
     list-style: none;
     text-decoration: none;
-    padding: 0px;
+    padding: 0;
   }
   li {
-    padding: 5px 0px;
+    padding: 5px 0;
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: @screen-lg) {
   .navbar-footer-link {
     text-align: center;
     padding-top: 15px;
@@ -78,7 +78,7 @@ footer {
 .navbar-footer {
   text-align: left;
 
-  padding: 0px;
+  padding: 0;
   h6 {
     margin-bottom: 15px;
     text-align: left;
@@ -88,8 +88,16 @@ footer {
 
 .social-icon {
   text-align: right;
-  a {
-    padding: 0 10px;
+  a:first-child {
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: @screen-sm) {
+  .social-icon {
+    a:first-child {
+      padding-right: 0;
+    }
   }
 }
 
@@ -127,7 +135,7 @@ footer {
 }
 
 .footer-newsletter {
-  margin: 10px 0px;
+  margin: 10px 0;
 }
 
 .twitter-social {

@@ -198,7 +198,7 @@ Vous gagnez {{ salary }}€ par mois">ces critères</strong>, vous êtes potenti
                     besoin de vous pour continuer à le rester. Participez pour permettre au site d'être
                     indépendant et d'aider d'autres étudiants (vous en avez profité, pensez aux autres ☺).</p>
 
-                <div class="row text-center social-network">
+                <div class="row text-center social-network modal-unseen">
                     <div class="col-xs-12 col-sm-offset-4 col-sm-2">
                         <div id="fb-root"></div>
                         <script>(function (d, s, id) {
@@ -211,11 +211,17 @@ Vous gagnez {{ salary }}€ par mois">ces critères</strong>, vous êtes potenti
                             }(document, 'script', 'facebook-jssdk'));</script>
                         <div class="fb-like" data-href="https://www.facebook.com/leblogetudiant/"
                              data-layout="button_count" data-action="like" data-size="large" data-show-faces="true"
-                             data-share="true"></div>
+                             data-share="true">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            <a href="https://www.facebook.com/leblogetudiant/" target="_blank">Suivre sur Facebook</a>
+                        </div>
                     </div>
                     <div class="col-xs-12 col-sm-2">
                         <a href="https://twitter.com/Le_BlogEtudiant" class="twitter-follow-button" data-size="large"
-                           data-lang="fr" data-dnt="true" data-show-count="false">Follow @Le_BlogEtudiant</a>
+                           data-lang="fr" data-dnt="true" data-show-count="false">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                            <a href="https://twitter.com/Le_BlogEtudiant" target="_blank">Suivre sur Twitter</a>
+                        </a>
                         <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                     </div>
                 </div>
@@ -443,6 +449,18 @@ Vous gagnez {{ salary }}€ par mois">ces critères</strong>, vous êtes potenti
 
         setTimeout(countdownAid, deltaAid);
         setTimeout(countdownAdvantage, deltaAdvantage);
+    </script>
+
+    <script>
+        $(window).load(function () {
+            $(".link-more").click(function () {
+                if (Cookies.get('leblogetudiant_modalsubscribeshowed') != true) {
+                    //show pop up
+                    $('#subscribe-modal').modal('show');
+                    Cookies.set('leblogetudiant_modalsubscribeshowed', true);
+                }
+            });
+        });
     </script>
 
 

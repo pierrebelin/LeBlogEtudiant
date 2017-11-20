@@ -22,6 +22,7 @@
         {#API#}
         <link href="{{ asset('Site/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
         <script type="text/javascript" src="https://use.fontawesome.com/541706c8cc.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
         {#Slick2#}
         <link rel="stylesheet" type="text/css" href="{{ asset('Site/modules/slick/slick.css') }}"/>
@@ -43,7 +44,15 @@
 </head>
 
 <body>
-
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.11&appId=107059596483790';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 <a href="javascript:" id="return-to-top"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
 
 {% include 'modal.html.twig' %}
@@ -55,6 +64,7 @@
 {% endblock %}
 
 {{ render(controller('PierreSiteBundle:Site:footer', { 'request' : app.request})) }}
+{{ render(controller('PierreSiteBundle:Site:modalsubscribe', { 'request' : app.request})) }}
 
 {% block javascripts %}
     <script type="text/javascript" src="{{ asset('Site/bootstrap/js/bootstrap.min.js') }}"></script>
@@ -78,7 +88,6 @@
 
     ga('create', 'UA-101500776-1', 'auto');
     ga('send', 'pageview');
-
 </script>
 
 </body>
