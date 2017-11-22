@@ -6,6 +6,8 @@
 
     {#Contains all metas#}
     {{ sonata_seo_metadatas() }}
+    {% block facebooktags %}
+    {% endblock %}
 
     <meta name="description" content="{% block description %}{% endblock %}"/>
     <meta name="keywords" content="{% block keywords %}{% endblock %}"/>
@@ -44,16 +46,18 @@
 </head>
 
 <body>
+{#Socials#}
 <div id="fb-root"></div>
-<script>(function (d, s, id) {
+<script>(function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
+        js = d.createElement(s); js.id = id;
         js.src = 'https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.11&appId=107059596483790';
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 <a href="javascript:" id="return-to-top"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 
 {% include 'modal.html.twig' %}
 {% include 'nav.html.twig' %}

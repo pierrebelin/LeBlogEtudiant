@@ -42,6 +42,12 @@ class MainNews
      */
     private $content;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="link", type="string", length=255)
+     */
+    private $link;
 
     /**
      * Get id
@@ -123,6 +129,30 @@ class MainNews
     public function getContent()
     {
         return $this->content;
+    }
+
+    /**
+     * Set link
+     *
+     * @param string $link
+     *
+     * @return MainNews
+     */
+    public function setLink($link)
+    {
+        $this->link = $link;
+
+        return $this;
+    }
+
+    /**
+     * Get link
+     *
+     * @return string
+     */
+    public function getLink()
+    {
+        return $this->link;
     }
 }
 

@@ -82,12 +82,11 @@ class ConnaitresesaidesController extends Controller
 
                 return $this->redirectToRoute('PierreConnaitresesaidesBundle_aidesetudiants_resultats', $data);
             }
-        } else {
-            return $this->render('PierreConnaitresesaidesBundle:Connaitresesaides:aidesetudiants.html.twig', array(
-                'form' => $form->createView(),
-                'citiesToAdd' => $citiesToAdd,
-            ));
         }
+        return $this->render('PierreConnaitresesaidesBundle:Connaitresesaides:aidesetudiants.html.twig', array(
+            'form' => $form->createView(),
+            'citiesToAdd' => $citiesToAdd,
+        ));
     }
 
 

@@ -72,6 +72,28 @@ class BonsPlan {
     private $slug;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255)
+     */
+    private $metakeywords;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=512)
+     */
+    private $facebookimage;
+
+
+    /**
      * @ORM\OneToMany(targetEntity="BonsPlanComment", mappedBy="bonsplan")
      */
     protected $comments;
@@ -229,6 +251,7 @@ class BonsPlan {
         return $this->updated;
     }
 
+
     /**
      * Set slug
      *
@@ -248,6 +271,70 @@ class BonsPlan {
      */
     public function getSlug() {
         return $this->slug;
+    }
+
+
+    /**
+     * Set metakeywords
+     *
+     * @param string $metakeywords
+     *
+     * @return Blog
+     */
+    public function setMetakeywords($metakeywords) {
+        $this->metakeywords = $metakeywords;
+        return $this;
+    }
+
+    /**
+     * Get metakeywords
+     *
+     * @return string
+     */
+    public function getMetakeywords() {
+        return $this->metakeywords;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Blog
+     */
+    public function setDescription($description) {
+        $this->description = $description;
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription() {
+        return $this->description;
+    }
+
+    /**
+     * Set facebookimage
+     *
+     * @param string $facebookimage
+     *
+     * @return Blog
+     */
+    public function setFacebookimage($facebookimage) {
+        $this->facebookimage = $facebookimage;
+        return $this;
+    }
+
+    /**
+     * Get facebookimage
+     *
+     * @return string
+     */
+    public function getFacebookimage() {
+        return $this->facebookimage;
     }
 
     public function __construct() {

@@ -1,6 +1,17 @@
 {% extends 'PierreBonsPlansBundle::layout.html.twig' %}
 
+{% block facebooktags %}
+    {{ parent() }}
+    <meta property="og:title" content="Bons plans étudiants- Le Blog Étudiant"/>
+    <meta property="og:description"
+          content="Retrouve les bons plans étudiants de ta ville (astuces, réductions, avantages) pour profiter de ta vie étudiante à 100% - Le Blog Étudiant"/>
+    <meta property="og:image" content="https://pbs.twimg.com/profile_images/864534782071390209/iBXWAKcU_400x400.jpg"/>
+    <meta property="og:image:secure_url"
+          content="https://pbs.twimg.com/profile_images/864534782071390209/iBXWAKcU_400x400.jpg"/>
+{% endblock %}
+
 {% block title %} | Tous les bons plans étudiants{% endblock %}
+
 {% block description %}
     Retrouve les bons plans étudiants de ta ville (astuces, réductions, avantages) pour profiter de ta vie étudiante à 100% - Le Blog Étudiant
 {% endblock %}
@@ -19,7 +30,9 @@
 
 {% block body %}
     <div style="display: none">
-        <p>plusdebonsplans, bon plan, bon de reduction, code promo etudiant, avantage carte etudiant, gagner argent étudiant, bon plan astuce, annonce etudiant, bon de reduction, etudiant, offre etudiant, reduction etudiant, reduction carte etudiant</p>
+        <p>plusdebonsplans, bon plan, bon de reduction, code promo etudiant, avantage carte etudiant, gagner argent
+            étudiant, bon plan astuce, annonce etudiant, bon de reduction, etudiant, offre etudiant, reduction etudiant,
+            reduction carte etudiant</p>
     </div>
     <div class="search-bon-plan">
         <div class="row">
@@ -45,7 +58,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <p><a href="{{ path('PierreBonsPlansBundle_homepage') }}">Cliquez ici</a> pour retourner à la liste
+                    <p><a href="{{ path('PierreBonsPlansBundle_homepage') }}">Clique ici</a> pour retourner à la liste
                         générale</p>
                 </div>
             </div>
@@ -77,6 +90,9 @@
     {% else %}
     <p>Il n'y a aucun article pour le moment, désolé.<p>
     {% endfor %}
+    <div class="main-button text-center">
+        <a href="{{ path('PierreConnaitresesaidesBundle_aidesetudiants') }}">Découvrir maintenant mes aides et avantages</a>
+    </div>
     <div class="text-center">
         <ul class="pagination">
             {% if pagination.page > 1 %}
@@ -104,6 +120,7 @@
             {% endif %}
         </ul>
     </div>
+
     <script src="{{ asset('Site/modules/select2/dist/js/select2.min.js') }}" type="text/javascript"></script>
     <script type="text/javascript">
         $('.select-city').select2();

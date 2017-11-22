@@ -92,6 +92,7 @@ class Blog {
      */
     private $metakeywords;
 
+
     /**
      * @ORM\OneToMany(targetEntity="Comment", mappedBy="blog")
      */
@@ -384,7 +385,7 @@ class Blog {
      *
      * @param \Pierre\BlogBundle\Entity\Comment $comment
      */
-    public function removeComment(\Pierre\BlogBundle\Entity\Comment $comment)
+    public function removeComment(Comment $comment)
     {
         $this->comments->removeElement($comment);
     }

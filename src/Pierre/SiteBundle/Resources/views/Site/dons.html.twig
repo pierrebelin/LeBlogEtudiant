@@ -3,48 +3,31 @@
 {% block title %}
     {{ parent() }} | Dons
 {% endblock %}
-{% block description %}Vous êtes satisfait du service proposé ? Faites un don pour aider Le Blog Étudiant à rester sans publicités{% endblock %}
+{% block description %}Tu es satisfait du service proposé ? Fais un don pour aider Le Blog Étudiant à rester sans publicités{% endblock %}
 
 
 {% block content %}
     <div class="container container-shadow">
         <div class="row content">
-            <h1>Vous êtes satisfait du service ?</h1>
+            <h1>Tu es satisfait du service ?</h1>
             <div>
-                <p>Le résultat de vos recherches vous a permis d'accéder à certaines aides et avantages ?
-                    <br/>Le Blog Étudiant est entièrement gratuit et ne vend pas vos informations personnelles, et il a
-                    besoin de vous pour continuer à le rester. Participez pour permettre au site d'être
-                    indépendant et d'aider d'autres étudiants (vous en avez profité, pensez aux autres ☺).</p>
+                <p>Le résultat de tes recherches t'a permis d'accéder à certaines aides et avantages ?
+                    <br/>Le Blog Étudiant est entièrement gratuit et ne vend pas tes informations personnelles, et il a
+                    besoin de toi pour continuer à le rester. Participe pour permettre au site d'être
+                    indépendant et d'aider d'autres étudiants (tu en as profité, pense aux autres ☺).</p>
 
-                <div class="row text-center social-network modal-unseen">
-                    <div class="col-xs-12 col-sm-offset-4 col-sm-2">
-                        <div id="fb-root"></div>
-                        <script>(function (d, s, id) {
-                                var js, fjs = d.getElementsByTagName(s)[0];
-                                if (d.getElementById(id)) return;
-                                js = d.createElement(s);
-                                js.id = id;
-                                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=107059596483790";
-                                fjs.parentNode.insertBefore(js, fjs);
-                            }(document, 'script', 'facebook-jssdk'));</script>
-                        <div class="fb-like" data-href="https://www.facebook.com/leblogetudiant/"
-                             data-layout="button_count" data-action="like" data-size="large" data-show-faces="true"
-                             data-share="true">
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                            <a href="https://www.facebook.com/leblogetudiant/" target="_blank">Suivre sur Facebook</a>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-2">
-                        <a href="https://twitter.com/Le_BlogEtudiant" class="twitter-follow-button" data-size="large"
-                           data-lang="fr" data-dnt="true" data-show-count="false">
-                            <i class="fa fa-twitter" aria-hidden="true"></i>
-                            <a href="https://twitter.com/Le_BlogEtudiant" target="_blank">Suivre sur Twitter</a>
-                        </a>
-                        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </div>
+                <div class="row text-center socials-network socials-network-margin">
+                    <a class="col-xs-12 col-sm-offset-2 col-sm-3  socials-network-facebook"
+                       href="https://www.facebook.com/leblogetudiant/" target="_blank">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                        Suivre sur Facebook</a>
+                    <a class="col-xs-12 col-sm-offset-2 col-sm-3 socials-network-twitter "
+                       href="https://twitter.com/Le_BlogEtudiant" target="_blank">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                        Suivre sur Twitter</a>
                 </div>
 
-                <h2 class="col-xs-12 col-sm-offset-3 col-sm-6 form-donation-title">Que vaut pour vous le service rendu
+                <h2 class="col-xs-12 col-sm-offset-3 col-sm-6 form-donation-title">Que vaut pour toi le service rendu
                     ?</h2>
 
 
@@ -99,7 +82,7 @@
 
                         <div class="col-xs-12 col-sm-offset-4 col-sm-4">
                             <input type="submit" class="btn btn-default btn-lg btn-block "
-                                   value="Participez à l'avancement du site">
+                                   value="Participe à l'avancement du site">
                         </div>
                     </form>
                 </div>

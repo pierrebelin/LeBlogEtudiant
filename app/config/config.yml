@@ -58,16 +58,6 @@ sonata_seo:
             name:
                 viewport: width=device-width, initial-scale=1
 #                keywords: default, sonata, seo
-            property:
-                'og:site_name': Le Blog Étudiant
-                'og:title': Le Blog Étudiant
-                'og:type': article
-                'og:description': Tu es étudiant(e) ? Découvre toutes les aides, avantages, bons plans et astuces de ta ville avec Le Blog Étudiant.
-                'og:url': https://le-blog-etudiant.fr
-                'og:image': https://pbs.twimg.com/profile_images/864534782071390209/iBXWAKcU_400x400.jpg
-                'og:image:secure_url': https://pbs.twimg.com/profile_images/864534782071390209/iBXWAKcU_400x400.jpg
-                'fb:app_id': "107059596483790"
-
 
 
 # Doctrine Configuration

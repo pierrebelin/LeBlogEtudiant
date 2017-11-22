@@ -1,5 +1,13 @@
 {% extends '::base.html.twig' %}
 
+{% block facebooktags %}
+    <meta property="og:site_name" content="Le Blog Étudiant - Bons plans" />
+    {#<meta property="og:url" content="{{ path(app.request.attributes.get('_route'),#}
+    {#app.request.attributes.get('_route_params')) }}" />#}
+    <meta property="og:type" content="article" />
+    <meta property="fb:app_id" content="107059596483790" />
+{% endblock %}
+
 {% block stylesheets %}
     {{ parent() }}
     <link href="{{ asset('Site/styles/bonsplans.less') }}" rel="stylesheet/less" type="text/css"/>

@@ -328,24 +328,39 @@ input[type='number'] {
   }
 }
 
-.modal-unseen {
+.socials-network-margin {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.socials-network {
+  color: white;
   a {
     font-size: 14px;
+    color: white;
   }
   i {
     padding-right: 10px;
+  }
+
+  .socials-network-facebook {
+    background-color: @color-facebook;
+    .modal-button;
+  }
+
+  .socials-network-twitter {
+    background-color: @color-twitter;
+    .modal-button;
+  }
+
+  .modal-button {
+    padding: 5px;
+    border-radius: 8px;
+    text-align: center;
   }
 }
 
 // MODALS
 #subscribe-modal {
-
-  .modal-unseen {
-    color: white;
-    a {
-      color: white;
-    }
-  }
   .form-group {
     div {
       padding-right: 2px;
@@ -366,26 +381,6 @@ input[type='number'] {
 
   .close {
     margin-right: -10px;
-  }
-
-  .modal-socials {
-    //margin-bottom: 15px;
-
-    .modal-socials-facebook {
-      background-color: @color-facebook;
-      .modal-button;
-    }
-
-    .modal-socials-twitter {
-      background-color: @color-twitter;
-      .modal-button;
-    }
-
-    .modal-button {
-      padding: 5px;
-      border-radius: 8px;
-      text-align: center;
-    }
   }
 
   .modal-content {

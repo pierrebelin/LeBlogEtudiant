@@ -1,6 +1,15 @@
 {% extends 'PierreBonsPlansBundle::layout.html.twig' %}
 
-{% block title %} | {{ city }} - {{ countbonsplans }} bons plans et astuces à ne pas rater quand on est étudiants{% endblock %}
+{% block facebooktags %}
+    {{ parent() }}
+    <meta property="og:title" content="{{ countbonsplans }} bons plans étudiants à {{ city }} - Le Blog Étudiant"/>
+    <meta property="og:description" content="{{ city }} - Retrouve les bons plans étudiants (astuces, réductions, avantages) pour profiter de ta vie étudiante à 100% - Le Blog Étudiant"/>
+    <meta property="og:image" content="https://pbs.twimg.com/profile_images/864534782071390209/iBXWAKcU_400x400.jpg"/>
+    <meta property="og:image:secure_url" content="https://pbs.twimg.com/profile_images/864534782071390209/iBXWAKcU_400x400.jpg"/>
+{% endblock %}
+
+{% block title %} | {{ city }} - {{ countbonsplans }} bons plans et astuces à ne pas rater quand on est étudiant{% endblock %}
+
 {% block description %}
     {{ city }} - Retrouve les bons plans étudiants (astuces, réductions, avantages) pour profiter de ta vie étudiante à 100% - Le Blog Étudiant
 {% endblock %}
@@ -38,7 +47,7 @@
         {% if city is defined %}
             <div class="row">
                 <div class="col-md-12">
-                    <p><a href="{{ path('PierreBonsPlansBundle_homepage') }}">Cliquez ici</a> pour retourner à la liste générale</p>
+                    <p><a href="{{ path('PierreBonsPlansBundle_homepage') }}">Clique ici</a> pour retourner à la liste générale</p>
                 </div>
             </div>
         {% endif %}
@@ -62,13 +71,15 @@
         <div class="row">
             <footer class="meta">
                 <p>Nombre de commentaires : {{ bonsplan.nbcomments }}</p>
-                {#<p>Localisation : {{ bonsplan.localisation }}</p>#}
             </footer>
         </div>
     </article>
     {% else %}
     <p>Il n'y a aucun article pour le moment, désolé.<p>
     {% endfor %}
+    <div class="main-button text-center">
+        <a href="{{ path('PierreConnaitresesaidesBundle_aidesetudiants') }}">Découvrir maintenant mes aides et avantages</a>
+    </div>
     <div class="text-center">
         <ul class="pagination">
             {% if pagination.page > 1 %}
