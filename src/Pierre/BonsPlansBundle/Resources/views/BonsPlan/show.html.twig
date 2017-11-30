@@ -11,11 +11,11 @@
 {% endblock %}
 
 {% block description %}
-    {{ bonsplan.title }} : {{ bonsplan.description }} - Bons plans & astuces d'étudiants sur Le Blog Étudiantdddddd
+    {{ bonsplan.title }} : {{ bonsplan.description }} - Bons plans & astuces d'étudiants sur Le Blog Étudiant
 {% endblock %}
 
 {% block keywords %}
-    plusdebonsplans, bon plan etudiant, bon plan astuce, annonce etudiant, offre etudiant, reduction etudiant, {{ bonsplan.title }}
+    plusdebonsplans, bon plan etudiant, bon plan astuce, annonce etudiant, offre etudiant, reduction etudiant, {{ bonsplan.metakeywords }}
 {% endblock %}
 
 {% block stylesheets %}
@@ -43,10 +43,17 @@
                 </div>
             </div>
         </div>
+        <p class="bonplan-website">
+            <i class="fa fa-globe" aria-hidden="true"></i>
+            Site web : <a href="{{ bonsplan.link }}" target="_blank"/>{{ bonsplan.link }}</a>
+            <br/>
+            {% if (bonsplan.facebooklink != null) %}
+                <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                Facebook : <a href="{{ bonsplan.facebooklink }}" target="_blank"/>{{ bonsplan.title }}</a>
+            {% endif %}
+        </p>
         <hr>
         <div class="textblog" id="blog-form">
-            <p class="bonplan-website">Lien du site web : <a href="{{ bonsplan.link }}"
-                                                             target="_blank"/>{{ bonsplan.link }}</a></p>
             {{ bonsplan.content|raw }}
         </div>
         <hr class="hr-margin">

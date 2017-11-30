@@ -92,6 +92,13 @@ class BonsPlan {
      */
     private $facebookimage;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=512)
+     */
+    private $facebooklink;
+
 
     /**
      * @ORM\OneToMany(targetEntity="BonsPlanComment", mappedBy="bonsplan")
@@ -335,6 +342,27 @@ class BonsPlan {
      */
     public function getFacebookimage() {
         return $this->facebookimage;
+    }
+
+    /**
+     * Set facebooklink
+     *
+     * @param string $facebooklink
+     *
+     * @return BonsPlan
+     */
+    public function setFacebooklink($facebooklink) {
+        $this->facebooklink = $facebooklink;
+        return $this;
+    }
+
+    /**
+     * Get facebooklink
+     *
+     * @return string
+     */
+    public function getFacebooklink() {
+        return $this->facebooklink;
     }
 
     public function __construct() {

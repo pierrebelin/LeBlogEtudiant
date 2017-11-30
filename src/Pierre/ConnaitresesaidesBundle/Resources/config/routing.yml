@@ -1,12 +1,8 @@
-#PierreConnaitresesaidesBundle_homepage:
-#    path:    /
-#    defaults:
-#       _controller: PierreConnaitresesaidesBundle:Connaitresesaides:index
-#    options:
-#        sitemap:
-#          priority: 1
-#          changefreq: weekly
-#          section: connaitresesaides
+PierreConnaitresesaidesBundle_homepage:
+    path:    /
+    defaults:
+       _controller: PierreConnaitresesaidesBundle:Connaitresesaides:aidesetudiants
+
 
 PierreConnaitresesaidesBundle_aidesetudiants:
     path:    /aides-etudiants
