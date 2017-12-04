@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="Pierre\BonsPlansBundle\Repository\BonsPlanCommentRepository")
- * @ORM\Table(name="bonsplanscomment")
+ * @ORM\Table(name="bonsplan_comment")
  * @ORM\HasLifecycleCallbacks()
  */
 class BonsPlanComment {

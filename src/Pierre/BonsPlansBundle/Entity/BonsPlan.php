@@ -99,6 +99,13 @@ class BonsPlan {
      */
     private $facebooklink;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="category", type="string", length=64, nullable=true)
+     */
+    private $category;
+
 
     /**
      * @ORM\OneToMany(targetEntity="BonsPlanComment", mappedBy="bonsplan")
@@ -363,6 +370,28 @@ class BonsPlan {
      */
     public function getFacebooklink() {
         return $this->facebooklink;
+    }
+
+    /**
+     * Set category
+     *
+     * @param string $category
+     *
+     * @return BonsPlan
+     */
+    public function setCategory($category) {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return string
+     */
+    public function getCategory() {
+        return $this->category;
     }
 
     public function __construct() {

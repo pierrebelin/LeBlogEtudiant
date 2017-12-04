@@ -68,7 +68,7 @@ PierreSiteBundle_dons:
     defaults: { _controller: PierreSiteBundle:Site:dons }
     options:
         sitemap:
-            priority: 0.8
+            priority: 0.1
             changefreq: monthly
             section: site
 
@@ -77,6 +77,6 @@ PierreSiteBundle_faq:
     defaults: { _controller: PierreSiteBundle:Site:faq }
     options:
         sitemap:
-            priority: 0.2
-            changefreq: weekly
+            priority: 0.1
+            changefreq: monthly
             section: site

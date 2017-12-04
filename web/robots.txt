@@ -1,1 +1,4 @@
+User-agent: *
+Disallow: /aides-etudiants/allresultats
+
 Sitemap: https://le-blog-etudiant.fr/sitemap.xml

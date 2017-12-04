@@ -64,13 +64,15 @@
                 </h2>
                 <div class="small-informations">
                     <p>Localisation : {{ bonsplan.localisation }}</p>
-                    <p>Dernière mise à jour : {{ bonsplan.updated|localizeddate('full', 'none', 'fr') }}</p>
+                    {% if bonsplan.category != null %}
+                        <p>Catégorie : {{ bonsplan.category }}</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
         <div class="row">
             <footer class="meta">
-                <p>Nombre de commentaires : {{ bonsplan.nbcomments }}</p>
+                <p>Nombre de commentaires : {{ bonsplan.nbcomments }} - Dernière mise à jour : {{ bonsplan.updated|localizeddate('short', 'none', 'fr') }}</p>
             </footer>
         </div>
     </article>
