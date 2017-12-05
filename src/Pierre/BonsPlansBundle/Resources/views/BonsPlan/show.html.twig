@@ -84,12 +84,12 @@
         <div class="previous-comments">
 
             <div class="comment-written">
-                <h3>{{ comments|length }} commentaire{% if comments|length > 1 %}s{% endif %}, ajoutez le votre :) </h3>
+                <h3>{{ comments|length }} commentaire{% if comments|length > 1 %}s{% endif %}, ajoute le tiens </h3>
                 {% include 'PierreBonsPlansBundle:BonsPlanComment:index.html.twig' with { 'comments': comments } %}
             </div>
 
             <div class="comment-wrap">
-                <h3>Écrivez votre avis</h3>
+                <h3>Que penses-tu de l'article ?</h3>
                 <div class="write-advice">
                     <p>Ton adresse mail ne sera pas jamais affiché.</p>
                     {{ render (controller('PierreBonsPlansBundle:BonsPlanComment:new', { 'request': request, 'bonsplan_id': bonsplan.id }) ) }}
