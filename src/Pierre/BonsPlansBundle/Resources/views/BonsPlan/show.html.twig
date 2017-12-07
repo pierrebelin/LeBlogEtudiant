@@ -84,7 +84,7 @@
         <div class="previous-comments">
 
             <div class="comment-written">
-                <h3>{{ comments|length }} commentaire{% if comments|length > 1 %}s{% endif %}, ajoute le tiens </h3>
+                <h3>{{ comments|length }} commentaire{% if comments|length > 1 %}s{% endif %}, ajoute le tien</h3>
                 {% include 'PierreBonsPlansBundle:BonsPlanComment:index.html.twig' with { 'comments': comments } %}
             </div>
 
