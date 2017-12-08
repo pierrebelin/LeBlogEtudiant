@@ -43,7 +43,7 @@
                                 <p>Il n'y a aucune aide qui correspond à vos critères, désolé.</p>
                             </div>
                         {% else %}
-                            <table class="table table-resultat table-responsive">
+                            <table id="tab-res-aids" class="table table-resultat table-responsive">
                                 <thead>
                                 <tr>
                                     <th class="col-md-2">Nom</th>
@@ -81,7 +81,7 @@
                                 <p>Il n'y a aucun avantage qui correspond à vos critères, désolé.</p>
                             </div>
                         {% else %}
-                            <table class="table table-resultat table-responsive">
+                            <table id="tab-res-advantages" class="table table-resultat table-responsive">
                                 <thead>
                                 <tr>
                                     <th class="col-md-2">Nom</th>
@@ -182,6 +182,49 @@
 
             setTimeout(countdownAid, deltaAid);
             setTimeout(countdownAdvantage, deltaAdvantage);
+
+            $(document).ready(function () {
+                $('#tab-res-aids').DataTable({
+                    "paging": false,
+                    "info": false,
+                    "searching": false,
+                    "columnDefs": [
+                        {
+                            "targets": 4,
+                            "orderable": false
+                        },
+                        {
+                            "targets": 3,
+                            "orderable": false
+                        },
+                        {
+                            "targets": 1,
+                            "type": "alt-string"
+                        },
+                    ],
+                    "order": [[ 1, "asc" ]]
+                });
+                $('#tab-res-advantages').DataTable({
+                    "paging": false,
+                    "info": false,
+                    "searching": false,
+                    "columnDefs": [
+                        {
+                            "targets": 4,
+                            "orderable": false
+                        },
+                        {
+                            "targets": 5,
+                            "orderable": false
+                        },
+                        {
+                            "targets": 1,
+                            "type": "alt-string"
+                        },
+                    ],
+                    "order": [[ 1, "asc" ]]
+                });
+            });
         </script>
 
 

@@ -68,53 +68,54 @@ and open the template in the editor.
   vertical-align: middle;
 }
 
-.table-resultat {
+table.dataTable {
   margin-top: 20px;
-  thead {
-    tr > th {
-      padding-top: 15px;
-      padding-bottom: 15px;
-      font-weight: bold;
-      font-size: 15px;
-      border-bottom: 4px solid @color-title;
-    }
-  }
   tbody {
     tr > td {
       padding-top: 15px;
       padding-bottom: 15px;
     }
-    .td-link {
-      text-align: center;
-      a {
-        text-align: center;
-        padding: 10px 15px;
-        border-radius: 10px;
-        &:hover {
-          background-color: @color-principal;
-          color: white;
-        }
-      }
-    }
-    .tr-odd {
-      background-color: @color-secondary;
-      .td-link {
-        a {
-          border: 2px solid @background-color;
-        }
-      }
-    }
 
-    .tr-even {
-      background-color: @background-color;
-      .td-link {
-        a {
-          border: 2px solid @color-secondary;
-        }
+  }
+  tr.odd {
+    background-color: @color-secondary;
+    .td-link {
+      a {
+        border: 2px solid @background-color;
+      }
+    }
+  }
+  tr.even {
+    background-color: @background-color;
+    .td-link {
+      a {
+        border: 2px solid @color-secondary;
+      }
+    }
+  }
+  .td-link {
+    text-align: center;
+    a {
+      text-align: center;
+      padding: 10px 15px;
+      border-radius: 10px;
+      &:hover {
+        background-color: @color-principal;
+        color: white;
       }
     }
   }
 }
+
+table.dataTable.no-footer {
+  border-bottom: 0 !important;
+}
+
+table.dataTable thead th, table.dataTable thead td {
+  border-bottom: 4px solid @color-title !important;
+  padding: 15px 10px !important;
+}
+
 
 .subtitle {
   font-style: italic;
@@ -136,9 +137,10 @@ and open the template in the editor.
   }
 }
 
-
 @media (min-width: @screen-sm) {
   .slide-for-phone {
     display: none;
   }
 }
+
+
