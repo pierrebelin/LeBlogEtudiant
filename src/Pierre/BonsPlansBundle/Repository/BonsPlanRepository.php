@@ -81,6 +81,7 @@ class BonsPlanRepository extends \Doctrine\ORM\EntityRepository
         $rsm->addScalarResult('logo', 'logo');
         $rsm->addScalarResult('slug', 'slug');
         $rsm->addScalarResult('updated', 'updated');
+        $rsm->addScalarResult('category', 'category');
         $rsm->addScalarResult('nbcomments', 'nbcomments');
 
 

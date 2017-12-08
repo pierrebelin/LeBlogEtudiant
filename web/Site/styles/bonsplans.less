@@ -9,7 +9,6 @@ and open the template in the editor.
 */
 @import "couleur.less";
 
-
 .fa {
   padding-top: 3px;
   padding-bottom: 3px;
@@ -39,6 +38,7 @@ and open the template in the editor.
   .navbar-site a {
     text-align: center;
   }
+
   .search-bon-plan {
     h2 {
       margin-top: 40px !important;
@@ -80,8 +80,7 @@ and open the template in the editor.
   }
 }
 
-
-.select2  {
+.select2 {
   margin-bottom: 10px;
 }
 
@@ -98,7 +97,16 @@ and open the template in the editor.
     margin-bottom: 20px;
   }
 }
+
 /* bonsplan */
+
+.bonsplanredirection {
+  cursor: pointer;
+  transition: box-shadow 0.5s ease;
+  &:hover, &:active, &:focus {
+    box-shadow: 0 0 15px #95a5a6;
+  }
+}
 
 .bonsplan {
   margin-bottom: 40px;
@@ -157,7 +165,6 @@ and open the template in the editor.
     font-weight: 400;
   }
 }
-
 
 .bonsplan img.large {
   width: 220px;

@@ -66,7 +66,8 @@
     </div>
 
     {% for bonsplan in bonsplans %}
-    <article class="bonsplan">
+    <article class="bonsplan bonsplanredirection"
+             onclick="sendhref('{{ path('PierreBonsPlansBundle_bonsplan_show', { 'slug': bonsplan.slug  })|escape('js') }}')">
         <div class="row">
             <img class="col-xs-12 col-md-4" src="{{ asset("BonsPlansBundle/logos/" ~ bonsplan.logo ) }}"
                  alt="{{ bonsplan.logo }}"/>
@@ -84,7 +85,8 @@
         </div>
         <div class="row">
             <footer class="meta">
-                <p>Nombre de commentaires : {{ bonsplan.nbcomments }} - Dernière mise à jour : {{ bonsplan.updated|localizeddate('short', 'none', 'fr') }}</p>
+                <p>Nombre de commentaires : {{ bonsplan.nbcomments }} - Dernière mise à jour
+                    : {{ bonsplan.updated|localizeddate('short', 'none', 'fr') }}</p>
             </footer>
         </div>
     </article>
@@ -92,16 +94,17 @@
     <p>Il n'y a aucun article pour le moment, désolé.<p>
     {% endfor %}
     <div class="main-button text-center">
-        <a href="{{ path('PierreConnaitresesaidesBundle_aidesetudiants') }}">Découvrir maintenant mes aides et avantages</a>
+        <a href="{{ path('PierreConnaitresesaidesBundle_aidesetudiants') }}">Découvrir maintenant mes aides et
+            avantages</a>
     </div>
     <div class="text-center">
         <ul class="pagination">
             {% if pagination.page > 1 %}
                 <li><a href="{{ path(pagination.route,
-                    pagination.route_params|merge({'page': 1})) }}"><i class="fa fa-angle-double-left"
-                                                                       aria-hidden="true"></i></a></li>
+                        pagination.route_params|merge({'page': 1})) }}"><i class="fa fa-angle-double-left"
+                                                                           aria-hidden="true"></i></a></li>
                 <li><a href="{{ path(pagination.route,
-                    pagination.route_params|merge({'page': pagination.page-1})) }}" style="width: 33.6px;"><i
+                        pagination.route_params|merge({'page': pagination.page-1})) }}" style="width: 33.6px;"><i
                                 class="fa fa-angle-left" aria-hidden="true"></i></a></li>
             {% endif %}
             {#display p numbers only from p-2 to p+2 but don't go < 1 or  > pages_count#}
@@ -113,10 +116,10 @@
             {% endfor %}
             {% if pagination.page<pagination.pages_count %}
                 <li><a href="{{ path(pagination.route,
-                    pagination.route_params|merge({'page': pagination.page + 1})) }}" style="width: 33.6px;"> <i
+                        pagination.route_params|merge({'page': pagination.page + 1})) }}" style="width: 33.6px;"> <i
                                 class="fa fa-angle-right" aria-hidden="true"></i></a></li>
                 <li><a href="{{ path(pagination.route,
-                    pagination.route_params|merge({'page': pagination.pages_count})) }}"><i
+                        pagination.route_params|merge({'page': pagination.pages_count})) }}"><i
                                 class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
             {% endif %}
         </ul>
@@ -124,7 +127,15 @@
 
     <script src="{{ asset('Site/modules/select2/dist/js/select2.min.js') }}" type="text/javascript"></script>
     <script type="text/javascript">
+
+        function sendhref(value) {
+            window.location.href = value;
+        };
+
         $('.select-city').select2();
+
     </script>
+
+
 {% endblock %}
 
