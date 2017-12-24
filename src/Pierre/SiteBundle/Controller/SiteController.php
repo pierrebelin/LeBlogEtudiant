@@ -34,7 +34,7 @@ class SiteController extends Controller
                 )
             ))
             ->add('submit', SubmitType::class, array(
-                'label' => 'S\'abonner',
+                'label' => 'J\'en profite maintenant',
             ))
             ->getForm();
 
@@ -91,7 +91,7 @@ class SiteController extends Controller
                 )
             ))
             ->add('submit', SubmitType::class, array(
-                'label' => 'S\'abonner',
+                'label' => 'Je veux des news :)',
             ))
             ->getForm();
 

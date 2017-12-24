@@ -20,7 +20,7 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link href="{{ asset('Site/styles/comments.less') }}" type="text/css" rel="stylesheet/less"/>
+    <link href="{{ asset('SiteBundle/styles/comments.less') }}" type="text/css" rel="stylesheet/less"/>
 {% endblock %}
 
 {% block body %}
@@ -30,18 +30,19 @@
             etudiant, reduction etudiant, reduction carte etudiant, {{ bonsplan.title }}</p>
     </div>
 
-    <article class="bonsplan col-xs-12">
+    <article class="bonsplan col-12">
         <div class="row header-bonplan">
-            <a href="{{ bonsplan.link }}" target="_blank"><img class="col-xs-12 col-md-4"
-                                                               src="{{ asset("BonsPlansBundle/logos/" ~ bonsplan.logo ) }}"
-                                                               alt="{{ bonsplan.logo }}"/></a>
-            <div class="col-xs-12 col-md-8">
-                <h2>{{ bonsplan.title }}</h2>
+            <a href="{{ bonsplan.link }}" target="_blank">
+                <img src="{{ asset("BonsPlansBundle/logos/" ~ bonsplan.logo ) }}" alt="{{ bonsplan.logo }}"/>
+            </a>
+            <div class="col-md-12 col-lg">
+                <h1>{{ bonsplan.title }}</h1>
                 <div class="small-informations">
                     <p>Localisation : {{ bonsplan.localisation }}</p>
                     <p>Dernière mise à jour : {{ bonsplan.updated|localizeddate('full', 'none', 'fr') }}</p>
                 </div>
             </div>
+
         </div>
         <p class="bonplan-website">
             <i class="fa fa-globe" aria-hidden="true"></i>
@@ -60,11 +61,11 @@
         <div id="open-modal-subscribe" class="footer-bonplan">
             <h4>Tenez-vous au courant des prochains bons plans : </h4>
             <div class="row text-center socials-network">
-                <a class="col-xs-12 col-sm-offset-2 col-sm-3  socials-network-facebook"
+                <a class="col-12 offset-sm-2 col-sm-3 socials-network-facebook"
                    href="https://www.facebook.com/leblogetudiant/" target="_blank">
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                     Suivre sur Facebook</a>
-                <a class="col-xs-12 col-sm-offset-2 col-sm-3 socials-network-twitter "
+                <a class="col-12 offset-sm-2 col-sm-3 socials-network-twitter "
                    href="https://twitter.com/Le_BlogEtudiant" target="_blank">
                     <i class="fa fa-twitter" aria-hidden="true"></i>
                     Suivre sur Twitter</a>
@@ -72,7 +73,7 @@
         </div>
         <hr class="hr-margin2">
         <div class="footer-bonplan row">
-            <div class="col-xs-12 text-center">
+            <div class="col-12 text-center">
                 <a onclick="goBack()" href="{{ path('PierreBonsPlansBundle_homepage') }}">Retourner à la liste des bons
                     plans </a>
             </div>

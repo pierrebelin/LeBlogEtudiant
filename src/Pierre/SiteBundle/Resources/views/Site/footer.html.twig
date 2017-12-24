@@ -2,10 +2,10 @@
     <div class="container">
         <div class="footer-site footer-site-top">
             <div class="row social-footer">
-                <div class="col-xs-9 navbar-footer">
+                <div class="col-9 navbar-footer">
                     <h6 class="nav-title">Suis les dernières nouvelles sur les réseaux sociaux</h6>
                 </div>
-                <div class="col-xs-3 navbar-footer social-icon">
+                <div class="col-3 navbar-footer social-icon">
                     <a href="https://www.facebook.com/leblogetudiant" target="_blank"><i class="fa fa-facebook-square fa-3x facebook-social" aria-hidden="true"></i></a>
                     <a href="https://twitter.com/Le_BlogEtudiant" target="_blank"><i class="fa fa-twitter fa-3x twitter-social" aria-hidden="true"></i></a>
                 </div>
@@ -15,14 +15,14 @@
                     <h6 class="nav-title">Newsletter</h6>
                     <div id="subscribe-footer">
                         {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post', 'id' :'subscribe-footer-form'}}) }}
-                        <div class="form-group">
+                        <div class="form-group row">
                             <div class="col-lg-3 footer-newsletter">
                                 {{ form_widget(form.user, {'id': 'subscribe-footer-user'}) }}
                             </div>
                             <div class="col-lg-5 footer-newsletter">
                                 {{ form_widget(form.mail, {'id': 'subscribe-footer-mail'}) }}
                             </div>
-                            <div class="col-lg-2 footer-newsletter">
+                            <div class="col footer-newsletter">
                                 {{ form_widget(form.submit, {'id': 'submit', 'attr': { 'class': 'btn btn-force' }}) }}
                             </div>
                         </div>
@@ -46,8 +46,7 @@
 
     <div class="container">
         <div class="row footer-site">
-
-            <div class="row footer-mention footer-link">
+            <div class="col footer-mention footer-link">
                 <p><a href="{{ path('PierreSiteBundle_homepage') }}">Le Blog Étudiant</a> &middot; Copyright &copy; 2016
                     - <script>document.write(new Date().getFullYear())</script> &middot; Tous droits
                     réservés</p>

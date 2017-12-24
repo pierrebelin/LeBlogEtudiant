@@ -62,7 +62,7 @@ class ConnaitresesaidesController extends Controller
                 'label' => 'Salaire mensuel net *',
             ))
             ->add('submit', SubmitType::class, array(
-                'label' => 'Rechercher',
+                'label' => 'C\'est parti pour les aides',
             ))
             ->getForm();
 

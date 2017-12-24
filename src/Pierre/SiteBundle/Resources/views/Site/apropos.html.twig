@@ -11,27 +11,7 @@
 {% block content %}
     <div class="container container-shadow">
         <div class="row content">
-            <section>
-                <div class="apropos-picture">
-                    <img src="{{ asset('Site/images/profile.jpg') }}" alt="1"/>
-                </div>
-                <div class="apropos-description">
-                    <h2>Identité</h2>
-                    <p>Pierre Belin</p>
-                    <p>22 ans</p>
-                    <p>Étudiant ingénieur en alternance</p>
-                </div>
-                <div class="apropos-description">
-                    <h2>Philosophie</h2>
-                    <p>Les seules limites qui existent sont celles que l'on s'impose</p>
-                </div>
-                <div class="apropos-description">
-                    <h2>Contact</h2>
-                    <p><a href="{{ path('PierreSiteBundle_contact') }}">contact@le-blog-etudiant.fr</a></p>
-                    <p>N'hésitez pas !</p>
-                </div>
-            </section>
-            <article>
+            <article class="col-md-12 col-lg-9">
                 <div class="paragraphe">
                     <h1>Qui suis-je ?</h1>
                     <p>Je m'appelle Pierre Belin, étudiant en école d'ingénieur en alternance. </p>
@@ -62,7 +42,7 @@
                     <p>Quoi de mieux pour apprendre que de créer un projet personnel sur un sujet qui me plaît ? </p>
                 </div>
 
-                <div class="paragraphe">
+                <div>
                     <h1>Profitez-en !</h1>
                     <p>Saisissez ces opportunités. Pourquoi ne pas profiter d'une carte proposant des réductions alors
                         que nous y avons accès gratuitement grâce à notre statut ?</p>
@@ -70,6 +50,26 @@
                         te servir en commençant à épargner pour votre futur achat automobile ou immobilier.</p>
                 </div>
             </article>
+            <section class="col-lg-3 col-md-12">
+                <div class="apropos-picture">
+                    <img src="{{ asset('SiteBundle/images/profile.jpg') }}" alt="1"/>
+                </div>
+                <div class="apropos-description">
+                    <h2>Identité</h2>
+                    <p>Pierre Belin</p>
+                    <p>22 ans</p>
+                    <p>Étudiant ingénieur en alternance</p>
+                </div>
+                <div class="apropos-description">
+                    <h2>Philosophie</h2>
+                    <p>Les seules limites qui existent sont celles que l'on s'impose</p>
+                </div>
+                <div class="apropos-description">
+                    <h2>Contact</h2>
+                    <p><a href="{{ path('PierreSiteBundle_contact') }}">contact@le-blog-etudiant.fr</a></p>
+                    <p>N'hésitez pas !</p>
+                </div>
+            </section>
         </div>
     </div>
 {% endblock %}

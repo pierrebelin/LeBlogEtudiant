@@ -10,7 +10,8 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link href="{{ asset('Site/modules/select2/dist/css/select2.min.css') }}" rel="stylesheet/less" type="text/css"/>
+    <link href="{{ asset('SiteBundle/modules/select2/dist/css/select2.min.css') }}" rel="stylesheet/less"
+          type="text/css"/>
 
 {% endblock %}
 
@@ -22,13 +23,12 @@
 
     <div class="container container-shadow">
         <div class="row content">
-            <div class="header-aides">
-                <h1>Identifier mes aides étudiantes</h1>
-                <h3>Aides concernants les étudiants en France</h3>
-            </div>
-            <hr class="main-hr">
-            <div>
-                <p></p>
+            <div class="col-12">
+                <div class="header-aides">
+                    <h1>Identifier mes aides étudiantes</h1>
+                    <h3>Aides concernants les étudiants en France</h3>
+                </div>
+                <hr class="main-hr">
                 <p>Afin de te proposer les aides, avantages et offres qui peuvent te correspondre, il te faut
                     d'abord remplir les informations ci-dessous.</p>
                 <p>Les aides, avantages et offres qui te seront ensuite proposées sont définies grâce à ces
@@ -37,31 +37,34 @@
                     service. À toi ensuite de les contacter pour en savoir plus. <strong>En aucun cas nous ne ferons
                         les démarches à ta place !</strong></p>
             </div>
-            <hr class="main-hr">
-            <h2>Critères nécessaires pour la recherche</h2>
-            <p class='p-important'><strong>Ville(s) en cours de réalisation : </strong>{{ citiesToAdd }}</p>
-            <div class="informations-important">
-                <p>⚠  A titre indicatif, les informations saisies servent uniquement à la recherche des aides.
-                    <br/>Elles ne sont ni sauvegardées, ni vendues à un tiers.</p>
+            <hr class="main-hr col">
+            <div class="col-12">
+                <h2>Critères nécessaires pour la recherche</h2>
+                <p class='p-important'><strong>Ville(s) en cours de réalisation : </strong>{{ citiesToAdd }}</p>
+                <div class="informations-important">
+                    <p>⚠ A titre indicatif, les informations saisies servent uniquement à la recherche des aides.
+                        <br/>Elles ne sont ni sauvegardées, ni vendues à un tiers.</p>
+                </div>
             </div>
-            <div class="from-design">
+            <div class="col-12 from-design">
                 {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post'}}) }}
-                <div class="form-group form-margin">
-                    {{ form_label(form.statut, form.statut, {'label_attr': {'class': 'col-md-4 control-label'}}) }}
+                <div class="form-group form-margin row">
+                    {{ form_label(form.statut, form.statut, {'label_attr': {'class': 'offset-sm-1 col-md-3 control-label'}}) }}
                     <div class="col-md-4">
                         {{ form_widget(form.statut, {'attr': {'class': 'form-control select-statut'}}) }}
                     </div>
                 </div>
-                <div class="form-group form-margin">
-                    {{ form_label(form.city, form.city, {'label_attr': {'class': 'col-md-4 control-label'}}) }}
+                <div class="form-group form-margin row">
+                    {{ form_label(form.city, form.city, {'label_attr': {'class': 'offset-sm-1 col-md-3  control-label'}}) }}
                     <div class="col-md-4">
                         {{ form_widget(form.city, {'attr': {'class': 'form-control select-city'}}) }}
                     </div>
-                    <a class="col-md-4 control-label align-left-important smooth-link" href="#ville-non-existante">Tu ne trouves pas
+                    <a class="col-md-4 control-label align-left-important smooth-link" href="#ville-non-existante">Tu ne
+                        trouves pas
                         ta ville dans la liste ?</a>
                 </div>
-                <div class="form-group form-margin">
-                    {{ form_label(form.age, form.age, {'label_attr': {'class': 'col-md-4 control-label'}}) }}
+                <div class="form-group form-margin row">
+                    {{ form_label(form.age, form.age, {'label_attr': {'class': 'offset-sm-1 col-md-3  control-label'}}) }}
                     <div class="col-md-4">
                         {{ form_widget(form.age, {'attr': { 'class': 'form-control',
                             'placeholder': 'Entre 14 et 99 ans',
@@ -69,8 +72,8 @@
                             'max': '99'}}) }}
                     </div>
                 </div>
-                <div class="form-group form-margin">
-                    {{ form_label(form.salary, form.salary, {'label_attr': {'class': 'col-md-4 control-label'}}) }}
+                <div class="form-group form-margin row">
+                    {{ form_label(form.salary, form.salary, {'label_attr': {'class': 'offset-sm-1 col-md-3  control-label'}}) }}
                     <div class="col-md-4">
                         {{ form_widget(form.salary, {'attr': { 'class': 'form-control',
                             'placeholder': 'Pas de salaire ? Mettez 0',
@@ -78,46 +81,55 @@
                             'max': '5000'}}) }}
                     </div>
                 </div>
-                <div class="form-group form-margin">
-                    <div class="col-md-offset-4 col-md-4 ">
-                        {{ form_widget(form.submit, {'attr': { 'class': 'btn btn-default btn-lg btn-block' }}) }}
+                <div class="form-group form-margin row">
+                    <div class="col-12 offset-0 col-sm-4 offset-sm-4">
+                        {{ form_widget(form.submit, {'attr': { 'class': 'btn btn-lg btn-block main-button-content' }}) }}
                     </div>
                 </div>
                 {{ form_end(form) }}
             </div>
-            <hr id="ville-non-existante" class="main-hr">
-            <h2>Ta ville n'est pas répertoriée ?</h2>
-            <div class="paragraphe">
-                <p class="not-paragraphe">Il se peut que la ville recherchée ne soit pas dans la liste pour une des raisons suivantes :</p>
-                <ul>
-                    <li>La liste des aides et avantages de ta ville est en cours de réalisation.</li>
-                    <li>Ta ville fait partie de la liste d'attente des villes à répertorier.</li>
-                </ul>
-                <p>Les villes sont ajoutées au fur et à mesure que les données soient complètes afin d'éviter
-                    d'afficher des résultats incomplets !</p>
-            </div>
-            <div>
-                <h2>Comment être tenu au courant ?</h2>
-                <p>Pour t'éviter de revenir sans arrêt sur le site en attendant de voir ta ville être ajoutée, nous te proposons 2 moyens d'être tenu au courant.</p>
-                <h3>S'inscrire à la newsletter</h3>
-                <p>C'est le moyen le plus simple d'être tenu au courant de l'ajout de ta ville. Les villes sont ajoutées
-                    au fur et à mesure que les données soient complètes.
-                    <br>
-                    Le formulaire d'inscription à la newsletter se trouve <a class="smooth-link" href="#footer">en bas de page</a>.</p>
+            <hr id="ville-non-existante" class="main-hr col">
+            <div class="col-12">
+                <h2>Ta ville n'est pas répertoriée ?</h2>
+                <div class="paragraphe">
+                    <p class="not-paragraphe">Il se peut que la ville recherchée ne soit pas dans la liste pour une des
+                        raisons suivantes :</p>
+                    <ul>
+                        <li>La liste des aides et avantages de ta ville est en cours de réalisation.</li>
+                        <li>Ta ville fait partie de la liste d'attente des villes à répertorier.</li>
+                    </ul>
+                    <p>Les villes sont ajoutées au fur et à mesure que les données soient complètes afin d'éviter
+                        d'afficher des résultats incomplets !</p>
+                </div>
+                <div>
+                    <h2>Comment être tenu au courant ?</h2>
+                    <p>Pour t'éviter de revenir sans arrêt sur le site en attendant de voir ta ville être ajoutée, nous
+                        te
+                        proposons 2 moyens d'être tenu au courant.</p>
+                    <h3>S'inscrire à la newsletter</h3>
+                    <p>C'est le moyen le plus simple d'être tenu au courant de l'ajout de ta ville. Les villes sont
+                        ajoutées
+                        au fur et à mesure que les données soient complètes.
+                        <br>
+                        Le formulaire d'inscription à la newsletter se trouve <a class="smooth-link" href="#footer">en
+                            bas
+                            de page</a>.</p>
 
-                <h3>Envoyer une demande par mail</h3>
-                <p>En <a href="{{ path('PierreSiteBundle_contact') }}">nous envoyant un mail</a>, nous serons plus à même que connaître la prochaine ville à ajouter sur le site !
-                    <br>
-                    Plus la politesse y est, plus les chances d'ajouts sont grandes, ça va de soi :)
-                </p>
+                    <h3>Envoyer une demande par mail</h3>
+                    <p>En <a href="{{ path('PierreSiteBundle_contact') }}">nous envoyant un mail</a>, nous serons plus à
+                        même que connaître la prochaine ville à ajouter sur le site !
+                        <br>
+                        Plus la politesse y est, plus les chances d'ajouts sont grandes, ça va de soi :)
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-    <script src="{{ asset('Site/modules/select2/dist/js/select2.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('SiteBundle/modules/select2/dist/js/select2.min.js') }}" type="text/javascript"></script>
     <script type="text/javascript">
-      $('.select-city').select2();
-      $('.select-statut').select2({
-          minimumResultsForSearch: -1
-      });
+        $('.select-city').select2();
+        $('.select-statut').select2({
+            minimumResultsForSearch: -1
+        });
     </script>
 {% endblock %}

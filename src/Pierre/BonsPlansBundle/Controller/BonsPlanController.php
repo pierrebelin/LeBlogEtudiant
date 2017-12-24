@@ -168,7 +168,7 @@ class BonsPlanController extends Controller
                 )
             ))
             ->add('submit', SubmitType::class, array(
-                'label' => 'S\'abonner',
+                'label' => 'Je veux des news :)',
             ))
             ->getForm();
 

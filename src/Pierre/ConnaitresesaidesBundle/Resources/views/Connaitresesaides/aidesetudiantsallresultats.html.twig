@@ -1,25 +1,28 @@
-    {% extends 'PierreConnaitresesaidesBundle::layout.html.twig' %}
+{% extends 'PierreConnaitresesaidesBundle::layout.html.twig' %}
 
-    {% block title %}
-        {{ parent() }}Aides et avantages étudiants en France | Résultats
-    {% endblock %}
+{% block title %}
+    {{ parent() }}Toutes les aides et avantages étudiants en France
+{% endblock %}
 
-    {% block stylesheets %}
-        {{ parent() }}
-        <link href="{{ asset('Site/styles/resultats.less') }}" rel="stylesheet/less" type="text/css"/>
-    {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('SiteBundle/styles/resultats.less') }}" rel="stylesheet/less" type="text/css"/>
+{% endblock %}
 
 
-    {% block content %}
-        <div class="container container-shadow">
-            <div class="row content">
+{% block content %}
+    <div class="container container-shadow">
+        {#        <div class="row pub-banniere">
+                    <img class="img-responsive " src="{{ asset('SiteBundle/images/geg.jpg') }}">
+                </div>#}
+        <div class="row content">
+            <div class="col-12">
                 <div class="header-aides">
                     <h1>Résultats</h1>
                 </div>
                 <hr class="main-hr">
                 <div class="row results-count">
-                    <h2>Il existe au total :</h2>
-                    <div class="col-xs-12 col-sm-offset-2 col-sm-4">
+                    <div class="col-xs-12 offset-sm-2 col-sm-4">
                         <p id="count-aid" class="results-number">{{ aidAll|length }}</p>
                         <p>aides</p>
                     </div>
@@ -29,83 +32,128 @@
                     </div>
                 </div>
 
-                <strong><p class="remind-send-results">⚠ Important, lisez attentivement le fonctionnement du site
+                <strong><p class="remind-send-results">⚠ Important, lis attentivement le fonctionnement du site
                         <a href="{{ path('PierreSiteBundle_faq') }}">sur la page de F.A.Q</a>
                         avant de continuer ⚠</p></strong>
-                <hr class="main-hr">
+            </div>
+        </div>
+        <hr class="main-hr3">
+        {#<div class="row pub-banniere">#}
+        {#<img class="img-responsive " src="{{ asset('SiteBundle/images/geg.jpg') }}">#}
+        {#</div>#}
+        <div class="row content">
+            <div class="col-12">
                 <h2>Liste potentielle d'éligibilité</h2>
                 <div id="resultats-results">
+                    <p class="remind-send-results">▼ Tu peux t'envoyer les résultats sur ton adresse mail <a
+                                href="#envoi-resultats" class="smooth-link">en bas de page</a> ▼</p>
+                    <div class="remind-important">
+                        <div class="slide-for-phone">
+                            <p><strong>
+                                    Fais glisser les tableaux sur la droite pour obtenir les liens de redirections
+                                </strong></p>
+                        </div>
+                    </div>
                     <h3 class="text-center">Aides</h3>
-                    <p class="subtitle">⚠ Vérifier bien les conditions d'accès ⚠</p>
+                    <p class="subtitle">⚠ Vérifie bien les conditions d'accès ⚠</p>
                     <div class="tab-resultats">
                         {% if (aidAll|length == 0) %}
                             <div class="msg-noresult">
-                                <p>Il n'y a aucune aide qui correspond à vos critères, désolé.</p>
+                                <p>Il n'y a aucune aide qui correspond à tes critères, désolé.</p>
                             </div>
                         {% else %}
-                            <table id="tab-res-aids" class="table table-resultat table-responsive">
+                            <table id="tab-res-aids" class="table table-responsive">
                                 <thead>
                                 <tr>
-                                    <th class="col-md-2">Nom</th>
-                                    <th class="col-md-2 text-center">Organisme</th>
-                                    <th class="col-md-2">Montant</th>
-                                    <th class="col-md-4">Description</th>
-                                    <th class="col-md-2"></th>
+                                    <th class="">Nom</th>
+                                    <th class="text-center">Organisme</th>
+                                    <th class="">Montant</th>
+                                    <th class="">Description</th>
+                                    <th class=""></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 {% for array in aidAll %}
                                     <tr class="tr-{% if loop.index is divisible by(2) %}even{% else %}odd{% endif %}">
-                                        <td class="col-md-2">{{ array.name }}</td>
-                                        <td class="col-md-2 logo-organism"><img
+                                        <td class="">{{ array.name }}</td>
+                                        <td class="logo-organism"><img
                                                     src="{{ asset("ConnaitresesaidesBundle/logo_organism/" ~ array.logo ) }}"
                                                     alt="{{ array.organism }}"
                                                     title="{{ array.organism }}"></td>
-                                        <td class="col-md-2">{{ array.amount }}</td>
-                                        <td class="col-md-4">{{ array.description }}</td>
-                                        <td class="col-md-2 td-link"><a class="link-more" target="_blank"
-                                                                        href="{{ array.link }}"
-                                                                        title="Redirection vers le site de {{ array.organism }} qui propose l'aide {{ array.name }}">En
-                                                savoir plus</a></td>
+                                        <td class="">{{ array.amount }}</td>
+                                        <td class="">{{ array.description }}</td>
+                                        <td class="td-link">
+                                            <a class="link-more" target="_blank"
+                                               href="{{ array.link }}"
+                                               title="Redirection vers le site de {{ array.organism }} qui propose l'aide {{ array.name }}">En
+                                                savoir plus</a>
+                                        </td>
                                     </tr>
                                 {% endfor %}
                                 </tbody>
                             </table>
                         {% endif %}
                     </div>
+                    {#
+                                    <h3 class="text-center">Offres</h3>
+                                    <div class="tab-resultats">
+                                        <table class="table table-responsive">
+                                            <thead>
+                                            <tr>
+                                                <th class="col-md-2">Nom</th>
+                                                <th class="col-md-2 text-center">Organisme</th>
+                                                <th class="col-md-2">Montant</th>
+                                                <th class="col-md-4">Description</th>
+                                                <th class="col-md-2"></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="tr-odd">
+                                                <td class="col-md-2">Réductions étudiantes</td>
+                                                <td class="col-md-2 logo-organism"><img src="http://www.energystream-solucom.fr/wp-content/uploads/2014/06/GEG.png"
+                                                                                        alt="GEG"
+                                                                                        title="GEG"></td>
+                                                <td class="col-md-2">Jusqu'à 25%</td>
+                                                <td class="col-md-4">Profitez d'avantages sur des sorties grenobloises</td>
+                                                <td class="col-md-2 td-link"><a class="link-more" target="_blank"
+                                                                                href="./">Découvrez l'offre</a></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>#}
 
                     <h3 class="text-center">Avantages</h3>
                     <div class="tab-resultats">
                         {% if (advantageAll|length == 0) %}
                             <div class="msg-noresult">
-                                <p>Il n'y a aucun avantage qui correspond à vos critères, désolé.</p>
+                                <p>Il n'y a aucun avantage qui correspond à tes critères, désolé.</p>
                             </div>
                         {% else %}
-                            <table id="tab-res-advantages" class="table table-resultat table-responsive">
+                            <table id="tab-res-advantages" class="table table-responsive">
                                 <thead>
                                 <tr>
-                                    <th class="col-md-2">Nom</th>
-                                    <th class="col-md-2 text-center">Organisme</th>
-                                    <th class="col-md-1">Montant</th>
-                                    <th class="col-md-1">Prix</th>
-                                    <th class="col-md-4">Description</th>
-                                    <th class="col-md-2"></th>
+                                    <th class="">Nom</th>
+                                    <th class=" text-center">Organisme</th>
+                                    <th class="">Montant</th>
+                                    <th class="">Prix</th>
+                                    <th class="">Description</th>
+                                    <th class=""></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 {% for array in advantageAll %}
                                     <tr class="tr-{% if loop.index is divisible by(2) %}even{% else %}odd{% endif %}">
-                                        <td class="col-md-2">{{ array.name }}</td>
-                                        <td class="col-md-2 logo-organism"><img
+                                        <td class="">{{ array.name }}</td>
+                                        <td class=" logo-organism"><img
                                                     src="{{ asset("ConnaitresesaidesBundle/logo_organism/" ~ array.logo ) }}"
                                                     alt="{{ array.organism }}"
                                                     title="{{ array.organism }}"></td>
-                                        <td class="col-md-1">{{ array.amount }}</td>
-                                        <td class="col-md-1">{{ array.price }}</td>
-                                        <td class="col-md-4">{{ array.description }}</td>
-                                        <td class="col-md-2 td-link"><a class="link-more" target="_blank"
-                                                                        href="{{ array.link }}"
-                                                                        title="Redirection vers le site de {{ array.organism }} qui propose l'aide {{ array.name }}">En
+                                        <td class="">{{ array.amount }}</td>
+                                        <td class="">{{ array.price }}</td>
+                                        <td class="">{{ array.description }}</td>
+                                        <td class=" td-link"><a class="link-more" target="_blank"
+                                                                href="{{ array.link }}"
+                                                                title="Redirection vers le site de {{ array.organism }} qui propose l'aide {{ array.name }}">En
                                                 savoir plus</a></td>
                                     </tr>
                                 {% endfor %}
@@ -113,119 +161,297 @@
                             </table>
                         {% endif %}
                     </div>
-                    {#<h3 class="text-center">Offres</h3>#}
-                    {#<div class="tab-resultats">#}
-                    {#{% if (offerAll|length == 0) %}#}
-                    {#<div class="msg-noresult">#}
-                    {#<p>Il n'y a aucune offre qui correspond à vos critères, désolé.</p>#}
+                    {#                <h3 class="text-center">Offres</h3>
+                                    <div class="tab-resultats">
+                                        <table class="table table-responsive">
+                                            <thead>
+                                            <tr>
+                                                <th class="col-md-2">Nom</th>
+                                                <th class="col-md-2 text-center">Organisme</th>
+                                                <th class="col-md-2">Montant</th>
+                                                <th class="col-md-4">Description</th>
+                                                <th class="col-md-2"></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="tr-odd">
+                                                <td class="col-md-2">Réductions étudiantes</td>
+                                                <td class="col-md-2 logo-organism"><img src="http://www.energystream-solucom.fr/wp-content/uploads/2014/06/GEG.png"
+                                                                                        alt="GEG"
+                                                                                        title="GEG"></td>
+                                                <td class="col-md-2">Jusqu'à 25%</td>
+                                                <td class="col-md-4">Profitez d'avantages sur des sorties grenobloises</td>
+                                                <td class="col-md-2 td-link"><a class="link-more" target="_blank"
+                                                                                href="./">Découvrez l'offre</a></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>#}
+                </div>
+                <hr class="main-hr2 row">
+                <h2>Tu es satisfait du service ?</h2>
+                <div>
+                    <p>Le résultat de tes recherches t'a permis d'accéder à certaines aides et avantages ?
+                        <br/>Le Blog Étudiant est entièrement gratuit et ne vend pas tes informations personnelles, et
+                        il a
+                        besoin de toi pour continuer à le rester. Participe pour permettre au site d'être
+                        indépendant et d'aider d'autres étudiants (tu en as profité, pense aux autres ☺).</p>
+
+                    <div class="row text-center socials-network socials-network-margin">
+                        <a class="col-12 offset-sm-2 col-sm-3 socials-network-facebook"
+                           href="https://www.facebook.com/leblogetudiant/" target="_blank">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            Suivre sur Facebook</a>
+                        <a class="col-12 offset-sm-2 col-sm-3 socials-network-twitter "
+                           href="https://twitter.com/Le_BlogEtudiant" target="_blank">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                            Suivre sur Twitter</a>
+                    </div>
+
+                    {#<h3 class="col-xs-12 col-sm-offset-3 col-sm-6 form-donation-title">Que vaut pour toi le service rendu#}
+                    {#?</h3>#}
+
+                    {#<div class="row form-donation">#}
+                    {#<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">#}
+                    {#<input type="hidden" name="cmd" value="_xclick">#}
+                    {#<input type="hidden" name="business" value="contact@le-blog-etudiant.fr">#}
+                    {#<input type="hidden" name="item_name" value="Donation Le Blog Etudiant">#}
+
+                    {#<div class="col-xs-12 combo-donation">#}
+                    {#<section>#}
+                    {#<div class="col-xs-12 col-sm-3">#}
+                    {#<input type="radio" id="control_01" name="amount" value="3">#}
+                    {#<label for="control_01">#}
+                    {#<h2>Un café</h2>#}
+                    {#<p>Pour développer le site web et l'hébergement</p>#}
+                    {#<small>3 euros</small>#}
+                    {#</label>#}
                     {#</div>#}
-                    {#{% else %}#}
-                    {#<table class="table table-resultat table-responsive">#}
-                    {#<thead>#}
-                    {#<tr>#}
-                    {#<th class="col-md-2">Nom</th>#}
-                    {#<th class="col-md-2">Organisme</th>#}
-                    {#<th class="col-md-2">Montant</th>#}
-                    {#<th class="col-md-2">Description</th>#}
-                    {#<th class="col-md-2">Zone éligible</th>#}
-                    {#<th class="col-md-2"></th>#}
-                    {#</tr>#}
-                    {#</thead>#}
-                    {#<tbody>#}
-                    {#{% for arrayOfferAll in offerAll %}#}
-                    {#{% for array in arrayOfferAll %}#}
-                    {#<tr class="tr-{% if loop.index is divisible by(2) %}even{% else %}odd{% endif %}">#}
-                    {#<td class="col-md-2">{{ array.name }}</td>#}
-                    {#<td class="col-md-2">{{ array.organism }}</td>#}
-                    {#<td class="col-md-2">{{ array.amount }}</td>#}
-                    {#<td class="col-md-2">{{ array.description }}</td>#}
-                    {#<td class="col-md-2">{{ array.location }}</td>#}
-                    {#<td class="col-md-2 td-link"><a class="link-more" target="_blank"#}
-                    {#href="{{ array.link }}"#}
-                    {#title="Redirection vers le site de {{ array.organism }} qui propose l'aide {{ array.name }}">En#}
-                    {#savoir plus</a></td>#}
-                    {#</tr>#}
-                    {#{% endfor %}#}
-                    {#{% endfor %}#}
-                    {#</tbody>#}
-                    {#</table>#}
+                    {#<div class="col-xs-12 col-sm-3">#}
+                    {#<input type="radio" id="control_02" name="amount" value="5">#}
+                    {#<label for="control_02">#}
+                    {#<h2>Une bière</h2>#}
+                    {#<p>Pour récompenser une dure journée de travail</p>#}
+                    {#<small>5 euros</small>#}
+                    {#</label>#}
                     {#</div>#}
-                    {#{% endif %}#}
+                    {#<div class="col-xs-12 col-sm-3">#}
+                    {#<input type="radio" id="control_03" name="amount" value="10" checked>#}
+                    {#<label for="control_03">#}
+                    {#<h2>Une pizza</h2>#}
+                    {#<p>Pour manger un petit bout avec des amis</p>#}
+                    {#<small>10 euros</small>#}
+                    {#</label></div>#}
+                    {#<div class="col-xs-12 col-sm-3">#}
+                    {#<input type="radio" id="control_04" name="amount" value="20">#}
+                    {#<label for="control_04">#}
+                    {#<h2>Un restaurant</h2>#}
+                    {#<p>Pour se faire plaisir en fin de semaine</p>#}
+                    {#<small>20 euros</small>#}
+                    {#</label></div>#}
+                    {#</section>#}
+                    {#</div>#}
+
+                    {#<input type="hidden" name="no_note" value="1">#}
+                    {#<input type="hidden" name="no_shipping" value="0">#}
+                    {#<input type="hidden" name="currency_code" value="EUR">#}
+                    {#<input type="hidden" name="lc" value="FR">#}
+                    {#<input type="hidden" name="bn" value="PP-BuyNowBF">#}
+                    {#<br/>#}
+                    {#<br/>#}
+
+                    {#<div class="col-xs-12 col-sm-offset-4 col-sm-4">#}
+                    {#<input type="submit" class="btn btn-default btn-lg btn-block "#}
+                    {#value="Participez à l'avancement du site">#}
+                    {#</div>#}
+                    {#</form>#}
+                    {#</div>#}
+                    {#<div class="row form-donation">#}
+                    {#<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">#}
+                    {#<input type="hidden" name="cmd" value="_xclick">#}
+                    {#<input type="hidden" name="business" value="contact@le-blog-etudiant.fr">#}
+                    {#<input type="hidden" name="item_name" value="Donation Le Blog Etudiant">#}
+
+                    {#<input type="hidden" name="amount" value=select.value>#}
+                    {#<input type="hidden" name="no_note" value="1">#}
+                    {#<input type="hidden" name="no_shipping" value="0">#}
+                    {#<input type="hidden" name="currency_code" value="EUR">#}
+                    {#<input type="hidden" name="lc" value="FR">#}
+                    {#<input type="hidden" name="bn" value="PP-BuyNowBF">#}
+
+                    {#<div class="col-xs-12 col-sm-offset-4 col-sm-4">#}
+                    {#<input type="submit" class="form-donation-other-amount"#}
+                    {#value="Choisir un autre montant">#}
+                    {#</div>#}
+                    {#</form>#}
+                    {#</div>#}
+                </div>
+            </div>
+            <hr class="main-hr col">
+            <hr class="main-hr2 col">
+            <div class="col-12">
+                <div>
+                    <p>Tu as remarqué une aide ou un avantage manquant ? Contacte-nous <a
+                                href="{{ path('PierreSiteBundle_contact') }}">en cliquant ici</a> pour que
+                        nous y jettions un coup d'oeil.
+                    <p>
+                    <p>Le partage d'information est la base de ce site, dis toi que tu fais ta bonne action de la
+                        journée ☺</p>
                 </div>
             </div>
         </div>
+    </div>
 
-        <script>
-            var nAid = {{ aidAll|length }}; // Nombre final du compteur
-            var nAdvantage = {{ advantageAll|length }}; // Nombre final du compteur
-            var cptAid = 0;
-            var cptAdvantage = 0;
-            var duree = 1;
-            var deltaAid = Math.ceil((duree * 1000) / nAid);
-            var deltaAdvantage = Math.ceil((duree * 1000) / nAdvantage);
-            var nodeAid = document.getElementById("count-aid");
-            var nodeAdvantage = document.getElementById("count-advantage");
+    </div>
 
-            function countdownAid() {
-                nodeAid.innerHTML = ++cptAid;
-                if (cptAid < nAid) { // Si on est pas arrivé à la valeur finale, on relance notre compteur une nouvelle fois
-                    setTimeout(countdownAid, deltaAid);
+    <!-- RESULTATS DES MAILS -->
+    <div class="modal fade" data-modal-color="success" id="resultats-success-modal" data-backdrop="static"
+         data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Un mail vous a été envoyé</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Un mail récapitulatif des résultats a été envoyé à l'adresse indiquée.
+                        <br>
+                        Pensez bien à vérifier dans vos courriers indésirables.</p>
+                    <p>N'oubliez pas de partager ces résultats à vos amis ☺</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" data-modal-color="error" id="resultats-error-modal" data-backdrop="static"
+         data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Le mail n'a pas été envoyé</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Désolé, il y a eu une erreur pendant l'envoi du mail.</p>
+                    <p>L'adresse enregistrée n'est surement pas bonne, veuillez vérifier</p>
+                    <p>Si je problème persiste, merci de bien vouloir faire retourner ce problème grâce au formulaire de
+                        contact
+                        <br>
+                        Veuillez m'excuser du dérangement !</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $("#resultats-mail-form").submit(function () {
+            $.ajax({
+                type: "POST",
+                url: "{{ path('PierreConnaitresesaidesBundle_sendresultsmail') }}",
+                data: {
+                    mail: $("#resultats-mail").val(),
+                    user: $("#resultats-firstname").val(),
+                    results: $("#resultats-results").html(),
+                    subscribe: $("#resultats-subscribe").is(":checked"),
+                },
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    if (data == 'success') {
+                        $('#resultats-success-modal').modal('show');
+                    } else {
+                        $('#resultats-error-modal').modal('show');
+                    }
+                    $("#resultats-mail").val("");
+                    $("#resultats-firstname").val("");
+                    $("#resultats-subscribe").prop('checked', false);
                 }
-            }
-
-            function countdownAdvantage() {
-                nodeAdvantage.innerHTML = ++cptAdvantage;
-                if (cptAdvantage < nAdvantage) { // Si on est pas arrivé à la valeur finale, on relance notre compteur une nouvelle fois
-                    setTimeout(countdownAdvantage, deltaAdvantage);
-                }
-            }
-
-            setTimeout(countdownAid, deltaAid);
-            setTimeout(countdownAdvantage, deltaAdvantage);
-
-            $(document).ready(function () {
-                $('#tab-res-aids').DataTable({
-                    "paging": false,
-                    "info": false,
-                    "searching": false,
-                    "columnDefs": [
-                        {
-                            "targets": 4,
-                            "orderable": false
-                        },
-                        {
-                            "targets": 3,
-                            "orderable": false
-                        },
-                        {
-                            "targets": 1,
-                            "type": "alt-string"
-                        },
-                    ],
-                    "order": [[ 1, "asc" ]]
-                });
-                $('#tab-res-advantages').DataTable({
-                    "paging": false,
-                    "info": false,
-                    "searching": false,
-                    "columnDefs": [
-                        {
-                            "targets": 4,
-                            "orderable": false
-                        },
-                        {
-                            "targets": 5,
-                            "orderable": false
-                        },
-                        {
-                            "targets": 1,
-                            "type": "alt-string"
-                        },
-                    ],
-                    "order": [[ 1, "asc" ]]
-                });
             });
-        </script>
+            return false;
+        });
+
+        var nAid = {{ aidAll|length }}; // Nombre final du compteur
+        var nAdvantage = {{ advantageAll|length }}; // Nombre final du compteur
+        var cptAid = 0;
+        var cptAdvantage = 0;
+        var duree = 1;
+        var deltaAid = Math.ceil((duree * 1000) / nAid);
+        var deltaAdvantage = Math.ceil((duree * 1000) / nAdvantage);
+        var nodeAid = document.getElementById("count-aid");
+        var nodeAdvantage = document.getElementById("count-advantage");
+
+        function countdownAid() {
+            nodeAid.innerHTML = ++cptAid;
+            if (cptAid < nAid) { // Si on est pas arrivé à la valeur finale, on relance notre compteur une nouvelle fois
+                setTimeout(countdownAid, deltaAid);
+            }
+        }
+
+        function countdownAdvantage() {
+            nodeAdvantage.innerHTML = ++cptAdvantage;
+            if (cptAdvantage < nAdvantage) { // Si on est pas arrivé à la valeur finale, on relance notre compteur une nouvelle fois
+                setTimeout(countdownAdvantage, deltaAdvantage);
+            }
+        }
+
+        setTimeout(countdownAid, deltaAid);
+        setTimeout(countdownAdvantage, deltaAdvantage);
+    </script>
+
+    <script>
+        $(window).load(function () {
+            $(".link-more").click(function () {
+                if (!Cookies.get('leblogetudiant_modalsubscribeshowed')) {
+                    //show pop up
+                    $('#subscribe-modal').modal('show');
+                    Cookies.set('leblogetudiant_modalsubscribeshowed', true);
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $('#tab-res-aids').DataTable({
+                "paging": false,
+                "info": false,
+                "searching": false,
+                "columnDefs": [
+                    {
+                        "targets": 4,
+                        "orderable": false
+                    },
+                    {
+                        "targets": 3,
+                        "orderable": false
+                    },
+                    {
+                        "targets": 1,
+                        "type": "alt-string"
+                    },
+                ],
+                "order": [[1, "asc"]]
+            });
+            $('#tab-res-advantages').DataTable({
+                "paging": false,
+                "info": false,
+                "searching": false,
+                "columnDefs": [
+                    {
+                        "targets": 4,
+                        "orderable": false
+                    },
+                    {
+                        "targets": 5,
+                        "orderable": false
+                    },
+                    {
+                        "targets": 1,
+                        "type": "alt-string"
+                    },
+                ],
+                "order": [[1, "asc"]]
+            });
+        });
+    </script>
 
 
-    {% endblock %}
+{% endblock %}

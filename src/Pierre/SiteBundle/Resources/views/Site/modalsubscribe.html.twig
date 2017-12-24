@@ -1,40 +1,42 @@
 <div id="subscribe-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-body row">
-                <div class="col-xs-12">
+                <div class="col-12">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h3 id="myModalLabel">Envie de plus de bons plans ?</h3>
                 </div>
 
-                <h4 class="col-xs-12">Abonne toi aux dernières actualités et offres spéciales</h4>
-                {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post', 'id' :'subscribe-modal-form'}}) }}
-                <div class="form-group col-sm-12">
-                    <div class="col-sm-12 col-sm-5">
-                        {{ form_widget(form.user, {'id': 'subscribe-modal-user'}) }}
-                    </div>
-                    <div class="col-sm-12 col-sm-5">
-                        {{ form_widget(form.mail, {'id': 'subscribe-modal-mail'}) }}
-                    </div>
-                    <div class="col-sm-12 col-sm-2 modal-button-submit">
-                        {{ form_widget(form.submit, {'id': 'submit', 'attr': { 'class': 'btn button-force-color' }}) }}
-                    </div>
-                    {{ form_rest(form) }}
+                <h4 class="col-12">Abonne toi aux dernières actualités et offres spéciales</h4>
+                {{ form_start(form, {'attr': {'class': 'form-horizontal col-12', 'method': 'post', 'id' :'subscribe-modal-form'}}) }}
+                <div class="form-group row">
+                        <div class="col-sm-12 col-md-5">
+                            {{ form_widget(form.user, {'id': 'subscribe-modal-user'}) }}
+                        </div>
+                        <div class="col-sm-12 col-md-5">
+                            {{ form_widget(form.mail, {'id': 'subscribe-modal-mail'}) }}
+                        </div>
+                        <div class="col-sm-12 col-md-2 modal-button-submit">
+                            {{ form_widget(form.submit, {'id': 'submit', 'attr': { 'class': 'btn button-force-color' }}) }}
+                        </div>
+                        {{ form_rest(form) }}
                 </div>
                 {{ form_end(form) }}
-                <h4 class="col-xs-12">Tiens toi au courant sur les réseaux</h4>
+                <h4 class="col-12">Tiens toi au courant sur les réseaux</h4>
+                <div class="col-12">
                 <div class="row text-center socials-network">
-                    <a class="col-xs-12 col-sm-offset-1 col-sm-4  socials-network-facebook"
+                    <a class="col-12 offset-sm-2 col-sm-3 socials-network-facebook"
                        href="https://www.facebook.com/leblogetudiant/" target="_blank">
                         <i class="fa fa-facebook" aria-hidden="true"></i>
                         Suivre sur Facebook</a>
-                    <a class="col-xs-12 col-sm-offset-2 col-sm-4 socials-network-twitter "
+                    <a class="col-12 offset-sm-2 col-sm-3 socials-network-twitter "
                        href="https://twitter.com/Le_BlogEtudiant" target="_blank">
                         <i class="fa fa-twitter" aria-hidden="true"></i>
                         Suivre sur Twitter</a>
                 </div>
-                <div class="modal-small col-xs-12 text-center">
+                </div>
+                <div class="modal-small col-12 text-center">
                     <small>⚠ A titre indicatif, tes informations personnelles ne seront ni utilisées pour du spam, ni
                         vendues à
                         un tiers.

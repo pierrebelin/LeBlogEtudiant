@@ -14,43 +14,46 @@
 {% endblock %}
 
 {% block content %}
-
     <div class="main-first-action">
-        <div class="container">
-            <div class="content-padding ">
-                <div class="row">
-                    <p>Tu es étudiant(e) et tu souhaites connaître tes aides, avantages et bons plans pour tes études ?
-                        <br>Il te suffit d'un clic pour te permettre de profiter de ta vie étudiante :)</p>
-                    <div class="main-button">
-                        <a href="{{ path('PierreConnaitresesaidesBundle_aidesetudiants') }}">Découvrir mes aides &
-                            avantages
-                            étudiants</a>
-                    </div>
+        <div class="container content-padding">
+            <div class="row">
+                <p class="col-sm">Tu es étudiant(e) et tu souhaites connaître tes aides, avantages et bons plans pour
+                    tes études ?
+                    <br>Il te suffit d'un clic pour te permettre de profiter de ta vie étudiante :)</p>
+            </div>
+            <div class="row">
+                <div class="main-button col-sm">
+                    <a href="{{ path('PierreConnaitresesaidesBundle_aidesetudiants') }}">Découvrir MAINTENANT mes aides
+                        &
+                        avantages
+                        étudiants</a>
                 </div>
             </div>
+
         </div>
     </div>
     <div class="main-news">
         <div class="container">
             <div class="row">
-                <h2>Actualités</h2>
+                <h2 class="col-sm">Actualités</h2>
             </div>
-        </div>
-        <div class="main-news-slick">
-            {% for news in mainNews %}
-                <div class="">
-                    <div class="container content-padding">
-                        <div class="row news">
-                            <a class="col-xs-12" href="{{ news.link }}">
-                                <h3>{{ news.title }}</h3>
-                                <small>{{ news.date|localizeddate('full', 'none', 'fr') }}</small>
-                                <p>{{ news.content }}</p>
-                            </a>
+            <div class="main-news-slick">
+                {% for news in mainNews %}
+                    <div class="">
+                        <div class="container content-padding">
+                            <div class="row news">
+                                <a class="col-sm-12 link" href="{{ news.link }}">
+                                    <h3>{{ news.title }}</h3>
+                                    <small>{{ news.date|localizeddate('full', 'none', 'fr') }}</small>
+                                    <p>{{ news.content }}</p>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
+
     </div>
     <div style="display: none">
         <p>aide etudiant, aide financiere etudiant, blog etudiant, bourse etudiant, aide au logement, etudiant, etudiant
@@ -61,17 +64,17 @@
         <div class="container">
             <div class="content-padding content ">
                 <div class="row">
-                    <div class="col-sm-12 col-md-4 index-main-informations">
+                    <div class="col-sm-12 col-md index-main-informations">
                         <h2>COMPLET</h2>
                         <p>Plus de 100 aides et avantages sont répertoriés et mis à jour quotidiennement.</p>
                         <p><strong>Reçois et/ou économise</strong> facilement plus de 200€ par mois.</p>
                     </div>
-                    <div class="col-sm-12 col-md-4 index-main-informations">
+                    <div class="col-sm-12 col-md index-main-informations">
                         <h2>AUCUN FRAIS</h2>
                         <p>L'intégralité du contenu des aides et avantages est totalement gratuit.</p>
                         <p>Aucune des informations personnelles enregistrées n'est sauvegardée.</p>
                     </div>
-                    <div class="col-sm-12 col-md-4 index-main-informations">
+                    <div class="col-sm-12 col-md index-main-informations">
                         <h2>1 MINUTE</h2>
                         <p>C'est le temps que tu mets pour accéder aux résultats qui te concernent.</p>
                         <p>Tu seras ensuite dirigé vers les sites proposant chacune des offres.</p>
@@ -81,36 +84,32 @@
         </div>
     </div>
     <div class="row-main-subscribe">
-        <div class="container">
-            <div class="row content-padding">
-                <h1>Tiens-toi au courant des dernières actualités</h1>
-                <div>
-                    {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post', 'id' :'subscribe-index-form'}}) }}
-                    <div>
-                        <div class="col-md-offset-2">
-                            <div class="col-md-3 footer-newsletter">
-                                {{ form_widget(form.user, {'id': 'subscribe-index-user'}) }}
-                            </div>
-                            <div class="col-md-4 footer-newsletter">
-                                {{ form_widget(form.mail, {'id': 'subscribe-index-mail'}) }}
-                            </div>
-                            <div class="col-md-3 footer-newsletter">
-                                {{ form_widget(form.submit, {'attr': { 'class': 'btn btn-force btn-block' }}) }}
-                            </div>
-                        </div>
+        <div class="container content-padding">
+            <div class="row ">
+                <h1 class="col-sm">Tiens-toi au courant des dernières actualités</h1>
+            </div>
+            <div class="">
+                {{ form_start(form, {'attr': {'class': 'form-horizontal row', 'method': 'post', 'id' :'subscribe-index-form'}}) }}
+                    <div class="col-md-3 offset-md-1">
+                        {{ form_widget(form.user, {'id': 'subscribe-index-user'}) }}
                     </div>
-                    {{ form_rest(form) }}
+                    <div class="col-md-4">
+                        {{ form_widget(form.mail, {'id': 'subscribe-index-mail'}) }}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form_widget(form.submit, {'attr': { 'class': 'btn btn-force btn-block' }}) }}
+                    </div>
+                {{ form_rest(form) }}
 
-                    {{ form_end(form) }}
-                </div>
+                {{ form_end(form) }}
             </div>
         </div>
     </div>
     <div class="row-main-quotes">
         <div class="container ">
             <div class="content-padding ">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-9 text-center">
+                <div class="row align-items-center">
+                    <div class="col-12 col-sm-9 text-center">
                         <blockquote class="quote-index">
                             <p>Après avoir galéré pendant plusieurs heures à me renseigner sur les différentes aides
                                 dont je pouvais bénéficier, je suis tombé sur ce site avec espoir d'obtenir quelques
@@ -122,19 +121,17 @@
                             <cite>- Robin, 21 ans, alternant à Polytech Lyon</cite>
                         </blockquote>
                     </div>
-                    <td class="col-sm-3 col-xs-12">
-                        <div class="quote-picture">
-                            <img src="{{ asset('Site/images/quote-profile1.jpg') }}" alt="quote-profile.jpg"/>
-                        </div>
-                    </td>
+                    <div class="quote-picture col-sm-3 col-12">
+                        <img src="{{ asset('SiteBundle/images/quote-profile1.jpg') }}" alt="quote-profile.jpg"/>
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-3 col-xs-12">
+                <div class="row align-items-center">
+                    <div class="col-sm-3 col-12">
                         <div class="quote-picture">
-                            <img src="{{ asset('Site/images/quote-profile2.jpg') }}" alt="quote-profile.jpg"/>
+                            <img src="{{ asset('SiteBundle/images/quote-profile2.jpg') }}" alt="quote-profile.jpg"/>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-9 text-center">
+                    <div class="col-12 col-sm-9 text-center">
                         <blockquote class="quote-index">
                             <p>Enfin un site qui propose, de manière très facile et rapide, de partager les aides
                                 étudiantes!
@@ -151,36 +148,49 @@
             <div class="container">
                 <div class="content-padding content">
                     <div class="row index-ideas">
-                        <h2>Quelle est la différence avec l'outil créé par l'État ?</h2>
-                        <p>Si tu es ici, tu as sûrement déjà visité le site du gouvernement <a
-                                    href="https://mes-aides.gouv.fr/">mes-aides.gouv</a> qui ne t'a proposé qu'un petit
-                            pourcentage de ce dont vous avez le droit. C'est normal, car il ne propose que les aides de
-                            l'État.</p>
-                        <p>Mais il en existe plein d'autres !</p>
-                        <p>Tu trouveras ici les aides proposées par l'État, mais aussi les avantages des services que
-                            l'on
-                            peut utiliser quotidiennement, comme par exemple à la SNCF mais aussi bien d'autres moins
-                            connues.</p>
+                        <div class="col">
+                            <h2>Quelle est la différence avec l'outil créé par l'État ?</h2>
+                            <p>Si tu es ici, tu as sûrement déjà visité le site du gouvernement <a
+                                        href="https://mes-aides.gouv.fr/">mes-aides.gouv</a> qui ne t'a proposé qu'un
+                                petit
+                                pourcentage de ce dont vous avez le droit. C'est normal, car il ne propose que les aides
+                                de
+                                l'État.</p>
+                            <p>Mais il en existe plein d'autres !</p>
+                            <p>Tu trouveras ici les aides proposées par l'État, mais aussi les avantages des services
+                                que
+                                l'on
+                                peut utiliser quotidiennement, comme par exemple à la SNCF mais aussi bien d'autres
+                                moins
+                                connues.</p>
+                        </div>
                     </div>
                     <div class="row index-ideas">
-                        <h2>Combien puis-je recevoir ?</h2>
-                        <p>Pour un ordre d'idée, j'utilise la plupart de ces offres pour recevoir plus de <strong>300€
-                                par mois</strong> en aides et économiser plus de <strong>200€ par mois</strong> en
-                            avantages étudiants. Mais il est possible d'en avoir bien plus en fonction de votre ville
-                            d'étude !</p>
-                        <p>Impressionnant, pas vrai ?</p>
+                        <div class="col">
+                            <h2>Combien puis-je recevoir ?</h2>
+                            <p>Pour un ordre d'idée, j'utilise la plupart de ces offres pour recevoir plus de <strong>300€
+                                    par mois</strong> en aides et économiser plus de <strong>200€ par mois</strong> en
+                                avantages étudiants. Mais il est possible d'en avoir bien plus en fonction de votre
+                                ville
+                                d'étude !</p>
+                            <p>Impressionnant, pas vrai ?</p>
+                        </div>
                     </div>
                     <div class="row index-ideas">
-                        <h2>Faut-il payer pour obtenir mes résultats ?</h2>
-                        <p>Non. Tu n'auras à aucun moment à payer pour accéder au contenu du site. Il est totalement
-                            gratuit grâce aux financements des offres partenaires.</p>
-                        <p>Tu es 100% gagnant !</p>
+                        <div class="col">
+                            <h2>Faut-il payer pour obtenir mes résultats ?</h2>
+                            <p>Non. Tu n'auras à aucun moment à payer pour accéder au contenu du site. Il est totalement
+                                gratuit grâce aux financements des offres partenaires.</p>
+                            <p>Tu es 100% gagnant !</p>
+                        </div>
                     </div>
                     <div class="row index-ideas">
-                        <p><strong>Si tu as un doute, teste, ça ne te coûte rien !</strong></p>
+                        <div class="col">
+                            <p><strong>Si tu as un doute, teste, ça ne te coûte rien !</strong></p>
+                        </div>
                     </div>
                     <div class="row index-ideas">
-                        <div class="button-redirection">
+                        <div class="button-redirection col-sm">
                             <a href="{{ path('PierreConnaitresesaidesBundle_aidesetudiants') }}">Identifier mes
                                 aides</a>
                         </div>

@@ -6,50 +6,18 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link href="{{ asset('Site/styles/error.less') }}" rel="stylesheet/less" type="text/css"/>
+    <link href="{{ asset('SiteBundle/styles/error.less') }}" rel="stylesheet/less" type="text/css"/>
 {% endblock %}
 
 {% block content %}
     <div class="container container-shadow">
         <div class="row content error-page-size">
-
-            <div class="paragraphe">
-                <h1>⚠ Page non trouvée ¯\_(ツ)_/¯</h1>
-            </div>
-
-            <div class="paragraphe">
-                <p>Désolé, la page à laquelle vous souhaitez accéder n'existe pas ou a été supprimée.</p>
-            </div>
-            <div class="paragraphe">
-                <h2>Que faire ?</h2>
-                <p class="not-paragraphe">Il y a de grandes chances que ta page soit une des deux suivantes :</p>
-                <ul>
-                    <li>Identifier les aides auxquelles tu as le droit <a
-                                href="{{ path('PierreConnaitresesaidesBundle_aidesetudiants') }}">en cliquant ici</a>.
-                    </li>
-                    <li>Connaître les bons plans pour vivre sa vie d'étudiant à 100% <a
-                                href="{{ path('PierreBonsPlansBundle_homepage') }}">en cliquant ici</a>.
-                    </li>
-                </ul>
-                <p>Si vous aviez ce lien en favori, il se peut que la page est tout simplement été renommée. Je vous
-                    conseille de retourner 2 minutes sur le site pour la retrouver.</p>
-            </div>
-            <div class="paragraphe">
-                <h2>Ce n'est pas la première fois...</h2>
-                <p>Si le problème persiste, je vous invite <a
-                            href="{{ path('PierreSiteBundle_contact') }}">à me contacter</a> en expliquant clairement ce
-                    qui
-                    vous a mené sur cette page.
-                    <br>Je pourrais corriger le problème au plus vite :)</p>
-            </div>
-            <div class="paragraphe">
-                <p>Je vous remercie pour votre indulgence, le métier de développeur de site web n'est pas aussi simple
-                    qu'on
-                    ne le croit ☺</p>
-            </div>
-            <div class="gif-center">
-                <iframe src="https://giphy.com/embed/xUA7aN1MTCZx97V1Ic" width="480" height="270" frameBorder="0"
-                        class="giphy-embed" allowFullScreen></iframe>
+            <div class="col">
+                <h1 class="paragraphe">⚠ Page non trouvée ¯\_(ツ)_/¯</h1>
+                <div class="paragraphe">
+                    <p>Désolé, la page à laquelle tu souhaites accéder n'existe pas ou a été supprimée.</p>
+                </div>
+                {% include 'redirection.html.twig' %}
             </div>
         </div>
     </div>

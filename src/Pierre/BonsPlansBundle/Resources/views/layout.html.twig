@@ -10,18 +10,18 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link href="{{ asset('Site/styles/bonsplans.less') }}" rel="stylesheet/less" type="text/css"/>
+    <link href="{{ asset('SiteBundle/styles/bonsplans.less') }}" rel="stylesheet/less" type="text/css"/>
 {% endblock %}
 
 
 {% block content %}
-    <div class="container">
+    <div class="container paddng">
         <div class="row">
-            <section class="articles col-md-8 col-sm-12">
+            <section class="articles col-md-8 col-12">
                 {% block body %}
                 {% endblock %}
             </section>
-            <aside class="sidebar col-md-4 col-sm-12">
+            <aside class="sidebar col-md-4 col-12">
                 {% block sidebar %}
                     {{ render(controller("PierreBonsPlansBundle:BonsPlan:sidebar")) }}
                 {% endblock %}
