@@ -10,11 +10,6 @@ PierreSiteBundle_homepage:
 PierreSiteBundle_apropos:
     path:     /a-propos
     defaults: { _controller: PierreSiteBundle:Site:apropos }
-    options:
-        sitemap:
-            priority: 0.1
-            changefreq: monthly
-            section: site
 
 PierreSiteBundle_contact:
     path:     /contact
@@ -40,20 +35,10 @@ PierreSiteBundle_modalsubscribe:
 PierreSiteBundle_mentionslegales:
     path:     /mentions-legales
     defaults: { _controller: PierreSiteBundle:Site:mentionslegales }
-    options:
-        sitemap:
-            priority: 0.1
-            changefreq: monthly
-            section: site
 
 PierreSiteBundle_cgu:
     path:     /cgu
     defaults: { _controller: PierreSiteBundle:Site:cgu }
-    options:
-        sitemap:
-          priority: 0.1
-          changefreq: monthly
-          section: site
 
 PierreSiteBundle_newsletter:
     path:     /newsletter
@@ -66,17 +51,7 @@ PierreSiteBundle_sendcontactmail:
 PierreSiteBundle_dons:
     path:     /dons
     defaults: { _controller: PierreSiteBundle:Site:dons }
-    options:
-        sitemap:
-            priority: 0.1
-            changefreq: monthly
-            section: site
 
 PierreSiteBundle_faq:
     path:     /faq
     defaults: { _controller: PierreSiteBundle:Site:faq }
-    options:
-        sitemap:
-            priority: 0.1
-            changefreq: monthly
-            section: site
