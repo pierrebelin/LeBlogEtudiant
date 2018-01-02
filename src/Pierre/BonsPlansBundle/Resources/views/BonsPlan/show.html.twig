@@ -18,6 +18,24 @@
     plusdebonsplans, bon plan etudiant, bon plan astuce, annonce etudiant, offre etudiant, reduction etudiant, {{ bonsplan.metakeywords }}
 {% endblock %}
 
+{% block structureddata %}
+    {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "url": "https://le-blog-etudiant.fr",
+    "name": "{{ bonsplan.title }}",
+    "author": "Pierre Belin",
+    "datePublished": "{{ bonsplan.created }}",
+    "dateModified": "{{ bonsplan.updated }}",
+    "headline": "{{ bonsplan.description }}",
+    "image": "{{ bonsplan.logo }}",
+    "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ bonsplan.link }}"
+    }
+    }
+{% endblock %}
+
 {% block stylesheets %}
     {{ parent() }}
     <link href="{{ asset('SiteBundle/styles/comments.less') }}" type="text/css" rel="stylesheet/less"/>

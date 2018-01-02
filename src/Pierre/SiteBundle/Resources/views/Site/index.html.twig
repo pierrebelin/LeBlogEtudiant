@@ -13,6 +13,23 @@
     aide etudiant, aide financiere etudiant, blog etudiant, bourse etudiant, aide au logement, etudiant, etudiant gouv, portail etudiant, portail vie etudiante, mes services etudiants, dossier social étudiant, avantage etudiant, pret etudiant, bourse, demande de bourse, aide étudiant logement
 {% endblock %}
 
+{% block structureddata %}
+    {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "url": "https://le-blog-etudiant.fr",
+    "name": "Le Blog Étudiant",
+    "contactPoint": [
+    {
+    "@type": "ContactPoint",
+    "email": "contact@le-blog-etudiant.fr",
+    "contactType": "customer service",
+    "url": "https://le-blog-etudiant.fr/contact"
+    }
+    ]
+    }
+{% endblock %}
+
 {% block content %}
     <div class="main-first-action">
         <div class="container content-padding">
@@ -90,15 +107,15 @@
             </div>
             <div class="">
                 {{ form_start(form, {'attr': {'class': 'form-horizontal row', 'method': 'post', 'id' :'subscribe-index-form'}}) }}
-                    <div class="col-md-3 offset-md-1">
-                        {{ form_widget(form.user, {'id': 'subscribe-index-user'}) }}
-                    </div>
-                    <div class="col-md-4">
-                        {{ form_widget(form.mail, {'id': 'subscribe-index-mail'}) }}
-                    </div>
-                    <div class="col-md-3">
-                        {{ form_widget(form.submit, {'attr': { 'class': 'btn btn-force btn-block' }}) }}
-                    </div>
+                <div class="col-md-3 offset-md-1">
+                    {{ form_widget(form.user, {'id': 'subscribe-index-user'}) }}
+                </div>
+                <div class="col-md-4">
+                    {{ form_widget(form.mail, {'id': 'subscribe-index-mail'}) }}
+                </div>
+                <div class="col-md-3">
+                    {{ form_widget(form.submit, {'attr': { 'class': 'btn btn-force btn-block' }}) }}
+                </div>
                 {{ form_rest(form) }}
 
                 {{ form_end(form) }}
