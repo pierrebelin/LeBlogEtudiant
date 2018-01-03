@@ -1,6 +1,6 @@
 {% extends 'PierreBonsPlansBundle::layout.html.twig' %}
 
-{% block title %} | {{ bonsplan.title }}{% endblock %}
+{% block title %} | {{ bonsplan.title }} : {{ bonsplan.description }}{% endblock %}
 
 {% block facebooktags %}
     {{ parent() }}
