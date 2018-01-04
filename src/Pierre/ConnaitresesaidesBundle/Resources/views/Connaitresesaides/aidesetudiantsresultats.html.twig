@@ -1,5 +1,9 @@
 {% extends 'PierreConnaitresesaidesBundle::layout.html.twig' %}
 
+{% block metas %}
+    <meta name="robots" content="nofollow">
+{% endblock %}
+
 {% block title %}
     {{ parent() }}Toutes les aides et avantages étudiants en {{ city }}
 {% endblock %}
