@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {% block metas %}{% endblock %}
     <title>Le Blog Étudiant {% block title %}{% endblock %}</title>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -91,7 +92,7 @@
     <script type="text/javascript" src="{{ asset('SiteBundle/modules/bootstrap-4.0.0/js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('SiteBundle/modules/slick/slick.min.js') }}"></script>
 
-    <script type="text/javascript" src="{{ asset('SiteBundle/modules/datatables/datatables.min.js') }}"/>
+    <script type="text/javascript" src="{{ asset('SiteBundle/modules/datatables/datatables.min.js') }}"></script>
 {% endblock %}
 
 </body>
