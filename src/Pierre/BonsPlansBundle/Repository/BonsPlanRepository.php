@@ -264,4 +264,27 @@ class BonsPlanRepository extends \Doctrine\ORM\EntityRepository
 
         return $results;
     }
+
+    public function getRandomBonPlanSameCategory($id, $category)
+    {
+        $rsm = new \Doctrine\ORM\Query\ResultSetMapping();
+
+        $rsm->addScalarResult('title', 'title');
+        $rsm->addScalarResult('description', 'description');
+        $rsm->addScalarResult('slug', 'slug');
+        $rsm->addScalarResult('logo', 'logo');
+
+        $sql = "select *
+                from bonsplan
+                where category = :category
+                and id <> :id";
+
+        $em = $this->getEntityManager();
+        $results = $em->createNativeQuery($sql, $rsm)
+            ->setParameter('id', $id)
+            ->setParameter('category', $category)
+            ->getResult();
+
+        return $results[array_rand($results, 1)];
+    }
 }

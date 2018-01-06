@@ -3,12 +3,12 @@
 
 namespace Pierre\BonsPlansBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\Request;
 
 class BonsPlanController extends Controller
 {
@@ -132,11 +132,14 @@ class BonsPlanController extends Controller
 
         $bonsplan = $em->getRepository('PierreBonsPlansBundle:BonsPlan')->getBonPlanBySlug($slug);
 
+        $bonsplanAd = $em->getRepository('PierreBonsPlansBundle:BonsPlan')->getRandomBonPlanSameCategory($bonsplan['id'], $bonsplan['category']);
+
         $bonsplancomments = $em->getRepository('PierreBonsPlansBundle:BonsPlanComment')
             ->getCommentsForBonsPlan($bonsplan['id']);
 
         return $this->render('PierreBonsPlansBundle:BonsPlan:show.html.twig', array(
             'bonsplan' => $bonsplan,
+            'bonsplanAd' => $bonsplanAd,
             'comments' => $bonsplancomments,
             'request' => $request
         ));
