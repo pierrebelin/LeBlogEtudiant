@@ -24,20 +24,16 @@ PierreConnaitresesaidesBundle_aidesetudiants_resultats:
           changefreq: weekly
           section: connaitresesaides
 
+          
+
 PierreConnaitresesaidesBundle_aidesetudiants_allresultats:
     path:    /aides-etudiants/allresultats
     defaults:
        _controller: PierreConnaitresesaidesBundle:Connaitresesaides:aidesetudiantsallresultats
-    options:
-        sitemap:
-          priority: 0.1
-          changefreq: weekly
-          section: connaitresesaides
+
 
 PierreConnaitresesaidesBundle_sendresultsmail:
     path:    /aides-etudiants-francais/resultats/sendresultsmail
     defaults:
        _controller: PierreConnaitresesaidesBundle:Connaitresesaides:sendresultsmail
-    requirements:
-        _method: POST
 

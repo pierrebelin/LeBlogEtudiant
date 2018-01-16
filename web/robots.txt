@@ -1,8 +1,7 @@
 User-agent: *
 Sitemap: https://le-blog-etudiant.fr/sitemap.xml
 
-Disallow: /identifier-mes-aides/aides-etudiants/allresultats
-
+Noindex: /identifier-mes-aides/aides-etudiants/allresultats
 Noindex: /faq
 Noindex: /dons
 Noindex: /a-propos
