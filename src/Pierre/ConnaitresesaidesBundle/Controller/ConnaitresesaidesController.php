@@ -75,12 +75,14 @@ class ConnaitresesaidesController extends Controller
 
             if ($form->isValid() && $form->isSubmitted()) {
 
+                $test = $em->getRepository('PierreSiteBundle:Globals')->incrementNbCountSearch();
+
                 $data = array('statut' => $form->get('statut')->getData()->getName(),
                     'city' => $form->get('city')->getData()->getName(),
                     'age' => $form->get('age')->getData(),
                     'salary' => $form->get('salary')->getData());
 
-                return $this->redirectToRoute('PierreConnaitresesaidesBundle_aidesetudiants_resultats', $data);
+                //return $this->redirectToRoute('PierreConnaitresesaidesBundle_aidesetudiants_resultats', $data);
             }
         }
         return $this->render('PierreConnaitresesaidesBundle:Connaitresesaides:aidesetudiants.html.twig', array(

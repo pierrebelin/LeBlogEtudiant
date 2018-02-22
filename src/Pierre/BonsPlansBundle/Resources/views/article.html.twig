@@ -1,0 +1,27 @@
+<article class="bonsplan bonsplanredirection"
+         onclick="sendhref('{{ path('PierreBonsPlansBundle_bonsplan_show', { 'slug': bonsplan.slug  })|escape('js') }}')">
+    <div class="row title-bonplan">
+        <h2 class="col-md-9 col-sm-12">{{ bonsplan.description }}</h2>
+        <span class="col-md-3 col-sm-12">{{ bonsplan.updated|localizeddate('short', 'none', 'fr') }}</span>
+    </div>
+    <div class="row content-bonplan">
+        <img class="col-lg-4 col-md-6 col img-responsive" src="{{ asset("BonsPlansBundle/logos/" ~ bonsplan.logo ) }}"
+             alt="{{ bonsplan.logo }}"/>
+        <div class="col-lg-8 col-md-6 col-12">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <h3>{{ bonsplan.title }}</h3>
+                    <div class="small-informations">
+                        <p>Localisation : {{ bonsplan.localisation }}</p>
+                        {% if bonsplan.category != null %}
+                            <p>Catégorie : {{ bonsplan.category }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 align-text-bottom open-bonplan">
+                    <a>Voir le deal</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

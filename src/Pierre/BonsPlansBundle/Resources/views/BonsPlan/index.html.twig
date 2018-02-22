@@ -37,7 +37,7 @@
     </div>
     <div class="search-bon-plan">
         <h1 class="col-12">Bons plans</h1>
-        {{ form_start(form, {'attr': {'class': 'row align-items-center form-search', 'method': 'post'}}) }}
+        {{ form_start(form, {'attr': {'class': 'row align-bottom form-search', 'method': 'post'}}) }}
         <div class="col-lg-6 offset-lg-2 offset-1 col-10">
             {{ form_widget(form.city, {'attr': {'class': 'select-city'}}) }}
         </div>
@@ -47,76 +47,6 @@
         {{ form_end(form) }}
     </div>
 
-    {% for bonsplan in bonsplans %}
-    <article class="bonsplan bonsplanredirection"
-             onclick="sendhref('{{ path('PierreBonsPlansBundle_bonsplan_show', { 'slug': bonsplan.slug  })|escape('js') }}')">
-        <div class="row">
-            <img class="col-md-4 col-lg-4" src="{{ asset("BonsPlansBundle/logos/" ~ bonsplan.logo ) }}"
-                 alt="{{ bonsplan.logo }}"/>
-            <div class="col-md-12 col-lg">
-                <h2 class="title-bonplan">
-                    <a href="{{ path('PierreBonsPlansBundle_bonsplan_show', { 'slug': bonsplan.slug }) }}">{{ bonsplan.title }}</a>
-                </h2>
-                <div class="small-informations">
-                    <p>Localisation : {{ bonsplan.localisation }}</p>
-                    {% if bonsplan.category != null %}
-                        <p>Catégorie : {{ bonsplan.category }}</p>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <footer class="meta col">
-                <p>Nombre de commentaires : {{ bonsplan.nbcomments }} - Dernière mise à jour
-                    : {{ bonsplan.updated|localizeddate('short', 'none', 'fr') }}</p>
-            </footer>
-        </div>
-    </article>
-    {% else %}
-    <p>Il n'y a aucun article pour le moment, désolé.<p>
-    {% endfor %}
-    <div class="main-button text-center col">
-        <a href="{{ path('PierreConnaitresesaidesBundle_aidesetudiants') }}">Découvrir MAINTENANT mes aides et
-            avantages</a>
-    </div>
-    <div class="justify-content-center">
-        <ul class="pagination col">
-            {% if pagination.page > 1 %}
-                <li><a href="{{ path(pagination.route,
-                        pagination.route_params|merge({'page': 1})) }}"><i class="fa fa-angle-double-left"
-                                                                           aria-hidden="true"></i></a></li>
-                <li><a href="{{ path(pagination.route,
-                        pagination.route_params|merge({'page': pagination.page-1})) }}" style="width: 33.6px;"><i
-                                class="fa fa-angle-left" aria-hidden="true"></i></a></li>
-            {% endif %}
-            {#display p numbers only from p-2 to p+2 but don't go < 1 or  > pages_count#}
-            {% for p in range(max(pagination.page - 2, 1), min(pagination.page + 2, pagination.pages_count)) %}
-                <li {% if p == pagination.page %} class="active"{% endif %}>
-                    <a {% if p == pagination.page %} onclick='return false;'{% endif %}
-                            href="{{ path(pagination.route, pagination.route_params|merge({'page': p})) }}">{{ p }}</a>
-                </li>
-            {% endfor %}
-            {% if pagination.page<pagination.pages_count %}
-                <li><a href="{{ path(pagination.route,
-                        pagination.route_params|merge({'page': pagination.page + 1})) }}" style="width: 33.6px;"> <i
-                                class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-                <li><a href="{{ path(pagination.route,
-                        pagination.route_params|merge({'page': pagination.pages_count})) }}"><i
-                                class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-            {% endif %}
-        </ul>
-    </div>
-
-    <script src="{{ asset('SiteBundle/modules/select2/dist/js/select2.min.js') }}" type="text/javascript"></script>
-    <script type="text/javascript">
-
-        function sendhref(value) {
-            window.location.href = value;
-        }
-        $('.select-city').select2();
-
-    </script>
-
-
+    {% include 'PierreBonsPlansBundle::display.html.twig' %}
 {% endblock %}
 

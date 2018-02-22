@@ -53,19 +53,23 @@
             etudiant, reduction etudiant, reduction carte etudiant, {{ bonsplan.title }}</p>
     </div>
 
-    <article class="bonsplan col-12">
+    <article class="bonsplan bonplan-show col-12">
         <div class="row header-bonplan">
-            <a href="{{ bonsplan.link }}" target="_blank">
-                <img src="{{ asset("BonsPlansBundle/logos/" ~ bonsplan.logo ) }}" alt="{{ bonsplan.logo }}"/>
-            </a>
-            <div class="col-md-12 col-lg">
-                <h1>{{ bonsplan.title }}</h1>
-                <div class="small-informations">
-                    <p>Localisation : {{ bonsplan.localisation }}</p>
-                    <p>Dernière mise à jour : {{ bonsplan.updated|localizeddate('full', 'none', 'fr') }}</p>
+            <img class="col-lg-4 col-md-6 col img-responsive" src="{{ asset("BonsPlansBundle/logos/" ~ bonsplan.logo ) }}"
+                 alt="{{ bonsplan.logo }}"/>
+            <div class="col-lg-8 col-md-6 col-12">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12">
+                        <h2>{{ bonsplan.title }}</h2>
+                        <div class="small-informations">
+                            <p>Localisation : {{ bonsplan.localisation }}</p>
+                            {% if bonsplan.category != null %}
+                                <p>Catégorie : {{ bonsplan.category }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </div>
         <p class="bonplan-website">
             <i class="fa fa-globe" aria-hidden="true"></i>
@@ -78,23 +82,39 @@
         </p>
         <hr>
         <div class="textblog" id="blog-form">
+            <h1>{{ bonsplan.description }}</h1>
             {{ bonsplan.content|raw }}
         </div>
         {% if bonsplanAd != null %}
             <div class="redirection-bonplan">
-                <h2>Continue avec un autre bon plan {{ bonsplan.category }}:</h2>
-                <div class="bonsplan bonsplanredirection"
-                     onclick="sendhref('{{ path('PierreBonsPlansBundle_bonsplan_show', { 'slug': bonsplanAd.slug  })|escape('js') }}')">
-                    <div class="row">
-                        <img class="col-md-12 col-lg-4 img-fluid"
-                             src="{{ asset("BonsPlansBundle/logos/" ~ bonsplanAd.logo ) }}"
+                <h3>Continue avec un autre bon plan {{ bonsplan.category }}:</h3>
+                <article class="bonsplan bonsplanredirection"
+                         onclick="sendhref('{{ path('PierreBonsPlansBundle_bonsplan_show', { 'slug': bonsplan.slug  })|escape('js') }}')">
+                    <div class="row title-bonplan">
+                        <h2 class="col-md-9 col-sm-12">{{ bonsplan.description }}</h2>
+                        <span class="col-md-3 col-sm-12">{{ bonsplan.updated|localizeddate('short', 'none', 'fr') }}</span>
+                    </div>
+                    <div class="row content-bonplan">
+                        <img class="col-lg-4 col-md-6 col img-responsive" src="{{ asset("BonsPlansBundle/logos/" ~ bonsplan.logo ) }}"
                              alt="{{ bonsplan.logo }}"/>
-                        <div class="col-lg-7 col-md-12 align-self-center">
-                            <h3>{{ bonsplanAd.title }}</h3>
-                            <h4>{{ bonsplanAd.description }}</h4>
+                        <div class="col-lg-8 col-md-6 col-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h3>{{ bonsplan.title }}</h3>
+                                    <div class="small-informations">
+                                        <p>Localisation : {{ bonsplan.localisation }}</p>
+                                        {% if bonsplan.category != null %}
+                                            <p>Catégorie : {{ bonsplan.category }}</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-12 open-bonplan">
+                                    <a>Voir le deal</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
         {% endif %}
         <hr class="hr-margin">

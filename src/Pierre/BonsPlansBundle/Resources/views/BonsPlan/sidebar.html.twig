@@ -4,24 +4,22 @@
     <header>
         <h3>Newsletter</h3>
     </header>
-    <div class="comment">
-        <div class=" ">
-            {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post', 'id' :'subscribe-sidebar-form'}}) }}
-            <div class="form-group group-sidebar">
-                <div class="col-12 sidebar-newsletter">
-                    {{ form_widget(form.user, {'id': 'subscribe-sidebar-user'}) }}
-                </div>
-                <div class="col-12 sidebar-newsletter">
-                    {{ form_widget(form.mail, {'id': 'subscribe-sidebar-mail'}) }}
-                </div>
-                <div class="col-12 sidebar-newsletter text-center">
-                    {{ form_widget(form.submit, {'attr': { 'class': 'btn btn-force' }}) }}
-                </div>
+    <div class="section-content">
+        {{ form_start(form, {'attr': {'class': 'form-horizontal', 'method': 'post', 'id' :'subscribe-sidebar-form'}}) }}
+        <div class="form-group group-sidebar">
+            <div class="col-12 sidebar-newsletter">
+                {{ form_widget(form.user, {'id': 'subscribe-sidebar-user'}) }}
             </div>
-            {{ form_rest(form) }}
-
-            {{ form_end(form) }}
+            <div class="col-12 sidebar-newsletter">
+                {{ form_widget(form.mail, {'id': 'subscribe-sidebar-mail'}) }}
+            </div>
+            <div class="col-12 sidebar-newsletter text-center">
+                {{ form_widget(form.submit, {'attr': { 'class': 'btn btn-force' }}) }}
+            </div>
         </div>
+        {{ form_rest(form) }}
+
+        {{ form_end(form) }}
     </div>
     <script>
         $("#subscribe-sidebar-form").submit(function () {
@@ -55,18 +53,18 @@
     <header>
         <h3>Réseaux sociaux</h3>
     </header>
-    <div class="">
+    <div class="section-content">
         <div class="col-12 text-center">
             <div class="fb-page" data-href="https://www.facebook.com/leblogetudiant/" data-tabs="timeline"
-                 data-small-header="true"  data-adapt-container-width="true" data-hide-cover="false"
+                 data-small-header="true" data-adapt-container-width="true" data-hide-cover="false"
                  data-show-facepile="true">
                 <blockquote cite="https://www.facebook.com/leblogetudiant/" class="fb-xfbml-parse-ignore"><a
                             href="https://www.facebook.com/leblogetudiant/">Facebook</a></blockquote>
             </div>
         </div>
         {#<div class="col-xs-12">#}
-            {#<a class="twitter-timeline twitter" data-height="450" href="https://twitter.com/Le_BlogEtudiant">Twitter</a>#}
-            {#<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>#}
+        {#<a class="twitter-timeline twitter" data-height="450" href="https://twitter.com/Le_BlogEtudiant">Twitter</a>#}
+        {#<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>#}
         {#</div>#}
     </div>
 
@@ -77,6 +75,7 @@
     <header>
         <h3>Commentaires récents</h3>
     </header>
+    <div class="section-content">
     {% for comment in latestComments %}
         <article class="comment">
             <header>
@@ -92,7 +91,8 @@
             <p>{{ comment.comment|truncate(250, true) }}</p>
         </article>
     {% else %}
-        <p class="text-center">Il n'y a pas encore de commentaires</p>
+        <p class="text-center p-no-margin">Il n'y a pas encore de commentaires</p>
     {% endfor %}
+    </div>
 </section>
 

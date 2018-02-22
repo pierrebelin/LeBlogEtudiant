@@ -21,7 +21,7 @@ class BonsPlanRepository extends \Doctrine\ORM\EntityRepository
         $rsm->addScalarResult('slug', 'slug');
         $rsm->addScalarResult('updated', 'updated');
         $rsm->addScalarResult('category', 'category');
-        $rsm->addScalarResult('nbcomments', 'nbcomments');
+        $rsm->addScalarResult('description', 'description');
 
 
         $sql = "select t.* from (
@@ -76,13 +76,14 @@ class BonsPlanRepository extends \Doctrine\ORM\EntityRepository
 //        $em = $this->getDoctrine()->getManager();
         $rsm = new \Doctrine\ORM\Query\ResultSetMapping();
 
+
         $rsm->addScalarResult('localisation', 'localisation');
         $rsm->addScalarResult('title', 'title');
         $rsm->addScalarResult('logo', 'logo');
         $rsm->addScalarResult('slug', 'slug');
         $rsm->addScalarResult('updated', 'updated');
         $rsm->addScalarResult('category', 'category');
-        $rsm->addScalarResult('nbcomments', 'nbcomments');
+        $rsm->addScalarResult('description', 'description');
 
 
         $sql = "select t.* from (
@@ -285,6 +286,10 @@ class BonsPlanRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('category', $category)
             ->getResult();
 
-        return $results[array_rand($results, 1)];
+        if(count($results) > 0){
+            return $results[array_rand($results, 1)];
+        } else {
+            return null;
+        }
     }
 }

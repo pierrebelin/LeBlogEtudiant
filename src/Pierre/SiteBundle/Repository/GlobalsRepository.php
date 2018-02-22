@@ -25,4 +25,23 @@ class GlobalsRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()
             ->getSingleScalarResult();
     }
+
+    public function incrementNbCountSearch()
+    {
+        $qb = $this->createQueryBuilder('globals')
+            ->select('globals.value')
+            ->where('globals.label = :label')
+            ->setParameter('label', "\$COUNT_SEARCH");
+
+        $cpt = intval($qb->getQuery()->getSingleScalarResult()) + 1;
+
+        $update = $this->createQueryBuilder('globals')
+            ->update('PierreSiteBundle:Globals', 'globals')
+            ->set('globals.value', strval($cpt))
+            ->where('globals.label = :lab')
+            ->setParameter('lab', '$COUNT_SEARCH')
+            ->getQuery()->execute();
+
+        return $update;
+    }
 }
