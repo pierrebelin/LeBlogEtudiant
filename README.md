@@ -1,4 +1,3 @@
-Symfony
-=======
+# Le Blog Etudiant
 
-A Symfony project created on March 20, 2017, 12:45 pm.
+Blog regroupant les aides et avantages étudiantes en France
